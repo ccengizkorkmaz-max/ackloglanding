@@ -77,7 +77,7 @@ export function Hero() {
                                 </div>
                                 <div className="text-left">
                                     <div className="text-[10px] font-bold text-blue-400 uppercase tracking-widest leading-none mb-1">Onaylanmış Yerli Teknoloji</div>
-                                    <div className="text-sm font-bold text-white leading-none">Ulaşılabilir • Uygun Maliyetli • Mevzuata Tam Uyumlu</div>
+                                    <div className="text-sm font-bold text-white leading-none">Ulaşılabilir • Uygun Maliyetli • Mevzuata Tam Uyumlu • Kusursuz Destek</div>
                                 </div>
                             </motion.div>
 
