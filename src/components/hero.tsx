@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Button } from "./ui/button";
-import { ArrowRight, ShieldCheck, Activity, Globe, Zap, Lock } from "lucide-react";
+import { ArrowRight, ShieldCheck, Shield, Activity, Globe, Zap, Lock } from "lucide-react";
 import { useState } from "react";
 import { DemoModal } from "./demo-modal";
 
@@ -57,10 +57,29 @@ export function Hero() {
                                 />
                             </div>
 
-                            <h1 className="text-6xl md:text-8xl font-black tracking-tighter leading-[0.9]">
-                                YERLİ SIEM <br />
-                                <span className="text-gradient decoration-clone">LOG YÖNETİMİ</span>
-                            </h1>
+                            <motion.h1
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                className="text-6xl md:text-8xl font-black tracking-tighter leading-[0.9] mb-4"
+                            >
+                                <span className="text-white">YERLİ SIEM</span><br />
+                                <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-blue-200 to-blue-500">LOG YÖNETİMİ</span>
+                            </motion.h1>
+
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ delay: 0.4 }}
+                                className="flex items-center gap-3 mb-8 p-1 pr-4 rounded-2xl bg-white/5 border border-white/10 w-fit backdrop-blur-sm mx-auto md:mx-0 group hover:border-blue-500/50 transition-all duration-500"
+                            >
+                                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-blue-400 shadow-lg shadow-blue-500/20 group-hover:scale-110 transition-transform">
+                                    <Shield className="h-6 w-6 text-white" />
+                                </div>
+                                <div className="text-left">
+                                    <div className="text-[10px] font-bold text-blue-400 uppercase tracking-widest leading-none mb-1">Onaylanmış Yerli Teknoloji</div>
+                                    <div className="text-sm font-bold text-white leading-none">Ulaşılabilir • Uygun Maliyetli • Mevzuata Tam Uyumlu</div>
+                                </div>
+                            </motion.div>
 
                             <h2 className="text-2xl md:text-4xl font-bold tracking-tight text-white/90 mb-2">
                                 <span className="text-primary">"Sınırsız"</span> Entegrasyon ve Veri Kaynağı Desteği
