@@ -50,7 +50,7 @@ export async function saveAnalysisLead(data: {
                         <p><strong>${data.target}</strong> adresi için gerçekleştirdiğiniz anlık analiz sonucunda hazırlanan teknik ön raporumuz uzmanlarımıza iletilmiştir.</p>
                         <p>Detaylı kurumsal güvenlik raporunuz ve iyileştirme önerilerimiz kısa süre içerisinde e-posta adresinize gönderilecektir.</p>
                         <div style="background: #1e293b; padding: 20px; border-radius: 8px; margin-top: 20px;">
-                            <p style="margin: 0; color: #94a3b8; font-size: 14px;">LogSIEM kullanarak bu zafiyetleri nasıl anlık olarak izleyebileceğinizi öğrenmek ister misiniz?</p>
+                            <p style="margin: 0; color: #94a3b8; font-size: 14px;">ACKLog kullanarak bu zafiyetleri nasıl anlık olarak izleyebileceğinizi öğrenmek ister misiniz?</p>
                         </div>
                         <br/>
                         <p>Güvenli günler dileriz,<br/>ACKLOG Ekibi</p>
@@ -90,7 +90,7 @@ export async function requestSolutionSupport(data: {
                         ${data.context ? `<p><strong>Ek Bilgi:</strong> ${data.context}</p>` : ''}
                         <div style="margin-top: 20px; padding: 15px; background: #1e293b; border-radius: 8px;">
                             <p style="margin: 0; font-size: 14px; color: #94a3b8;">
-                                Bu kullanıcı, tespit edilen zafiyetin LogSIEM üzerinden nasıl izlenebileceği ve kural yapılandırması hakkında teknik destek talep ediyor.
+                                Bu kullanıcı, tespit edilen zafiyetin ACKLog üzerinden nasıl izlenebileceği ve kural yapılandırması hakkında teknik destek talep ediyor.
                             </p>
                         </div>
                     </div>
@@ -101,12 +101,12 @@ export async function requestSolutionSupport(data: {
             await resend.emails.send({
                 from: "ACKLOG Support <info@logsiem.com>",
                 to: data.email,
-                subject: `LogSIEM Güvenlik Yapılandırması: ${data.vulnerability}`,
+                subject: `ACKLog Güvenlik Yapılandırması: ${data.vulnerability}`,
                 html: `
                     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background-color: #0f172a; color: #fff; padding: 40px; border-radius: 12px;">
                         <h2 style="color: #22d3ee;">Talebiniz Alındı</h2>
                         <p>Merhaba ${data.name},</p>
-                        <p><strong>${data.vulnerability}</strong> zafiyetinin LogSIEM üzerinden canlı olarak nasıl izlenebileceği ve otomatik aksiyonların nasıl yapılandırılacağı ile ilgili destek talebiniz teknik ekibimize ulaşmıştır.</p>
+                        <p><strong>${data.vulnerability}</strong> zafiyetinin ACKLog üzerinden canlı olarak nasıl izlenebileceği ve otomatik aksiyonların nasıl yapılandırılacağı ile ilgili destek talebiniz teknik ekibimize ulaşmıştır.</p>
                         <p>Güvenlik mühendislerimiz en kısa sürede sizinle iletişime geçerek ilgili korelasyon kurallarının aktif edilmesi konusunda yardımcı olacaktır.</p>
                         <br/>
                         <p>Güvenli günler dileriz,<br/>ACKLOG Teknik Destek Ekibi</p>

@@ -2,7 +2,7 @@ import SecurityAnalyzerComponent from '@/components/security-analyzer';
 import { Navbar } from '@/components/navbar';
 
 export const metadata = {
-    title: 'Anlık Güvenlik Analizi | LogSIEM',
+    title: 'Anlık Güvenlik Analizi | ACKLog',
     description: 'IP ve Alan Adı üzerinden anlık zafiyet ve itibar analizi yapın.',
 };
 

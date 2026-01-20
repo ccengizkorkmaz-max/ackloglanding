@@ -160,7 +160,7 @@ export default function ComplianceTest() {
                             5651 ve KVKK Log Uyumluluğunuzu 2 Dakikada Test Edin
                         </h1>
                         <p className="text-sm md:text-base text-slate-400 leading-relaxed max-w-3xl mx-auto">
-                            Şirketinizin dijital varlıkları yasal mevzuata ne kadar hazır? LogSIEM tarafından geliştirilen interaktif Log Uyumluluk Analizi ile; 5651 Sayılı Kanun ve KVKK Teknik Tedbirler Rehberi kapsamındaki eksiklerinizi anında tespit edin. Zaman damgalı loglamadan veri erişim güvenliğine kadar 10 kritik noktada altyapınızı sorgulayın, olası bir denetimde karşılaşabileceğiniz riskleri minimize edin. Karmaşık siber güvenlik raporları yerine, size özel hazırlanan anlaşılır Risk Skorunuzu hemen görün ve yasal uyumluluk sürecinde bir adım öne geçin.
+                            Şirketinizin dijital varlıkları yasal mevzuata ne kadar hazır? ACKLog tarafından geliştirilen interaktif Log Uyumluluk Analizi ile; 5651 Sayılı Kanun ve KVKK Teknik Tedbirler Rehberi kapsamındaki eksiklerinizi anında tespit edin. Zaman damgalı loglamadan veri erişim güvenliğine kadar 10 kritik noktada altyapınızı sorgulayın, olası bir denetimde karşılaşabileceğiniz riskleri minimize edin. Karmaşık siber güvenlik raporları yerine, size özel hazırlanan anlaşılır Risk Skorunuzu hemen görün ve yasal uyumluluk sürecinde bir adım öne geçin.
                         </p>
                     </div>
                 )}
@@ -273,7 +273,7 @@ export default function ComplianceTest() {
                                     <input
                                         required
                                         className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-white placeholder-slate-600"
-                                        placeholder="Örn: LogSIEM Teknoloji A.Ş."
+                                        placeholder="Örn: ACKLog Teknoloji A.Ş."
                                         value={formData.company}
                                         onChange={e => setFormData({ ...formData, company: e.target.value })}
                                     />
@@ -337,7 +337,7 @@ export default function ComplianceTest() {
                             <div className="bg-slate-950 rounded-xl p-6 border border-slate-800 mb-8 text-left">
                                 <h4 className="font-bold text-white mb-4 flex items-center">
                                     <risk.icon className={cn("mr-2 h-5 w-5", risk.color)} />
-                                    LogSIEM Size Nasıl Yardımcı Olabilir?
+                                    ACKLog Size Nasıl Yardımcı Olabilir?
                                 </h4>
                                 <ul className="space-y-3 text-sm text-slate-300">
                                     <li className="flex items-start">

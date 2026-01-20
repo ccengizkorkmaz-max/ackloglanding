@@ -26,7 +26,7 @@ export default function Home() {
             Maliyet <span className="text-blue-500">Tasarruf Hesaplayıcı</span>
           </h2>
           <p className="text-slate-400 max-w-2xl mx-auto text-lg">
-            LogSIEM'in %80'e varan sıkıştırma teknolojisi ile donanım ve lisans maliyetlerinizi ne kadar düşürebileceğinizi şimdi hesaplayın.
+            ACKLog'un %80'e varan sıkıştırma teknolojisi ile donanım ve lisans maliyetlerinizi ne kadar düşürebileceğinizi şimdi hesaplayın.
           </p>
         </div>
         <CostCalculator />

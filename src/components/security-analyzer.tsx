@@ -10,18 +10,20 @@ import {
     Cpu,
     Globe,
     Database,
-    ExternalLink,
     Zap,
     Download,
     CheckCircle2,
-    XCircle,
-    Server,
     Activity,
-    Lock,
-    Eye,
+    Info,
+    PieChart as PieChartIcon,
     Loader2,
-    Info
+    Clock,
+    Calendar,
+    History,
+    Server,
+    Layers
 } from 'lucide-react'
+import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip as RechartsTooltip } from 'recharts'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import {
@@ -30,7 +32,6 @@ import {
     DialogHeader,
     DialogTitle,
     DialogDescription,
-    DialogFooter
 } from "@/components/ui/dialog"
 import { cn } from "@/lib/utils"
 import { runSecurityAnalysis, saveAnalysisLead, requestSolutionSupport } from '@/app/analiz/actions'
@@ -46,12 +47,22 @@ interface SolutionContent {
     checklist: string[];
 }
 
+// Initial Stats Items
+const STATS_ITEMS = [
+    { title: 'Global İstihbarat', icon: Globe, desc: '6 farklı OSINT kaynağından anlık veri toplama.' },
+    { title: 'Yapay Zeka Analizi', icon: Cpu, desc: 'Toplanan verileri korelasyon motoru ile işleyerek risk skorlama.' },
+    { title: 'Sıfır Gün Tehditleri', icon: Zap, desc: 'Bilinen CVE ve exploit veritabanları ile otomatik eşleştirme.' }
+]
+
 // Loading Steps
 const LOADING_STEPS = [
     { id: 'shodan', text: 'Shodan üzerinden aktif servisler ve portlar taranıyor...', icon: Globe },
+    { id: 'censys', text: 'Censys ile SSL ve Shadow IT varlıkları tespit ediliyor...', icon: Server },
     { id: 'criminalip', text: 'Criminal IP ile itibar ve VPN/Proxy analizi yapılıyor...', icon: Shield },
+    { id: 'virustotal', text: 'VirusTotal v3 motorları ile global tarama yapılıyor...', icon: PieChartIcon },
+    { id: 'sectrails', text: 'SecurityTrails ile DNS geçmişi ve subdomain keşfi yapılıyor...', icon: History },
     { id: 'pulsedive', text: 'Pulsedive veri tabanından tehdit istihbaratı sorgulanıyor...', icon: Activity },
-    { id: 'risk', text: 'Yapay zeka motoru ile risk skoru hesaplanıyor...', icon: Zap }
+    { id: 'risk', text: 'Yapay zeka motoru ile Global Kurumsal Risk Skoru hesaplanıyor...', icon: Zap }
 ]
 
 export default function SecurityAnalyzerComponent() {
@@ -166,78 +177,67 @@ export default function SecurityAnalyzerComponent() {
     const getSolutionContent = (type: string, value: string | number): SolutionContent => {
         const valStr = value.toString().toUpperCase()
 
-        if (type === 'port') {
-            if (valStr === '3389') {
-                return {
-                    title: 'Açık RDP Portu (3389)',
-                    level: 'Critical',
-                    scenario: 'Saldırganlar kaba kuvvet (Brute Force) saldırıları ile sunucuya tam yetkiyle erişebilir ve Fidye Yazılımı bulaştırabilir.',
-                    logSource: 'Windows Security Event Logs',
-                    rule: 'RDP Brute Force Detection #402',
-                    action: 'Şüpheli IP\'nin Firewall üzerinde otomatik bloklanması.',
-                    checklist: [
-                        'RDP portunu internete kapatın.',
-                        'VPN üzerinden erişim sağlayın.',
-                        'NLA (Network Level Authentication) aktif edin.'
-                    ]
-                }
-            }
-            if (valStr === '22') {
-                return {
-                    title: 'Açık SSH Portu (22)',
-                    level: 'High',
-                    scenario: 'SSH üzerinden botnet saldırıları ve yetkisiz komut çalıştırma denemeleri gerçekleştirilebilir.',
-                    logSource: 'Linux Auth.log / Syslog',
-                    rule: 'SSH Login Failure Threshold #405',
-                    action: 'Fail2Ban entegrasyonu ile IP engelleme.',
-                    checklist: [
-                        'Root login devre dışı bırakın.',
-                        'SSH Key tabanlı kimlik doğrulama kullanın.',
-                        'Port numarasını değiştirin.'
-                    ]
-                }
-            }
-        }
-
-        if (type === 'cve') {
-            return {
-                title: value.toString(),
+        const rules: Record<string, SolutionContent> = {
+            'cve': {
+                title: 'Aktif Zafiyet (Exploit) Girişimi',
                 level: 'Critical',
-                scenario: 'Bu zafiyet, saldırganların sistem üzerinde uzaktan kod çalıştırmasına (RCE) veya hassas verileri sızdırmasına olanak tanır.',
-                logSource: 'Application & Firewall Logs',
-                rule: `CVE Specific Correlation Rule [${value}]`,
-                action: 'Anlık alarm üretimi ve SOC ekibine bildirim.',
-                checklist: [
-                    'İlgili yazılım yamasını (patch) derhal uygulayın.',
-                    'Zafiyetli servisi geçici olarak devre dışı bırakın.',
-                    'WAF üzerinde sanal yamalama (virtual patching) aktif edin.'
-                ]
-            }
-        }
-
-        if (type === 'malicious') {
-            return {
-                title: 'Kara Listede Bulunan IP Adresi',
+                scenario: 'Dış ağdan iç sunuculara yönelik bilinen bir CVE (Örn: CVE-2023-44487) exploit denemesi algılandı.',
+                logSource: 'WAF, IPS, Web Server Logs',
+                rule: JSON.stringify({
+                    "rule_name": "Vulnerability_Exploit_Attempt",
+                    "severity": "HIGH",
+                    "condition": "http.request.uri CONTAINS 'exploit_pattern' OR vulnerability.id == 'CVE-XXXX-YYYY'",
+                    "action": "Quarantine_Host"
+                }, null, 2),
+                action: 'Acklog SIEM saldırı imzasını tanır ve IPS üzerinden bağlantıyı keser.',
+                checklist: ['Yama (Patch) durumunu kontrol et', 'WAF kurallarını sıkılaştır', 'Port kısıtlamalarını gözden geçir']
+            },
+            'malicious': {
+                title: 'Malicious IP/Domain Tespit Edildi',
                 level: 'High',
-                scenario: 'Bu IP adresi daha önce botnet, phishing veya malware dağıtımı ile ilişkilendirilmiş bir tehdit kaynağıdır.',
-                logSource: 'Threat Intelligence (Pulsedive/CRIP)',
-                rule: 'Global Blacklist Traffic Match #101',
-                action: 'Tüm giriş/çıkış trafiğinin anlık olarak kesilmesi.',
-                checklist: [
-                    'Kurumsal firewall üzerinde IP\'yi bloklayın.',
-                    'İç ağdan bu IP\'ye giden trafiği inceleyin.',
-                    'EDR üzerinden bu IP ile ilişkili süreçleri tarayın.'
-                ]
+                scenario: 'İç ağdan zararlı olarak işaretlenmiş bir IP adresine (C2 sunucusu veya Phishing kaynağı) doğru trafik başlatıldığı tespit edildi.',
+                logSource: 'Firewall, DNS, Proxy Logs',
+                rule: JSON.stringify({
+                    "rule_name": "Connect_to_Malicious_IP",
+                    "severity": "CRITICAL",
+                    "condition": "destination.ip IN ThreatIntel_Malicious_IP_List AND event.action == 'allow'",
+                    "timeframe": "1m",
+                    "action": "Block_and_Alert"
+                }, null, 2),
+                action: 'Acklog SIEM bu trafiği anında bloklar ve SOC ekibine "Yüksek Öncelikli" alarm gönderir.',
+                checklist: ['Firewall kuralını kontrol et', 'Enfekte cihazı izole et', 'Antivirüs taraması başlat']
             }
         }
 
-        return {
-            title: value.toString(),
+        if (type === 'port') {
+            return {
+                title: `Riskli Port Aktivitesi (${valStr})`,
+                level: 'Medium',
+                scenario: 'Kritik olmayan bir sunucuda beklenmedik bir portun açık olduğu ve dış dünyadan erişildiği tespit edildi.',
+                logSource: 'Network Flow, Firewall Logs',
+                rule: JSON.stringify({
+                    "rule_name": "Risky_Port_Access",
+                    "severity": "MEDIUM",
+                    "condition": `destination.port == ${valStr} AND source.ip_geo != 'Internal'`,
+                    "threshold": "5_attempts_in_1min"
+                }, null, 2),
+                action: 'Acklog SIEM, belirlenen politikalara aykırı port erişimlerini raporlar ve ilgili yöneticiye uyarı gönderir.',
+                checklist: ['Gereksiz servisleri kapat', 'Erişimi sadece VPN ile sınırla', 'Güçlü parola politikası uygula']
+            }
+        }
+
+        return rules[type] || {
+            title: valStr,
             level: 'Medium',
             scenario: 'Bu bulgu potansiyel bir risk teşkil etmektedir ve saldırganlar için keşif aşamasında bilgi sızmasına yol açabilir.',
             logSource: 'Generic SIEM Logs',
-            rule: 'Anomalous Activity Detection',
-            action: 'LogSIEM Dashboard üzerinde görselleştirme.',
+            rule: JSON.stringify({
+                "rule_name": "Anomalous_Activity_Detection",
+                "severity": "MEDIUM",
+                "condition": "event.outcome == 'success' AND user.behavior == 'abnormal'",
+                "action": "Log_and_Monitor"
+            }, null, 2),
+            action: 'ACKLog Dashboard üzerinde görselleştirme.',
             checklist: [
                 'Servis konfigürasyonunu kontrol edin.',
                 'Gereksiz bilgi sızdıran başlıkları (headers) kapatın.',
@@ -358,7 +358,8 @@ export default function SecurityAnalyzerComponent() {
                                         <p className="text-slate-400 text-xs mt-1">
                                             {results.metadata.shodanActive ? "✅ Shodan" : "❌ Shodan"} |
                                             {results.metadata.criminalActive ? " ✅ Criminal IP" : " ❌ Criminal IP"} |
-                                            {results.metadata.pulsediveActive ? " ✅ Pulsedive" : " ❌ Pulsedive"}
+                                            {results.metadata.pulsediveActive ? " ✅ Pulsedive" : " ❌ Pulsedive"} |
+                                            {results.metadata.isDemo ? " ❌ VirusTotal (Demo)" : " ✅ VirusTotal"}
                                         </p>
                                     </div>
                                 </div>
@@ -368,51 +369,105 @@ export default function SecurityAnalyzerComponent() {
                             </div>
                         )}
 
+                        {/* Critical Threat Banner for VirusTotal */}
+                        {results.virustotal && results.virustotal.stats.malicious > 3 && (
+                            <div className="bg-red-500/10 border border-red-500/30 p-4 rounded-2xl flex items-center gap-4 animate-pulse">
+                                <AlertTriangle className="h-6 w-6 text-red-500" />
+                                <div>
+                                    <h4 className="text-red-500 font-bold text-sm uppercase tracking-widest">KRİTİK TEHDİT TESPİT EDİLDİ</h4>
+                                    <p className="text-white text-xs mt-1">
+                                        Bu IP/Domain global kara listelerde yer alıyor. <span className="font-bold underline">ACKLog</span> ile trafiği acilen izlemeye alın!
+                                    </p>
+                                </div>
+                            </div>
+                        )}
+
                         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
                             {/* LEFT COLUMN: Main Scoring & Info */}
                             <div className="lg:col-span-4 space-y-6">
-                                <div className="bg-slate-900/50 border border-slate-800 p-8 rounded-3xl text-center relative overflow-hidden group">
+                                {/* Global Risk Gauge */}
+                                <div className="bg-slate-900/50 border border-slate-800 p-6 rounded-3xl text-center relative overflow-hidden">
                                     <div className="absolute top-0 right-0 p-4">
-                                        <Shield className="h-12 w-12 text-slate-800" />
+                                        <Zap className="h-6 w-6 text-yellow-500 animate-pulse" />
                                     </div>
-                                    <h3 className="text-slate-500 text-xs font-bold uppercase tracking-widest mb-6">TEHDİT SEVİYESİ</h3>
-                                    <div className={cn("text-8xl font-black transition-all", getRiskColor(results.riskScore))}>
-                                        {results.riskScore}
+                                    <h3 className="text-slate-500 text-xs font-bold uppercase tracking-widest mb-2">KURUMSAL RİSK SKORU</h3>
+
+                                    <div className="h-[180px] w-full relative flex justify-center items-center">
+                                        <ResponsiveContainer width="100%" height="100%">
+                                            <PieChart>
+                                                <Pie
+                                                    data={[{ value: results.riskScore }, { value: 100 - results.riskScore }]}
+                                                    cx="50%"
+                                                    cy="80%"
+                                                    startAngle={180}
+                                                    endAngle={0}
+                                                    innerRadius={60}
+                                                    outerRadius={80}
+                                                    paddingAngle={0}
+                                                    dataKey="value"
+                                                    stroke="none"
+                                                >
+                                                    <Cell fill={getRiskColor(results.riskScore).replace('text-', 'bg-').split(' ')[0].replace('500', '500')} />
+                                                    <Cell fill="#1e293b" />
+                                                </Pie>
+                                            </PieChart>
+                                        </ResponsiveContainer>
+                                        <div className="absolute bottom-6 flex flex-col items-center">
+                                            <span className={cn("text-5xl font-black", getRiskColor(results.riskScore))}>{results.riskScore}</span>
+                                            <span className="text-xs text-slate-400 uppercase tracking-widest mt-1">{results.riskLevel}</span>
+                                        </div>
                                     </div>
-                                    <p className="text-slate-400 text-xs mt-6 uppercase tracking-widest">
-                                        {results.riskScore >= 70 ? "Kritik Risk" : results.riskScore >= 40 ? "Orta Risk" : "Güvenli"}
-                                    </p>
-                                    <div className="w-full h-1.5 bg-slate-800 rounded-full mt-8 overflow-hidden">
-                                        <motion.div
-                                            initial={{ width: 0 }}
-                                            animate={{ width: `${results.riskScore}%` }}
-                                            className={cn(
-                                                "h-full rounded-full transition-all",
-                                                results.riskScore >= 70 ? "bg-red-500" : "bg-cyan-500"
-                                            )}
-                                        />
+
+                                    <div className="grid grid-cols-2 gap-2 mt-4">
+                                        <div className="bg-slate-950 p-2 rounded-lg border border-slate-800">
+                                            <p className="text-[10px] text-slate-500 uppercase">En Yüksek Risk</p>
+                                            <p className="text-xs font-bold text-white truncate">{results.riskBreakdown[0]?.source || "N/A"}</p>
+                                        </div>
+                                        <div className="bg-slate-950 p-2 rounded-lg border border-slate-800">
+                                            <p className="text-[10px] text-slate-500 uppercase">Aktif Tehdit</p>
+                                            <p className="text-xs font-bold text-red-400">{results.riskBreakdown.length} Kaynak</p>
+                                        </div>
                                     </div>
                                 </div>
 
-                                <div className="bg-slate-900/50 border border-slate-800 p-6 rounded-3xl space-y-4">
-                                    <h4 className="text-white text-sm font-bold flex items-center gap-2">
-                                        <Info className="h-4 w-4 text-cyan-400" /> API İtibar Bilgileri
+                                {/* Threat Heatmap */}
+                                <div className="bg-slate-900/50 border border-slate-800 p-6 rounded-3xl">
+                                    <h4 className="text-white text-sm font-bold flex items-center gap-2 mb-4">
+                                        <Layers className="h-4 w-4 text-cyan-400" /> Tehdit Isı Haritası
                                     </h4>
-                                    <div className="space-y-3">
-                                        <Badge
-                                            label="Criminal IP"
-                                            value={results.criminalIp?.threatLevel || "Normal"}
-                                            variant={results.criminalIp?.isMalicious ? "danger" : "safe"}
-                                            onClick={results.criminalIp?.isMalicious ? () => openSolution('malicious', 'Criminal IP') : undefined}
-                                        />
-                                        <Badge
-                                            label="Pulsedive"
-                                            value={results.pulsedive?.risk || "Temiz"}
-                                            variant={results.pulsedive?.isBlacklisted ? "danger" : "safe"}
-                                            onClick={results.pulsedive?.isBlacklisted ? () => openSolution('malicious', 'Pulsedive') : undefined}
-                                        />
-                                        <Badge label="IP Tipi" value={results.criminalIp?.deviceType || "Bilinmiyor"} variant="info" />
-                                        <Badge label="ISS" value={results.shodan?.isp || "Bilinmiyor"} variant="info" />
+                                    <div className="space-y-2">
+                                        {results.riskBreakdown.map((item, i) => (
+                                            <div key={i} className="flex items-center justify-between p-3 bg-slate-950/50 rounded-xl border border-slate-800/50">
+                                                <div className="flex items-center gap-3">
+                                                    <div className={cn("h-2 w-2 rounded-full", item.score >= 30 ? "bg-red-500" : "bg-orange-500")} />
+                                                    <span className="text-xs text-slate-300 font-medium">{item.source}</span>
+                                                </div>
+                                                <div className="text-right">
+                                                    <div className="text-[10px] text-slate-500">{item.reason}</div>
+                                                    <div className={cn("text-xs font-bold", item.score >= 30 ? "text-red-400" : "text-orange-400")}>+{item.score} Puan</div>
+                                                </div>
+                                            </div>
+                                        ))}
+                                        {results.riskBreakdown.length === 0 && (
+                                            <div className="text-center py-6 text-xs text-slate-600">
+                                                Aktif tehdit ağırlığı bulunamadı.
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
+
+                                {/* API Status Grid */}
+                                <div className="bg-slate-900/50 border border-slate-800 p-6 rounded-3xl">
+                                    <h4 className="text-white text-sm font-bold flex items-center gap-2 mb-4">
+                                        <Database className="h-4 w-4 text-cyan-400" /> Veri Kaynakları
+                                    </h4>
+                                    <div className="grid grid-cols-2 gap-2">
+                                        {Object.entries(results.metadata || {}).filter(([k]) => k.endsWith('Active')).map(([k, v]) => (
+                                            <div key={k} className="flex items-center gap-2 text-[10px] text-slate-400">
+                                                {v ? <CheckCircle2 className="h-3 w-3 text-green-500" /> : <div className="h-3 w-3 rounded-full bg-slate-800" />}
+                                                {k.replace('Active', '').toUpperCase()}
+                                            </div>
+                                        ))}
                                     </div>
                                 </div>
                             </div>
@@ -473,6 +528,64 @@ export default function SecurityAnalyzerComponent() {
                                         )}
                                     </div>
                                 </div>
+
+                                {/* Censys Services Block */}
+                                {results.censys && results.censys.services.length > 0 && (
+                                    <div className="bg-slate-900/50 border border-slate-800 p-8 rounded-3xl">
+                                        <h4 className="text-white font-bold flex items-center gap-2 mb-6">
+                                            <Server className="h-5 w-5 text-blue-400" /> Censys ile Keşfedilen Servisler
+                                        </h4>
+                                        <div className="flex flex-wrap gap-2">
+                                            {results.censys.services.map((svc, i) => (
+                                                <div key={i} className="flex items-center gap-2 bg-slate-950 px-3 py-2 rounded-lg border border-slate-800">
+                                                    <div className="h-1.5 w-1.5 rounded-full bg-blue-400" />
+                                                    <span className="text-xs text-slate-300 font-mono">{svc}</span>
+                                                </div>
+                                            ))}
+                                        </div>
+                                        {results.censys.adminPageFound && (
+                                            <div className="mt-4 p-3 bg-red-500/10 border border-red-500/20 rounded-xl flex items-center gap-3">
+                                                <AlertTriangle className="h-5 w-5 text-red-400" />
+                                                <span className="text-xs text-red-200">
+                                                    <strong>Shadow IT Uyarısı:</strong> Censys bu hedefte potansiyel bir Yönetim Paneli (Admin/Login) tespit etti.
+                                                </span>
+                                            </div>
+                                        )}
+                                    </div>
+                                )}
+
+                                {/* SecurityTrails Timeline Block */}
+                                {results.securityTrails && (
+                                    <div className="bg-slate-900/50 border border-slate-800 p-8 rounded-3xl">
+                                        <h4 className="text-white font-bold flex items-center gap-2 mb-6">
+                                            <History className="h-5 w-5 text-purple-400" /> DNS & IP Geçmişi (SecurityTrails)
+                                        </h4>
+                                        <div className="relative border-l border-slate-800/50 ml-3 space-y-6">
+                                            {results.securityTrails.history.map((h, i) => (
+                                                <div key={i} className="relative pl-6">
+                                                    <div className="absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full bg-slate-800 border block border-slate-600" />
+                                                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+                                                        <span className="text-sm text-cyan-400 font-mono font-bold">{h.ip}</span>
+                                                        <div className="flex items-center gap-2 text-xs text-slate-500">
+                                                            <Calendar className="h-3 w-3" />
+                                                            {h.date}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                        <div className="mt-6 pt-6 border-t border-slate-800">
+                                            <h5 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Alt Alan Adları (Subdomains)</h5>
+                                            <div className="flex flex-wrap gap-2">
+                                                {results.securityTrails.subdomains.map((sub, i) => (
+                                                    <span key={i} className="text-[10px] text-slate-400 bg-slate-950 px-2 py-1 rounded border border-slate-800/50 hover:border-cyan-500/30 transition-colors">
+                                                        {sub}
+                                                    </span>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
 
                                 <div className="flex flex-col sm:flex-row gap-4">
                                     <Button
@@ -580,10 +693,10 @@ export default function SecurityAnalyzerComponent() {
                             </div>
                         </div>
 
-                        {/* LogSIEM Flow Section */}
+                        {/* ACKLog Flow Section */}
                         <div className="p-8 space-y-8 bg-slate-950">
                             <div>
-                                <h4 className="text-slate-500 text-[10px] font-bold uppercase tracking-[0.2em] mb-6">LogSIEM Koruma Stratejisi</h4>
+                                <h4 className="text-slate-500 text-[10px] font-bold uppercase tracking-[0.2em] mb-6">ACKLogic Koruma Stratejisi</h4>
                                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                                     {[
                                         { label: 'Tespit Metodu', value: solutionContent?.logSource, icon: Database },
@@ -695,30 +808,3 @@ export default function SecurityAnalyzerComponent() {
     )
 }
 
-function Badge({ label, value, variant, onClick }: { label: string, value: string, variant: 'safe' | 'danger' | 'info', onClick?: () => void }) {
-    return (
-        <div
-            className={cn(
-                "flex justify-between items-center py-2 border-b border-slate-800/50 last:border-none",
-                onClick && "cursor-pointer group/badge"
-            )}
-            onClick={onClick}
-        >
-            <span className="text-[10px] text-slate-500 font-bold uppercase tracking-widest group-hover/badge:text-slate-300 transition-colors">{label}</span>
-            <span className={cn(
-                "text-[10px] font-bold px-2 py-0.5 rounded border transition-all",
-                variant === 'safe' && "text-green-500 border-green-500/20 bg-green-500/5",
-                variant === 'danger' && "text-red-500 border-red-500/20 bg-red-500/5 group-hover/badge:bg-red-500/10 group-hover/badge:scale-105",
-                variant === 'info' && "text-cyan-500 border-cyan-500/20 bg-cyan-500/5"
-            )}>
-                {value}
-            </span>
-        </div>
-    )
-}
-
-const STATS_ITEMS = [
-    { title: 'Global OSINT Verisi', desc: '4 milyardan fazla IP adresini gerçek zamanlı tarayan global veri tabanı.', icon: Globe },
-    { title: 'Anlık İtibar Analizi', desc: 'VPN, Proxy veya Malicious olarak işaretlenmiş trafiği anında tespit edin.', icon: Shield },
-    { title: 'Zafiyet Haritalama', desc: 'Cihaz üzerindeki açık portları ve bilinen CVE kayıtlarını listeleyin.', icon: Database },
-]

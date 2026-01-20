@@ -3,7 +3,7 @@ import { Navbar } from '@/components/navbar'
 import CostCalculator from '@/components/cost-calculator'
 
 export const metadata: Metadata = {
-    title: 'SIEM Depolama ve Maliyet Hesaplayıcı | LogSIEM',
+    title: 'SIEM Depolama ve Maliyet Hesaplayıcı | ACKLog',
     description: 'Log hacminize göre disk alanı ve maliyet ihtiyacınızı hesaplayın. 5651 ve KVKK uyumluluğu için gereken altyapıyı öğrenin.',
 }
 
@@ -17,7 +17,7 @@ export default function CostCalculatorPage() {
                         Log Depolama ve <span className="text-blue-500">Maliyet Hesaplayıcı</span>
                     </h1>
                     <p className="text-slate-400 max-w-2xl mx-auto text-lg leading-relaxed">
-                        Kurumunuzun log hacmine göre ne kadar disk alanına ihtiyacınız olduğunu ve LogSIEM'in sıkıştırma teknolojisiyle ne kadar tasarruf edebileceğinizi hemen hesaplayın.
+                        Kurumunuzun log hacmine göre ne kadar disk alanına ihtiyacınız olduğunu ve ACKLog'un sıkıştırma teknolojisiyle ne kadar tasarruf edebileceğinizi hemen hesaplayın.
                     </p>
                 </div>
                 <CostCalculator />

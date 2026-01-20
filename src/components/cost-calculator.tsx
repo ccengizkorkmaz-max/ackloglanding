@@ -193,7 +193,7 @@ export default function CostCalculator() {
 
                                 <div className="bg-green-500/10 p-3 rounded border border-green-500/20">
                                     <p className="text-xs text-green-400 leading-snug">
-                                        <span className="font-bold">Tasarruf Analizi:</span> LogSIEM'in özel mimarisi sayesinde, standart SIEM'lere göre donanım ihtiyacınızı %30 daha düşük tutarak toplamda <span className="underline decoration-green-500/50 decoration-2">${savingsAmount}+</span> tasarruf edersiniz.
+                                        <span className="font-bold">Tasarruf Analizi:</span> ACKLog'un özel mimarisi sayesinde, standart SIEM'lere göre donanım ihtiyacınızı %30 daha düşük tutarak toplamda <span className="underline decoration-green-500/50 decoration-2">${savingsAmount}+</span> tasarruf edersiniz.
                                     </p>
                                 </div>
 
@@ -203,7 +203,7 @@ export default function CostCalculator() {
                                     <div className="grid grid-cols-3 gap-2 text-xs text-center font-medium">
                                         <div className="bg-slate-900 p-2 rounded text-slate-400">Platform</div>
                                         <div className="bg-slate-900 p-2 rounded text-slate-400">Standart SIEM</div>
-                                        <div className="bg-blue-900/20 p-2 rounded text-blue-400 border border-blue-500/20">LogSIEM</div>
+                                        <div className="bg-blue-900/20 p-2 rounded text-blue-400 border border-blue-500/20">ACKLog</div>
 
                                         <div className="bg-slate-800 p-2 rounded text-slate-300">Bulut (Cloud)</div>
                                         <div className="bg-slate-800 p-2 rounded text-slate-300">${rec.cloudCost}</div>
@@ -236,7 +236,7 @@ export default function CostCalculator() {
                                         {compressedTotalTB} <span className="text-xl text-slate-500 font-normal">TB</span>
                                     </div>
                                     <div className="text-xs text-green-500 mt-2 font-medium bg-green-500/10 px-2 py-1 rounded">
-                                        LogSIEM ile Sıkıştırılmış
+                                        ACKLog ile Sıkıştırılmış
                                     </div>
                                 </div>
 
@@ -279,7 +279,7 @@ export default function CostCalculator() {
                                         />
                                         <Legend />
                                         <Bar dataKey="raw" name="Sıkıştırılmamış (Ham)" fill="#475569" radius={[0, 4, 4, 0]} barSize={32} />
-                                        <Bar dataKey="compressed" name="LogSIEM (Sıkıştırılmış)" fill="#3b82f6" radius={[0, 4, 4, 0]} barSize={32} />
+                                        <Bar dataKey="compressed" name="ACKLog (Sıkıştırılmış)" fill="#3b82f6" radius={[0, 4, 4, 0]} barSize={32} />
                                     </BarChart>
                                 </ResponsiveContainer>
                             </div>
