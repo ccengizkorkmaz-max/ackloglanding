@@ -6,6 +6,14 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card"
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogFooter,
+    DialogHeader,
+    DialogTitle,
+} from "@/components/ui/dialog"
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
 import { motion, AnimatePresence } from 'framer-motion'
 import { HardDrive, Server, Zap, ChevronRight, FileText } from 'lucide-react'
@@ -16,6 +24,7 @@ export default function CostCalculator() {
     const [dailyLogGB, setDailyLogGB] = useState(50)
     const [retentionMonths, setRetentionMonths] = useState(12)
     const [showForm, setShowForm] = useState(false)
+    const [showSuccessModal, setShowSuccessModal] = useState(false)
     const [formData, setFormData] = useState({
         companySize: '50-250',
         firewall: '',
@@ -80,7 +89,7 @@ export default function CostCalculator() {
             })
 
             if (result.success) {
-                alert("Talebiniz başarıyla alındı! Rapor e-posta adresinize gönderildi.")
+                setShowSuccessModal(true) // Open modal instead of alert
                 setShowForm(false)
             } else {
                 alert("Bir hata oluştu: " + result.message)
@@ -373,6 +382,29 @@ export default function CostCalculator() {
                     </AnimatePresence>
                 </div>
             </motion.div>
+
+            {/* Success Modal */}
+            <Dialog open={showSuccessModal} onOpenChange={setShowSuccessModal}>
+                <DialogContent className="bg-slate-900 border-slate-800 text-white sm:max-w-md">
+                    <DialogHeader>
+                        <DialogTitle className="flex items-center gap-2 text-green-500">
+                            <Zap className="h-5 w-5" /> Başarılı!
+                        </DialogTitle>
+                        <DialogDescription className="text-slate-400 text-base pt-2">
+                            Maliyet analizi talebiniz başarıyla alındı. Detaylı rapor e-posta adresinize gönderildi.
+                        </DialogDescription>
+                    </DialogHeader>
+                    <DialogFooter className="sm:justify-center mt-4">
+                        <Button
+                            type="button"
+                            className="bg-blue-600 hover:bg-blue-500 text-white w-full sm:w-auto min-w-[120px]"
+                            onClick={() => setShowSuccessModal(false)}
+                        >
+                            Tamam
+                        </Button>
+                    </DialogFooter>
+                </DialogContent>
+            </Dialog>
         </div>
     )
 }
