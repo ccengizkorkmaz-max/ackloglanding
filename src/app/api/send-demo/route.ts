@@ -12,9 +12,8 @@ export async function POST(req: Request) {
             return NextResponse.json({ success: true, message: "Simulation mode: API Key missing" });
         }
 
-        // IMPORTANT: If you are using 'onboarding@resend.dev', you can ONLY send emails to yourself.
-        // To send to customers, you MUST verify your domain (e.g., acklog.com.tr) in Resend.
-        const sender = "ACKLOG <onboarding@resend.dev>"; // Once verified, change to "ACKLOG <info@acklog.com.tr>"
+        // Using verified domain logsiem.com for production emails
+        const sender = "ACKLOG <info@logsiem.com>";
 
         // 1. Send notification email to admin
         await resend.emails.send({

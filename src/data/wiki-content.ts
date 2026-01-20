@@ -630,5 +630,271 @@ export const articles: Record<string, { title: string; description?: string; con
         </div>
       </div>
     `
+  },
+  "siem-dunyasinda-neden-degisim-sart": {
+    title: "Bölüm 1: SIEM Dünyasında Neden Değişim Şart?",
+    description: "Eski nesil SIEM'lerin gizli maliyetleri ve modern güvenlik ihtiyaçları. Modern IT yöneticisinin mevcut SIEM yapısını sorgulamasını gerektiren 3 temel neden.",
+    content: `
+      <h2>Eski Nesil SIEM’lerin Gizli Maliyetleri ve Modern Güvenlik İhtiyaçları</h2>
+      <p>
+        Siber güvenlik dünyası, 2026 yılı itibarıyla hiç olmadığı kadar hızlı ve karmaşık bir hal aldı. Artık sadece dış tehditlerle değil, devasa boyuta ulaşan veri yığınlarıyla da mücadele ediyoruz. Birçok kurum, hala 10-15 yıl öncesinin mimarisiyle inşa edilmiş SIEM (Güvenlik Bilgileri ve Etkinlik Yönetimi) çözümlerini kullanmaya çalışıyor. Ancak bu "eski nesil" sistemler, günümüzün dinamik tehdit ortamında artık çözüm değil, birer yük haline gelmiş durumda.
+      </p>
+      <p>
+        İşte modern bir IT yöneticisinin mevcut SIEM yapısını sorgulamasını gerektiren 3 temel neden:
+      </p>
+
+      <h3>1. "Maliyet Şoku": EPS ve Veri Boyutu Çıkmazı</h3>
+      <p>
+        Geleneksel SIEM çözümlerinin çoğu, saniye başına olay sayısı (EPS) veya veri hacmi üzerinden lisanslama yapar. Şirketiniz büyüdükçe, log üreten cihazlarınız arttıkça veya bir saldırı anında log trafiği tavan yaptığında karşınıza çıkan faturalar yönetilemez hale gelir.
+      </p>
+      <ul class="list-disc pl-6 space-y-2 mb-6 text-muted-foreground">
+        <li>
+          <strong>Gizli Maliyet:</strong> Birçok global ürün, KVKK uyumluluğu veya gelişmiş raporlama gibi temel özellikleri "ek modül" adı altında ekstra ücretlerle sunar.
+        </li>
+        <li>
+          <strong>ACKLOG Çözümü:</strong> Biz, bütçenizi log sayısına göre değil, gerçek ihtiyaca göre planlamanızı sağlıyoruz. Sürpriz maliyetleri ortadan kaldırarak şeffaf bir lisanslama modeli sunuyoruz.
+        </li>
+      </ul>
+
+      <h3>2. Performans Darboğazı: "Loglar İçinde Kahve Molası"</h3>
+      <p>
+        Bir siber saldırı gerçekleştiğinde her saniye kritiktir. Ancak eski nesil SIEM’lerde karmaşık bir sorgu çalıştırdığınızda sonuçların dönmesi dakikalar, hatta saatler sürebilir. Disk tabanlı arama yapan hantal yapılar, modern tehdit avcılığı (Threat Hunting) için uygun değildir.
+      </p>
+      <ul class="list-disc pl-6 space-y-2 mb-6 text-muted-foreground">
+        <li>
+          <strong>Sorun:</strong> Saldırgan ağda hareket ederken, analistinizin sistemin cevap vermesini beklemesi kabul edilemez.
+        </li>
+        <li>
+          <strong>ACKLOG Çözümü:</strong> In-memory (bellek içi) veritabanı teknolojimizle, petabytelarca veri içinde milisaniyeler seviyesinde arama yapmanıza olanak tanıyoruz. Biz buna "Kör Uçuşuna Son" diyoruz.
+        </li>
+      </ul>
+
+      <h3>3. Yönetim Zorluğu ve Kalifiye Personel İhtiyacı</h3>
+      <p>
+        Eski SIEM’leri ayakta tutmak için "SIEM Gurusu" seviyesinde uzmanlara ihtiyaç duyulur. Yeni bir cihazın logunu anlamlandırmak (parsing) için günler süren manuel ayarlar ve karmaşık kodlamalar gerekir.
+      </p>
+      <ul class="list-disc pl-6 space-y-2 mb-6 text-muted-foreground">
+        <li>
+          <strong>Gerçek:</strong> IT ekipleri zaten yoğun. Bir SIEM, ekibin yükünü almalı, onlara yeni yükler yüklememeli.
+        </li>
+        <li>
+          <strong>ACKLOG Çözümü:</strong> No-Code Log Parsing mimarimiz ile teknik ekibinizin dakikalar içinde yeni veri kaynaklarını entegre etmesini sağlıyoruz. Yazılımın karmaşıklığını biz üstleniyoruz, size sadece güvenliği yönetmek kalıyor.
+        </li>
+      </ul>
+
+      <h3>Sonuç: Dönüşüm Kaçınılmaz</h3>
+      <p>
+        Eski nesil SIEM çözümleriyle devam etmek, patlamaya hazır bir maliyet ve performans bombası üzerinde oturmaya benzer. ISO 27001, KVKK ve 5651 gibi regülasyonların sıkılaştığı bu dönemde, kurumlar daha çevik, daha hızlı ve daha maliyet etkin çözümlere yönelmek zorunda.
+      </p>
+      <p>
+        ACKLOG, sadece bir log tutucu değil; hız, sadelik ve maliyet avantajını birleştiren bir güvenlik operasyon merkezidir.
+      </p>
+
+      <div class="mt-8 p-6 bg-blue-950/30 border border-blue-500/20 rounded-xl">
+          <h4 class="text-white font-bold mb-2">Bir Sonraki Bölüm</h4>
+          <p class="text-blue-300">QRadar ve Global Devlerden ACKLOG’a Geçiş: Karmaşıklıktan Kurtulun!</p>
+      </div>
+
+      <div class="mt-8 p-6 bg-gradient-to-r from-blue-900/40 to-slate-900/40 border border-blue-500/30 rounded-xl text-center">
+          <h3 class="text-2xl font-bold text-white mb-4">Harekete Geçin</h3>
+          <p class="text-gray-300 mb-6">
+              Mevcut SIEM lisans maliyetlerinizden %50’ye varan oranlarda tasarruf etmek ve ACKLOG’un hızını kendi verilerinizle test etmek için bize ulaşın.
+          </p>
+      </div>
+    `
+  },
+  "qradar-ve-global-devlerden-ackloga-gecis": {
+    title: "Bölüm 2: QRadar ve Global Devlerden ACKLOG’a Geçiş",
+    description: "Karmaşıklıktan Kurtulun: Global Çözümlerden Yerli Güce Geçmek İçin 5 Neden. Global devlerden ACKLOG’a geçişi bir 'risk' değil, bir 'modernizasyon' yapan 5 kritik neden.",
+    content: `
+      <h2>Karmaşıklıktan Kurtulun: Global Çözümlerden Yerli Güce Geçmek İçin 5 Neden</h2>
+      <p>
+        Birçok kurum, "dünya standartlarında" olduğu düşüncesiyle QRadar gibi global SIEM devlerine yatırım yapıyor. Ancak zamanla bu sistemlerin bakımı, lisans maliyetleri ve Türkiye yerel mevzuatına uyum süreçleri birer operasyonel kabusa dönüşebiliyor. Bir IT yöneticisi olarak, "Çalışıyorsa dokunma" prensibinin siber güvenlikte artık geçerli olmadığını biliyorsunuz; çünkü hantal sistemler güvenliği zayıflatır.
+      </p>
+      <p>
+        İşte global devlerden ACKLOG’a geçişi bir "risk" değil, bir "modernizasyon" yapan 5 kritik neden:
+      </p>
+
+      <h3>1. "Parser" Yazma Kabusuna No-Code Çözüm</h3>
+      <p>
+        QRadar kullanıcılarının en büyük şikayeti, standart dışı bir cihazdan log çekmek istediklerinde karşılaştıkları LSX (Log Source Extension) ve karmaşık Regex yazma zorunluluğudur.
+      </p>
+      <ul class="list-disc pl-6 space-y-2 mb-6 text-muted-foreground">
+        <li>
+          <strong>Global Sorun:</strong> Yeni bir uygulama veya cihaz eklemek için haftalarca uzman desteği beklemeniz gerekebilir.
+        </li>
+        <li>
+          <strong>ACKLOG Farkı:</strong> No-Code Log Parsing teknolojimiz sayesinde, sürükle-bırak yöntemiyle dakikalar içinde yeni veri kaynaklarını sisteme dahil edebilirsiniz. Teknik ekibiniz kod yazmakla değil, güvenliği izlemekle vakit geçirir.
+        </li>
+      </ul>
+
+      <h3>2. Donanım Oburluğuna Son: Optimize Mimari</h3>
+      <p>
+        Global yazılımlar, genellikle çok yüksek işlemci ve bellek kaynaklarına ihtiyaç duyar. QRadar’ı performanslı çalıştırmak için devasa sunucu yatırımları yapmanız gerekir.
+      </p>
+      <ul class="list-disc pl-6 space-y-2 mb-6 text-muted-foreground">
+        <li>
+          <strong>ACKLOG Farkı:</strong> ACKLOG’un çekirdek mimarisi sıfırdan ve optimize bir şekilde inşa edildi. Rakiplerin istediği donanımın yarısıyla, 5 kat daha hızlı sorgu sonuçları elde edebilirsiniz. Mevcut donanımınızı emekli etmek yerine, ACKLOG ile canlandırın.
+        </li>
+      </ul>
+
+      <h3>3. Gerçek Zamanlılık: Diskten Değil, Hafızadan Güç Alın</h3>
+      <p>
+        Geleneksel sistemlerin çoğu veri ararken diske gider. Bu da terabaytlarca veri biriktiğinde aramaların "saatler" sürmesine neden olur.
+      </p>
+      <ul class="list-disc pl-6 space-y-2 mb-6 text-muted-foreground">
+        <li>
+          <strong>ACKLOG Farkı:</strong> In-memory veritabanı teknolojimizle saniyeler içinde geriye dönük analizler yapabilir, siber tehditleri yayılmadan anında (real-time) yakalayabilirsiniz. Bizim için "0ms gecikme" bir pazarlama sloganı değil, teknik bir standarttır.
+        </li>
+      </ul>
+
+      <h3>4. Türkiye Mevzuatına "Yamalı" Değil, "Tam" Uyum</h3>
+      <p>
+        Global yazılımlar, 5651 sayılı kanun veya KVKK gibi yerel ihtiyaçları genelde dışarıdan eklenen yamalar veya üçüncü parti araçlarla çözmeye çalışır.
+      </p>
+      <ul class="list-disc pl-6 space-y-2 mb-6 text-muted-foreground">
+        <li>
+          <strong>ACKLOG Farkı:</strong> ACKLOG, Türkiye'deki yasal mevzuatların merkezinde geliştirildi. Zaman damgası, yasal imzalama ve KVKK raporlama modülleri sistemin ayrılmaz bir parçasıdır; sonradan eklenmiş bir "yama" değildir.
+        </li>
+      </ul>
+
+      <h3>5. Döviz Bazlı Maliyet Baskısından Kurtuluş</h3>
+      <p>
+        Artan döviz kurları ve global firmaların katı lisanslama politikaları (her yeni cihaz için ek lisans ücreti vb.), bütçe yönetimini imkansız kılıyor.
+      </p>
+      <ul class="list-disc pl-6 space-y-2 mb-6 text-muted-foreground">
+        <li>
+          <strong>ACKLOG Farkı:</strong> Yerli olmanın avantajıyla şeffaf, öngörülebilir ve TL bazlı maliyet modelleri sunuyoruz. Üstelik global rakiplerin "ekstra" dediği birçok özelliği paket içinde sağlıyoruz.
+        </li>
+      </ul>
+
+      <h3>"Migration" (Geçiş) Süreci Zor mu?</h3>
+      <p>
+        En büyük korkunuzun veri kaybı veya geçiş süreci olduğunu biliyoruz. ACKLOG, eski SIEM verilerinizin arşivlenmesi ve korelasyon kurallarınızın yeni sisteme adaptasyonu için özel araçlar sunar. Geçiş sürecini "bir gecede" değil, "sorunsuz" bir şekilde yönetiyoruz.
+      </p>
+
+      <div class="mt-8 p-6 bg-blue-950/30 border border-blue-500/20 rounded-xl">
+          <h4 class="text-white font-bold mb-2">Bir Sonraki Bölüm</h4>
+          <p class="text-blue-300">Bölüm 3: Yerli SIEM Karşılaştırması - ACKLOG vs. Diğer Yerli Çözümler.</p>
+      </div>
+
+      <div class="mt-8 p-6 bg-gradient-to-r from-blue-900/40 to-slate-900/40 border border-blue-500/30 rounded-xl text-center">
+          <h3 class="text-2xl font-bold text-white mb-4">Hemen Başlayın</h3>
+          <p class="text-gray-300 mb-6">
+              Karmaşık arayüzlerden ve yüksek maliyetlerden yoruldunuz mu? Gelin, ACKLOG'u mevcut sisteminizle yan yana (Side-by-Side) test edelim ve farkı kendi gözlerinizle görün.
+          </p>
+      </div>
+    `
+  },
+  "yerli-siem-karsilastirmasi-ve-acklog-farki": {
+    title: "Bölüm 3: Yerli SIEM Karşılaştırması ve ACKLOG Farkı",
+    description: "Neden ACKLOG? Yerli Çözümler Arasında Neden 'Yeni Nesil' Olarak Anılıyoruz? Yerli rakiplerimizle aramızdaki keskin farklar ve karşılaştırma tablosu.",
+    content: `
+      <h2>Neden ACKLOG? Yerli Çözümler Arasında Neden "Yeni Nesil" Olarak Anılıyoruz?</h2>
+      <p>
+        Türkiye siber güvenlik pazarı, yerli yazılımlar açısından oldukça zengin bir ekosisteme sahip. Ancak her "yerli" yazılım, aynı teknolojik derinliği sunmuyor. Birçok kurum, yerli bir SIEM seçerken sadece fiyat odaklı baksa da, operasyonun ikinci ayında teknik kısıtlamalarla karşılaşıyor.
+      </p>
+      <p>
+        ACKLOG olarak biz, kendimizi "geleneksel yerli SIEM" kategorisinde değil, "Yeni Nesil Birleşik Güvenlik Operasyonları (USO)" kategorisinde konumlandırıyoruz. İşte rakiplerimizle aramızdaki keskin farklar:
+      </p>
+
+      <h3>1. No-Code Devrimi: Parser Yazmak Geçmişte Kaldı</h3>
+      <p>
+        Birçok yerli rakibimizde yeni bir log kaynağı eklemek hala teknik bir destek biletine (ticket) veya karmaşık kodlama süreçlerine tabidir.
+      </p>
+      <ul class="list-disc pl-6 space-y-2 mb-6 text-muted-foreground">
+        <li>
+          <strong>Farkımız:</strong> ACKLOG'un No-Code Log Parsing mimarisiyle, sürükle-bırak yöntemiyle kendi parser’ınızı saniyeler içinde oluşturabilirsiniz. Dışa bağımlılığı bitiriyor, kontrolü tamamen IT ekibinize veriyoruz.
+        </li>
+      </ul>
+
+      <h3>2. Gerçek Zamanlılık ve In-Memory Gücü</h3>
+      <p>
+        Yerli çözümlerin büyük bir kısmı, veriyi önce diske yazar ve aramayı disk üzerinden yapar. Veri boyutu arttıkça bu sistemler hantallaşır.
+      </p>
+      <ul class="list-disc pl-6 space-y-2 mb-6 text-muted-foreground">
+        <li>
+          <strong>Farkımız:</strong> ACKLOG, In-memory veritabanı kullanır. Bu sayede milyarlarca satır veri içinde yapılan aramalar "disk okuma" hızına takılmaz. 0ms gecikme ile tehdit tespiti yapmak, rakiplerimize göre en büyük teknik üstünlüğümüzdür.
+        </li>
+      </ul>
+
+      <h3>3. Ölçeklenebilir Cluster Mimarisi</h3>
+      <p>
+        Küçük ölçekte iyi çalışan birçok yerli SIEM, veri trafiği arttığında veya cluster (kümeleme) ihtiyacı doğduğunda verimliliğini kaybeder.
+      </p>
+      <ul class="list-disc pl-6 space-y-2 mb-6 text-muted-foreground">
+        <li>
+          <strong>Farkımız:</strong> ACKLOG, Petabyte ölçeğindeki verileri işleyebilecek Sınırsız Yatay Ölçeklenebilirlik mimarisine sahiptir. Şirketiniz büyüdükçe yazılımınız size ayak bağı olmaz, sizinle birlikte büyür.
+        </li>
+      </ul>
+
+      <h3>4. Entegre SOAR ve Otomatik Yanıt</h3>
+      <p>
+        Sadece log toplamak yetmez, aksiyon almak gerekir. Birçok yerli çözümde "otomatik yanıt" (SOAR) özellikleri ya eksiktir ya da ek ücrete tabidir.
+      </p>
+      <ul class="list-disc pl-6 space-y-2 mb-6 text-muted-foreground">
+        <li>
+          <strong>Farkımız:</strong> ACKLOG, yapay zeka destekli analiz motoruyla tehditleri sadece tespit etmez; tanımladığınız senaryolara göre otomatik yanıtlar vererek (SOAR entegrasyonu) saldırıyı yayılmadan durdurur.
+        </li>
+      </ul>
+
+      <h3>5. Şeffaf ve Modül Bağımsız Lisanslama</h3>
+      <p>
+        Rakiplerimizde sıkça karşılaşılan "KVKK için ayrı modül, 5651 için ayrı ücret, raporlama için ek lisans" modeli, toplam sahip olma maliyetini (TCO) yükseltir.
+      </p>
+      <ul class="list-disc pl-6 space-y-2 mb-6 text-muted-foreground">
+        <li>
+          <strong>Farkımız:</strong> ACKLOG’da her şey dahil ve şeffaftır. KVKK uyumluluğu, yasal imzalama ve tüm dashboard özellikleri ürünün çekirdeğinde ücretsiz olarak sunulur.
+        </li>
+      </ul>
+
+      <h3>Özet Karşılaştırma Tablosu</h3>
+      <div class="overflow-x-auto my-6 border rounded-lg">
+        <table class="w-full text-sm text-left">
+          <thead class="bg-muted/50 text-muted-foreground uppercase">
+            <tr>
+              <th class="px-6 py-3">Özellik</th>
+              <th class="px-6 py-3">Geleneksel Yerli SIEM</th>
+              <th class="px-6 py-3">ACKLOG SIEM</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b">
+              <td class="px-6 py-4 font-medium">Log Ayrıştırma</td>
+              <td class="px-6 py-4">Manuel / Kod Gerekli</td>
+              <td class="px-6 py-4">No-Code / Sürükle-Bırak</td>
+            </tr>
+            <tr class="border-b">
+              <td class="px-6 py-4 font-medium">Sorgu Mimarisi</td>
+              <td class="px-6 py-4">Disk Tabanlı (Yavaş)</td>
+              <td class="px-6 py-4">In-Memory (Anlık)</td>
+            </tr>
+            <tr class="border-b">
+              <td class="px-6 py-4 font-medium">Yasal Uyumluluk</td>
+              <td class="px-6 py-4">Ek Modül / Ücretli</td>
+              <td class="px-6 py-4">Dahili / Ücretsiz</td>
+            </tr>
+            <tr class="border-b">
+              <td class="px-6 py-4 font-medium">Ölçekleme</td>
+              <td class="px-6 py-4">Zorlu ve Sınırlı</td>
+              <td class="px-6 py-4">Sınırsız Cluster Desteği</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 font-medium">Kurulum Süresi</td>
+              <td class="px-6 py-4">Günler / Haftalar</td>
+              <td class="px-6 py-4">15 Dakika</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Sonuç: Geleceğin Güvenliğini Bugün Kurun</h3>
+      <p>
+        SIEM seçimi, kurumunuzun siber güvenlik omurgasını belirler. Sadece yasal zorunlulukları yerine getiren bir "log deposu" mu istiyorsunuz, yoksa siber tehditleri avlayan bir "istihbarat merkezi" mi?
+      </p>
+      <p>
+        ACKLOG ile tanışın, siber güvenlik operasyonlarınızda hızı ve sadeliği yeniden keşfedin.
+      </p>
+    `
   }
 };
