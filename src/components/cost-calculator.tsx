@@ -10,6 +10,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsive
 import { motion, AnimatePresence } from 'framer-motion'
 import { HardDrive, Server, Zap, ChevronRight, FileText } from 'lucide-react'
 import { cn } from "@/lib/utils"
+import { sendCostAnalysisEmail } from '@/app/maliyet-hesaplayici/actions'
 
 export default function CostCalculator() {
     const [dailyLogGB, setDailyLogGB] = useState(50)
@@ -66,10 +67,28 @@ export default function CostCalculator() {
         },
     ]
 
-    const handleFormSubmit = (e: React.FormEvent) => {
+    const handleFormSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
-        // Here you would implement the actual lead submission logic or PDF generation
-        alert("Talebiniz alınmıştır. Detaylı rapor e-posta adresinize gönderilecektir.")
+
+        try {
+            const result = await sendCostAnalysisEmail({
+                ...formData,
+                dailyLogGB,
+                retentionMonths,
+                estimatedBudget: `$${rec.budgetLow} - $${rec.budgetHigh}`,
+                recommendedHardware: `${rec.cpu} / ${rec.ram}`
+            })
+
+            if (result.success) {
+                alert("Talebiniz başarıyla alındı! Rapor e-posta adresinize gönderildi.")
+                setShowForm(false)
+            } else {
+                alert("Bir hata oluştu: " + result.message)
+            }
+        } catch (error) {
+            console.error("Form submission error:", error)
+            alert("Beklenmedik bir hata oluştu.")
+        }
     }
 
     return (
