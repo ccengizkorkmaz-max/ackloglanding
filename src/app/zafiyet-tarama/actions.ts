@@ -1,8 +1,63 @@
 'use server'
 
+import { GvmBridge } from '@/lib/gvm-bridge'
 import { Resend } from 'resend'
 
 const resend = new Resend(process.env.RESEND_API_KEY || "re_123")
+
+const gvmConfig = {
+    host: process.env.GVM_HOST || '',
+    port: parseInt(process.env.GVM_PORT || '9390'),
+    username: process.env.GVM_USER || '',
+    password: process.env.GVM_PASSWORD || '',
+}
+
+const gvm = new GvmBridge(gvmConfig)
+
+export async function startRealScan(target: string) {
+    console.log("Starting real GVM scan for:", target)
+    try {
+        if (!process.env.GVM_HOST) {
+            // Fallback for demo mode if no GVM configured
+            return { success: true, taskId: 'demo-task-id', demo: true }
+        }
+
+        await gvm.authenticate()
+        const targetId = await gvm.createTarget(`Target_${Date.now()}`, target)
+        const taskId = await gvm.createTask(`Task_${target}`, targetId, process.env.GVM_CONFIG_ID || '')
+        await gvm.startTask(taskId)
+
+        return { success: true, taskId }
+    } catch (e: any) {
+        console.error("GVM start error:", e)
+        return { success: false, message: e.message }
+    }
+}
+
+export async function getScanStatus(taskId: string) {
+    if (taskId === 'demo-task-id') {
+        return { success: true, status: 'Running', progress: 45, demo: true }
+    }
+
+    try {
+        await gvm.authenticate()
+        const taskInfo = await gvm.getTaskStatus(taskId)
+
+        let results = null
+        if (taskInfo.status === 'Done' && taskInfo.reportId) {
+            results = await gvm.getReportResults(taskInfo.reportId)
+        }
+
+        return {
+            success: true,
+            status: taskInfo.status,
+            progress: taskInfo.progress,
+            results
+        }
+    } catch (e: any) {
+        return { success: false, message: e.message }
+    }
+}
 
 export async function saveScannerLead(data: {
     name: string

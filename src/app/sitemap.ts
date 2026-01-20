@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/uyumluluk-testi',
         '/maliyet-hesaplayici',
         '/zafiyet-tarama',
+        '/analiz',
     ].map((route) => ({
         url: `${baseUrl}${route}`,
         lastModified: new Date(),
