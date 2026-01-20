@@ -659,7 +659,13 @@ export default function SecurityAnalyzerComponent() {
                             <Button
                                 variant="outline"
                                 className="flex-1 border-slate-700 text-slate-400 hover:text-white h-12 rounded-xl text-xs uppercase font-bold tracking-widest"
-                                onClick={() => alert("Yapılandırma dokümanı hazırlanıyor...")}
+                                onClick={() => {
+                                    setSuccessMessage({
+                                        title: 'Bilgilendirme',
+                                        message: "Yapılandırma dokümanı hazırlanıyor..."
+                                    })
+                                    setShowSuccessModal(true)
+                                }}
                             >
                                 <Download className="h-4 w-4 mr-2" /> Dökümanı İndir
                             </Button>
