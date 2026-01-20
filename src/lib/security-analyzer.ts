@@ -3,6 +3,12 @@ import axios from 'axios';
 export interface SecurityAnalysisResults {
     target: string;
     riskScore: number;
+    metadata?: {
+        shodanActive: boolean;
+        criminalActive: boolean;
+        pulsediveActive: boolean;
+        isDemo: boolean;
+    };
     shodan: {
         ports: number[];
         hostnames: string[];
@@ -25,65 +31,80 @@ export interface SecurityAnalysisResults {
 }
 
 export class SecurityAnalyzer {
-    private shodanKey = process.env.SHODAN_API_KEY;
-    private criminalIpKey = process.env.CRIMINALIP_API_KEY;
-    private pulsediveKey = process.env.PULSEDIVE_API_KEY;
+    private getKeys() {
+        return {
+            shodan: process.env.SHODAN_API_KEY?.trim(),
+            criminal: process.env.CRIMINALIP_API_KEY?.trim(),
+            pulsedive: process.env.PULSEDIVE_API_KEY?.trim()
+        };
+    }
 
-    async analyze(target: string): Promise<SecurityAnalysisResults> {
+    private cleanTarget(target: string): string {
+        try {
+            if (target.includes('://')) {
+                const url = new URL(target);
+                return url.hostname;
+            }
+            return target.split('/')[0].trim();
+        } catch (e) {
+            return target.trim();
+        }
+    }
+
+    async analyze(input: string): Promise<SecurityAnalysisResults> {
+        const target = this.cleanTarget(input);
+        const keys = this.getKeys();
+
+        console.log("Analysis start for:", target);
+
+        const isDemoTarget = target.toLowerCase() === 'demo' || target.toLowerCase() === 'test';
+        const noKeysAvailable = !keys.shodan && !keys.criminal && !keys.pulsedive;
+
+        if (isDemoTarget || noKeysAvailable) {
+            console.log("Triggering Demo Mode (Simulated Data)");
+            const demoRes = this.getDemoResults(target);
+            demoRes.metadata = {
+                shodanActive: !!keys.shodan,
+                criminalActive: !!keys.criminal,
+                pulsediveActive: !!keys.pulsedive,
+                isDemo: true
+            };
+            return demoRes;
+        }
+
         const results: SecurityAnalysisResults = {
             target,
             riskScore: 0,
+            metadata: {
+                shodanActive: !!keys.shodan,
+                criminalActive: !!keys.criminal,
+                pulsediveActive: !!keys.pulsedive,
+                isDemo: false
+            },
             shodan: null,
             criminalIp: null,
             pulsedive: null
         };
 
-        console.log("SecurityAnalyzer keys check:", {
-            shodan: !!this.shodanKey,
-            criminal: !!this.criminalIpKey,
-            pulsedive: !!this.pulsediveKey
-        });
-
-        // Parallel fetching
         const [shodanData, criminalData, pulsediveData] = await Promise.allSettled([
-            this.fetchShodan(target),
-            this.fetchCriminalIp(target),
-            this.fetchPulsedive(target)
+            this.fetchShodan(target, keys.shodan),
+            this.fetchCriminalIp(target, keys.criminal),
+            this.fetchPulsedive(target, keys.pulsedive)
         ]);
 
-        if (shodanData.status === 'fulfilled') {
-            results.shodan = shodanData.value;
-        } else {
-            console.error("Shodan Task Failed:", shodanData.reason);
-        }
+        if (shodanData.status === 'fulfilled') results.shodan = shodanData.value;
+        if (criminalData.status === 'fulfilled') results.criminalIp = criminalData.value;
+        if (pulsediveData.status === 'fulfilled') results.pulsedive = pulsediveData.value;
 
-        if (criminalData.status === 'fulfilled') {
-            results.criminalIp = criminalData.value;
-        } else {
-            console.error("Criminal IP Task Failed:", criminalData.reason);
-        }
-
-        if (pulsediveData.status === 'fulfilled') {
-            results.pulsedive = pulsediveData.value;
-        } else {
-            console.error("Pulsedive Task Failed:", pulsediveData.reason);
-        }
-
-        // Calculate aggregated risk score (simple weighted average)
         results.riskScore = this.calculateAggregatedRisk(results);
-
         return results;
     }
 
-    private async fetchShodan(target: string) {
-        if (!this.shodanKey) {
-            console.warn("Shodan API key missing");
-            return null;
-        }
+    private async fetchShodan(target: string, key?: string) {
+        if (!key) return null;
         try {
-            const url = `https://api.shodan.io/shodan/host/${target}?key=${this.shodanKey}`;
+            const url = `https://api.shodan.io/shodan/host/${target}?key=${key}`;
             const res = await axios.get(url);
-            console.log("Shodan success for:", target);
             return {
                 ports: res.data.ports || [],
                 hostnames: res.data.hostnames || [],
@@ -92,27 +113,18 @@ export class SecurityAnalyzer {
                 isp: res.data.isp
             };
         } catch (e: any) {
-            console.error("Shodan Fetch Error:", e.response?.status || e.message);
+            console.error("Shodan Error:", e.response?.status || e.message);
             return null;
         }
     }
 
-    private async fetchCriminalIp(target: string) {
-        if (!this.criminalIpKey) {
-            console.warn("Criminal IP API key missing");
-            return null;
-        }
+    private async fetchCriminalIp(target: string, key?: string) {
+        if (!key) return null;
         try {
             const url = `https://api.criminalip.io/v1/asset/ip/report?ip=${target}`;
-            const res = await axios.get(url, {
-                headers: { 'x-api-key': this.criminalIpKey }
-            });
-            console.log("Criminal IP success for:", target);
-
-            // Handle different score formats and missing data
+            const res = await axios.get(url, { headers: { 'x-api-key': key } });
             const scoreInbound = res.data.score?.inbound;
             const scoreValue = typeof scoreInbound === 'number' ? scoreInbound : (parseInt(scoreInbound) || 0);
-
             return {
                 score: scoreValue * 20,
                 deviceType: res.data.is_vpn ? "VPN" : (res.data.is_proxy ? "Proxy" : "Direct"),
@@ -120,20 +132,16 @@ export class SecurityAnalyzer {
                 threatLevel: scoreValue > 4 ? "Critical" : (scoreValue > 2 ? "Medium" : "Low")
             };
         } catch (e: any) {
-            console.error("Criminal IP Fetch Error:", e.response?.status || e.message);
+            console.error("Criminal IP Error:", e.response?.status || e.message);
             return null;
         }
     }
 
-    private async fetchPulsedive(target: string) {
-        if (!this.pulsediveKey) {
-            console.warn("Pulsedive API key missing");
-            return null;
-        }
+    private async fetchPulsedive(target: string, key?: string) {
+        if (!key) return null;
         try {
-            const url = `https://pulsedive.com/api/info.php?indicator=${target}&key=${this.pulsediveKey}`;
+            const url = `https://pulsedive.com/api/info.php?indicator=${target}&key=${key}`;
             const res = await axios.get(url);
-            console.log("Pulsedive success for:", target);
             return {
                 risk: res.data.risk || "unknown",
                 score: this.mapPulsediveRisk(res.data.risk),
@@ -141,19 +149,41 @@ export class SecurityAnalyzer {
                 isBlacklisted: res.data.retired === 0 && res.data.risk !== "none"
             };
         } catch (e: any) {
-            console.error("Pulsedive Fetch Error:", e.response?.status || e.message);
+            console.error("Pulsedive Error:", e.response?.status || e.message);
             return null;
         }
     }
 
+    private getDemoResults(target: string): SecurityAnalysisResults {
+        const isActuallyDemo = target.toLowerCase() === 'demo' || target.toLowerCase() === 'test';
+        return {
+            target: isActuallyDemo ? target : `${target} (Simülasyon Modu)`,
+            riskScore: 72,
+            shodan: {
+                ports: [80, 443, 8080, 21, 22, 3306],
+                hostnames: [`server-${target}.net`],
+                os: 'Ubuntu Linux 22.04',
+                vulns: ['CVE-2021-34527 (PrintNightmare)', 'CVE-2023-4863 (WebP)'],
+                isp: 'Cloudflare / DigitalOcean'
+            },
+            criminalIp: {
+                score: 60,
+                deviceType: 'Server',
+                isMalicious: false,
+                threatLevel: 'Medium'
+            },
+            pulsedive: {
+                risk: 'high',
+                score: 80,
+                threats: ['Potential Scanner', 'Known Hosting'],
+                isBlacklisted: false
+            }
+        };
+    }
+
     private mapPulsediveRisk(risk: string): number {
         const mapping: Record<string, number> = {
-            'critical': 100,
-            'high': 75,
-            'medium': 50,
-            'low': 25,
-            'none': 0,
-            'unknown': 0
+            'critical': 100, 'high': 75, 'medium': 50, 'low': 25, 'none': 0, 'unknown': 0
         };
         return mapping[risk.toLowerCase()] || 0;
     }
@@ -163,7 +193,6 @@ export class SecurityAnalyzer {
         if (res.criminalIp) scores.push(res.criminalIp.score);
         if (res.pulsedive) scores.push(res.pulsedive.score);
         if (res.shodan?.vulns && res.shodan.vulns.length > 0) scores.push(90);
-
         if (scores.length === 0) return 0;
         return Math.round(scores.reduce((a, b) => a + b, 0) / scores.length);
     }
