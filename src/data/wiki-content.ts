@@ -896,5 +896,250 @@ export const articles: Record<string, { title: string; description?: string; con
         ACKLOG ile tanışın, siber güvenlik operasyonlarınızda hızı ve sadeliği yeniden keşfedin.
       </p>
     `
+  },
+  "hibrit-altyapilarda-log-merkeziyeti": {
+    title: "Hibrit Altyapılarda Log Merkeziyeti: Neden Uyumluluk Testi Yapmalısınız?",
+    description: "Karmaşık BT altyapılarında güvenlik açığı yaratan 'kör noktalar' nasıl yok edilir? 5651, KVKK ve LogSIEM uyumluluk testinin işletmenize sağladığı ROI ve güvenlik avantajları.",
+    content: `
+      <h2>Karmaşık Altyapıların Yarattığı Güvenlik Açığı</h2>
+      <p>
+        Modern BT altyapıları artık sadece yerel sunuculardan oluşmuyor. FortiGate firewall'lardan Microsoft 365 bulut günlüklerine, yerel sistemlerden uzak ofis cihazlarına kadar devasa bir veri akışı mevcut. 
+        Bu cihazların SIEM sistemine ne kadar hızlı entegre edilebileceği, olası bir siber saldırıya müdahale sürenizi (MTTR) doğrudan etkiler.
+      </p>
+
+      <h3>LogSIEM Uyumluluk Testi Size Ne Sağlar?</h3>
+      <p>Sitemizdeki uyumluluk sihirbazı, mevcut yatırımınızı korumanıza yardımcı olur:</p>
+
+      <div class="grid md:grid-cols-3 gap-6 my-8">
+        <div class="p-4 bg-blue-500/10 border border-blue-500/20 rounded-xl">
+            <h4 class="text-white mt-0 mb-2">1. Tak-Çalıştır Hazırlığı</h4>
+            <p class="text-sm text-gray-400 mb-0">Envanterinizdeki cihazların (Logo Flow, J-HR gibi yazılımlar dahil) LogSIEM ile ne kadar sürede eşleşeceğini saniyeler içinde analiz eder.</p>
+        </div>
+        <div class="p-4 bg-purple-500/10 border border-purple-500/20 rounded-xl">
+            <h4 class="text-white mt-0 mb-2">2. Görünürlük Analizi</h4>
+            <p class="text-sm text-gray-400 mb-0">Hangi cihazların kritik logları (Security, System, Traffic) gönderip göndermediğini belirleyerek "kör noktaları" yok eder.</p>
+        </div>
+        <div class="p-4 bg-green-500/10 border border-green-500/20 rounded-xl">
+            <h4 class="text-white mt-0 mb-2">3. Mevzuat Uyumu</h4>
+            <p class="text-sm text-gray-400 mb-0">Seçtiğiniz cihazların KVKK ve 5651 sayılı kanun gerekliliklerine uygun log üretip üretmediğini denetler.</p>
+        </div>
+      </div>
+
+      <h3>3. Hızlı Entegrasyonun İşletme Maliyetine (ROI) Etkisi</h3>
+      <p>Entegrasyon testi, sadece teknik bir kontrol değildir; aynı zamanda bir bütçe yönetimi aracıdır:</p>
+      <ul class="list-disc pl-6 space-y-2 mb-6 text-muted-foreground">
+        <li><strong>Zaman Tasarrufu:</strong> Haftalar süren konfigürasyon süreçlerini, hazır konnektör kütüphanemizle saatlere indiririz.</li>
+        <li><strong>Lisans Optimizasyonu:</strong> Sadece anlamlı ve siber güvenlik değeri olan logları toplayarak veri depolama maliyetlerinizi düşürürüz.</li>
+      </ul>
+
+      <h3>4. Sonuç: Görünmeyeni İzleyemezsiniz</h3>
+      <p>
+        LogSIEM Uyumluluk Testi sonucunda aldığınız rapor, sadece bir liste değildir. Bu rapor, dijital kalenizin kapılarının ne kadar sıkı kapalı olduğunun bir kanıtıdır. 
+        Eğer sisteminizde %100 uyumluluk görünmüyorsa, LogSIEM uzmanlarımızla ücretsiz bir teknik analiz seansı planlayabilirsiniz.
+      </p>
+
+      <div class="mt-8 p-6 bg-gradient-to-r from-orange-500/20 to-red-500/20 border border-orange-500/30 rounded-xl text-center">
+          <h3 class="text-xl font-bold text-white mb-4">Risk Almayın, Test Edin</h3>
+          <p class="text-gray-300 mb-6">
+              Sisteminizin 5651 ve KVKK uyumluluğundan emin misiniz? Saniyeler içinde öğrenin.
+          </p>
+          <a href="/uyumluluk-testi" class="inline-flex h-10 items-center justify-center rounded-lg bg-orange-600 px-8 text-sm font-medium text-white shadow hover:bg-orange-700 transition-all">
+             Uyumluluk Testini Şimdi Başlat
+          </a>
+      </div>
+    `
+  },
+  "dijital-ayak-izi-ve-saldiri-yuzeyi-yonetimi": {
+    title: "Dijital Ayak İzi ve Saldırı Yüzeyi Yönetimi: Hackerlar Sizi Nasıl Görüyor?",
+    description: "Kurumunuzun dijital dünyada bıraktığı izler siber saldırganlar için birer davetiye olabilir. EASM (Saldırı Yüzeyi Yönetimi), açık port riskleri ve ACKLog ile proaktif savunma.",
+    content: `
+      <h2>Hackerlar Sizi Nasıl Görüyor?</h2>
+      <p>
+        Siber saldırıların %60'ından fazlası, kurumların farkında olmadığı "gölge IT" (Shadow IT) varlıkları veya unutulmuş açık portlar üzerinden gerçekleşmektedir. 
+        <strong>Dijital Ayak İzi</strong>, internete bağlı tüm cihazlarınızın, servislerinizin ve çalışanlarınızın bıraktığı izlerin toplamıdır. 
+        Saldırganlar, tıpkı hırsızların açık pencere araması gibi, Shodan ve Censys gibi arama motorlarını kullanarak bu izleri tarar ve zayıf noktaları tespit eder.
+      </p>
+
+      <h3>EASM (External Attack Surface Management) Nedir?</h3>
+      <p>
+        Dış Saldırı Yüzeyi Yönetimi (EASM), kurumunuzun dışarıdan nasıl göründüğünü sürekli olarak izleme ve analiz etme sürecidir. 
+        Güvenlik duvarının arkasında ne kadar güvende olduğunuzu bilseniz de, dışarıya bakan yüzünüzdeki bir çatlak (örneğin; RDP servisi açık unutulmuş bir test sunucusu) tüm kaleyi tehlikeye atabilir.
+      </p>
+
+      <div class="my-8 space-y-4">
+        <div class="flex gap-4 p-4 border border-red-500/20 bg-red-900/10 rounded-xl">
+           <div class="min-w-[40px] h-10 flex items-center justify-center bg-red-500/20 rounded-lg text-red-400 font-bold">RDP</div>
+           <div>
+             <h4 class="text-white mt-0 mb-1 font-bold">Uzak Masaüstü Protokolü</h4>
+             <p class="text-sm text-gray-400 m-0 leading-snug">İnternete açık RDP portları (3389), Fidye Yazılımı (Ransomware) çetelerinin 1 numaralı giriş kapısıdır. Asla VPN'siz dışarıya açılmamalıdır.</p>
+           </div>
+        </div>
+        <div class="flex gap-4 p-4 border border-orange-500/20 bg-orange-900/10 rounded-xl">
+           <div class="min-w-[40px] h-10 flex items-center justify-center bg-orange-500/20 rounded-lg text-orange-400 font-bold">SMB</div>
+           <div>
+             <h4 class="text-white mt-0 mb-1 font-bold">Dosya Paylaşımı (Port 445)</h4>
+             <p class="text-sm text-gray-400 m-0 leading-snug">WannaCry gibi global saldırılar bu portu kullanır. Dosya sunucularınızın internete doğrudan açık olması büyük bir risktir.</p>
+           </div>
+        </div>
+        <div class="flex gap-4 p-4 border border-blue-500/20 bg-blue-900/10 rounded-xl">
+           <div class="min-w-[40px] h-10 flex items-center justify-center bg-blue-500/20 rounded-lg text-blue-400 font-bold">SSL</div>
+           <div>
+             <h4 class="text-white mt-0 mb-1 font-bold">Süresi Dolmuş Sertifikalar</h4>
+             <p class="text-sm text-gray-400 m-0 leading-snug">Kullanıcılarınızın güvenini sarsar ve Man-in-the-Middle (Ortadaki Adam) saldırılarına kapı aralar.</p>
+           </div>
+        </div>
+      </div>
+
+      <h3>ACKLog Security Analyzer ile Proaktif Savunma</h3>
+      <p>
+         "Görmediğinizi koruyamazsınız." ACKLog Security Analyzer, siber saldırganların kullandığı istihbarat kaynaklarını (Censys, Shodan, VirusTotal vb.) kullanarak size saldırgan gözüyle bir rapor sunar.
+      </p>
+
+      <h4>Analiz Sayfamızda Neleri Test Ediyoruz?</h4>
+      <ul class="list-disc pl-6 space-y-2 mb-6 text-muted-foreground">
+        <li><strong>Risk Skoru:</strong> Dış dünyadaki görünürlüğünüze göre hesaplanan 0-100 arası güvenlik puanı.</li>
+        <li><strong>Açık Port Taraması:</strong> Kritik servislerin (SSH, Telnet, Database) internete açık olup olmadığının kontrolü.</li>
+        <li><strong>Blacklist Kontrolü:</strong> IP adresinizin spam veya zararlı yazılım listelerine girip girmediği.</li>
+      </ul>
+
+      <div class="mt-8 p-6 bg-gradient-to-r from-blue-600/20 to-cyan-600/20 border border-blue-500/30 rounded-xl text-center">
+          <h3 class="text-xl font-bold text-white mb-4">Saldırı Yüzeyinizi Şimdi Küçültün</h3>
+          <p class="text-gray-300 mb-6">
+              Hackerlar taramaya başlamadan önce, açıklarınızı kendiniz bulun.
+          </p>
+          <a href="/analiz" class="inline-flex h-10 items-center justify-center rounded-lg bg-blue-600 px-8 text-sm font-medium text-white shadow hover:bg-blue-700 transition-all">
+             Ücretsiz Güvenlik Analizini Başlat
+          </a>
+      </div>
+    `
+  },
+  "siem-log-maliyetleri-nasil-dusurulur": {
+    title: "SIEM ve Log Yönetiminde Gizli Maliyetler: Bütçenizi Nasıl Optimize Edersiniz?",
+    description: "SIEM projelerinin 'buzdağının görünmeyen yüzü' olan donanım ve depolama maliyetlerini nasıl yönetirsiniz? EPS lisanslama tuzakları ve sıkıştırma teknolojisinin önemi.",
+    content: `
+      <h2>SIEM Maliyetlerinin Görünmeyen Yüzü: Buzdağı Etkisi</h2>
+      <p>
+        Birçok kurum SIEM yatırımı yaparken sadece lisans maliyetine odaklanır. Ancak, projenin toplam sahip olma maliyetinin (TCO) %60'ından fazlası genellikle donanım, depolama (storage) ve işletim maliyetlerinden oluşur.
+        Bu duruma siber güvenlikte "Buzdağı Etkisi" denir; suyun üzerindeki lisans maliyeti küçük görünse de, suyun altındaki donanım gereksinimleri bütçenizi batırabilir.
+      </p>
+
+      <h3>EPS (Events Per Second) Lisanslama Tuzağı</h3>
+      <p>
+        Geleneksel SIEM ürünlerinin çoğu, saniyede işlenen olay sayısı (EPS - Events Per Second) veya günlük veri hacmi (GB/Day) üzerinden fiyatlandırma yapar. 
+      </p>
+      <ul class="list-disc pl-6 space-y-2 mb-6 text-muted-foreground">
+        <li><strong>Sürpriz Faturalar:</strong> Bir siber saldırı anında veya yeni bir uygulama devreye alındığında log hacminiz aniden 10 katına çıkabilir. Bu durumda "limit aşımı" cezalarıyla veya loglarınızın drop edilmesiyle (kaydedilmemesiyle) karşılaşırsınız.</li>
+        <li><strong>Kısıtlı Görünürlük:</strong> Maliyeti düşürmek için bazı kritik logları kapatmak zorunda kalırsınız, bu da güvenlik açığı yaratır.</li>
+      </ul>
+
+      <h3>Depolama (Storage) Maliyetlerini Nasıl Düşürürsünüz?</h3>
+      <p>
+        Log verileri metin tabanlıdır ve doğru sıkıştırma algoritmalarıyla ciddi oranda küçültülebilir. Ancak eski nesil SIEM'ler ham veriyi (raw data) verimsiz şekilde saklar.
+      </p>
+
+      <div class="my-8 p-6 bg-slate-900 border border-slate-700 rounded-xl">
+          <h4 class="text-white mt-0 mb-4">ACKLog Sıkıştırma Teknolojisi Örneği</h4>
+          <div class="flex flex-col md:flex-row gap-8 items-center justify-center">
+              <div class="text-center">
+                  <div class="text-4xl font-bold text-red-500 mb-2">1 TB</div>
+                  <div class="text-sm text-gray-400">Ham Veri (Raw)</div>
+              </div>
+              <div class="text-2xl text-gray-500">➜</div>
+              <div class="text-center">
+                  <div class="text-4xl font-bold text-green-500 mb-2">70 GB</div>
+                  <div class="text-sm text-gray-400">ACKLog Sıkıştırılmış</div>
+              </div>
+          </div>
+          <p class="text-center text-gray-400 mt-4 text-sm">ACKLog'un özel sıkıştırma algoritması sayesinde disk maliyetlerinizden %90'a varan oranda tasarruf sağlarsınız.</p>
+      </div>
+
+      <h3>Daha Az Donanım, Daha Çok Performans</h3>
+      <p>
+        Sadece depolama alanından değil, işlem gücünden de tasarruf edersiniz. Geleneksel SIEM'ler hantal Java tabanlı mimarileriyle sunucularınızı yorarken, ACKLog modern mimarisiyle minimum kaynak tüketir.
+      </p>
+      <div class="grid md:grid-cols-2 gap-4 my-6">
+        <div class="p-4 bg-slate-800/50 rounded-lg border border-slate-700">
+            <h4 class="text-white font-bold mb-2">CPU ve RAM Verimliliği</h4>
+            <p class="text-sm text-gray-400 m-0">
+                Rakiplerine göre %60 daha az bellek (RAM) ve işlemci (CPU) kaynağıyla aynı yükü kaldırabilir. Bu, sanallaştırma ortamınızda daha az kaynak ayırmanız ve donanım ömrünü uzatmanız demektir.
+            </p>
+        </div>
+        <div class="p-4 bg-slate-800/50 rounded-lg border border-slate-700">
+            <h4 class="text-white font-bold mb-2">In-Memory Hızı</h4>
+            <p class="text-sm text-gray-400 m-0">
+                Veritabanı sorgularının çoğu disk yerine bellek (In-Memory) üzerinde gerçekleşir. Bu sayede karmaşık tehdit avcılığı (Threat Hunting) sorguları dakikalar yerine milisaniyeler içinde sonuçlanır.
+            </p>
+        </div>
+      </div>
+
+      <h3>Yatırımın Geri Dönüşü (ROI) Hesaplaması</h3>
+      <p>
+        Doğru SIEM seçimi ile bütçenizi nasıl korursunuz?
+      </p>
+      <ul class="list-disc pl-6 space-y-2 mb-6 text-muted-foreground">
+        <li><strong>Donanım Tasarrufu:</strong> Daha az CPU ve RAM gerektiren optimize mimari.</li>
+        <li><strong>Disk Tasarrufu:</strong> Yüksek sıkıştırma oranı ile daha az disk alanı.</li>
+        <li><strong>Operasyonel Tasarruf:</strong> Kolay yönetim ve yerli destek ile azalan iş gücü maliyeti.</li>
+      </ul>
+
+      <div class="mt-8 p-6 bg-gradient-to-r from-green-600/20 to-emerald-600/20 border border-green-500/30 rounded-xl text-center">
+          <h3 class="text-xl font-bold text-white mb-4">Kendi Tasarrufunuzu Hesaplayın</h3>
+          <p class="text-gray-300 mb-6">
+              Mevcut log hacminizi girin, ne kadar disk alanına ihtiyacınız olduğunu ve ACKLog ile ne kadar tasarruf edeceğinizi anında görün.
+          </p>
+          <a href="/maliyet-hesaplayici" style="color: black !important; font-weight: bold;" class="inline-flex h-10 items-center justify-center rounded-lg bg-green-600 px-8 text-sm font-medium !text-black !font-bold text-black font-bold shadow hover:bg-green-700 transition-all">
+             Maliyet Hesaplayıcıyı Aç
+          </a>
+      </div>
+    `
+  },
+  "zafiyet-tarama-ve-sizma-testi-farki": {
+    title: "Zafiyet Tarama vs. Sızma Testi (Pentest): Fark Nedir?",
+    description: "Zafiyet taraması (Vulnerability Scan) ile Sızma Testi (Pentest) arasındaki farklar nelerdir? Hangisine ne zaman ihtiyacınız var? Otomatik taramaların siber savunmadaki rolü.",
+    content: `
+      <h2>Otomasyon ve İnsan Zekası Arasındaki Fark</h2>
+      <p>
+        Siber güvenlik dünyasında kavramlar sıklıkla karıştırılır. Yöneticiler genellikle "Biz zaten pentest yaptırdık, güvendeyiz" düşüncesindedir. 
+        Ancak Pentest (Sızma Testi) ve Zafiyet Taraması, birbirinin alternatifi değil, tamamlayıcısıdır.
+      </p>
+
+      <h3>1. Zafiyet Taraması (Vulnerability Scan)</h3>
+      <p>
+        Otomatik araçlar (Nessus, OpenVAS veya ACKLog Scanner gibi) kullanılarak yapılan, sistemdeki bilinen güvenlik açıklarını tespit etmeye yarayan işlemdir.
+      </p>
+      <ul class="list-disc pl-6 space-y-2 mb-6 text-muted-foreground">
+        <li><strong>Sıklık:</strong> Sürekli yapılmalıdır (Haftalık/Günlük).</li>
+        <li><strong>Kapsam:</strong> Tüm varlıkları (IP, Domain, Uygulama) kapsar.</li>
+        <li><strong>Maliyet:</strong> Düşüktür, otomatize edilmiştir.</li>
+        <li><strong>Amaç:</strong> "Açık pencere var mı?" sorusunun cevabıdır.</li>
+      </ul>
+
+      <h3>2. Sızma Testi (Penetration Test)</h3>
+      <p>
+        Etik hackerların (White Hat), belirlenen kapsamda sisteme sızmaya çalıştığı, insan zekası ve yaratıcılığı gerektiren bir simülasyondur.
+      </p>
+      <ul class="list-disc pl-6 space-y-2 mb-6 text-muted-foreground">
+        <li><strong>Sıklık:</strong> Genellikle yılda 1 veya 2 kez yapılır.</li>
+        <li><strong>Kapsam:</strong> Kritik sistemlere odaklanır.</li>
+        <li><strong>Maliyet:</strong> Yüksektir, uzmanlık gerektirir.</li>
+        <li><strong>Amaç:</strong> "Pencere kapalı olsa da, kilidi açıp girebilirler mi?" sorusunun cevabıdır.</li>
+      </ul>
+
+      <h3>Maruz Kalma Penceresi (Window of Exposure)</h3>
+      <p>
+        Yılda bir kez pentest yaptırmak, yılın geri kalan 364 günü güvende olduğunuz anlamına gelmez. Yeni bir zafiyet (örneğin Log4j) çıktığında, bir sonraki pentest zamanını bekleyemezsiniz. 
+        İşte bu yüzden <strong>Otomatik Zafiyet Taraması</strong> hayati önem taşır. Sizi yeni çıkan tehditlere karşı sürekli uyarır.
+      </p>
+
+      <div class="mt-8 p-6 bg-gradient-to-r from-red-600/20 to-orange-600/20 border border-red-500/30 rounded-xl text-center font-sans">
+          <h3 class="text-xl font-bold text-white mb-4">Sisteminizi Şimdi Test Edin</h3>
+          <p class="text-gray-300 mb-6">
+              Otomatik Zafiyet Tarayıcımız ile sisteminizdeki bilinen açıkları saniyeler içinde tespit edin ve detaylı rapor alın.
+          </p>
+          <a href="/zafiyet-tarama" class="inline-flex h-10 items-center justify-center rounded-lg bg-red-600 px-8 text-sm font-medium text-white shadow hover:bg-red-700 transition-all">
+             Ücretsiz Tarama Başlat
+          </a>
+      </div>
+    `
   }
 };

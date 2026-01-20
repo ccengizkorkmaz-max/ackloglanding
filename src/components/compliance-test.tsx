@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
-import { CheckCircle2, AlertTriangle, XCircle, ArrowRight, Loader2 } from 'lucide-react'
+import { CheckCircle2, AlertTriangle, XCircle, ArrowRight, Loader2, BookOpen } from 'lucide-react'
 import { handleSaveLead } from '@/app/uyumluluk-testi/actions'
 import { DemoModal } from './demo-modal'
 
@@ -370,6 +370,31 @@ export default function ComplianceTest() {
                 </AnimatePresence>
                 <DemoModal isOpen={isDemoModalOpen} onClose={() => setIsDemoModalOpen(false)} />
             </div>
+            {/* Wiki Article Promo */}
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+                className="mt-12 bg-blue-950/30 border border-blue-500/20 p-6 rounded-2xl flex flex-col md:flex-row items-center gap-6 group hover:border-blue-500/40 transition-all"
+            >
+                <div className="bg-blue-500/10 p-4 rounded-full group-hover:bg-blue-500/20 transition-colors">
+                    <BookOpen xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-8 w-8 text-blue-400" />
+                </div>
+                <div className="flex-1 text-center md:text-left">
+                    <h3 className="text-lg font-bold text-white mb-2 group-hover:text-blue-300 transition-colors">
+                        Hibrit Altyapılarda Log Merkeziyeti
+                    </h3>
+                    <p className="text-slate-400 text-sm mb-0">
+                        Neden uyumluluk testi yapmalısınız? 5651 ve KVKK kapsamında log yönetiminin önemini ve işletmenize sağladığı ROI'yi detaylı makalemizde inceleyin.
+                    </p>
+                </div>
+                <a
+                    href="/wiki/hibrit-altyapilarda-log-merkeziyeti"
+                    className="flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-xl font-medium transition-all whitespace-nowrap shadow-lg shadow-blue-900/20"
+                >
+                    Makaleyi Oku <ArrowRight className="h-4 w-4" />
+                </a>
+            </motion.div>
         </div>
     )
 }

@@ -21,7 +21,8 @@ import {
     Calendar,
     History,
     Server,
-    Layers
+    Layers,
+    ArrowRight
 } from 'lucide-react'
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip as RechartsTooltip } from 'recharts'
 import { Button } from "@/components/ui/button"
@@ -792,6 +793,32 @@ export default function SecurityAnalyzerComponent() {
                     </div>
                 </DialogContent>
             </Dialog>
+
+            {/* Wiki Article Promo */}
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+                className="mt-12 bg-blue-950/30 border border-blue-500/20 p-6 rounded-2xl flex flex-col md:flex-row items-center gap-6 group hover:border-blue-500/40 transition-all"
+            >
+                <div className="bg-blue-500/10 p-4 rounded-full group-hover:bg-blue-500/20 transition-colors">
+                    <Globe className="h-8 w-8 text-blue-400" />
+                </div>
+                <div className="flex-1 text-center md:text-left">
+                    <h3 className="text-lg font-bold text-white mb-2 group-hover:text-blue-300 transition-colors">
+                        Dijital Ayak İzi ve Saldırı Yüzeyi Yönetimi
+                    </h3>
+                    <p className="text-slate-400 text-sm mb-0">
+                        Hackerlar sizi nasıl görüyor? EASM (External Attack Surface Management) ve açık port risklerini detaylı makalemizde inceleyin.
+                    </p>
+                </div>
+                <a
+                    href="/wiki/dijital-ayak-izi-ve-saldiri-yuzeyi-yonetimi"
+                    className="flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-xl font-medium transition-all whitespace-nowrap shadow-lg shadow-blue-900/20"
+                >
+                    Makaleyi Oku <ArrowRight className="h-4 w-4" />
+                </a>
+            </motion.div>
 
             <style jsx global>{`
                 .scrollbar-thin::-webkit-scrollbar { width: 4px; }
