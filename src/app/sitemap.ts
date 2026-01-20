@@ -11,7 +11,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/wiki',
         '/uyumluluk-testi',
         '/maliyet-hesaplayici',
-        '/zafiyet-tarama',
         '/analiz',
     ].map((route) => ({
         url: `${baseUrl}${route}`,
