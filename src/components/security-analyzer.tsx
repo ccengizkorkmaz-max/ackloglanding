@@ -67,6 +67,10 @@ export default function SecurityAnalyzerComponent() {
     const [showSolutionModal, setShowSolutionModal] = useState(false)
     const [isRequestingSupport, setIsRequestingSupport] = useState(false)
 
+    // Success Modal State
+    const [showSuccessModal, setShowSuccessModal] = useState(false)
+    const [successMessage, setSuccessMessage] = useState({ title: '', message: '' })
+
     // Auto-run analysis on mount
     useEffect(() => {
         startAnalysis();
@@ -92,14 +96,16 @@ export default function SecurityAnalyzerComponent() {
                     setIsAnalyzing(false)
                 }, 1500)
             } else {
-                alert(res.message || "Hata oluştu.")
+                setSuccessMessage({ title: 'Hata', message: res.message || "Hata oluştu." })
+                setShowSuccessModal(true)
                 setIsAnalyzing(false)
                 clearInterval(stepInterval)
             }
         } catch (e) {
             setIsAnalyzing(false)
             clearInterval(stepInterval)
-            alert("Bağlantı hatası.")
+            setSuccessMessage({ title: 'Bağlantı Hatası', message: "Sunucu ile iletişim kurulamadı." })
+            setShowSuccessModal(true)
         }
     }
 
@@ -109,13 +115,19 @@ export default function SecurityAnalyzerComponent() {
         try {
             const res = await saveAnalysisLead({ ...leadData, target })
             if (res.success) {
-                alert("Rapor talebiniz alındı. E-posta adresinizi kontrol edin.")
+                setSuccessMessage({
+                    title: 'Talebiniz Alındı',
+                    message: "Rapor talebiniz başarıyla alındı. E-posta adresinizi kontrol edin."
+                })
+                setShowSuccessModal(true)
                 setShowLeadModal(false)
             } else {
-                alert(res.message)
+                setSuccessMessage({ title: 'Hata', message: res.message || "Bir hata oluştu" })
+                setShowSuccessModal(true)
             }
         } catch (e) {
-            alert("Sunucu hatası.")
+            setSuccessMessage({ title: 'Hata', message: "Sunucu hatası." })
+            setShowSuccessModal(true)
         } finally {
             setIsSubmitting(false)
         }
@@ -133,13 +145,19 @@ export default function SecurityAnalyzerComponent() {
                 context: solutionContent?.scenario
             })
             if (res.success) {
-                alert("Destek talebiniz alındı. Mühendislerimiz sizinle iletişime geçecektir.")
+                setSuccessMessage({
+                    title: 'Destek Talebi Başarılı',
+                    message: "Destek talebiniz alındı. Mühendislerimiz sizinle iletişime geçecektir."
+                })
+                setShowSuccessModal(true)
                 setShowSolutionModal(false)
             } else {
-                alert(res.message)
+                setSuccessMessage({ title: 'Hata', message: res.message || "Bir hata oluştu" })
+                setShowSuccessModal(true)
             }
         } catch (e) {
-            alert("Sunucu hatası.")
+            setSuccessMessage({ title: 'Hata', message: "Sunucu hatası." })
+            setShowSuccessModal(true)
         } finally {
             setIsRequestingSupport(false)
         }
@@ -444,7 +462,7 @@ export default function SecurityAnalyzerComponent() {
                                                     onClick={() => openSolution('cve', vuln)}
                                                     className="border-cyan-500/30 text-cyan-400 text-xs hover:bg-cyan-500/10 h-8"
                                                 >
-                                                    LogSIEM ile İzle
+                                                    ACKLog ile İzle
                                                 </Button>
                                             </div>
                                         ))}
@@ -646,6 +664,28 @@ export default function SecurityAnalyzerComponent() {
                                 <Download className="h-4 w-4 mr-2" /> Dökümanı İndir
                             </Button>
                         </div>
+                    </div>
+                </DialogContent>
+            </Dialog>
+
+            {/* Success Modal */}
+            <Dialog open={showSuccessModal} onOpenChange={setShowSuccessModal}>
+                <DialogContent className="bg-slate-950 border-slate-800 text-white sm:max-w-md">
+                    <DialogHeader>
+                        <DialogTitle className="flex items-center gap-2 text-cyan-400">
+                            <CheckCircle2 className="h-5 w-5" /> {successMessage.title}
+                        </DialogTitle>
+                        <DialogDescription className="text-slate-300 pt-2">
+                            {successMessage.message}
+                        </DialogDescription>
+                    </DialogHeader>
+                    <div className="flex justify-end pt-4">
+                        <Button
+                            onClick={() => setShowSuccessModal(false)}
+                            className="bg-cyan-600 hover:bg-cyan-500 text-white font-bold"
+                        >
+                            Tamam
+                        </Button>
                     </div>
                 </DialogContent>
             </Dialog>
