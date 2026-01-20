@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         title: `${data.title} | ACKLOG Siber Güvenlik Kütüphanesi`,
         description: (data as any).description || data.content.substring(0, 160).replace(/<[^>]*>?/g, '').trim() + "...",
         alternates: {
-            canonical: `https://acklog.com.tr/wiki/${slug}`,
+            canonical: `https://logsiem.com/wiki/${slug}`,
         }
     };
 }

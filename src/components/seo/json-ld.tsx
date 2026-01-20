@@ -14,8 +14,8 @@ export const organizationSchema: WithContext<Organization> = {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "ACKLOG SIEM",
-    "url": "https://acklog.com.tr",
-    "logo": "https://acklog.com.tr/logo.png",
+    "url": "https://logsiem.com",
+    "logo": "https://logsiem.com/logo.png",
     "sameAs": [
         "https://twitter.com/acklog",
         "https://linkedin.com/company/acklog"

@@ -1,7 +1,8 @@
 import { MetadataRoute } from 'next';
+import { articles } from '@/data/wiki-content';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = 'https://acklog.com.tr';
+    const baseUrl = 'https://logsiem.com';
 
     // Ana sayfalar
     const routes = [
@@ -15,19 +16,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: route === '' ? 1 : 0.8,
     }));
 
-    // Wiki makaleleri (Dinamik hale getirilecekse makale listesi buraya eklenebilir)
-    const wikiSlugs = [
-        'siem-nedir',
-        'log-yonetimi-nedir',
-        'soc-nedir',
-        'threat-hunting-nedir',
-        'kvkk-ve-log-uyumluluk',
-        'siem-vs-log-yonetimi',
-        'qradar-alternatifi',
-        'siber-terimler-sozlugu',
-    ];
-
-    const wikiRoutes = wikiSlugs.map((slug) => ({
+    // Tüm Wiki makalelerini dinamik olarak ekle
+    const wikiRoutes = Object.keys(articles).map((slug) => ({
         url: `${baseUrl}/wiki/${slug}`,
         lastModified: new Date(),
         changeFrequency: 'monthly' as const,

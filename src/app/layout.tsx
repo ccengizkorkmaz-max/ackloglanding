@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "tr_TR",
-    url: "https://acklog.com.tr",
+    url: "https://logsiem.com",
     title: "ACKLOG: Türkiye'nin Yeni Nesil SIEM ve USO Platformu",
     description: "QRadar, Logsign ve Cryptech deneyiminizi bir üst seviyeye taşıyın. Tek platform, tam otomasyon.",
     siteName: "ACKLOG SIEM",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   alternates: {
-    canonical: "https://acklog.com.tr",
+    canonical: "https://logsiem.com",
   }
 };
 

@@ -14,12 +14,12 @@ export const metadata: Metadata = {
         "KVKK raporlama araçları"
     ],
     alternates: {
-        canonical: "https://acklog.com.tr/ozellikler",
+        canonical: "https://logsiem.com/ozellikler",
     },
     openGraph: {
         title: "ACKLOG SIEM & USO Teknik Yetenekleri",
         description: "Siber dayanıklılığınızı artıran yeni nesil SIEM özelliklerini inceleyin.",
-        url: "https://acklog.com.tr/ozellikler",
+        url: "https://logsiem.com/ozellikler",
         type: "website",
     }
 };
