@@ -654,22 +654,6 @@ export default function SecurityAnalyzerComponent() {
                             </div>
                         </div>
 
-                        {/* Footer Section */}
-                        <div className="bg-slate-900/80 p-6 flex flex-col sm:flex-row gap-4 border-t border-white/5">
-                            <Button
-                                variant="outline"
-                                className="flex-1 border-slate-700 text-slate-400 hover:text-white h-12 rounded-xl text-xs uppercase font-bold tracking-widest"
-                                onClick={() => {
-                                    setSuccessMessage({
-                                        title: 'Bilgilendirme',
-                                        message: "Yapılandırma dokümanı hazırlanıyor..."
-                                    })
-                                    setShowSuccessModal(true)
-                                }}
-                            >
-                                <Download className="h-4 w-4 mr-2" /> Dökümanı İndir
-                            </Button>
-                        </div>
                     </div>
                 </DialogContent>
             </Dialog>
