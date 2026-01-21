@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, List } from "lucide-react";
+import { ArrowLeft, ArrowRight, List, BadgeCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 import { DemoModal } from "@/components/demo-modal";
@@ -67,6 +67,20 @@ export function WikiClient({ slug, data, otherArticles }: WikiClientProps) {
                         <header className="mb-12">
                             <span className="text-primary font-mono text-sm mb-2 block uppercase tracking-widest text-[10px] font-bold">Kütüphane &bull; Makale</span>
                             <h1 className="text-3xl md:text-5xl font-bold leading-tight text-white mb-6">{data.title}</h1>
+
+                            <div className="flex items-center gap-3 mb-6">
+                                <div className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-lg">
+                                    FE
+                                </div>
+                                <div>
+                                    <div className="text-white font-bold flex items-center gap-2">
+                                        Fatih Emiral
+                                        <BadgeCheck className="w-4 h-4 text-blue-400" />
+                                    </div>
+                                    <div className="text-xs text-gray-400">IT Müdürü & Siber Güvenlik Uzmanı</div>
+                                </div>
+                            </div>
+
                             <div className="h-1 w-20 bg-blue-600 rounded-full" />
                         </header>
 
