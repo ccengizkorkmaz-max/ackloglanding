@@ -5,8 +5,35 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Button } from "./ui/button";
 import { ArrowRight, ShieldCheck, Shield, Activity, Globe, Zap, Lock } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { DemoModal } from "./demo-modal";
+
+const logs = [
+    "[INFO] System ready. Agent connection established (10.2.1.5)",
+    "[WARN] Brute force attempt detected (User: admin) - Blocked",
+    "[CRIT] Malware signature prevented: Ransom.Wry",
+    "[INFO] Log ingestion rate: 4500 EPS - Processing",
+    "[SUCCESS] Daily compliance report generated detected",
+    "[INFO] Threat Intelligence feed updated: +150 IOCs",
+    "[WARN] Port scan detected from external IP (192.168.x.x)"
+];
+
+function LogTicker() {
+    const [index, setIndex] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setIndex((prev) => (prev + 1) % logs.length);
+        }, 2000);
+        return () => clearInterval(interval);
+    }, []);
+
+    return (
+        <span className="text-[10px] font-mono tracking-wide text-green-400/90 min-w-[280px] text-left">
+            {logs[index]}
+        </span>
+    );
+}
 
 export function Hero() {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -37,13 +64,11 @@ export function Hero() {
                             className="lg:col-span-6 flex flex-col gap-4 text-center lg:text-left"
                         >
                             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/80 border border-white/10 w-fit mx-auto lg:mx-0 backdrop-blur-md">
-                                <span className="relative flex h-2 w-2">
-                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                                    <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                                <span className="relative flex h-2 w-2 flex-shrink-0">
+                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
+                                    <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
                                 </span>
-                                <span className="text-[10px] font-bold tracking-widest uppercase text-primary-foreground/90">
-                                    USO Platformu &bull; v2.0 Live
-                                </span>
+                                <LogTicker />
                             </div>
 
                             <div className="flex justify-center lg:justify-start -mb-4">

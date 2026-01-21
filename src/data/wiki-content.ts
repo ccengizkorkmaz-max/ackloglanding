@@ -1,51 +1,162 @@
 export const articles: Record<string, { title: string; description?: string; content: string }> = {
   "siem-nedir": {
-    title: "SIEM Nedir? Siber Güvenliğin Merkezi Sinir Sistemi",
-    description: "SIEM nedir, nasıl çalışır? Siber güvenliğin temeli SIEM teknolojisinin 3 temel adımını, KVKK uyumluluğunu ve yeni nesil ACKLOG SIEM avantajlarını keşfedin.",
+    title: "SIEM Nedir? Kapsamlı Rehber (2026)",
+    description: "SIEM (Security Information and Event Management) nedir? Çalışma mantığı, bileşenleri, SOC ile ilişkisi ve KVKK uyumluluğu hakkında en kapsamlı Türkçe rehber.",
     content: `
-      <h2>SIEM (Security Information and Event Management) Kavramı</h2>
+      <div class="bg-blue-50/5 border border-blue-500/20 p-6 rounded-xl mb-8">
+        <h3 class="text-lg font-bold text-blue-400 mt-0">Bu Rehberde Neler Var?</h3>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-2 mt-4 text-sm text-muted-foreground">
+            <li><a href="#siem-nedir" class="hover:text-blue-400 transition-colors">1. SIEM Nedir ve Neden Önemlidir?</a></li>
+            <li><a href="#nasil-calisir" class="hover:text-blue-400 transition-colors">2. SIEM Nasıl Çalışır? (3 Temel Adım)</a></li>
+            <li><a href="#siem-bilesenleri" class="hover:text-blue-400 transition-colors">3. SIEM Bileşenleri ve Mimarisi</a></li>
+            <li><a href="#siem-vs-log" class="hover:text-blue-400 transition-colors">4. SIEM vs Log Yönetimi Farkları</a></li>
+            <li><a href="#soc-iliskisi" class="hover:text-blue-400 transition-colors">5. SOC ve SIEM İlişkisi</a></li>
+            <li><a href="#kurumsal-fayadalar" class="hover:text-blue-400 transition-colors">6. Kurumlar İçin 5 Kritik Fayda</a></li>
+            <li><a href="#kvkk-uyumluluk" class="hover:text-blue-400 transition-colors">7. KVKK, 5651 ve Yasal Zorunluluklar</a></li>
+            <li><a href="#acklog-farki" class="hover:text-blue-400 transition-colors">8. ACKLOG: Yeni Nesil SIEM Yaklaşımı</a></li>
+        </ul>
+      </div>
+
+      <h2 id="siem-nedir">1. SIEM (Security Information and Event Management) Nedir?</h2>
       <p>
-        Siber saldırıların karmaşıklaştığı günümüzde, geleneksel güvenlik duvarları ve antivirüs yazılımları yetersiz kalmaktadır. 
-        <strong>SIEM (Security Information and Event Management)</strong>, yani Güvenlik Bilgi ve Olay Yönetimi, bu noktada devreye girerek
-        kurum genelindeki tüm güvenlik verilerini tek bir merkezde toplar, analiz eder ve anlamlandırır.
+        <strong>SIEM (Güvenlik Bilgileri ve Olay Yönetimi)</strong>, kurumların BT altyapısındaki tüm varlıklardan (sunucular, güvenlik duvarları, ağ cihazları, uygulamalar vb.) gelen 
+        log (kayıt) verilerini merkezi bir noktada toplayan, analiz eden ve güvenlik tehditlerini gerçek zamanlı olarak tespit eden bir siber güvenlik teknolojisidir.
       </p>
-
-      <h3>SIEM Nasıl Çalışır? 3 Temel Adım</h3>
-      <ul class="list-disc pl-6 space-y-2 mb-6 text-muted-foreground">
-        <li>
-          <strong>Veri Toplama (Collection):</strong> Sunucular, ağ cihazları, uygulamalar ve uç nokta (endpoint) cihazlarından log kayıtlarını toplar.
-        </li>
-        <li>
-          <strong>Korelasyon (Correlation):</strong> Farklı kaynaklardan gelen verileri ilişkilendirir. Örneğin; "5 dakika içinde 100 başarısız giriş denemesi" ile "Aynı IP'den veritabanına erişim" olaylarını birleştirir.
-        </li>
-        <li>
-          <strong>Alarm ve Müdahale (Alerting):</strong> Kritik bir tehdit algılandığında güvenlik ekibine (SOC) anlık bildirim gönderir.
-        </li>
-      </ul>
-
-      <h3>Neden SIEM Kullanmalısınız?</h3>
       <p>
-        SIEM teknolojisi sadece bir log deposu değildir; bir <strong>Güvenlik Zekası</strong> çözümüdür.
-        Özellikle <strong>KVKK</strong> ve <strong>5651</strong> sayılı kanunlara uyumluluk süreçlerinde, kimin, ne zaman, hangi veriye eriştiğini kanıtlamak için SIEM kullanımı kritiktir.
+        Günümüzde siber saldırıların karmaşıklığı artarken, geleneksel güvenlik önlemleri (Antivirüs, Firewall) tek başına yeterli olamamaktadır. 
+        SIEM, bir orkestra şefi gibi tüm bu güvenlik araçlarından gelen sinyalleri birleştirir ve büyük resmi görmenizi sağlar.
       </p>
-
-      <blockquote>
-        "Gartner'a göre, modern tehditlerin tespit edilme süresi ortalama 200 gündür. Etkili bir SIEM çözümü ile bu süre dakikalara inebilir."
+      <blockquote className="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        "Gartner'a göre SIEM, tehdit algılama, uyumluluk ve güvenlik operasyonları yönetimi için kritik bir altyapı bileşenidir."
       </blockquote>
 
-      <h3>Modern SIEM Çözümlerinde Olması Gereken Özellikler</h3>
-      <p>Eski nesil hantal SIEM'lerin aksine, <strong>ACKLOG</strong> gibi yeni nesil çözümler şu özellikleri sunmalıdır:</p>
-      <ul class="list-disc pl-6 space-y-2 mb-6">
-        <li><strong>Gerçek Zamanlı Analiz:</strong> Logları diske yazmadan, RAM üzerinde analiz edebilme (In-memory computing).</li>
-        <li><strong>Yapay Zeka Deseği:</strong> Anomali tespiti için makine öğrenmesi (UEBA).</li>
-        <li><strong>Sınırsız Ölçeklenebilirlik:</strong> Veri hacmi arttığında performans kaybı yaşanmaması.</li>
+      <h2 id="nasil-calisir">2. SIEM Nasıl Çalışır? (3 Temel Adım)</h2>
+      <p>SIEM teknolojisi karmaşık görünse de, temel çalışma prensibi üç ana aşamaya dayanır:</p>
+
+      <div class="grid gap-6 md:grid-cols-3 my-8">
+        <div class="p-6 bg-slate-800/50 rounded-lg border border-slate-700">
+            <div class="text-3xl mb-4">📥</div>
+            <h4 class="font-bold text-white mt-0">1. Veri Toplama (Collection)</h4>
+            <p class="text-sm text-gray-400 mb-0">Agent veya Agentless yöntemlerle tüm cihazlardan loglar ham formatta toplanır.</p>
+        </div>
+        <div class="p-6 bg-slate-800/50 rounded-lg border border-slate-700">
+            <div class="text-3xl mb-4">🧠</div>
+            <h4 class="font-bold text-white mt-0">2. Normalizasyon & Korelasyon</h4>
+            <p class="text-sm text-gray-400 mb-0">Farklı formatlardaki veriler standart hale getirilir ve yapay zeka ile ilişkilendirilir.</p>
+        </div>
+        <div class="p-6 bg-slate-800/50 rounded-lg border border-slate-700">
+            <div class="text-3xl mb-4">🚨</div>
+            <h4 class="font-bold text-white mt-0">3. Alarm & Müdahale</h4>
+            <p class="text-sm text-gray-400 mb-0">Şüpheli bir aktivite (örn: Brute Force) tespit edildiğinde SOC ekibine alarm üretilir.</p>
+        </div>
+      </div>
+
+      <h2 id="siem-bilesenleri">3. Temel SIEM Bileşenleri</h2>
+      <ul class="list-disc pl-6 space-y-4 mb-8 text-muted-foreground">
+        <li><strong>Log Collector:</strong> Kaynaklardan veriyi toplayan birim.</li>
+        <li><strong>Parser:</strong> Ham log verisini (Raw Data) okunabilir alanlara (Username, IP, URL vb.) ayıran yazılım.</li>
+        <li><strong>Correlation Engine (Korelasyon Motoru):</strong> "Eğer X ve Y olayları 5 dakika içinde olursa Z alarmını üret" mantığını işleyen SIEM'in beyni.</li>
+        <li><strong>In-Memory Database:</strong> Modern SIEM'lerin (örneğin ACKLOG) hız için kullandığı, veriyi RAM üzerinde işleyen veritabanı yapısı.</li>
       </ul>
+
+      <h2 id="siem-vs-log">4. SIEM ve Log Yönetimi Arasındaki Farklar</h2>
+      <p>
+        Sıkça karıştırılan bu iki kavram arasındaki farkı anlamak, doğru yatırımı yapmak için kritiktir. 
+        Detaylı karşılaştırma için <a href="/wiki/siem-vs-log-yonetimi" class="text-blue-400 hover:underline font-bold">SIEM vs Log Yönetimi</a> makalemizi inceleyebilirsiniz.
+      </p>
+      <div class="overflow-x-auto my-6 border rounded-lg">
+        <table class="w-full text-sm text-left">
+          <thead class="bg-muted/50 text-muted-foreground uppercase">
+            <tr>
+              <th class="px-6 py-3">Özellik</th>
+              <th class="px-6 py-3">Log Yönetimi</th>
+              <th class="px-6 py-3">SIEM</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b">
+              <td class="px-6 py-4 font-medium">Temel Amaç</td>
+              <td class="px-6 py-4">Depolama & Arama</td>
+              <td class="px-6 py-4">Tehdit Yakalama & Analiz</td>
+            </tr>
+            <tr class="border-b">
+              <td class="px-6 py-4 font-medium">Zamanlama</td>
+              <td class="px-6 py-4">Geçmişe Dönük (Forensic)</td>
+              <td class="px-6 py-4">Gerçek Zamanlı (Real-time)</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 font-medium">Zeka</td>
+              <td class="px-6 py-4">Yok</td>
+              <td class="px-6 py-4">Korelasyon & UEBA</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="soc-iliskisi">5. SOC (Security Operations Center) ve SIEM İlişkisi</h2>
+      <p>
+        SIEM bir araç, SOC (Güvenlik Operasyon Merkezi) ise bu aracı kullanan ekiptir. Bir F1 aracını (SIEM) sürecek pilotlar (SOC Analistleri) olmadan yarış kazanılamaz.
+        SOC ekipleri, SIEM'den gelen alarmları analiz eder, yanlış alarmları (False Positive) eler ve gerçek tehditlere müdahale eder.
+        <br/><br/>
+        Daha fazlası için: <a href="/wiki/soc-nedir" class="text-blue-400 hover:underline font-bold">SOC Nedir ve Nasıl Kurulur?</a>
+      </p>
+
+      <h2 id="kurumsal-fayadalar">6. Kurumlar İçin 5 Kritik Fayda</h2>
+      <ol class="list-decimal pl-6 space-y-4 mb-8 text-muted-foreground">
+        <li><strong>Görünürlük Artışı:</strong> Ağınızdaki kör noktaları ortadan kaldırır. Kim, nereye, ne zaman bağlandı? sorularına anında cevap verir.</li>
+        <li><strong>Erken Tehdit Tespiti:</strong> Fidye yazılımları (Ransomware) verilerinizi şifrelemeye başlamadan önce, ilk sızma girişiminde tespit edilebilir.</li>
+        <li><strong>Operasyonel Verimlilik:</strong> Güvenlik ekiplerinin manuel log inceleme yükünü ortadan kaldırır.</li>
+        <li><strong>Adli Bilişim (Forensics):</strong> Bir olay yaşandığında, saldırının kök nedenini (Root Cause Analysis) bulmak için değiştirilemez delil sunar.</li>
+        <li><strong>Yasal Uyumluluk:</strong> Düzenleyici kurumların istediği raporları otomatik üretir.</li>
+      </ol>
+
+      <h2 id="kvkk-uyumluluk">7. KVKK, 5651 ve Yasal Zorunluluklar</h2>
+      <p>
+        Türkiye'de faaliyet gösteren kurumlar için log toplama sadece güvenlik değil, hukuki bir zorunluluktur.
+        <strong>KVKK (Kişisel Verilerin Korunması Kanunu)</strong>, veri sorumlularının "teknik tedbirler" almasını şart koşar. 
+        Log kayıtlarının değiştirilemezliği (Hashing) ve zaman damgası (Time Stamping) ile saklanması kritik önem taşır.
+        <br/><br/>
+        Detaylı bilgi: <a href="/wiki/kvkk-ve-log-uyumluluk" class="text-blue-400 hover:underline font-bold">KVKK ve Log Uyumluluğu Rehberi</a>
+      </p>
+
+      <h2 id="acklog-farki">8. Neden ACKLOG? Yeni Nesil SIEM Yaklaşımı</h2>
+      <p>
+        Geleneksel SIEM'lerin hantallığı, yüksek lisans maliyetleri ve karmaşık yönetim süreçleri artık sürdürülebilir değil.
+        <strong>ACKLOG</strong>, bu sorunları çözmek için geliştirilmiş yerli ve milli bir SIEM çözümüdür.
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-6 mt-8 mb-12">
+        <div class="p-5 border border-green-500/20 bg-green-900/10 rounded-xl">
+          <h4 class="text-green-400 font-bold mt-0">🚀 Hız</h4>
+          <p class="text-sm mb-0">In-memory teknolojisi ile saniyede binlerce logu işler, sorgulara milisaniyeler içinde yanıt verir.</p>
+        </div>
+        <div class="p-5 border border-blue-500/20 bg-blue-900/10 rounded-xl">
+          <h4 class="text-blue-400 font-bold mt-0">💰 Maliyet</h4>
+          <p class="text-sm mb-0">EPS (Saniye Başına Olay) limiti olmayan şeffaf lisanslama. Log hacminiz artsa da faturanız sürpriz yapmaz.</p>
+        </div>
+        <div class="p-5 border border-purple-500/20 bg-purple-900/10 rounded-xl">
+          <h4 class="text-purple-400 font-bold mt-0">🇹🇷 Yerli Mevzuat</h4>
+          <p class="text-sm mb-0">TÜBİTAK Zaman Damgası entegrasyonu ve KVKK uyumluluk raporları kutudan çıktığı gibi hazırdır.</p>
+        </div>
+        <div class="p-5 border border-orange-500/20 bg-orange-900/10 rounded-xl">
+          <h4 class="text-orange-400 font-bold mt-0">⚡ Kolay Kurulum</h4>
+          <p class="text-sm mb-0">Aylar süren projeler yerine, dakikalar içinde kurulan ve hemen sonuç veren yapı.</p>
+        </div>
+      </div>
+
+      <p>
+        Eğer hala Excel tablolarında log inceliyor veya hantal SIEM ürünlerine servet ödüyorsanız, değişim zamanı gelmiştir.
+        Global devlere (<a href="/wiki/qradar-alternatifi" class="text-blue-400 hover:underline">QRadar Alternatifi</a>) kafa tutan ACKLOG performansını kendi gözlerinizle görün.
+      </p>
     `
   },
   "log-yonetimi-nedir": {
     title: "Log Yönetimi ve Regülasyon Uyumluluğu (KVKK & 5651)",
     description: "5651 ve KVKK kapsamında log yönetimi neden zorunlu? Zaman damgası, log imzalama ve yasal uyumluluk için ACKLOG rehberini inceleyin.",
     content: `
+      <p class="mb-6 bg-blue-50/5 p-4 rounded-lg border border-blue-500/10 text-sm">
+        ℹ️ <strong>Bilgi:</strong> Bu makale, kapsamlı <a href="/wiki/siem-nedir" class="text-blue-400 hover:underline">SIEM ve Log Yönetimi Rehberi</a>'nin bir parçasıdır.
+      </p>
       <h2>Log Yönetimi Nedir?</h2>
       <p>
         Bilişim sistemlerinde oluşan her türlü işlemin (olayın) kayıt altına alınmasına loglama denir. 
@@ -85,6 +196,9 @@ export const articles: Record<string, { title: string; description?: string; con
     title: "SOC (Security Operations Center) Nedir? Kurulum Rehberi",
     description: "SOC nedir ve nasıl kurulur? Güvenlik Operasyon Merkezi ekiplerinin görevleri, kritik teknolojiler ve ACKLOG ile SOC operasyonlarını hızlandırma yöntemleri.",
     content: `
+      <p class="mb-6 bg-blue-50/5 p-4 rounded-lg border border-blue-500/10 text-sm">
+        ℹ️ <strong>Bilgi:</strong> SOC ekiplerinin kullandığı temel teknoloji için <a href="/wiki/siem-nedir" class="text-blue-400 hover:underline">SIEM Nedir?</a> rehberimize göz atabilirsiniz.
+      </p>
       <h2>SOC: Güvenlik Operasyon Merkezi</h2>
       <p>
         <strong>SOC (Security Operations Center)</strong>, bir kurumun bilgi güvenliği olaylarını sürekli izleyen, analiz eden ve müdahale eden merkezi birimdir.
@@ -96,6 +210,15 @@ export const articles: Record<string, { title: string; description?: string; con
         <li><strong>L1 Analist (Triage):</strong> Gelen alarmları ilk karşılayan, yanlış alarmları (false positive) eleyen ekiptir.</li>
         <li><strong>L2 Analist (Incident Response):</strong> Gerçek tehditleri derinlemesine inceleyen ve müdahale sürecini başlatan ekiptir.</li>
         <li><strong>L3 Analist (Threat Hunter):</strong> Henüz alarma dönüşmemiş gizli tehditleri ağda proaktif olarak arayan uzmanlardır.</li>
+      </ul>
+
+      <h3>Modern SIEM Çözümlerinde Olması Gereken Özellikler</h3>
+      <p>Eski nesil hantal SIEM'lerin aksine, <a href="/" class="text-blue-400 hover:underline font-bold">ACKLOG</a> gibi yeni nesil çözümler şu özellikleri sunmalıdır:</p>
+      <ul class="list-disc pl-6 space-y-2 mb-6">
+        <li><strong>Gerçek Zamanlı Analiz:</strong> Logları diske yazmadan, RAM üzerinde analiz edebilme (In-memory computing).</li>
+        <li><strong>Yapay Zeka ve Makine Öğrenimi:</strong> Anormal davranışları ve bilinmeyen tehditleri tespit edebilme (UEBA).</li>
+        <li><strong>Ölçeklenebilirlik:</strong> Artan veri hacmine kolayca adapte olabilme.</li>
+        <li><strong>Kullanıcı Dostu Arayüz:</strong> Analistlerin hızlı ve etkili çalışmasını sağlayan sezgisel bir platform.</li>
       </ul>
 
       <h3>SOC Kurulumunda Kritik Teknolojiler</h3>
@@ -159,6 +282,9 @@ export const articles: Record<string, { title: string; description?: string; con
     title: "KVKK ve Log Uyumluluğu: Yasal Zorunluluklar",
     description: "KVKK ve 5651 sayılı kanun kapsamındaki log yönetimi yükümlülüklerinizi öğrenin. TÜBİTAK zaman damgası ve ACKLOG ile tam uyumluluk sağlayın.",
     content: `
+      <p class="mb-6 bg-yellow-500/10 p-4 rounded-lg border border-yellow-500/20 text-sm text-yellow-200">
+        ⚠️ <strong>Yasal Uyarı:</strong> Bu rehber bilgilendirme amaçlıdır. SIEM sistemlerinin yasal uyumluluktaki rolü için <a href="/wiki/siem-nedir#kvkk-uyumluluk" class="text-yellow-400 hover:underline font-bold">SIEM ve KVKK</a> bölümünü inceleyin.
+      </p>
       <h2>KVKK ve 5651 Sayılı Kanun Kapsamında Log Yönetimi</h2>
       <p>
         Türkiye'de faaliyet gösteren her kurum, dijital ayak izlerini yasalara uygun şekilde saklamakla yükümlüdür. 

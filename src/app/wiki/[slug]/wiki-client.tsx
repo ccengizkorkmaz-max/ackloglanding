@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, List } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { DemoModal } from "@/components/demo-modal";
 
 interface WikiClientProps {
@@ -15,8 +15,44 @@ interface WikiClientProps {
     otherArticles: [string, { title: string }][];
 }
 
+interface TocItem {
+    id: string;
+    text: string;
+    level: number;
+}
+
 export function WikiClient({ slug, data, otherArticles }: WikiClientProps) {
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [toc, setToc] = useState<TocItem[]>([]);
+
+    useEffect(() => {
+        // Parse content for H2 and H3 to generate Table of Contents
+        const container = document.getElementById('wiki-content');
+        if (!container) return;
+
+        const headers = container.querySelectorAll('h2, h3');
+        const items: TocItem[] = [];
+
+        headers.forEach((header, index) => {
+            // Generate ID if missing
+            if (!header.id) {
+                const text = header.textContent || '';
+                const id = text
+                    .toLowerCase()
+                    .replace(/[^a-z0-9]+/g, '-')
+                    .replace(/(^-|-$)/g, '');
+                header.id = id || `section-${index}`;
+            }
+
+            items.push({
+                id: header.id,
+                text: header.textContent || '',
+                level: Number(header.tagName.substring(1)),
+            });
+        });
+
+        setToc(items);
+    }, [data.content]);
 
     return (
         <article className="min-h-screen bg-background py-24">
@@ -34,7 +70,7 @@ export function WikiClient({ slug, data, otherArticles }: WikiClientProps) {
                             <div className="h-1 w-20 bg-blue-600 rounded-full" />
                         </header>
 
-                        <div className="prose prose-invert prose-lg max-w-none prose-headings:text-white prose-p:text-gray-400 prose-strong:text-white prose-a:text-blue-400">
+                        <div id="wiki-content" className="prose prose-invert prose-lg max-w-none prose-headings:text-white prose-p:text-gray-400 prose-strong:text-white prose-a:text-blue-400 prose-headings:scroll-mt-24">
                             {/* Render HTML Content */}
                             <div dangerouslySetInnerHTML={{ __html: data.content }} />
                         </div>
@@ -57,6 +93,29 @@ export function WikiClient({ slug, data, otherArticles }: WikiClientProps) {
                     {/* Sidebar */}
                     <aside className="lg:col-span-1">
                         <div className="sticky top-32 space-y-8">
+
+                            {/* Table of Contents */}
+                            {toc.length > 0 && (
+                                <div className="hidden lg:block">
+                                    <h3 className="text-sm font-bold uppercase tracking-widest text-gray-500 mb-6 flex items-center gap-2">
+                                        <List className="w-4 h-4" />
+                                        İçindekiler
+                                    </h3>
+                                    <nav className="space-y-1 border-l border-white/10 pl-4">
+                                        {toc.map((item) => (
+                                            <a
+                                                key={item.id}
+                                                href={`#${item.id}`}
+                                                className={`block text-sm py-1 transition-colors hover:text-blue-400 ${item.level === 3 ? 'pl-4 text-gray-500' : 'text-gray-300'
+                                                    }`}
+                                            >
+                                                {item.text}
+                                            </a>
+                                        ))}
+                                    </nav>
+                                </div>
+                            )}
+
                             <div>
                                 <h3 className="text-sm font-bold uppercase tracking-widest text-gray-500 mb-6 flex items-center gap-2">
                                     <span className="w-1 h-4 bg-blue-600 rounded-full" />
