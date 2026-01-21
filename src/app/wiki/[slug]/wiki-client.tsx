@@ -11,6 +11,11 @@ interface WikiClientProps {
     data: {
         title: string;
         content: string;
+        author?: {
+            name: string;
+            title: string;
+            initials: string;
+        }
     };
     otherArticles: [string, { title: string }][];
 }
@@ -24,6 +29,10 @@ interface TocItem {
 export function WikiClient({ slug, data, otherArticles }: WikiClientProps) {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [toc, setToc] = useState<TocItem[]>([]);
+
+    const authorName = data.author?.name || "Fatih Emiral";
+    const authorTitle = data.author?.title || "IT Müdürü & Siber Güvenlik Uzmanı";
+    const authorInitials = data.author?.initials || "FE";
 
     useEffect(() => {
         // Parse content for H2 and H3 to generate Table of Contents
@@ -70,14 +79,14 @@ export function WikiClient({ slug, data, otherArticles }: WikiClientProps) {
 
                             <div className="flex items-center gap-3 mb-6">
                                 <div className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-lg">
-                                    FE
+                                    {authorInitials}
                                 </div>
                                 <div>
                                     <div className="text-white font-bold flex items-center gap-2">
-                                        Fatih Emiral
+                                        {authorName}
                                         <BadgeCheck className="w-4 h-4 text-blue-400" />
                                     </div>
-                                    <div className="text-xs text-gray-400">IT Müdürü & Siber Güvenlik Uzmanı</div>
+                                    <div className="text-xs text-gray-400">{authorTitle}</div>
                                 </div>
                             </div>
 
@@ -120,6 +129,12 @@ export function WikiClient({ slug, data, otherArticles }: WikiClientProps) {
                                             <a
                                                 key={item.id}
                                                 href={`#${item.id}`}
+                                                onClick={(e) => {
+                                                    e.preventDefault();
+                                                    document.getElementById(item.id)?.scrollIntoView({
+                                                        behavior: 'smooth'
+                                                    });
+                                                }}
                                                 className={`block text-sm py-1 transition-colors hover:text-blue-400 ${item.level === 3 ? 'pl-4 text-gray-500' : 'text-gray-300'
                                                     }`}
                                             >

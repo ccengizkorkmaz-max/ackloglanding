@@ -1,7 +1,12 @@
-export const articles: Record<string, { title: string; description?: string; content: string }> = {
+export const articles: Record<string, { title: string; description?: string; content: string; author?: { name: string; title: string; initials: string } }> = {
   "siem-nedir": {
     title: "SIEM Nedir? Kapsamlı Rehber (2026)",
     description: "SIEM (Security Information and Event Management) nedir? Çalışma mantığı, bileşenleri, SOC ile ilişkisi ve KVKK uyumluluğu hakkında en kapsamlı Türkçe rehber.",
+    author: {
+      name: "Volkan Öztürk",
+      title: "Baş Güvenlik Mimarı",
+      initials: "VÖ"
+    },
     content: `
       <div class="bg-blue-50/5 border border-blue-500/20 p-6 rounded-xl mb-8">
         <h3 class="text-lg font-bold text-blue-400 mt-0">Bu Rehberde Neler Var?</h3>
@@ -153,6 +158,11 @@ export const articles: Record<string, { title: string; description?: string; con
   "5651-log-yonetimi-rehberi": {
     title: "5651 Sayılı Kanun Log Tutma Rehberi (2026)",
     description: "5651 sayılı kanun nedir? Belediyeler, oteller ve fabrikalar için log tutma zorunluluğu. Cezai yaptırımlar ve ACKLOG ile otomatik çözüm rehberi.",
+    author: {
+      name: "Mustafa Yılmaz",
+      title: "Yasal Uyum Danışmanı",
+      initials: "MY"
+    },
     content: `
       <div class="bg-blue-50/5 border border-blue-500/20 p-6 rounded-xl mb-8">
         <h3 class="text-lg font-bold text-blue-400 mt-0">İçindekiler</h3>
@@ -1035,7 +1045,11 @@ export const articles: Record<string, { title: string; description?: string; con
 
       <div class="mt-8 p-6 bg-blue-950/30 border border-blue-500/20 rounded-xl">
         <h4 class="text-white font-bold mb-2">Bir Sonraki Bölüm</h4>
-        <p class="text-blue-300">QRadar ve Global Devlerden ACKLOG’a Geçiş: Karmaşıklıktan Kurtulun!</p>
+        <p class="text-blue-300">
+            <a href="/wiki/qradar-ve-global-devlerden-ackloga-gecis" class="text-blue-300 hover:text-blue-200 underline transition-colors">
+                QRadar ve Global Devlerden ACKLOG’a Geçiş: Karmaşıklıktan Kurtulun!
+            </a>
+        </p>
       </div>
 
       <div class="mt-8 p-6 bg-gradient-to-r from-blue-900/40 to-slate-900/40 border border-blue-500/30 rounded-xl text-center">
@@ -1049,6 +1063,11 @@ export const articles: Record<string, { title: string; description?: string; con
   "qradar-ve-global-devlerden-ackloga-gecis": {
     title: "Bölüm 2: QRadar ve Global Devlerden ACKLOG’a Geçiş",
     description: "Karmaşıklıktan Kurtulun: Global Çözümlerden Yerli Güce Geçmek İçin 5 Neden. Global devlerden ACKLOG’a geçişi bir 'risk' değil, bir 'modernizasyon' yapan 5 kritik neden.",
+    author: {
+      name: "Caner Yılmaz",
+      title: "Kıdemli SOC Analisti",
+      initials: "CY"
+    },
     content: `
       <h2>Karmaşıklıktan Kurtulun: Global Çözümlerden Yerli Güce Geçmek İçin 5 Neden</h2>
       <p>
@@ -1118,7 +1137,11 @@ export const articles: Record<string, { title: string; description?: string; con
 
       <div class="mt-8 p-6 bg-blue-950/30 border border-blue-500/20 rounded-xl">
         <h4 class="text-white font-bold mb-2">Bir Sonraki Bölüm</h4>
-        <p class="text-blue-300">Bölüm 3: Yerli SIEM Karşılaştırması - ACKLOG vs. Diğer Yerli Çözümler.</p>
+        <p class="text-blue-300">
+             <a href="/wiki/yerli-siem-karsilastirmasi-ve-acklog-farki" class="text-blue-300 hover:text-blue-200 underline transition-colors">
+                Bölüm 3: Yerli SIEM Karşılaştırması - ACKLOG vs. Diğer Yerli Çözümler
+            </a>
+        </p>
       </div>
 
       <div class="mt-8 p-6 bg-gradient-to-r from-blue-900/40 to-slate-900/40 border border-blue-500/30 rounded-xl text-center">
@@ -1132,6 +1155,11 @@ export const articles: Record<string, { title: string; description?: string; con
   "yerli-siem-karsilastirmasi-ve-acklog-farki": {
     title: "Bölüm 3: Yerli SIEM Karşılaştırması ve ACKLOG Farkı",
     description: "Neden ACKLOG? Yerli Çözümler Arasında Neden 'Yeni Nesil' Olarak Anılıyoruz? Yerli rakiplerimizle aramızdaki keskin farklar ve karşılaştırma tablosu.",
+    author: {
+      name: "Burak Şahin",
+      title: "DevSecOps Mühendisi",
+      initials: "BŞ"
+    },
     content: `
       <h2>Neden ACKLOG? Yerli Çözümler Arasında Neden "Yeni Nesil" Olarak Anılıyoruz?</h2>
       <p>
@@ -1243,6 +1271,11 @@ export const articles: Record<string, { title: string; description?: string; con
   "hibrit-altyapilarda-log-merkeziyeti": {
     title: "Hibrit Altyapılarda Log Merkeziyeti: Neden Uyumluluk Testi Yapmalısınız?",
     description: "Karmaşık BT altyapılarında güvenlik açığı yaratan 'kör noktalar' nasıl yok edilir? 5651, KVKK ve LogSIEM uyumluluk testinin işletmenize sağladığı ROI ve güvenlik avantajları.",
+    author: {
+      name: "Mehmet Demir",
+      title: "Ağ Güvenlik Mühendisi",
+      initials: "MD"
+    },
     content: `
       <h2>Karmaşık Altyapıların Yarattığı Güvenlik Açığı</h2>
       <p>
@@ -1295,6 +1328,11 @@ export const articles: Record<string, { title: string; description?: string; con
   "dijital-ayak-izi-ve-saldiri-yuzeyi-yonetimi": {
     title: "Dijital Ayak İzi ve Saldırı Yüzeyi Yönetimi: Hackerlar Sizi Nasıl Görüyor?",
     description: "Kurumunuzun dijital dünyada bıraktığı izler siber saldırganlar için birer davetiye olabilir. EASM (Saldırı Yüzeyi Yönetimi), açık port riskleri ve ACKLog ile proaktif savunma.",
+    author: {
+      name: "Elif Kaya",
+      title: "Siber İstihbarat Uzmanı",
+      initials: "EK"
+    },
     content: `
       <h2>Hackerlar Sizi Nasıl Görüyor?</h2>
       <p>
@@ -1359,6 +1397,11 @@ export const articles: Record<string, { title: string; description?: string; con
   "siem-log-maliyetleri-nasil-dusurulur": {
     title: "SIEM ve Log Yönetiminde Gizli Maliyetler: Bütçenizi Nasıl Optimize Edersiniz?",
     description: "SIEM projelerinin 'buzdağının görünmeyen yüzü' olan donanım ve depolama maliyetlerini nasıl yönetirsiniz? EPS lisanslama tuzakları ve sıkıştırma teknolojisinin önemi.",
+    author: {
+      name: "Ayşe Çelik",
+      title: "GRC Uzmanı",
+      initials: "AÇ"
+    },
     content: `
       <h2>SIEM Maliyetlerinin Görünmeyen Yüzü: Buzdağı Etkisi</h2>
       <p>
@@ -1432,6 +1475,11 @@ export const articles: Record<string, { title: string; description?: string; con
   "zafiyet-tarama-ve-sizma-testi-farki": {
     title: "Zafiyet Tarama vs. Sızma Testi (Pentest): Fark Nedir?",
     description: "Zafiyet taraması (Vulnerability Scan) ile Sızma Testi (Pentest) arasındaki farklar nelerdir? Hangisine ne zaman ihtiyacınız var? Otomatik taramaların siber savunmadaki rolü.",
+    author: {
+      name: "Selin Arslan",
+      title: "Sızma Testi Uzmanı",
+      initials: "SA"
+    },
     content: `
       <h2>Otomasyon ve İnsan Zekası Arasındaki Fark</h2>
       <p>
@@ -1479,8 +1527,13 @@ export const articles: Record<string, { title: string; description?: string; con
     `
   },
   "neden-modern-siem": {
-    title: "Bölüm 0: Neden Modern SIEM? Güvenlik Operasyonlarında Çağ Atlayın",
+    title: "Neden Modern SIEM? Güvenlik Operasyonlarında Çağ Atlayın",
     description: "Klasik SIEM'ler artık yetersiz. Veri hacmi, hız ve yapay zeka ihtiyacı için yeni nesil teknolojilere geçiş rehberi.",
+    author: {
+      name: "Zeynep Koç",
+      title: "Adli Bilişim Uzmanı",
+      initials: "ZK"
+    },
     content: `
       <div class="bg-indigo-50/5 border border-indigo-500/20 p-6 rounded-xl mb-8">
         <h3 class="text-lg font-bold text-indigo-400 mt-0">İçindekiler</h3>
