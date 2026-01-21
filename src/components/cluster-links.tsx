@@ -14,32 +14,32 @@ const topics = [
     {
         title: "Log Yönetimi Rehberi",
         description: "5651 ve KVKK için log toplama, imzalama ve saklama standartları.",
-        href: "/wiki/log-yonetimi-nedir",
+        href: "/wiki/5651-log-yonetimi-rehberi",
         readTime: "7 dk"
     },
     {
         title: "SOC Nedir?",
         description: "Güvenlik Operasyon Merkezi kurmak için gereken süreçler ve araçlar.",
-        href: "/wiki/soc-nedir",
+        href: "/wiki/soc-kurulum-rehberi-maliyetler",
         readTime: "6 dk"
     },
     {
-        title: "Threat Hunting",
-        description: "Siber tehdit avcılığı metodolojileri ve proaktif savunma.",
-        href: "/wiki/threat-hunting-nedir",
+        title: "5651 ve Loglama Rehberi",
+        description: "İnternet yasası ve loglama zorunluluğu hakkında bilmeniz gereken her şey.",
+        href: "/wiki/5651-log-yonetimi-rehberi",
         readTime: "8 dk"
     },
     {
         title: "KVKK Uyumluluğu",
         description: "Kişisel verilerin korunması kanunu kapsamında loglama yükümlülükleri.",
-        href: "/wiki/kvkk-ve-log-uyumluluk",
-        readTime: "4 dk"
+        href: "/wiki/kvkk-siem-log-yonetimi-rehberi",
+        readTime: "6 dk"
     },
     {
-        title: "SIEM vs Log Yönetimi",
-        description: "İki kavram arasındaki farklar ve işletmeniz için doğru seçim.",
-        href: "/wiki/siem-vs-log-yonetimi",
-        readTime: "5 dk"
+        title: "Ücretsiz SIEM Tuzakları",
+        description: "Açık kaynak kodlu (Open Source) yazılımların gizli maliyet analizi.",
+        href: "/wiki/ucretsiz-siem-vs-ticari-siem",
+        readTime: "7 dk"
     }
 ];
 
@@ -66,8 +66,8 @@ export function ClusterLinks() {
                             key={idx}
                             href={topic.href}
                             className={`group p-6 rounded-xl border transition-all relative overflow-hidden ${topic.featured
-                                    ? "border-blue-500/50 bg-blue-900/10 hover:bg-blue-900/20 md:col-span-2 lg:col-span-2"
-                                    : "border-white/5 bg-white/5 hover:bg-white/10 hover:border-primary/20"
+                                ? "border-blue-500/50 bg-blue-900/10 hover:bg-blue-900/20 md:col-span-2 lg:col-span-2"
+                                : "border-white/5 bg-white/5 hover:bg-white/10 hover:border-primary/20"
                                 }`}
                         >
                             {topic.featured && (
