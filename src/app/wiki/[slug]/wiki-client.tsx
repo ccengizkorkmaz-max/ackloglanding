@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, List, BadgeCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { DemoModal } from "@/components/demo-modal";
 
 interface WikiClientProps {
@@ -28,25 +28,29 @@ interface TocItem {
 
 export function WikiClient({ slug, data, otherArticles }: WikiClientProps) {
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [toc, setToc] = useState<TocItem[]>([]);
 
     const authorName = data.author?.name || "Fatih Emiral";
     const authorTitle = data.author?.title || "IT Müdürü & Siber Güvenlik Uzmanı";
     const authorInitials = data.author?.initials || "FE";
 
-    useEffect(() => {
-        // Parse content for H2 and H3 to generate Table of Contents
-        const container = document.getElementById('wiki-content');
-        if (!container) return;
+    const { processedContent, toc } = useMemo(() => {
+        // Simple regex-based parser to inject IDs and build TOC
+        // This runs on the server/client before render, ensuring IDs are baked into the HTML
+        const headers: TocItem[] = [];
+        let content = data.content;
 
-        const headers = container.querySelectorAll('h2, h3');
-        const items: TocItem[] = [];
+        // Pattern to match h2 and h3 tags
+        // We look for existing IDs or inject new ones
+        content = content.replace(/<h([23])([^>]*)>(.*?)<\/h\1>/gi, (match, level, attrs, text) => {
+            // Check if ID exists
+            const idMatch = attrs.match(/id=["']([^"']*)["']/);
+            let id = idMatch ? idMatch[1] : null;
 
-        headers.forEach((header, index) => {
-            // Generate ID if missing
-            if (!header.id) {
-                const text = header.textContent || '';
-                const id = text
+            if (!id) {
+                // Generate ID if missing
+                id = text
+                    .replace(/<[^>]*>/g, '') // Strip HTML tags from text
+                    .trim()
                     .toLowerCase()
                     .replace(/ğ/g, 'g')
                     .replace(/ü/g, 'u')
@@ -56,18 +60,27 @@ export function WikiClient({ slug, data, otherArticles }: WikiClientProps) {
                     .replace(/ç/g, 'c')
                     .replace(/[^a-z0-9]+/g, '-')
                     .replace(/(^-|-$)/g, '');
-                header.id = id || `section-${index}`;
+
+                // Add ID to attributes
+                attrs = `${attrs} id="${id}"`;
             }
 
-            items.push({
-                id: header.id,
-                text: header.textContent || '',
-                level: Number(header.tagName.substring(1)),
+            headers.push({
+                id: id!,
+                text: text.replace(/<[^>]*>/g, ''), // Clean text for TOC display
+                level: parseInt(level)
             });
+
+            return `<h${level}${attrs}>${text}</h${level}>`;
         });
 
-        setToc(items);
+        return { processedContent: content, toc: headers };
     }, [data.content]);
+
+    // Remove the old useEffect since we process in useMemo now
+    useEffect(() => {
+        // No-op, logic moved to useMemo
+    }, []);
 
     return (
         <article className="min-h-screen bg-background py-24">
@@ -101,7 +114,7 @@ export function WikiClient({ slug, data, otherArticles }: WikiClientProps) {
 
                         <div id="wiki-content" className="prose prose-invert prose-lg max-w-none prose-headings:text-white prose-p:text-gray-400 prose-strong:text-white prose-a:text-blue-400 prose-headings:scroll-mt-24">
                             {/* Render HTML Content */}
-                            <div dangerouslySetInnerHTML={{ __html: data.content }} />
+                            <div dangerouslySetInnerHTML={{ __html: processedContent }} />
                         </div>
 
                         <div className="mt-16 p-8 bg-gradient-to-br from-primary/10 to-transparent border border-primary/20 rounded-2xl text-center">
