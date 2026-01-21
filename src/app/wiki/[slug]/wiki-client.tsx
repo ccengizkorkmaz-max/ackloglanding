@@ -48,6 +48,12 @@ export function WikiClient({ slug, data, otherArticles }: WikiClientProps) {
                 const text = header.textContent || '';
                 const id = text
                     .toLowerCase()
+                    .replace(/ğ/g, 'g')
+                    .replace(/ü/g, 'u')
+                    .replace(/ş/g, 's')
+                    .replace(/ı/g, 'i')
+                    .replace(/ö/g, 'o')
+                    .replace(/ç/g, 'c')
                     .replace(/[^a-z0-9]+/g, '-')
                     .replace(/(^-|-$)/g, '');
                 header.id = id || `section-${index}`;
@@ -129,12 +135,6 @@ export function WikiClient({ slug, data, otherArticles }: WikiClientProps) {
                                             <a
                                                 key={item.id}
                                                 href={`#${item.id}`}
-                                                onClick={(e) => {
-                                                    e.preventDefault();
-                                                    document.getElementById(item.id)?.scrollIntoView({
-                                                        behavior: 'smooth'
-                                                    });
-                                                }}
                                                 className={`block text-sm py-1 transition-colors hover:text-blue-400 ${item.level === 3 ? 'pl-4 text-gray-500' : 'text-gray-300'
                                                     }`}
                                             >
