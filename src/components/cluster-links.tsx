@@ -24,7 +24,7 @@ const topics = [
         readTime: "6 dk"
     },
     {
-        title: "5651 ve Loglama Rehberi",
+        title: "5651 Log Tutma Rehberi (2026)",
         description: "İnternet yasası ve loglama zorunluluğu hakkında bilmeniz gereken her şey.",
         href: "/wiki/5651-log-yonetimi-rehberi",
         readTime: "8 dk"

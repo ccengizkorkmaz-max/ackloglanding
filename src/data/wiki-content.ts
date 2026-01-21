@@ -151,17 +151,16 @@ export const articles: Record<string, { title: string; description?: string; con
     `
   },
   "5651-log-yonetimi-rehberi": {
-    title: "5651 Sayılı Kanun ve Loglama Rehberi: Yasal Risklerden Korunma",
-    description: "5651 sayılı kanun nedir? Log tutma zorunluluğu kimleri kapsar? İşletmenizi cezai yaptırımlardan koruyacak ACKLOG loglama ve imzalama rehberi.",
+    title: "5651 Sayılı Kanun Log Tutma Rehberi (2026)",
+    description: "5651 sayılı kanun nedir? Belediyeler, oteller ve fabrikalar için log tutma zorunluluğu. Cezai yaptırımlar ve ACKLOG ile otomatik çözüm rehberi.",
     content: `
       <div class="bg-blue-50/5 border border-blue-500/20 p-6 rounded-xl mb-8">
         <h3 class="text-lg font-bold text-blue-400 mt-0">İçindekiler</h3>
         <ul class="grid grid-cols-1 md:grid-cols-2 gap-2 mt-4 text-sm text-muted-foreground">
-            <li><a href="#5651-nedir" class="hover:text-blue-400 transition-colors">1. 5651 Sayılı Kanun Nedir?</a></li>
+            <li><a href="#5651-nedir" class="hover:text-blue-400 transition-colors">1. 5651 Nedir?</a></li>
             <li><a href="#kimler-zorunlu" class="hover:text-blue-400 transition-colors">2. Kimler Log Tutmak Zorunda?</a></li>
-            <li><a href="#teknik-sartlar" class="hover:text-blue-400 transition-colors">3. Teknik Gereksinimler ve Zaman Damgası</a></li>
-            <li><a href="#cezalar" class="hover:text-blue-400 transition-colors">4. Cezai Yaptırımlar ve Riskler</a></li>
-            <li><a href="#acklog-cozumu" class="hover:text-blue-400 transition-colors">5. ACKLOG ile Tam Uyumluluk</a></li>
+            <li><a href="#cezalar" class="hover:text-blue-400 transition-colors">3. Cezai Yaptırımlar Neler?</a></li>
+            <li><a href="#acklog-otomasyon" class="hover:text-blue-400 transition-colors">4. Acklog Süreci Nasıl Otomatiğe Bağlıyor?</a></li>
         </ul>
       </div>
 
@@ -172,88 +171,14 @@ export const articles: Record<string, { title: string; description?: string; con
       <h2 id="5651-nedir">1. 5651 Sayılı Kanun Nedir?</h2>
       <p>
         Kamuoyunda "İnternet Yasası" olarak da bilinen <strong>5651 Sayılı Kanun</strong>, internet ortamında yapılan yayınların düzenlenmesi ve bu yayınlar yoluyla işlenen suçlarla mücadele edilmesi hakkındaki kanundur.
-        2007 yılında yürürlüğe giren bu kanunun temel amacı, internet üzerinden işlenen siber suçların (dolandırıcılık, hakaret, yasadışı içerik vb.) faillerinin tespit edilebilmesini sağlamaktır.
+        2007 yılında yürürlüğe giren bu kanunun temel amacı, internet üzerinden işlenen siber suçların baş sorumlusunu tespit edebilmektir.
       </p>
       <p>
-        Bir işletme sahibiyseniz, iş yerinizde sunduğunuz internet hizmeti üzerinden (Wi-Fi veya kablolu) işlenen bir suçtan, <strong>gerçek faili tespit edemediğiniz sürece</strong> siz sorumlu tutulabilirsiniz.
-        Kanun, bu sorumluluğu yönetebilmeniz için size "Log Tutma" (Trafik Kaydı Saklama) zorunluluğu getirir.
+         Özetle devlet şunu söyler: <strong>"Senin internet hattın üzerinden bir suç işlenirse (dolandırıcılık, terör propagandası vb.), o an o IP adresini kimin kullandığını ispatlamak zorundasın."</strong>
+         İspatlayamazsanız, suçu siz işlemiş gibi yargılanabilirsiniz.
       </p>
 
       <h2 id="kimler-zorunlu">2. Kimler Log Tutmak Zorunda?</h2>
-      <p>Kanun, internet erişimi sağlayan kurumları temel olarak ikiye ayırır ve her ikisine de sorumluluk yükler:</p>
-      
-      <div class="grid gap-6 md:grid-cols-2 my-8">
-        <div class="p-6 bg-slate-800/50 rounded-lg border border-slate-700">
-            <h4 class="font-bold text-white mt-0 text-lg">A. Toplu Kullanım Sağlayıcılar</h4>
-            <p class="text-sm text-gray-400 mb-4">Müşterilerine veya misafirlerine internet hizmeti sunan işletmelerdir.</p>
-            <ul class="list-disc pl-4 text-sm text-gray-300 space-y-1">
-                <li>Oteller ve Pansiyonlar</li>
-                <li>Kafeler ve Restoranlar</li>
-                <li>Öğrenci Yurtları</li>
-                <li>AVM'ler ve Mağazalar</li>
-            </ul>
-        </div>
-        <div class="p-6 bg-slate-800/50 rounded-lg border border-slate-700">
-            <h4 class="font-bold text-white mt-0 text-lg">B. Erişim Sağlayıcılar (Kurumsal)</h4>
-            <p class="text-sm text-gray-400 mb-4">Kendi personeline internet erişimi sağlayan şirketler ve kurumlar.</p>
-            <ul class="list-disc pl-4 text-sm text-gray-300 space-y-1">
-                <li>Özel Şirketler</li>
-                <li>Fabrikalar</li>
-                <li>Belediyeler ve Kamu Kurumları</li>
-                <li>Hastaneler ve Okullar</li>
-            </ul>
-        </div>
-      </div>
-
-      <h2 id="teknik-sartlar">3. Teknik Gereksinimler: Yasa Ne İstiyor?</h2>
-      <p>
-        "Log tutmak" sadece bir metin dosyası kaydetmek değildir. Kanun ve ilgili yönetmelikler, tutulan kayıtların hukuki delil niteliği taşıması için belirli standartlar getirmiştir:
-      </p>
-
-      <h3>a. IP Dağıtım Logları (DHCP)</h3>
-      <p>
-        İç ağınızda hangi cihaza (MAC Adresi), hangi zaman aralığında, hangi IP adresinin verildiğini kayıt altına almalısınız. 
-        Bu, bir suç işlendiğinde o IP'nin o an kimde olduğunu (Kullanıcı Tespiti) kanıtlamanızı sağlar.
-      </p>
-
-      <h3>b. Zaman Damgası (Time Stamping)</h3>
-      <p>
-        Bu en kritik maddedir. Log dosyalarının <strong>değiştirilmediğini</strong> ve bütünlüğünün korunduğunu kanıtlamak için, 
-        kayıtların zaman damgası (Hash) ile imzalanması gerekir. Türkiye'de geçerli olan <strong>TÜBİTAK BİLGEM</strong> zaman damgasıdır.
-        İmzalanmamış log dosyalarının mahkemede delil niteliği yoktur.
-      </p>
-
-      <h3>c. Saklama Süresi</h3>
-      <p>
-        Log kayıtlarının (hem IP dağıtım hem de erişim logları) <strong>2 yıl (24 ay)</strong> süreyle saklanması zorunludur.
-      </p>
-
-      <h2 id="cezalar">4. Cezai Yaptırımlar ve Riskler</h2>
-      <p>
-        5651 sayılı kanuna uygun log tutmamanın ciddi sonuçları vardır:
-      </p>
-      <ul class="list-disc pl-6 space-y-4 mb-8 text-muted-foreground">
-        <li><strong>İdari Para Cezaları:</strong> Denetimlerde yönetmeliklere uygun log tutulmadığı tespit edilirse yüksek miktarda para cezaları uygulanır.</li>
-        <li><strong>Hukuki Sorumluluk (En Büyük Risk):</strong> Ağınızdan işlenen bir suçta (örn: Çocuğa cinsel istismar, dolandırıcılık, terör propagandası), faili gösteremezseniz <strong>şüpheli sıfatıyla</strong> siz yargılanırsınız.</li>
-        <li><strong>Faaliyet Durdurma:</strong> Tekrarlayan ihlallerde işletmenin faaliyeti geçici olarak durdurulabilir.</li>
-      </ul>
-
-      <h2 id="acklog-cozumu">5. ACKLOG ile 5651 Uyumluluğu Nasıl Sağlanır?</h2>
-      <p>
-        Teknik detaylarla boğuşmak zorunda değilsiniz. <a href="/" class="text-blue-400 hover:underline font-bold">ACKLOG</a>, yerli bir ürün olarak 5651 uyumluluğunu "kutusundan çıktığı gibi" sunar.
-      </p>
-
-      <div class="bg-gradient-to-r from-blue-900/20 to-purple-900/20 border border-blue-500/20 p-6 rounded-xl mt-6">
-        <h4 class="text-white font-bold mt-0 text-xl mb-4">ACKLOG 5651 Modülü Özellikleri</h4>
-        <div class="grid md:grid-cols-2 gap-6">
-            <div>
-                <strong class="text-blue-400 block mb-1">✅ Otomatik İmzalama</strong>
-                <p class="text-sm text-gray-400">Günlük logları otomatik olarak toplar, TÜBİTAK zaman damgası ile imzalar ve arşivler.</p>
-            </div>
-            <div>
-                <strong class="text-blue-400 block mb-1">✅ DHCP Entegrasyonu</strong>
-                <p class="text-sm text-gray-400">Microsoft DHCP, Firewall veya Access Point'lerinizden IP dağıtım loglarını otomatik çeker.</p>
-            </div>
             <div>
                 <strong class="text-blue-400 block mb-1">✅ Kolay Arama (User Interface)</strong>
                 <p class="text-sm text-gray-400">Gelişmiş arayüzü ile "Bu tarihte bu IP'yi kim kullanıyordu?" sorusuna saniyeler içinde cevap verin.</p>
