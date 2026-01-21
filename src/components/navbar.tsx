@@ -17,6 +17,7 @@ const navLinks = [
 ];
 
 const whyAcklogLinks = [
+    { name: "Neden Modern SIEM?", href: "/wiki/neden-modern-siem" },
     { name: "Bölüm 1: Neden Değişim Şart?", href: "/wiki/siem-dunyasinda-neden-degisim-sart" },
     { name: "Bölüm 2: Global Devlerden Geçiş", href: "/wiki/qradar-ve-global-devlerden-ackloga-gecis" },
     { name: "Bölüm 3: Yerli SIEM Karşılaştırması", href: "/wiki/yerli-siem-karsilastirmasi-ve-acklog-farki" },

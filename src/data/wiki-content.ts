@@ -1558,5 +1558,70 @@ Saldırganlar, tıpkı hırsızların açık pencere araması gibi, Shodan ve Ce
               </a>
               </div>
                 `
+  },
+  "neden-modern-siem": {
+    title: "Neden Modern SIEM? Güvenlik Operasyonlarında Çağ Atlayın",
+    description: "Klasik SIEM'ler artık yetersiz. Veri hacmi, hız ve yapay zeka ihtiyacı için yeni nesil teknolojilere geçiş rehberi.",
+    content: `
+      <div class="bg-indigo-50/5 border border-indigo-500/20 p-6 rounded-xl mb-8">
+        <h3 class="text-lg font-bold text-indigo-400 mt-0">İçindekiler</h3>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-2 mt-4 text-sm text-muted-foreground">
+            <li><a href="#veri-patlamasi" class="hover:text-indigo-400 transition-colors">1. Veri Patlaması ve Klasik SIEM</a></li>
+            <li><a href="#real-time" class="hover:text-indigo-400 transition-colors">2. Gerçek Zamanlı Analiz</a></li>
+            <li><a href="#yapay-zeka" class="hover:text-indigo-400 transition-colors">3. Yapay Zeka ve Otomasyon</a></li>
+            <li><a href="#maliyet" class="hover:text-indigo-400 transition-colors">4. Sürdürülebilir Maliyetler</a></li>
+        </ul>
+      </div>
+
+      <h2 id="veri-patlamasi">1. Veri Patlaması ve Klasik SIEM'in Çöküşü</h2>
+      <p>
+        Son 10 yılda kurumların ürettiği log verisi 50 kat arttı. Firewall'lar, sunucular, bulut uygulamaları ve IoT cihazları saniyede binlerce log üretiyor.
+        Eski nesil (Legacy) SIEM ürünleri, bu devasa veri yükü altında eziliyor.
+      </p>
+      <div class="p-4 bg-red-900/10 border border-red-500/20 rounded-lg my-4">
+        <strong class="text-red-400 block mb-2">Eski Nesil Sorunu:</strong>
+        <p class="text-sm text-gray-400 m-0">
+          Diske yazma hızları (IOPS) yetersiz kaldığı için loglar gecikmeli işleniyor. "Real-time" denen analiz aslında dakikalar, bazen saatler sonra yapılıyor.
+        </p>
+      </div>
+
+      <h2 id="real-time">2. Gerçek Zamanlı Analiz: Hız İhtiyacı</h2>
+      <p>
+        Siber saldırganların bir sisteme sızıp veriyi dışarı çıkarması (Breakout Time) ortalama <strong>1 saat 38 dakikadır</strong>.
+        Eğer SIEM ürününüz logları 15 dakika gecikmeli işliyorsa, saldırıyı durdurmak için çok geç kalmış olabilirsiniz.
+      </p>
+      <p>
+        <strong>Modern SIEM (ACKLOG):</strong> In-Memory (Bellek İçi) mimarisi sayesinde loglar diske yazılmadan milisaniyeler içinde analiz edilir. Saldırı anında tespit edilir ve engellenir.
+      </p>
+
+      <h2 id="yapay-zeka">3. Yapay Zeka ve Otomasyon (SOAR)</h2>
+      <p>
+        Geleneksel SIEM'lerde her kuralı manuel yazmanız gerekir. "A kullanıcısı 5 kere hatalı şifre girerse uyar" gibi.
+        Ancak modern tehditler bu kadar basit değildir.
+      </p>
+      <ul class="list-disc pl-6 space-y-2 mb-6 text-muted-foreground">
+        <li><strong>UEBA (User Behavior Analytics):</strong> Kullanıcının normal davranışını öğrenir ve anormallikleri (örn: gece yarısı VPN yapması) tespit eder.</li>
+        <li><strong>No-Code Kural Yazımı:</strong> Kod yazmadan, sürükle-bırak ile karmaşık senaryolar oluşturulabilir.</li>
+      </ul>
+
+      <h2 id="maliyet">4. Sürdürülebilir Maliyetler</h2>
+      <p>
+        Pek çok eski nesil SIEM, EPS (Event Per Second) veya GB başına lisanslama yapar. Log hacminiz arttıkça ödediğiniz fatura da katlanarak artar.
+        Bu durum, bütçeyi aşmamak için kritik logların kapatılmasına (kör noktalar oluşmasına) neden olur.
+      </p>
+      <p>
+        Modern SIEM çözümleri ise daha esnek, donanım bağımsız ve ölçeklenebilir lisanslama modelleri sunarak güvenlikten ödün vermeden büyümenize olanak tanır.
+      </p>
+
+      <div class="mt-8 p-6 bg-gradient-to-r from-blue-600/20 to-indigo-600/20 border border-blue-500/30 rounded-xl text-center">
+        <h3 class="text-xl font-bold text-white mb-4">Modern SIEM'e Geçiş Yapın</h3>
+        <p class="text-gray-300 mb-6">
+          ACKLOG'un yeni nesil mimarisini ve yapay zeka yeteneklerini kendi verinizle test edin.
+        </p>
+        <a href="/demo-talep" class="inline-flex h-10 items-center justify-center rounded-lg bg-blue-600 px-8 text-sm font-medium text-white shadow hover:bg-blue-700 transition-all">
+            Ücretsiz Demo Başlat
+        </a>
+      </div>
+    `
   }
 };
