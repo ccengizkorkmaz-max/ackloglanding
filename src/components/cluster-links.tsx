@@ -36,10 +36,22 @@ const topics = [
         readTime: "6 dk"
     },
     {
-        title: "Ücretsiz SIEM Tuzakları",
-        description: "Açık kaynak kodlu (Open Source) yazılımların gizli maliyet analizi.",
-        href: "/wiki/ucretsiz-siem-vs-ticari-siem",
-        readTime: "7 dk"
+        title: "SIEM Performans Savaşı",
+        description: "Disk tabanlı vs In-Memory analiz farkları. Hız ve maliyet karşılaştırması.",
+        href: "/wiki/siem-performans-analizi",
+        readTime: "5 dk"
+    },
+    {
+        title: "Siber Tehdit Avcılığı",
+        description: "Threat Hunting nedir? Kurumunuzda nasıl uygulanır?",
+        href: "/wiki/threat-hunting-nedir",
+        readTime: "9 dk"
+    },
+    {
+        title: "Siber Terimler Sözlüğü",
+        description: "Siber güvenlik dünyasındaki temel terimlerin açıklamaları.",
+        href: "/wiki/siber-terimler-sozlugu",
+        readTime: "12 dk"
     }
 ];
 

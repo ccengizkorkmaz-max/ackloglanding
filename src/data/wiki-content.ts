@@ -103,7 +103,7 @@ export const articles: Record<string, { title: string; description?: string; con
         SIEM bir araç, SOC (Güvenlik Operasyon Merkezi) ise bu aracı kullanan ekiptir. Bir F1 aracını (SIEM) sürecek pilotlar (SOC Analistleri) olmadan yarış kazanılamaz.
         SOC ekipleri, SIEM'den gelen alarmları analiz eder, yanlış alarmları (False Positive) eler ve gerçek tehditlere müdahale eder.
         <br/><br/>
-        Daha fazlası için: <a href="/wiki/soc-nedir" class="text-blue-400 hover:underline font-bold">SOC Nedir ve Nasıl Kurulur?</a>
+        Daha fazlası için: <a href="/wiki/soc-kurulum-rehberi-maliyetler" class="text-blue-400 hover:underline font-bold">SOC Nedir ve Nasıl Kurulur?</a>
       </p>
 
       <h2 id="kurumsal-fayadalar">6. Kurumlar İçin 5 Kritik Fayda</h2>
@@ -121,7 +121,7 @@ export const articles: Record<string, { title: string; description?: string; con
         <strong>KVKK (Kişisel Verilerin Korunması Kanunu)</strong>, veri sorumlularının "teknik tedbirler" almasını şart koşar. 
         Log kayıtlarının değiştirilemezliği (Hashing) ve zaman damgası (Time Stamping) ile saklanması kritik önem taşır.
         <br/><br/>
-        Detaylı bilgi: <a href="/wiki/kvkk-ve-log-uyumluluk" class="text-blue-400 hover:underline font-bold">KVKK ve Log Uyumluluğu Rehberi</a>
+        Detaylı bilgi: <a href="/wiki/kvkk-siem-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">KVKK ve Log Uyumluluğu Rehberi</a>
       </p>
 
       <h2 id="acklog-farki">8. Neden ACKLOG? Yeni Nesil SIEM Yaklaşımı</h2>
@@ -1594,6 +1594,80 @@ export const articles: Record<string, { title: string; description?: string; con
             Ücretsiz Demo Başlat
         </a>
       </div>
+    `
+  },
+  "ucretsiz-siem-vs-ticari-siem": {
+    title: "Ücretsiz SIEM Tuzakları: Açık Kaynak vs. Ticari Çözümler",
+    description: "Açık kaynak (Open Source) SIEM yazılımları gerçekten ücretsiz mi? Gizli maliyetler, bakım zorlukları ve neden ticari bir çözüm (ACKLOG) tercih etmelisiniz?",
+    author: {
+      name: "Volkan Öztürk",
+      title: "Baş Güvenlik Mimarı",
+      initials: "VÖ"
+    },
+    content: `
+      <h2>Ücretsiz Sandığınız Şey Size Ne Kadara Mal Oluyor?</h2>
+      <p>
+        "Bedava sirke baldan tatlıdır" sözü siber güvenlikte geçerli değildir. Birçok kurum, lisans maliyetinden kaçmak için açık kaynak (Open Source) SIEM çözümlerine (ELK Stack, Graylog, Wazuh vb.) yönelmektedir.
+        Ancak "lisans ücreti olmaması", projenin "maliyetsiz" olduğu anlamına gelmez.
+      </p>
+
+      <h3>1. Gizli Personel Maliyeti</h3>
+      <p>
+        Açık kaynak ürünler, "kutusundan çıktığı gibi" çalışmaz. Onları kurmak, ayarlamak, parse kuralları yazmak ve sürekli ayakta tutmak için en az 1-2 deneyimli (ve maaşı yüksek) Linux/Security mühendisine ihtiyacınız vardır.
+        Ticari bir ürünün (ACKLOG) yıllık lisans maliyeti, genellikle bu mühendislerin 3 aylık maaşından daha azdır.
+      </p>
+
+      <h3>2. Donanım Oburluğu</h3>
+      <p>
+        Açık kaynak projeler genellikle optimizasyon konusunda ticari ürünlerin gerisindedir. Özellikle Java tabanlı yapılar (Elasticsearch gibi), devasa RAM ve CPU kaynaklarına ihtiyaç duyar.
+        ACKLOG 32GB RAM ile saniyede 5.000 log işlerken, benzer bir performansı açık kaynakla almak için 128GB+ RAM'e sahip sunucu kümelerine ihtiyacınız olabilir.
+      </p>
+
+      <h3>3. Destek ve Güvenilirlik Sorunu</h3>
+      <p>
+        Gece 03:00'te sisteminiz çöktüğünde veya bir saldırı altında kaldığınızda, açık kaynak dünyasında yalnızsınızdır. Google'da forumlarda çözüm aramak zorunda kalırsınız.
+        Ticari bir çözümde ise telefonun ucunda 7/24 destek veren bir ekip ve SLA (Hizmet Seviyesi Anlaşması) güvencesi vardır.
+      </p>
+
+      <div class="my-8 overflow-x-auto border rounded-xl">
+        <table class="w-full text-sm text-left">
+          <thead class="bg-slate-900 text-slate-400 font-bold uppercase">
+            <tr>
+              <th class="px-6 py-4">Kriter</th>
+              <th class="px-6 py-4">Açık Kaynak (Open Source)</th>
+              <th class="px-6 py-4">Ticari (ACKLOG)</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-800">
+            <tr>
+              <td class="px-6 py-4 font-medium">Lisans Maliyeti</td>
+              <td class="px-6 py-4 text-green-400">0 TL</td>
+              <td class="px-6 py-4">Yıllık Lisans</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 font-medium">Kurulum & Bakım</td>
+              <td class="px-6 py-4 text-red-400">Çok Zor (Uzman Gerekir)</td>
+              <td class="px-6 py-4 text-green-400">Tak-Çalıştır (15 Dk)</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 font-medium">Donanım İhtiyacı</td>
+              <td class="px-6 py-4 text-red-400">Çok Yüksek</td>
+              <td class="px-6 py-4 text-green-400">Optimize / Düşük</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 font-medium">Yasal Uyumluluk (KVKK)</td>
+              <td class="px-6 py-4">Yok (Ek Geliştirme Şart)</td>
+              <td class="px-6 py-4 text-green-400">Tam Uyumlu</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Sonuç: Zamanınız mı Değerli, Paranız mı?</h3>
+      <p>
+        Eğer devasa bir AR-GE ekibiniz ve bolca zamanınız varsa açık kaynak harika bir okuldur. Ancak amacınız kurumunuzu korumak ve yasalara uymaksa,
+        ACKLOG size "zamanı satın alma" fırsatı sunar.
+      </p>
     `
   }
 };

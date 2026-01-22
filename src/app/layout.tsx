@@ -15,10 +15,10 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "ACKLOG | Yerli SIEM & USO Platformu | QRadar, Logsign ve Cryptech Alternatifi",
-    template: "%s | ACKLOG SIEM"
+    default: "ACKLOG | Yerli SIEM & USO Platformu",
+    template: "%s"
   },
-  description: "ACKLOG; QRadar'ın gücünü, Logsign'ın kullanım kolaylığını ve Cryptech'ın yerel uyumluluğunu tek bir USO platformunda birleştirir. SIEM, UEBA ve SOAR yetenekleriyle Türkiye'nin en kapsamlı siber güvenlik çözümü.",
+  description: "ACKLOG; QRadar ve Logsign alternatifi, KVKK/5651 uyumlu yerli SIEM & USO platformu. TEK lisansla SIEM, UEBA ve SOAR yeteneklerine sahip olun.",
   keywords: [
     "ACKLOG",
     "Yerli SIEM yazılımları",
@@ -50,8 +50,9 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  metadataBase: new URL("https://logsiem.com"),
   alternates: {
-    canonical: "https://logsiem.com",
+    canonical: "/",
   }
 };
 

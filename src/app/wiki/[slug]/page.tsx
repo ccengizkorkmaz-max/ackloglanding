@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     if (!data) return { title: "Sayfa Bulunamadı" };
 
     return {
-        title: `${data.title} | ACKLOG Siber Güvenlik Kütüphanesi`,
+        title: `${data.title} | ACKLOG Wiki`,
         description: (data as any).description || data.content.substring(0, 160).replace(/<[^>]*>?/g, '').trim() + "...",
         alternates: {
             canonical: `https://logsiem.com/wiki/${slug}`,

@@ -5,6 +5,9 @@ import CostCalculator from '@/components/cost-calculator'
 export const metadata: Metadata = {
     title: 'SIEM Depolama ve Maliyet Hesaplayıcı | ACKLog',
     description: 'Log hacminize göre disk alanı ve maliyet ihtiyacınızı hesaplayın. 5651 ve KVKK uyumluluğu için gereken altyapıyı öğrenin.',
+    alternates: {
+        canonical: '/maliyet-hesaplayici',
+    },
 }
 
 export default function CostCalculatorPage() {

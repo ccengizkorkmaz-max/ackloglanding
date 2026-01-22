@@ -5,15 +5,20 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { Button } from "./ui/button";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, ShieldCheck, Calculator, Search, Activity, FileCheck } from "lucide-react";
 import { DemoModal } from "./demo-modal";
 
 const navLinks = [
     { name: "Ana Sayfa", href: "/", homeOnly: false, subOnly: true },
     { name: "Özellikler", href: "/ozellikler" },
-    { name: "Güvenlik Analizi", href: "/analiz" },
-    { name: "Uyumluluk Testi", href: "/uyumluluk-testi" },
-    { name: "Maliyet Hesaplayıcı", href: "/maliyet-hesaplayici" },
+];
+
+const toolsLinks = [
+    { name: "Sızıntı Kontrolü", href: "/sizinti-kontrol", icon: Search },
+    { name: "Zafiyet Tarama", href: "/zafiyet-tarama", icon: ShieldCheck },
+    { name: "Güvenlik Analizi", href: "/analiz", icon: Activity },
+    { name: "Uyumluluk Testi", href: "/uyumluluk-testi", icon: FileCheck },
+    { name: "Maliyet Hesaplayıcı", href: "/maliyet-hesaplayici", icon: Calculator },
 ];
 
 const whyAcklogLinks = [
@@ -28,7 +33,9 @@ export function Navbar() {
     const isHome = pathname === "/";
     const [isOpen, setIsOpen] = useState(false);
     const [isWhyOpen, setIsWhyOpen] = useState(false);
+    const [isToolsOpen, setIsToolsOpen] = useState(false);
     const [isMobileWhyOpen, setIsMobileWhyOpen] = useState(false);
+    const [isMobileToolsOpen, setIsMobileToolsOpen] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
 
@@ -44,7 +51,9 @@ export function Navbar() {
     useEffect(() => {
         setIsOpen(false);
         setIsWhyOpen(false);
+        setIsToolsOpen(false);
         setIsMobileWhyOpen(false);
+        setIsMobileToolsOpen(false);
     }, [pathname]);
 
     return (
@@ -81,6 +90,33 @@ export function Navbar() {
                             {link.name}
                         </Link>
                     ))}
+
+                    {/* Araçlar Dropdown */}
+                    <div
+                        className="relative group"
+                        onMouseEnter={() => setIsToolsOpen(true)}
+                        onMouseLeave={() => setIsToolsOpen(false)}
+                    >
+                        <button className="flex items-center gap-1 text-base font-semibold text-gray-300 hover:text-white transition-colors">
+                            Araçlar
+                            <ChevronDown className={`w-4 h-4 transition-transform ${isToolsOpen ? 'rotate-180' : ''}`} />
+                        </button>
+
+                        <div className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 w-72 p-2 rounded-2xl bg-slate-900/90 backdrop-blur-xl border border-white/10 shadow-2xl transition-all duration-300 ${isToolsOpen ? 'opacity-100 translate-y-0 visible' : 'opacity-0 translate-y-2 invisible'}`}>
+                            {toolsLinks.map((link) => (
+                                <Link
+                                    key={link.href}
+                                    href={link.href}
+                                    className="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors group/item"
+                                >
+                                    <div className="bg-blue-500/10 p-2 rounded-lg group-hover/item:bg-blue-500/20 transition-colors">
+                                        <link.icon className="w-4 h-4 text-blue-400" />
+                                    </div>
+                                    <span className="text-sm font-medium text-gray-200 group-hover/item:text-white">{link.name}</span>
+                                </Link>
+                            ))}
+                        </div>
+                    </div>
 
                     {/* Why Acklog Dropdown */}
                     <div
@@ -148,6 +184,32 @@ export function Navbar() {
                             {link.name}
                         </Link>
                     ))}
+
+                    {/* Mobile Araçlar Dropdown */}
+                    <div>
+                        <button
+                            onClick={() => setIsMobileToolsOpen(!isMobileToolsOpen)}
+                            className="flex items-center justify-between w-full text-lg font-semibold text-gray-300 hover:text-white py-2 border-b border-white/5"
+                        >
+                            Araçlar
+                            <ChevronDown className={`w-5 h-5 transition-transform ${isMobileToolsOpen ? 'rotate-180' : ''}`} />
+                        </button>
+                        {isMobileToolsOpen && (
+                            <div className="flex flex-col gap-2 mt-2 pl-4">
+                                {toolsLinks.map((link) => (
+                                    <Link
+                                        key={link.href}
+                                        href={link.href}
+                                        onClick={() => setIsOpen(false)}
+                                        className="flex items-center gap-3 text-base font-medium text-gray-400 hover:text-blue-400 py-2"
+                                    >
+                                        <link.icon className="w-4 h-4" />
+                                        {link.name}
+                                    </Link>
+                                ))}
+                            </div>
+                        )}
+                    </div>
 
                     {/* Mobile Why Acklog Dropdown */}
                     <div>

@@ -4,6 +4,9 @@ import { Navbar } from '@/components/navbar';
 export const metadata = {
     title: 'Anlık Güvenlik Analizi | ACKLog',
     description: 'IP ve Alan Adı üzerinden anlık zafiyet ve itibar analizi yapın.',
+    alternates: {
+        canonical: '/analiz',
+    },
 };
 
 export default function AnalizPage() {

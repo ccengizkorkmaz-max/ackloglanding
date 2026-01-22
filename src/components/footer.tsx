@@ -37,7 +37,11 @@ export function Footer({ }: FooterProps) {
                         <h4 className="font-bold mb-6">Ürün</h4>
                         <ul className="space-y-4 text-sm text-muted-foreground">
                             <li><Link href="/ozellikler" className="hover:text-primary transition-colors">Özellikler</Link></li>
-                            <li><Link href="#" className="hover:text-primary transition-colors">Yol Haritası</Link></li>
+                            <li><Link href="/sizinti-kontrol" className="hover:text-primary transition-colors">Sızıntı Kontrolü</Link></li>
+                            <li><Link href="/zafiyet-tarama" className="hover:text-primary transition-colors">Zafiyet Tarama</Link></li>
+                            <li><Link href="/uyumluluk-testi" className="hover:text-primary transition-colors">KVKK/5651 Testi</Link></li>
+                            <li><Link href="/maliyet-hesaplayici" className="hover:text-primary transition-colors">Maliyet Hesapla</Link></li>
+                            <li><Link href="/analiz" className="hover:text-primary transition-colors">Güvenlik Analizi</Link></li>
                         </ul>
                     </div>
 
@@ -45,13 +49,17 @@ export function Footer({ }: FooterProps) {
                         <h4 className="font-bold mb-6">Kaynaklar</h4>
                         <ul className="space-y-4 text-sm text-muted-foreground">
                             <li><Link href="/wiki/siem-nedir" className="hover:text-primary transition-colors">SIEM Nedir?</Link></li>
-                            <li><Link href="/wiki/soc-nedir" className="hover:text-primary transition-colors">SOC Rehberi</Link></li>
+                            <li><Link href="/wiki/soc-kurulum-rehberi-maliyetler" className="hover:text-primary transition-colors">SOC Rehberi</Link></li>
+                            <li><Link href="/wiki/5651-log-yonetimi-rehberi" className="hover:text-primary transition-colors">5651 Rehberi</Link></li>
+                            <li><Link href="/wiki/kvkk-siem-log-yonetimi-rehberi" className="hover:text-primary transition-colors">KVKK Rehberi</Link></li>
                         </ul>
                     </div>
 
                     <div>
                         <h4 className="font-bold mb-6">Kurumsal</h4>
                         <ul className="space-y-4 text-sm text-muted-foreground">
+                            <li><Link href="/demo-talep" className="hover:text-primary transition-colors">Demo Talep Et</Link></li>
+
 
                             <li>
                                 <button

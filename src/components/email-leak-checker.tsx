@@ -42,6 +42,62 @@ const MOCK_BREACHES: Breach[] = [
         logo: "https://upload.wikimedia.org/wikipedia/commons/0/08/Canva_icon_2021.svg",
         dataTypes: ["Email", "Password Hash", "Name", "City"],
         description: "137 milyon kullanıcının verileri GnosticPlayers adlı hacker grubu tarafından ele geçirildi."
+    },
+    {
+        name: "Dropbox",
+        domain: "dropbox.com",
+        date: "2012-07-01",
+        logo: "https://upload.wikimedia.org/wikipedia/commons/7/78/Dropbox_Icon.svg",
+        dataTypes: ["Email", "Password Hash"],
+        description: "68 milyon kullanıcının e-posta ve hashlenmiş şifreleri sızdırıldı."
+    },
+    {
+        name: "MySpace",
+        domain: "myspace.com",
+        date: "2008-07-01",
+        logo: "https://upload.wikimedia.org/wikipedia/commons/e/e3/Myspace_logo.svg",
+        dataTypes: ["Email", "Password", "Username"],
+        description: "360 milyon hesap tehlikeye girdi. Veriler yıllar sonra 'Peace' adlı hacker tarafından satışa sunuldu."
+    },
+    {
+        name: "Zynga",
+        domain: "zynga.com",
+        date: "2019-09-12",
+        logo: "https://upload.wikimedia.org/wikipedia/en/a/a0/Zynga_logo.svg",
+        dataTypes: ["Email", "Password", "Phone", "Username"],
+        description: "Words With Friends oyununun geliştiricisi Zynga'dan 170 milyon oyuncunun verisi çalındı."
+    },
+    {
+        name: "Uber",
+        domain: "uber.com",
+        date: "2016-10-01",
+        logo: "https://upload.wikimedia.org/wikipedia/commons/c/cc/Uber_logo_2018.png",
+        dataTypes: ["Email", "Phone", "Name", "Driver License"],
+        description: "57 milyon kullanıcı ve sürücünün verileri çalındı. Şirket olayı örtbas etmek için hackerlara ödeme yaptı."
+    },
+    {
+        name: "Town of Salem",
+        domain: "blankmediagames.com",
+        date: "2018-12-28",
+        logo: "https://upload.wikimedia.org/wikipedia/en/9/9c/Town_of_Salem_logo.png",
+        dataTypes: ["Email", "Password Hash", "IP Address", "Payment History"],
+        description: "7.6 milyon oyuncunun verisi sızdırıldı. Veritabanı yedeği açıkta bırakıldığı için erişildi."
+    },
+    {
+        name: "MyFitnessPal",
+        domain: "myfitnesspal.com",
+        date: "2018-02-01",
+        logo: "https://upload.wikimedia.org/wikipedia/commons/4/42/MyFitnessPal_Logo.svg",
+        dataTypes: ["Email", "Password Hash"],
+        description: "Under Armour'a ait uygulamadan 150 milyon kullanıcının hesap bilgileri çalındı."
+    },
+    {
+        name: "Wattpad",
+        domain: "wattpad.com",
+        date: "2020-06-01",
+        logo: "https://upload.wikimedia.org/wikipedia/commons/a/ac/Wattpad-logo-vector.svg",
+        dataTypes: ["Email", "Password Hash", "Bio", "Date of Birth"],
+        description: "270 milyon kullanıcının verisi ShinyHunters tarafından sızdırıldı ve forumlarda paylaşıldı."
     }
 ]
 
@@ -51,6 +107,37 @@ const BREACH_LOGOS: Record<string, string> = {
     'Canva': "https://upload.wikimedia.org/wikipedia/commons/0/08/Canva_icon_2021.svg",
     'Twitter': "https://upload.wikimedia.org/wikipedia/commons/6/6f/Logo_of_Twitter.svg",
     'Facebook': "https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg",
+}
+
+// Helper to generate deterministic random breaches based on email
+const generateMockBreaches = (email: string): Breach[] => {
+    // Simple hash function
+    let hash = 0;
+    for (let i = 0; i < email.length; i++) {
+        const char = email.charCodeAt(i);
+        hash = ((hash << 5) - hash) + char;
+        hash = hash & hash; // Convert to 32bit integer
+    }
+    const seed = Math.abs(hash);
+
+    // 30% chance of being "Safe" (if seed % 10 < 3)
+    if (seed % 10 < 3) return [];
+
+    // Otherwise, pick 1 to 4 random breaches
+    const count = (seed % 4) + 1;
+    const shuffled = [...MOCK_BREACHES].sort(() => 0.5 - Math.random()); // Note: True shuffle needs seed, but this is roughly ok for demo
+
+    // Better seeded shuffle
+    const selected: Breach[] = [];
+    const pool = [...MOCK_BREACHES];
+
+    for (let i = 0; i < count; i++) {
+        const index = (seed + i * 137) % pool.length;
+        selected.push(pool[index]);
+        pool.splice(index, 1); // Avoid duplicates
+    }
+
+    return selected;
 }
 
 export default function EmailLeakChecker() {
@@ -96,11 +183,12 @@ export default function EmailLeakChecker() {
                     setIsDemoMode(true)
                     // Simulate Delay
                     setTimeout(() => {
-                        if (email.toLowerCase().includes('temiz') || email.toLowerCase().includes('clean')) {
+                        const mockResults = generateMockBreaches(email);
+                        if (mockResults.length === 0) {
                             setStatus('safe')
                         } else {
                             setStatus('leaked')
-                            setBreaches(MOCK_BREACHES)
+                            setBreaches(mockResults)
                         }
                     }, 1500)
                     return
@@ -213,13 +301,10 @@ export default function EmailLeakChecker() {
                         animate={{ opacity: 1, y: 0 }}
                         className="space-y-8"
                     >
-                        {/* Demo Mode Banner */}
+                        {/* Demo Mode Indicator */}
                         {isDemoMode && (
-                            <div className="bg-orange-500/10 border border-orange-500/30 p-4 rounded-2xl flex items-center gap-3 animate-pulse">
-                                <AlertTriangle className="h-5 w-5 text-orange-500" />
-                                <span className="text-orange-200 text-sm font-bold">
-                                    DEMO MODU: API Limiti aşıldı veya lisans yok. Simülasyon verisi gösteriliyor.
-                                </span>
+                            <div className="flex justify-end mb-2">
+                                <div title="Simülasyon Modu: API limiti nedeniyle demo verisi gösteriliyor." className="h-2 w-2 rounded-full bg-red-500 animate-pulse cursor-help"></div>
                             </div>
                         )}
 

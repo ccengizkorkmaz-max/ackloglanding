@@ -2,8 +2,8 @@ import { Metadata } from "next";
 import { FeaturesClient } from "./features-client";
 
 export const metadata: Metadata = {
-    title: "ACKLOG SIEM Özellikleri | Tehdit Algılama, UEBA ve SOAR Yetenekleri",
-    description: "ACKLOG USO platformunun teknik yeteneklerini keşfedin: Gerçek zamanlı log yönetimi, MITRE ATT&CK uyumlu tehdit algılama, Davranış Analitiği (UEBA) ve otomatik olay müdahalesi (SOAR).",
+    title: "ACKLOG SIEM Özellikleri | Tehdit Algılama, UEBA ve SOAR",
+    description: "ACKLOG teknik yetenekleri: Gerçek zamanlı log yönetimi, MITRE uyumlu tehdit algılama, UEBA ve otomatik olay müdahalesi (SOAR) ile tam koruma.",
     keywords: [
         "SIEM özellikleri",
         "UEBA nedir",
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
         "KVKK raporlama araçları"
     ],
     alternates: {
-        canonical: "https://logsiem.com/ozellikler",
+        canonical: "/ozellikler",
     },
     openGraph: {
         title: "ACKLOG SIEM & USO Teknik Yetenekleri",

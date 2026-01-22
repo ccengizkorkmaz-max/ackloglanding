@@ -6,6 +6,9 @@ import { Footer } from "@/components/footer";
 export const metadata = {
     title: "Siber Güvenlik Kütüphanesi | ACKLOG SIEM Wiki",
     description: "SIEM, Log Yönetimi, SOAR, UEBA ve siber güvenlik hakkında teknik makaleler, rehberler ve en iyi uygulama örnekleri.",
+    alternates: {
+        canonical: "/wiki",
+    },
 };
 
 export default function WikiIndexPage() {

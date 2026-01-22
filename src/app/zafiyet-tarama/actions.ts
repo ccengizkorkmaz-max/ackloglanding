@@ -14,6 +14,17 @@ const gvmConfig = {
 
 const gvm = new GvmBridge(gvmConfig)
 
+export async function checkGvmConnection() {
+    if (!process.env.GVM_HOST) return { success: false, demo: true }
+
+    try {
+        await gvm.authenticate()
+        return { success: true }
+    } catch (error) {
+        return { success: false, error: "Connection Failed" }
+    }
+}
+
 export async function startRealScan(target: string) {
     console.log("Starting real GVM scan for:", target)
     try {
