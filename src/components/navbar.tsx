@@ -11,6 +11,7 @@ import { DemoModal } from "./demo-modal";
 const navLinks = [
     { name: "Ana Sayfa", href: "/", homeOnly: false, subOnly: true },
     { name: "Özellikler", href: "/ozellikler" },
+    { name: "Çözümler", href: "/cozumler" },
 ];
 
 const toolsLinks = [
