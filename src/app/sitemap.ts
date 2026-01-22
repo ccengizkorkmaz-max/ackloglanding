@@ -16,6 +16,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/demo-talep',
         '/sizinti-kontrol',
         '/zafiyet-tarama',
+
+        // Çözümler
+        '/cozumler',
+        '/cozumler/denetim-ve-inceleme',
+        '/cozumler/fidye-yazilimi-onleme',
+        '/cozumler/ic-tehdit-izleme',
+        '/cozumler/kaba-kuvvet-saldirilari',
+        '/cozumler/log-maliyet-optimizasyonu',
+        '/cozumler/tehdit-algilama',
     ].map((route) => ({
         url: `${baseUrl}${route}`,
         lastModified: new Date(),
