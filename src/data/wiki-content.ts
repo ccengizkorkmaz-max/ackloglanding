@@ -189,15 +189,57 @@ export const articles: Record<string, { title: string; description?: string; con
       </p>
 
       <h2 id="kimler-zorunlu">2. Kimler Log Tutmak Zorunda?</h2>
-            <div>
-                <strong class="text-blue-400 block mb-1">✅ Kolay Arama (User Interface)</strong>
-                <p class="text-sm text-gray-400">Gelişmiş arayüzü ile "Bu tarihte bu IP'yi kim kullanıyordu?" sorusuna saniyeler içinde cevap verin.</p>
-            </div>
-            <div>
-                <strong class="text-blue-400 block mb-1">✅ Dosya Bütünlük Kontrolü</strong>
-                <p class="text-sm text-gray-400">Saklanan log dosyalarının bozulmadığını veya değiştirilmediğini sürekli denetler.</p>
-            </div>
+      <p>Kanun, "Toplu Kullanım Sağlayıcılar" için log tutma zorunluluğu getirir. Bu kapsama giren başlıca kurumlar şunlardır:</p>
+      <ul class="list-disc pl-6 space-y-2 mb-6 text-muted-foreground">
+        <li><strong>Oteller ve Pansiyonlar:</strong> Müşterilerine internet hizmeti sunan tüm konaklama tesisleri.</li>
+        <li><strong>Kafe ve Restoranlar:</strong> Müşterilerine Wi-Fi hizmeti veren işletmeler.</li>
+        <li><strong>Şirketler ve Ofisler:</strong> Çalışanlarına veya misafirlerine internet erişimi sağlayan tüm ticari işletmeler.</li>
+        <li><strong>Yurtlar ve Eğitim Kurumları:</strong> Öğrencilerine internet sağlayan kurumlar.</li>
+        <li><strong>Belediyeler:</strong> Halka açık alanlarda (park, meydan vb.) ücretsiz internet hizmeti veren belediyeler.</li>
+      </ul>
+
+      <h2 id="cezalar">3. Cezai Yaptırımlar Neler?</h2>
+      <p>
+        5651 sayılı kanuna uygun log tutmamanın ciddi yaptırımları vardır. Bir siber suç işlendiğinde ve siz IP-Kullanıcı eşleşmesini (log kayıtlarını) ibraz edemediğinizde:
+      </p>
+      <div class="grid gap-6 md:grid-cols-2 my-8">
+        <div class="p-6 bg-red-900/10 rounded-lg border border-red-500/20">
+            <h4 class="font-bold text-red-400 mt-0">💰 İdari Para Cezası</h4>
+            <p class="text-sm text-gray-400">Log tutmama veya eksik tutma durumunda 15.000 TL'den 100.000 TL'ye varan idari para cezaları uygulanabilir.</p>
         </div>
+        <div class="p-6 bg-red-900/10 rounded-lg border border-red-500/20">
+            <h4 class="font-bold text-red-400 mt-0">⚖️ Hukuki Sorumluluk</h4>
+            <p class="text-sm text-gray-400">Suçu işleyen gerçek kişi bulunamazsa, hat sahibi olarak suça iştirak etmiş veya yardım/yataklık yapmış muamelesi görebilirsiniz.</p>
+        </div>
+      </div>
+
+      <h2 id="acklog-otomasyon">4. Acklog Süreci Nasıl Otomatiğe Bağlıyor?</h2>
+      <p>
+        ACKLOG, 5651 uyumluluğunu sizin için tamamen otomatik hale getirir. Teknik bilgiye ihtiyaç duymadan yasal güvende kalmanızı sağlar:
+      </p>
+      
+      <div class="space-y-4 my-8">
+          <div class="flex items-start gap-4 p-4 border rounded-lg bg-slate-900/50 border-slate-800">
+            <span class="text-2xl">⏰</span>
+            <div>
+                <strong class="text-white block mb-1">Otomatik Zaman Damgası (Time Stamping)</strong>
+                <p class="text-sm text-gray-400 m-0">Log dosyalarınızı TÜBİTAK Zaman Damgası ile otomatik olarak imzalar. Bu imza, logların mahkemede delil olarak kabul edilmesini sağlar.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4 p-4 border rounded-lg bg-slate-900/50 border-slate-800">
+            <span class="text-2xl">🔍</span>
+            <div>
+                <strong class="text-white block mb-1">Kolay Arama (User Interface)</strong>
+                <p class="text-sm text-gray-400 m-0">Gelişmiş arayüzü ile "Bu tarihte bu IP'yi kim kullanıyordu?" sorusuna saniyeler içinde cevap verin.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4 p-4 border rounded-lg bg-slate-900/50 border-slate-800">
+            <span class="text-2xl">🛡️</span>
+            <div>
+                <strong class="text-white block mb-1">Dosya Bütünlük Kontrolü</strong>
+                <p class="text-sm text-gray-400 m-0">Saklanan log dosyalarının bozulmadığını veya değiştirilmediğini sürekli denetler.</p>
+            </div>
+          </div>
       </div>
     `
   },
