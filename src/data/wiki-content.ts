@@ -10,6 +10,16 @@ import { networkOpsSecurityArticles } from './wiki/network-ops-security';
 import { threatWebSecurityArticles } from './wiki/threat-web-security';
 import { complianceIndustrialArticles } from './wiki/compliance-industrial';
 import { serverCloudAdminArticles } from './wiki/server-cloud-admin';
+import { firewallCareerArticles } from './wiki/firewall-career';
+import { windowsIOTArticles } from './wiki/windows-iot';
+import { complianceGeneralArticles } from './wiki/compliance-general';
+import { threatSoftwareArticles } from './wiki/threat-software';
+import { opsCloudArticles } from './wiki/ops-cloud';
+import { sectoralHealthFinanceArticles } from './wiki/sectoral-health-finance';
+import { sectoralEduPublicArticles } from './wiki/sectoral-edu-public';
+import { sectoralEnergyRetailArticles } from './wiki/sectoral-energy-retail';
+import { sectoralTourismLogisticsArticles } from './wiki/sectoral-tourism-logistics';
+import { sectoralLegalMediaArticles } from './wiki/sectoral-legal-media';
 
 export const articles: Record<string, { 
   title: string; 
@@ -28,5 +38,15 @@ export const articles: Record<string, {
   ...networkOpsSecurityArticles,
   ...threatWebSecurityArticles,
   ...complianceIndustrialArticles,
-  ...serverCloudAdminArticles
+  ...serverCloudAdminArticles,
+  ...firewallCareerArticles,
+  ...windowsIOTArticles,
+  ...complianceGeneralArticles,
+  ...threatSoftwareArticles,
+  ...opsCloudArticles,
+  ...sectoralHealthFinanceArticles,
+  ...sectoralEduPublicArticles,
+  ...sectoralEnergyRetailArticles,
+  ...sectoralTourismLogisticsArticles,
+  ...sectoralLegalMediaArticles
 };

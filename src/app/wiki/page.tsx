@@ -19,6 +19,17 @@ import { networkOpsSecurityArticles } from '@/data/wiki/network-ops-security';
 import { threatWebSecurityArticles } from '@/data/wiki/threat-web-security';
 import { complianceIndustrialArticles } from '@/data/wiki/compliance-industrial';
 import { serverCloudAdminArticles } from '@/data/wiki/server-cloud-admin';
+import { firewallCareerArticles } from '@/data/wiki/firewall-career';
+import { windowsIOTArticles } from '@/data/wiki/windows-iot';
+import { complianceGeneralArticles } from '@/data/wiki/compliance-general';
+import { threatSoftwareArticles } from '@/data/wiki/threat-software';
+import { opsCloudArticles } from '@/data/wiki/ops-cloud';
+import { sectoralHealthFinanceArticles } from '@/data/wiki/sectoral-health-finance';
+import { sectoralEduPublicArticles } from '@/data/wiki/sectoral-edu-public';
+import { sectoralEnergyRetailArticles } from '@/data/wiki/sectoral-energy-retail';
+import { sectoralTourismLogisticsArticles } from '@/data/wiki/sectoral-tourism-logistics';
+import { sectoralLegalMediaArticles } from '@/data/wiki/sectoral-legal-media';
+import { Building2 } from "lucide-react";
 
 const CATEGORIES = [
     { id: "all", label: "Tümü", icon: LayoutGrid },
@@ -28,7 +39,8 @@ const CATEGORIES = [
     { id: "reg", label: "Mevzuat & KVKK", icon: Scale },
     { id: "tech", label: "Sunucu & DB", icon: HardDrive },
     { id: "cost", label: "Çözümler & Maliyet", icon: DollarSign },
-    { id: "trends", label: "Trendler & Yeni nesil", icon: TrendingUp },
+    { id: "trends", label: "Trendler & Diğer", icon: TrendingUp },
+    { id: "sector", label: "Sektörel Çözümler", icon: Building2 },
 ];
 
 export default function WikiIndexPage() {
@@ -44,7 +56,19 @@ export default function WikiIndexPage() {
         else if (slug in regulationArticles || slug in complianceIndustrialArticles) categoryId = "reg";
         else if (slug in technicalArticles || slug in serverCloudAdminArticles) categoryId = "tech";
         else if (slug in solutionsCostsArticles) categoryId = "cost";
-        else if (slug in brandsSOCArticles || slug in trendsOthersArticles) categoryId = "trends";
+        else if (slug in brandsSOCArticles || slug in trendsOthersArticles || slug in generalPurchasingArticles) categoryId = "trends";
+        else if (
+            slug in sectoralHealthFinanceArticles || 
+            slug in sectoralEduPublicArticles || 
+            slug in sectoralEnergyRetailArticles || 
+            slug in sectoralTourismLogisticsArticles || 
+            slug in sectoralLegalMediaArticles ||
+            slug in firewallCareerArticles ||
+            slug in windowsIOTArticles ||
+            slug in complianceGeneralArticles ||
+            slug in threatSoftwareArticles ||
+            slug in opsCloudArticles
+        ) categoryId = "sector";
         return {
             slug,
             ...data,
