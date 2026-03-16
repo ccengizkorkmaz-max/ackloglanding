@@ -1,322 +1,338 @@
 export const sectoralEduPublicArticles = {
-  "universite-yerleske-agi-campus-network-loglama": {
-    title: "Üniversite Yerleşke Ağı (Campus Network) Loglama ve Siber Güvenlik",
-    description: "Binlerce kullanıcılı üniversite ağlarında trafik yönetimi, 5651 uyumu ve ağ güvenliği stratejileri.",
+  "universite-yerleske-agi-guvenligi-ve-loglama": {
+    title: "Üniversite Yerleşke Ağı (Campus Network) Güvenliği ve Loglama Stratejisi",
+    description: "Binlerce öğrenci ve akademisyenin bulunduğu karmaşık üniversite ağlarında siber güvenlik ve yasal log yönetimi.",
     content: `
-      <h2>Akademik Ağlar: Dev Yapıların Güvenlik Yönetimi</h2>
-      <p>Üniversite yerleşkeleri, binlerce öğrenci ve personelin aynı anda bağlandığı, yoğun trafiğe sahip dev mikro-şehirler gibidir. Hem akademik özgürlüğü korumak hem de siber saldırıları (DDoS, Zararlı Yazılım) engellemek büyük bir mühendislik gerektirir.</p>
+      <h2>Kampüs Güvenliği: Dev Ağların Yönetimi</h2>
+      <p>Üniversite ağları, hem akademik özgürlüğü desteklemeli hem de binlerce kullanıcıdan gelebilecek siber tehditleri (zararlı içerik, telif hakları ihlalleri, siber saldırılar) dizginlemelidir. Bir yerleşke ağı, doğası gereği en zor yönetilen ağ tiplerinden biridir.</p>
       
-      <h3>Kampüs Ağı İzleme Kriterleri</h3>
+      <h3>Yerleşke Ağında Loglama Zorlukları</h3>
       <ul class="list-disc pl-6 space-y-4 mb-6">
-        <li><strong>Kullanıcı Bazlı Takip:</strong> Hangi öğrencinin hangi IP üzerinden ne zaman bağlandığının yasal kaydı (Radius/LDAP entegrasyonu).</li>
-        <li><strong>Bant Genişliği Analizi:</strong> Kısıtlı internetin akademik amaçlar dışında (Torrent vb.) sömürülmesinin tespiti.</li>
-        <li><strong>Zafiyet Taraması:</strong> Bilgisayar laboratuvarlarındaki cihazların güncellik durumunun loglanması.</li>
+        <li><strong>Kullanıcı Sayısı:</strong> On binlerce cihazın aynı anda bağlı olması devasa bir log hacmi yaratır.</li>
+        <li><strong>Kendi Cihazını Getir (BYOD):</strong> Öğrencilerin şahsi laptop ve telefonlarındaki virüslerin ağa yayılması.</li>
+        <li><strong>Yasal Sorumluluk:</strong> 5651 sayılı kanun gereği, her bir öğrencinin internet aktivitesinin IP ve zaman damgasıyla eşleştirilmesi zorunluluğu.</li>
       </ul>
 
-      <p><strong>ACKLOG Education Matrix:</strong> ACKLOG, devasa log verisini (Big Data) saniyeler içinde işleyebilecek kapasiteye sahiptir. Üniversite ağınızdaki milyonlarca satır log içinden "Şüpheli" olanı anında bulur ve 5651 sayılı kanuna göre zaman damgalı saklar. Manuel log yönetimiyle imkansız olanı ACKLOG ile başarın.</p>
-    `
-  },
-  "okullarda-guvenli-internet-ve-5651-loglama": {
-    title: "Okullarda Güvenli İnternet ve 5651 Loglama Zorunluluğu",
-    description: "Milli Eğitim Bakanlığı (MEB) kriterlerine göre okullarda internet kullanımı ve yasal kayıt tutma.",
-    content: `
-      <h2>Eğitimde Güvenlik: Çocuklarımızı Dijitalde Koruyun</h2>
-      <p>Okullar için internet sadece bir kaynak değil, aynı zamanda ciddi bir sorumluluktur. Öğrencilerin zararlı içeriklere (Kumar, Şiddet, Uygunsuz İçerik) erişimini engellemek ve internet üzerinden işlenebilecek suçlara karşı yasal önlem almak şarttır.</p>
-      
-      <h3>5651 Sayılı Kanun ve Okullar</h3>
-      <p>Yasaya göre, toplu internet kullanımı sunan tüm kurumlarda (Okullar dahil) kullanıcıların iç IP dağıtım kayıtları (IP Log) ve erişim zamanları mühürlenerek saklanmalıdır.</p>
+      <h3>Teknik Gereksinimler</h3>
+      <p>Üniversiteler, güvenlik loglarını merkezi bir SIEM sisteminde (ACKLOG) toplayarak 'Netflow' ve 'User Identity' verilerini birleştirmelidir. Bu, bir siber suç işlendiğinde "Bu IP'yi o saatte hangi öğrenci kullandı?" sorusuna 3 saniyede cevap verebilmeyi sağlar.</p>
 
-      <p><strong>ACKLOG School Guard:</strong> ACKLOG, okullar için hem içerik filtreleme raporları sunar hem de 5651 uyumlu loglamayı otomatiğe bağlar. Okul yönetimine "Kimin neye baktığını" değil, "Yasal sorumluluğun yerine getirildiğini" garanti eder. Manuel arşivlemeye son verin, ACKLOG ile huzurlu bir eğitim yılı geçirin.</p>
+      <div class="bg-blue-500/10 p-6 rounded-xl my-8 border border-blue-500/20">
+        <h4 class="text-blue-400 font-bold mb-2">ACKLOG Edu-Core Çözümü:</h4>
+        <p>ACKLOG, üniversitelerin devasa log yükünü performans kaybı olmadan işleyebilen nadir yerli çözümlerden biridir. Radius ve Active Directory entegrasyonu ile öğrenci kimliklerini IP kayıtlarıyla milisaniye bazında eşleştirir. Manuel log eşleştirme çilesine son verin, ACKLOG ile kampüsünüzü siber kale haline getirin.</p>
+      </div>
+
+      <h3>Sıkça Sorulan Sorular (FAQ)</h3>
+      <div class="space-y-4">
+        <details class="group border-b border-white/10 pb-4">
+          <summary class="font-bold cursor-pointer list-none flex justify-between items-center group-open:text-blue-400">
+            Üniversiteler logları ne kadar süre saklamalı?
+            <span class="text-xl">+</span>
+          </summary>
+          <div class="mt-4 text-gray-400">5651 sayılı kanun gereği tüm trafik logları en az 2 yıl boyunca, zaman damgalı ve mühürlü olarak saklanmalıdır. KVKK gereğince personel verileri için bu süre değişiklik gösterebilir.</div>
+        </details>
+        <details class="group border-b border-white/10 pb-4">
+          <summary class="font-bold cursor-pointer list-none flex justify-between items-center group-open:text-blue-400">
+            Wi-Fi loglama için ek bir donanım gerekir mi?
+            <span class="text-xl">+</span>
+          </summary>
+          <div class="mt-4 text-gray-400">Genellikle hayır. ACKLOG, mevcut Wi-Fi denetleyicileriniz (Controller) veya Firewall cihazlarınızdan Syslog üzerinden veriyi alarak işler.</div>
+        </details>
+      </div>
     `
   },
-  "kyk-yurtlari-internet-log-yonetimi-ve-guvenlik": {
-    title: "KYK Yurtları İnternet Log Yönetimi ve Güvenlik Standartları",
-    description: "Yurt ağlarında hotspot yönetimi, kullanıcı doğrulama ve yasal loglama rehberi.",
+  "5651-kanunu-okullarda-internet-loglama-rehberi": {
+    title: "5651 Sayılı Kanun: Okullarda İnternet Loglama ve Güvenlik Rehberi",
+    description: "K12 okulları ve kolejler için yasal internet loglama ve içerik filtreleme zorunlulukları.",
     content: `
-      <h2>Toplu Yaşam Alanları: Yurt İnternet Güvenliği</h2>
-      <p>Yurtlar, internetin en yoğun kullanıldığı ve siber risklerin (özellikle phishing ve telif hakkı ihlalleri) yüksek olduğu yerlerdir. Bir öğrencinin yaptığı yasal hata, yurt yönetimini hukuken zor durumda bırakabilir.</p>
+      <h2>Okul Güvenliği: 5651 Sayılı Kanuna Tam Uyum</h2>
+      <p>Türkiye'deki tüm eğitim kurumları, öğrencilerine sundukları internet hizmetini 5651 sayılı kanun çerçevesinde kayıt altına almakla yükümlüdür. Bu sadece teknik bir iş değil, okul yönetiminin siber suçlara karşı yasal kalkanıdır.</p>
       
-      <h3>Yurtlarda Loglama Nasıl Olmalı?</h3>
+      <h3>Yasal Zorunluluklar</h3>
       <ul class="list-disc pl-6 space-y-2 mb-6">
-        <li><strong>TC identity/SMS Verification:</strong> Kullanıcının gerçek kimliğiyle sisteme girmesi (Hotspot).</li>
-        <li><strong>Access Logs:</strong> Erişilen web sitelerinin ve protokollerin kaydı.</li>
-        <li><strong>MAC/IP Binding:</strong> Hangi cihazın hangi IP'yi kullandığının kesinleştirilmesi.</li>
+        <li><strong>Zaman Damgası:</strong> Logların değiştirilmediğini ispatlayan TÜBİTAK onaylı mühür.</li>
+        <li><strong>Erişim Kaydı:</strong> IP adresi, MAC adresi ve Port bilgilerinin eksiksiz tutulması.</li>
+        <li><strong>İçerik Filtreleme:</strong> Öğrencilerin zararlı (kumar, müstehcenlik, şiddet) sitelere erişiminin engellenmesi ve bu engellemelerin loglanması.</li>
       </ul>
 
-      <p><strong>ACKLOG Hotspot Engine:</strong> ACKLOG, yurtların ihtiyaç duyduğu SMS doğrulamalı hotspot ve yasal loglama çözümünü tek pakette sunar. Milyonlarca bağlantı kaydını disk alanından tasarruf ederek yüksek sıkıştırmayla saklar. Manuel excel kayıtlarıyla bu iş yürümez, ACKLOG ile profesyonel yurt yönetimine geçin.</p>
+      <p><strong>ACKLOG School Guard:</strong> Okulunuzdaki internet trafiğini ACKLOG ile yasal güvence altına alın. Otomatik zaman damgası özelliğiyle sizi her türlü denetimden alnınızın akıyla çıkarır. Manuel log tutmak yasal risk taşır, ACKLOG ile huzurlu bir eğitim ortamı kurun.</p>
     `
   },
-  "ogrenci-bilgi-sistemi-obs-erisim-kayitlari-ve-guvenlik": {
-    title: "Öğrenci Bilgi Sistemi (OBS) Erişim Kayıtları ve Not Güvenliği",
-    description: "Sınav notları ve öğrenci verilerinin manipülasyonuna karşı veri tabanı log takibi.",
+  "uzaktan-egitim-platformlari-lms-siber-isletim-guvenligi": {
+    title: "Uzaktan Eğitim Platformları (LMS) Siber Güvenliği ve Erişim Denetimi",
+    description: "E-öğrenme (Moodle, Canvas vb.) sistemlerine yönelik siber saldırıları engelleme ve log analizi.",
     content: `
-      <h2>Akademik Dürüstlük: OBS Verilerini Koruyun</h2>
-      <p>OBS (Öğrenci Bilgi Sistemi), notların ve transkriptlerin tutulduğu kutsal bir veritabanıdır. Notların bir hacker veya yetkili bir personel tarafından izinsiz değiştirilmesi üniversitenin itibarını yok eder.</p>
+      <h2>Dijital Sınıf: LMS Sistemlerini Siber Saldırılardan Koruyun</h2>
+      <p>Uzaktan eğitim platformları (LMS), binlerce öğrencinin kişisel verisini ve sınav sorularını barındırır. Bu sistemlerin hacklenmesi, hem veri sızıntısı hem de akademik itibar kaybı demektir.</p>
       
-      <h3>Kritik İzleme Noktaları</h3>
-      <p>OBS veritabanı üzerinde yapılan tüm 'UPDATE' sorguları mutlaka loglanmalı ve "Hangi not, kim tarafından, eski değeri neyken değiştirildi?" sorularına %100 yanıt alınmalıdır.</p>
-
-      <p><strong>ACKLOG Database Audit:</strong> OBS sistemlerinizi ACKLOG ile izleyerek anlık not değişim alarmları kurun. Olağandışı bir "Toplu not değişimi" veya mesai dışı erişimlerde rektörlüğe anlık uyarı gitsin. Not güvenliğini kadere bırakmayın, ACKLOG ile dijital adaleti sağlayın.</p>
-    `
-  },
-  "akademik-personelin-veri-guvenligi-ve-fikri-mulkiyet": {
-    title: "Akademik Personelin Veri Güvenliği ve Fikri Mülkiyet Koruması",
-    description: "Bilimsel araştırma projelerinin ve patent verilerinin siber casusluğa karşı korunması.",
-    content: `
-      <h2>Bilimsel Miras: Araştırma Verilerinin Gizliliği</h2>
-      <p>Üniversitelerdeki stratejik projeler (Savunma, tıp, mühendislik) bazen yabancı istihbarat servislerinin hedefindedir. Bir akademisyenin bilgisayarındaki proje dökümanlarının dışarı sızması, yılların emeğinin çalınması demektir.</p>
-      
-      <h3>Korunma Yöntemleri</h3>
-      <ul class="list-disc pl-6 space-y-4 mb-6">
-        <li><strong>EndPoint Protection:</strong> Araştırma bilgisayarlarındaki dosya hareketlerinin takibi.</li>
-        <li><strong>Encrypted Logging:</strong> Logların dahi şifreli saklanarak delillerin korunması.</li>
-        <li><strong>DLP Policies:</strong> Gizli projelerin mail veya USB ile çıkışının engellenmesi.</li>
-      </ul>
-
-      <p><strong>ACKLOG Intellectual Property Guard:</strong> ACKLOG, akademik projelerin bulunduğu klasörlere yapılan her erişimi izler. Değerli verilerinizin dışarıya (örneğin bulut depolarına) yüklenme girişimlerini ACKLOG ile yakalayın. Manuel koruma yetmez, ACKLOG ile bilginizi zırhlayın.</p>
-    `
-  },
-  "egitim-kurumlari-icin-uygun-fiyatli-log-yazilimi": {
-    title: "Eğitim Kurumları İçin Uygun Fiyatlı Log Yazılımı: Maliyet ve Performans",
-    description: "Kısıtlı bütçeli okullar ve kurumlar için yüksek performanslı ve ekonomik SIEM çözümü.",
-    content: `
-      <h2>Bütçe Dostu Güvenlik: Eğitimde SIEM Seçimi</h2>
-      <p>Özellikle özel kolejler ve küçük üniversiteler için dünya devi SIEM çözümlerinin lisans bedelleri çok ağır olabilir. Ancak yasal zorunluluk (5651) ve siber riskler bütçenin üzerinde bir yük oluşturur.</p>
-      
-      <h3>Ekonomik SIEM'de Ne Aramalıyız?</h3>
+      <h3>İzleme Kritik Noktaları</h3>
       <ul class="list-disc pl-6 space-y-2 mb-6 text-muted-foreground">
-        <li><strong>Hardware requirements:</strong> Düşük donanımla yüksek performans veren yazılım.</li>
-        <li><strong>All-in-one:</strong> Hem 5651, hem hotspot, hem güvenlik analizini tek lisansta sunması.</li>
-        <li><strong>Local Support:</strong> Ek bir servis ücreti ödemeden Türkçe destek alabilmek.</li>
+        <li><strong>Login Anomalileri:</strong> Tek bir öğrenci hesabının 10 farklı şehirden aynı anda giriş yapması (Login sharing).</li>
+        <li><strong>Soru Sızıntısı:</strong> Sınav veritabanına mesai dışı erişim denemeleri.</li>
+        <li><strong>DDoS Koruması:</strong> Sınav anında sistemi kilitlemeye yönelik bot saldırılarının log analizi.</li>
       </ul>
 
-      <p><strong>ACKLOG Edu-Value:</strong> ACKLOG, eğitim kurumlarının bütçe gerçeklerini bilir. Yabancı rakiplerine göre %70 daha uygun maliyetle, onların yapamadığı 5651 imzalama ve yerli uygulama entegrasyonlarını sunar. Güvenlikten tasarruf etmeyin, ACKLOG ile akıllı yatırım yapın. Manuel arayışları bırakın, ACKLOG ile tanışın.</p>
+      <p><strong>ACKLOG App-Shield:</strong> LMS yazılımlarınızın (PHP, .NET, Java tabanlı) ürettiği her bir logu ACKLOG ile analiz edin. "Sınav sorularına yetkisiz erişim" uyarısını anında alın. ACKLOG ile eğitim materyallerinizi dijital zırhla koruyun.</p>
     `
   },
-  "uzaktan-egitim-lms-sistemleri-guvenlik-loglari": {
-    title: "Uzaktan Eğitim (LMS) Sistemleri Güvenlik Logları ve Analizi",
-    description: "Moodle, Canvas gibi LMS platformlarında sınav güvenliği ve kullanıcı hareket denetimi.",
+  "akademik-verilerin-korunması-ve-dosya-loglama": {
+    title: "Akademik Verilerin Korunması: Araştırma Projeleri ve Dosya Loglama",
+    description: "Üniversitelerdeki stratejik araştırma projeleri ve patent dosyalarının sızdırılmasını engelleme.",
     content: `
-      <h2>Dijital Sınıf: Uzaktan Eğitimde Güvenlik</h2>
-      <p>LMS (Learning Management System) platformları üzerinden yapılan sınavlarda "Kopyanın önlenmesi" ve "Kullanıcı doğruluğu" en büyük derttir. Bir öğrencinin kendi yerine başkasını sınava sokması veya sınav sorularını sızdırması loglardan yakalanabilir.</p>
+      <h2>Bilginin Korunması: Akademik Hırsızlığa Karşı Siber Defans</h2>
+      <p>Üniversitelerin en değerli varlığı, yıllarca süren araştırmalardır. Bu verilerin bir rakip kurum veya devlet tarafından siber casuslukla çalınması, ulusal bir kayıptır.</p>
       
-      <h3>LMS'te Neler İzlenmeli?</h3>
+      <h3>Dosya Takip Stratejisi (FIM)</h3>
+      <p>Kritik proje klasörlerinde 'File Integrity Monitoring' (FIM) uygulanmalıdır. "Bu proje dökümanını kim kopyaladı?" sorusu cevapsız kalmamalıdır.</p>
+
+      <p><strong>ACKLOG Project Watch:</strong> Laboratuvar ve fakülte bilgisayarlarındaki dosya hareketlerini ACKLOG ile mühürleyin. Şüpheli bir "Toplu Veri Aktarımı" tespit edildiğinde ACKLOG sizi uyarsın. Manuel koruma yetmez, ACKLOG ile bilimsel birikiminize sahip çıkın.</p>
+    `
+  },
+  "kütüphane-ve-veritabanı-erisim-log-yonetimi": {
+    title: "Kütüphane ve Veritabanı Erişim Log Yönetimi: Lisans Güvenliği",
+    description: "Üniversite kütüphanelerindeki ücretli akademik veritabanlarının kötüye kullanımını engelleme.",
+    content: `
+      <h2>Lisans Güvenliği: Kütüphane Kaynaklarını Korumak</h2>
+      <p>Üniversiteler kütüphane veritabanları (Scopus, IEEE vb.) için milyonlarca TL öder. Bu kaynakların kurumsal IP dışından sızdırılması veya botlarla toplu indirilmesi, üniversitenin bu servislerden yasaklanmasına neden olabilir.</p>
+      
+      <h3>Neler İzlenmeli?</h3>
       <ul class="list-disc pl-6 space-y-2 mb-6">
-        <li><strong>Login Conflicts:</strong> Aynı anda farklı cihazlardan girilen hesaplar.</li>
-        <li><strong>API Injections:</strong> Sistem üzerindeki cevapları manipüle etmeye çalışan siber ataklar.</li>
-        <li><strong>Document Downloads:</strong> Sınav dökümanlarının yetkisiz kişilerce toplu indirilmesi.</li>
+        <li>Proxy veya VPN üzerinden kütüphaneye bağlanan kullanıcıların hareketleri.</li>
+        <li>Birim zamanda yapılan 'Download' sayısındaki anormal artışlar (Scraping tespiti).</li>
       </ul>
 
-      <p><strong>ACKLOG Cloud LMS Guard:</strong> Uzaktan eğitim sunucularınızdaki tüm web ve uygulama loglarını ACKLOG ile süzün. Sınav anında gerçekleşen siber anomalileri anlık tespit edin. Manuel denetimlerle sınav güvenliği sağlanmaz, ACKLOG ile dijital eğitiminizi garantiye alın.</p>
+      <p><strong>ACKLOG Proxy Guard:</strong> Kütüphane trafiğinizi ACKLOG üzerinden süzün. Lisans sözleşmelerinizi ihlal edebilecek agresif indirmeleri anında bloklayın. ACKLOG ile akademik kaynaklarınızı adil ve güvenli kullanın.</p>
     `
   },
-  "okul-wi-fi-aglarinda-kullanici-takibi-ve-filtreleme": {
-    title: "Okul Wi-Fi Ağlarında Kullanıcı Takibi ve İçerik Filtreleme",
-    description: "Eğitim kurumlarında kablosuz ağ güvenliği, misafir erişimi ve yasaklı site yönetimi.",
+  "okul-yonetim-sistemleri-e-okul-benzeri-guvenlik-iz": {
+    title: "Okul Yönetim Sistemleri (E-Okul Benzeri) Güvenlik İzleme Teknikleri",
+    description: "Not girme, devamsızlık ve kayıt sistemlerinin siber savunması ve yetki denetimi.",
     content: `
-      <h2>Kablosuz Eğitim: Wi-Fi Ağlarını Zırhlayın</h2>
-      <p>Okulların Wi-Fi ağları, siber saldırganlar için en kolay "giriş noktası"dır. Bir zafiyet nedeniyle ağınıza sızan bir kişi, okulun tüm idari verilerine erişebilir. Kablosuz ağda kullanıcıların kimliklendirilmesi bu yüzden hayati bir güvenlik adımıdır.</p>
+      <h2>Not Güvenliği: Eğitimde Veri Bütünlüğü</h2>
+      <p>Notların değiştirilmesi, bir okulun başına gelebilecek en büyük skandaldır. Bu sistemlerdeki güvenliğin tek teminatı, her bir 'Update' (Güncelleme) işleminin geri döndürülemez şekilde loglanmasıdır.</p>
       
-      <h3>Wi-Fi Güvenlik Adımları</h3>
-      <ol class="list-decimal pl-6 space-y-2 mb-6">
-        <li>WPA3 gibi güncel şifreleme protokollerini kullanın.</li>
-        <li>Öğretmen, öğrenci ve misafir için farklı SSID (Ağ adı) ve VLAN tanımlayın.</li>
-        <li>İçerik filtreleme ile okul saatlerinde sosyal medya veya oyun sitelerini kısıtlayın.</li>
+      <h3>İzleme Kriterleri</h3>
+      <p>Sistem yöneticisi (Admin) ve öğretmen hesaplarının davranışları modelize edilmelidir. Bir öğretmenin sadece kendi sınıfının notlarını değiştirdiğinden emin olunmalıdır.</p>
+
+      <p><strong>ACKLOG Integrity Checker:</strong> Eğitim yönetim sistemlerinizdeki veritabanı hareketlerini ACKLOG ile takip edin. "Not tablosunda yetkisiz bir değişim yapıldı" alarmını milisaniyeler içinde alın. Manuel takip skandalı önleyemez, ACKLOG ile prestijinizi koruyun.</p>
+    `
+  },
+  "yurt-internet-aglarinda-yasal-sorumluluk-ve-loglama": {
+    title: "Yurt İnternet Ağlarında Yasal Sorumluluk ve Loglama Rehberi",
+    description: "Öğrenci yurtlarında 5651 sayılı kanun uyumu ve 'Hotspot' güvenlik çözümleri.",
+    content: `
+      <h2>Yurt Güvenliği: Hotspot ve Yasal Loglar</h2>
+      <p>Yurtlar, internetin yüzlerce farklı kişi tarafından ortak kullanıldığı yerlerdir. Eğer interneti kullanan bir kişi yasa dışı bir işlem yaparsa, yasal muhatap yurt yönetimidir. Bu riskten kurtulmanın tek yolu 'Hatasız Loglama'dır.</p>
+      
+      <h3>Hotspot Standartları</h3>
+      <ul class="list-disc pl-6 space-y-2 mb-6 text-muted-foreground">
+        <li>TC Kimlik No doğrulamalı (SMS veya Portal) giriş sistemi.</li>
+        <li>Ağda 'Logon' ve 'Logoff' yapan kullanıcıların zaman damgalı mühürlenmesi.</li>
+        <li>Kullanıcılar arası trafiğin (Client Isolation) izlenmesi.</li>
+      </ul>
+
+      <p><strong>ACKLOG Hotspot Guard:</strong> Yurt ağlarınızdaki tüm trafiği ACKLOG ile süzün. Bir adli makamdan "Şu saatte kim bu siteye girdi?" sorusu geldiğinde, ACKLOG raporuyla faili kesin olarak gösterin. Manuel kağıt kayıtları kanıt sayılmaz, ACKLOG ile yasal zırhınızı kuşanın.</p>
+    `
+  },
+  "eduroam-baglanti-kayitlari-izleme-ve-analiz": {
+    title: "Eduroam Bağlantı Kayıtları İzleme ve Siber Analiz",
+    description: "Uluslararası akademik dolaşım ağı (Eduroam) erişimlerinin güvenli loglanması.",
+    content: `
+      <h2>Eduroam Güvenliği: Global Erişim Yerel Denetim</h2>
+      <p>Eduroam, bir akademisyenin dünyanın her yerinde internete çıkmasını sağlar. Ancak bu 'Açıklık', siber riskleri de beraberinde getirir. Radius logları üzerinden Eduroam trafiği 7/24 izlenmelidir.</p>
+      
+      <h3>Teknik Takip</h3>
+      <p>Ziyaretçi akademisyenlerin ağdaki hareketleri ve kendi öğrencilerinizin dış üniversitelerdeki login hareketleri korele edilmelidir.</p>
+
+      <p><strong>ACKLOG RADIUS Monitor:</strong> Eduroam RADIUS loglarınızı ACKLOG SIEM’e bağlayın. Şüpheli bir Eduroam hesabıyla ağınıza sızma denemelerini anında görün. ACKLOG ile global erişimi güvenli hale getirin.</p>
+    `
+  },
+  "kampuslerde-siber-zorbalik-tespiti-icin-ag-izleme": {
+    title: "Kampüslerde Siber Zorbalık Tespiti İçin Ağ İzleme ve Analiz",
+    description: "Öğrenci forumları ve ağ trafiği üzerinden siber zorbalık ve tehdit unsurlarını saptama.",
+    content: `
+      <h2>Sosyal Güvenlik: Siber Zorbalığı Önlemek</h2>
+      <p>Üniversite ağlarında gerçekleşen siber zorbalık, taciz veya yasa dışı gruplaşmalar trafik paternlerinden (Pattern Analysis) analiz edilebilir. Bu sadece bir güvenlik değil, bir sosyal sorumluluktur.</p>
+      
+      <h3>Davranışsal Analiz</h3>
+      <p>Ağda belli kelimelerin (Tehdit, Şiddet vb.) sıklığının artması veya belli saatlerdeki internet hareketliliği SIEM üzerinden rasyonalize edilmelidir.</p>
+
+      <p><strong>ACKLOG Safety Shield:</strong> Kampüs trafiğindeki aykırı durumları ACKLOG'un yapay zeka destekli motoruyla yakalayın. Olaylar büyümeden müdahale etme şansı yakalayın. ACKLOG ile kampüs hayatını dijitalde de koruyun.</p>
+    `
+  },
+  "egitim-kurumları-icin-ucretsiz-vs-ucretli-siem": {
+    title: "Eğitim Kurumları İçin Ücretsiz vs Ücretli SIEM: Hangisi Mantıklı?",
+    description: "Open source çözümlerin (ELK vb.) gizli maliyetleri ve profesyonel SIEM'in avantajları.",
+    content: `
+      <h2>SIEM Seçimi: Okullar İçin En Doğru Yatırım</h2>
+      <p>Eğitim kurumları genellikle "Ücretsiz olsun" diyerek ELK gibi sistemlere yönelir. Ancak bu sistemlerin kurulumu, bakımı ve donanım ihtiyacı, ücretli bir çözümden (ACKLOG) daha pahalıya mal olabilir.</p>
+      
+      <h3>Gizli Maliyetler Karşılaştırması</h3>
+      <ul class="list-disc pl-6 space-y-4 mb-6 text-gray-400">
+        <li><strong>Donanım:</strong> Ücretsiz sistemler çok yüksek RAM/Disk ister. ACKLOG ise optimize edilmiştir.</li>
+        <li><strong>Personel:</strong> ELK yönetmek için 1 uzman gerekir. ACKLOG'u herkes yönetebilir.</li>
+        <li><strong>Zaman Damgası:</strong> Ücretsizlerde hazır 5651 modülü yoktur, manuel entegre etmek zordur.</li>
+      </ul>
+
+      <p><strong>Neden ACKLOG?</strong> ACKLOG, eğitim kurumlarına özel "Edu-Pack" fiyatlandırmasıyla gelir. Kurulumu 2 saat sürer, eğitimi 1 gündür. Manuel sistemlerle boğuşmak yerine ACKLOG ile %100 uyum ve güvenliği uygun maliyetle alın.</p>
+    `
+  },
+  "ddo-bilgi-guvenligi-rehberi-kamu-kurumlari-icin-siem": {
+    title: "DDO Bilgi Güvenliği Rehberi Kamu Kurumları İçin SIEM Zorunluluğu",
+    description: "Cumhurbaşkanlığı Dijital Dönüşüm Ofisi rehberine tam uyumlu loglama ve siber güvenlik.",
+    content: `
+      <h2>Kamu Mevzuatı: DDO Rehberi ve Yerli Yazılım Gücü</h2>
+      <p>Cumhurbaşkanlığı Dijital Dönüşüm Ofisi (DDO) tarafından yayınlanan Bilgi ve İletişim Güvenliği Rehberi, tüm kamu kurumları ve kritik altyapılar için bir 'Anayasa' niteliğindedir. Rehberin en güçlü vurgusu "Yerli ve Milli Yazılım" kullanımıdır.</p>
+      
+      <h3>Rehberdeki SIEM Gereklilikleri</h3>
+      <ul class="list-disc pl-6 space-y-4 mb-6">
+        <li><strong>Merkezi Loglama:</strong> Tüm varlıkların (Sunucu, Switch, PC) loglarının bir merkezde toplanması.</li>
+        <li><strong>Alt Seviye Loglama:</strong> Sadece Windows değil, uygulama bazlı derinlemesine log tutulması.</li>
+        <li><strong>Korelasyon:</strong> Farklı cihazlardan gelen logların bir anlam ifade etmesi (Senaryo yazımı).</li>
+        <li><strong>Zaman Damgası:</strong> TÜBİTAK onaylı damgalama ile inkar edilemezlik.</li>
+      </ul>
+
+      <div class="bg-blue-500/10 p-6 rounded-xl my-8 border border-blue-500/20">
+        <h4 class="text-blue-400 font-bold mb-2">ACKLOG DDO Uyum Paketi:</h4>
+        <p>ACKLOG, DDO rehberinde belirtilen "Yerlilik" maddesini %100 karşılayan ve DDO Standartları ile tam uyumlu raporlar üreten yerli bir SIEM'dir. Kamu kurumlarında kurulum ve denetim süreçlerini tek tuşla yönetmenizi sağlar. Devletin verisini devletin yerli yazılımı ACKLOG ile koruyun.</p>
+      </div>
+
+      <h3>Adım Adım Uyum Planı</h3>
+      <p>Kurumunuzun siber olgunluk seviyesini ölçün, log envanterinizi çıkarın ve ACKLOG’un hazır DDO kurallarını aktif ederek güvenliğinizi belgelendirin.</p>
+    `
+  },
+  "e-devlet-servislerine-erisim-loglarinin-guvenligi": {
+    title: "E-Devlet Servislerine Erişim Loglarının Güvenliği ve Denetimi",
+    description: "Kamu kurumlarının e-devlet (tbs vb.) servisleri ile haberleşme güvenliği ve veri sızıntısı takibi.",
+    content: `
+      <h2>Devlet Kapısı Güvenliği: Servis Web Logları</h2>
+      <p>Vatandaşlık verisi, tapu kayıtları veya adli sicil dökümlerine e-devlet entegrasyonu ile erişen kurumlar, bu trafiği en yüksek hassasiyetle loglamalıdır. Bir memurun yetkisi dışında sorgu yapması ciddi bir 'Görev Suçu'dur.</p>
+      
+      <h3>Denetim Metrikleri</h3>
+      <ul class="list-disc pl-6 space-y-2 mb-6 text-muted-foreground">
+        <li><strong>Aynı TC Sorgusu:</strong> Aynı personelin kısa sürede çok sayıda TC sorgusu yapmasının tespiti.</li>
+        <li><strong>Access Spikes:</strong> Mesai dışı yapılan e-devlet servisi çağrıları.</li>
+        <li><strong>IP Whitelist:</strong> Servise sadece yetkili sunucu bloğundan erişildiğinin log teyidi.</li>
+      </ul>
+
+      <p><strong>ACKLOG Service Monitor:</strong> E-devlet entegrasyonu yapan uygulamalarınızın API loglarını ACKLOG ile süzün. Suiistimalleri daha gerçekleşirken fark edin. ACKLOG ile devlet verisini emanet bilinciyle koruyun.</p>
+    `
+  },
+  "kamu-kurumlarında-5651-yasasi-ve-zaman-damgası": {
+    title: "Kamu Kurumlarında 5651 Yasası ve Zaman Damgası Zorunluluğu",
+    description: "Belediyeler ve valilikler gibi kamu binalarında internet loglama ve yasal sorumluluklar.",
+    content: `
+      <h2>Yasal Mühür: Kamu Loglarında İnkar Edilemezlik</h2>
+      <p>Kamu kurumları hem çalışanları hem de misafirleri (Open Wi-Fi) için internet sunar. 5651 sayılı kanun, bu trafiğin zaman damgalı saklanmasını emreder. Eksik veya imzasız loglar, kurum yöneticilerini siber suçlara 'atak' durumuna düşürebilir.</p>
+      
+      <h3>5651 Checklist</h3>
+      <p>Loglar sadece 'tutulmakla' kalmamalı, her akşam TÜBİTAK/Zaman Damgası sunucularından alınan mühürle imzalanmalı ve bu imza dosyaları ayrı bir yedek ünitesinde saklanmalıdır.</p>
+
+      <p><strong>ACKLOG 5651 Engine:</strong> ACKLOG, mühürleme işlemini arka planda saniyeler içinde yapar. Arşivleriniz her zaman denetime hazırdır. Manuel imzalama süreçleriyle uğraşmayın, ACKLOG ile yasal güvencenizi otomatiğe bağlayın.</p>
+    `
+  },
+  "belediyeler-icin-akilli-sehir-iot-aglari-izleme": {
+    title: "Belediyeler İçin Akıllı Şehir (Smart City) IoT Ağları İzleme",
+    description: "Parklar, duraklar ve trafik sistemlerindeki IoT cihazlarının siber güvenliği.",
+    content: `
+      <h2>Şehir Güvenliği: Akıllı Sistemlerin Siber Zırhı</h2>
+      <p>Akıllı şehir projeleri (Aydınlatma, Atık yönetimi, Trafik sinyalizasyonu) devasa bir IoT ağı yaratır. Bu ağlara yapılabilecek bir siber sabotaj, tüm şehir trafiğini kilitleyebilir veya kamu hizmetlerini durdurabilir.</p>
+      
+      <h3>Riskler ve Loglama</h3>
+      <p>Sokaktaki sensörlerden gelen verilerin doğruluğu ve bu sensörlere yapılan login hareketleri merkezi bir SIEM ekranından 7/24 takip edilmelidir.</p>
+
+      <p><strong>ACKLOG Smart City Shield:</strong> Şehrin dijital sinir sistemini ACKLOG ile koruyun. Olağandışı bir sensor sinyalinde veya siber müdahalede anlık alarm alın. ACKLOG ile şehirlerin geleceğini siber tehditlerden arındırın.</p>
+    `
+  },
+  "milli-isletim-sistemi-pardus-log-yonetimi-ve-siem": {
+    title: "Milli İşletim Sistemi Pardus Log Yönetimi ve SIEM Uyumu",
+    description: "Kamu kurumlarında yaygınlaşan Pardus yüklü bilgisayarların merkezi log takibi ve güvenliği.",
+    content: `
+      <h2>Yerli Güç: Pardus Bilgisayarların Siber Savunması</h2>
+      <p>Pardus, kamu kurumlarımızın bağımsızlığı için kritik bir adımdır. Ancak her işletim sistemi gibi Pardus'un da profesyonelce loglanması ve izlenmesi gerekir. Linux tabanlı bu yapıda 'Auditd' kayıtları hayati önem taşır.</p>
+      
+      <h3>Pardus İzleme Kriterleri</h3>
+      <ul class="list-disc pl-6 space-y-4 mb-6">
+        <li><strong>Sudo Actions:</strong> Admin yetkisiyle (Sudo) çalıştırılan tüm komutların kaydı.</li>
+        <li><strong>User Access:</strong> SSH veya masaüstü ortamına yapılan girişler.</li>
+        <li><strong>Package Management:</strong> Sisteme kurulan veya kaldırılan tüm yazılımların izlenmesi.</li>
+      </ul>
+
+      <p><strong>ACKLOG Pardus Pack:</strong> ACKLOG, Pardus ile %100 yerli ve tam entegre çalışır. Pardus loglarını merkezi dashboardda Windows loglarıyla beraber izlemenizi sağlar. Milli işletim sisteminizi yerli SIEM ACKLOG ile koruyun.</p>
+    `
+  },
+  "kamu-verilerinin-bulut-cloud-siem-ile-korunması": {
+    title: "Kamu Verilerinin Bulut (Cloud) SIEM İle Korunması: KVKK Kuralları",
+    description: "Kamuda bulut kullanımı ve verilerin yurt dışına çıkış yasağı kapsamında siber güvenlik.",
+    content: `
+      <h2>Dijital Egemenlik: Kamu Datası Yurt Dışına Çıkmamalı</h2>
+      <p>KVKK ve DDO rehberi uyarınca, kamu verilerinin yurt dışı merkezli bulut sistemlerinde loglanması ve saklanması yasaktır. Bu durum, kamu kurumlarını "Yerel Bulut" (Local Cloud) veya "On-Premise" çözümlere yönlendirir.</p>
+      
+      <h3>Neden ACKLOG Cloud?</h3>
+      <p>ACKLOG'un bulut hizmeti Türkiye sınırları içindeki veri merkezlerinden sunulmaktadır. Bu sayede kamu kurumları hem bulut esnekliğinden faydalanabilir hem de mevzuatı ihlal etmezler.</p>
+
+      <p><strong>ACKLOG Local Cloud:</strong> Verinizi sınırların ötesine göndermeden, dünya standartlarında bulut SIEM hizmeti alın. ACKLOG ile yasalara tam uyum sağlayın, siber riskleri sınır içinde durdurun.</p>
+    `
+  },
+  "yüksek-guvenlikli-kamu-tesislerinde-ic-tehdit-izleme": {
+    title: "Yüksek Güvenlikli Kamu Tesislerinde İç Tehdit İzleme Teknikleri",
+    description: "Kritik devlet tesislerinde (Savunma, Enerji vb.) personel kaynaklı siber riskleri önleme.",
+    content: `
+      <h2>İçerideki Tehlike: Personel Davranış Analizi (UEBA)</h2>
+      <p>Siber saldırıların %60'ı içeriden başlar (Kaza veya Kasıt). Kamu personelin veya yüklenicilerin kritik sistemlerdeki 'Aykırı' hareketleri ancak derin analizle saptanabilir.</p>
+      
+      <h3>İzlencek Anomaliler</h3>
+      <ul class="list-disc pl-6 space-y-2 mb-6">
+        <li>USB portuna yapılan her türlü erişim ve dosya kopyalama.</li>
+        <li>Kritik sunuculara yapılan mesai dışı 'Ping' veya 'Port Scan' hareketleri.</li>
+        <li>Çok miktarda döküman yazdırma veya mail gönderme girişimleri.</li>
+      </ul>
+
+      <p><strong>ACKLOG Behavior Guard:</strong> ACKLOG'un UEBA motoru, kamu kurumlarınızdaki her bir profilin 'Normal'ini öğrenir. Normalden sapan sinsi hareketlerde "Kırmızı Alarm" üretir. Manuel takip yakalayamaz, ACKLOG ile içerideki gözünüz her zaman açık olsun.</p>
+    `
+  },
+  "kamu-web-sitelerine-yapılan-defacement-saldirilarini-izleme": {
+    title: "Kamu Web Sitelerine Yapılan Defacement Saldırılarını İzleme",
+    description: "Web sitelerinin ana sayfasının değiştirilmesini (Hacklenme) durdurma ve FIM rolü.",
+    content: `
+      <h2>Prestij Koruma: Web Sayfa Sabotajını Durdurun</h2>
+      <p>Bir kamu kurumunun web sitesine girildiğinde siber korsanların mesajını görmek büyük bir itibar kaybıdır. Buna 'Defacement' denir. Bu saldırı genellikle site dosyalarının değiştirilmesiyle gerçekleşir.</p>
+      
+      <h3>Anlık Tespit</h3>
+      <p>Web sunucusundaki <code>index.html</code> veya <code>default.aspx</code> dosyalarındaki değişiklik saniyeler içinde fark edilmelidir.</p>
+
+      <p><strong>ACKLOG Web-FIM:</strong> ACKLOG, web sitenizin dosyalarını 7/24 mühürlü kontrol eder. Habersiz bir değişiklik yapıldığı an web servisini durdurabilir veya size anlık alarm geçebilir. ACKLOG ile web sitenizi siber saldırganların panosu olmaktan kurtarın.</p>
+    `
+  },
+  "polis-ve-adli-makamlar-icin-siber-delil-yonetimi": {
+    title: "Polis ve Adli Makamlar İçin Siber Delil Yönetimi ve SIEM",
+    description: "Siber suç soruşturmalarında logların kanıt değeri ve adli bilişim analizi.",
+    content: `
+      <h2>Dijital Adalet: Logların Mahkemede Kanıt Olarak Sunulması</h2>
+      <p>Bir siber suç davasında hakim sadece bir "Ekran Görüntüsü"ne inanmaz. Değiştirilemezlik (Hashing) ve Zaman Damgası (Timestamping) olan ham log verilerini 'Adli Kanıt' olarak kabul eder.</p>
+      
+      <h3>Kanıt Zinciri (Chain of Custody)</h3>
+      <p>Logun toplandığı andan itibaren kimsenin dokunmadığının ve üzerine zaman damgası vurulduğunun SIEM tarafından kanıtlanması gerekir.</p>
+
+      <p><strong>ACKLOG Forensic Port:</strong> ACKLOG, siber olayları tek tuşla "Mahkeme Dosyası" formatında hazırlar ve hukuken reddedilemez bir hale getirir. Dijital delillerinizi ACKLOG ile mühürleyin, adaletin tecellisine veriyle katkı sağlayın.</p>
+    `
+  },
+  "kamu-kurumlari-icin-siem-satin-alma-sartnamesi-haz": {
+    title: "Kamu Kurumları İçin SIEM Satın Alma Şartnamesi Hazırlama Rehberi",
+    description: "İhale süreçlerinde doğru SIEM kriterlerini belirleme ve yerli ürün puanlaması.",
+    content: `
+      <h2>İhale Rehberi: Doğru SIEM Şartnamesi Nasıl Yazılır?</h2>
+      <p>Yanlış yazılan bir şartname, kurumunuza yıllarca kullanamayacağınız karmaşık bir yazılımın girmesine neden olabilir. Şartnamede performansa, yerli desteğe ve DDO uyumuna odaklanılmalıdır.</p>
+      
+      <h3>Şartnameye Eklenmesi Gereken 5 Kritik Madde</h3>
+      <ol class="list-decimal pl-6 space-y-2 mb-6 text-gray-400">
+        <li>"Ürün %100 yerli malı belgesine sahip olmalıdır."</li>
+        <li>"Sanallaştırma ortamlarında ek lisans maliyeti olmaksızın çalışmalıdır."</li>
+        <li>"TÜBİTAK Zaman Damgası entegrasyonu kutudan çıktığı gibi (out-of-the-box) hazır olmalıdır."</li>
+        <li>"DDO Bilgi Güvenliği Rehberi regülasyon raporu tek tuşla alınabilmelidir."</li>
+        <li>"EPS (Saniyedeki Olay Sayısı) kısıtlaması olmaksızın sınırsız log işleyebilmelidir."</li>
       </ol>
 
-      <p><strong>ACKLOG Wireless Dashboard:</strong> Okul Wi-Fi ağınızdaki tüm trafiği ACKLOG üzerinden izleyin. Bilinmeyen veya şüpheli cihaz bağlantılarında anında uyarı alın. Manuel kablolu-kablosuz takibi bitti, ACKLOG ile okulunuzun havasını temiz tutun.</p>
-    `
-  },
-  "kutuphane-sistemleri-log-yonetimi-ve-kullanici-takibi": {
-    title: "Kütüphane Sistemleri Log Yönetimi ve Kullanıcı Veri Takibi",
-    description: "Kütüphane otomasyon yazılımları, dijital arşivler ve kullanıcı erişim logları.",
-    content: `
-      <h2>Bilgi Hazinesi: Kütüphane Verilerini Koruyun</h2>
-      <p>Modern kütüphaneler sadece kitaptan oluşmaz, devasa birer dijital veri havuzudur. Nadir eserlerin dijital kopyaları veya üyelerin kişisel okuma tercihleri KVKK kapsamında korunması gereken verilerdir.</p>
-      
-      <h3>İzleme Metrikleri</h3>
-      <p>Kütüphane yazılımına yapılan girişler, kitap ödünç alma işlemleri ve dijital arşive yapılan sorgular mutlaka loglanmalıdır. "Hangi nadir dökümanı kim indirdi?" sorusu her an yanıtlanabilmelidir.</p>
-
-      <p><strong>ACKLOG Library Watch:</strong> Kütüphane sistemlerindeki kullanıcı hareketlerini ACKLOG ile merkezi kasanızda toplayın. Dijital hırsızlık girişimlerini henüz gerçekleşirken fark edin. Manuel takip kütüphanenizi korumaz, ACKLOG ile bilginizi mühürleyin.</p>
-    `
-  },
-  "eduroam-baglanti-kayitlarinin-saklanmasi-ve-guvenlik": {
-    title: "Eduroam Bağlantı Kayıtlarının Saklanması ve Güvenlik Analizi",
-    description: "Uluslararası akademik dolaşım ağı (Eduroam) üzerinde yasal loglama ve siber riskler.",
-    content: `
-      <h2>Küresel Akademik Ağ: Eduroam Güvenliği</h2>
-      <p>Eduroam, bir üniversite mensubunun dünyanın herhangi bir yerindeki başka bir üniversitede internete bağlanmasını sağlar. Bu harika sistem, aynı zamanda "Kimin hangi üniversiteden gelip neler yaptığının" izlenmesi gibi bir güvenlik zorunluluğunu da beraberinde getirir.</p>
-      
-      <h3>Eduroam Loglama Standartları</h3>
-      <ul class="list-disc pl-6 space-y-2 mb-6 text-muted-foreground">
-        <li><strong>Authentication Logs:</strong> Uzak kullanıcıların kimlik doğrulama istekleri.</li>
-        <li><strong>Session Logs:</strong> Bağlantı başlangıç ve bitiş zamanları.</li>
-        <li><strong>IP Traceability:</strong> Eduroam üzerinden gelen yabancı misafirin iç ağdaki faaliyetlerinin 5651 uyumu.</li>
-      </ul>
-
-      <p><strong>ACKLOG Global Connect:</strong> Eduroam verilerini ACKLOG üzerinde analiz ederek kampüsünüze gelen yabancı misafirlerin güvenli olduğundan emin olun. Uluslararası yasal standartlara uygun log saklayın. Manuel takiple bu karmaşık ağı yönetemezsiniz, ACKLOG ile dünyaya güvenle bağlanın.</p>
-    `
-  },
-  "ddo-bilgi-guvenligi-rehberi-uyumlulugu-kamu": {
-    title: "DDO Bilgi ve İletişim Güvenliği Rehberi Uyumluluğu (Kamu)",
-    description: "Cumhurbaşkanlığı Dijital Dönüşüm Ofisi rehberindeki loglama ve SIEM kriterleri.",
-    content: `
-      <h2>Devlet Standartları: Kamu Kurumlarında Siber Güvenlik</h2>
-      <p>DDO Bilgi ve İletişim Güvenliği Rehberi, tüm kamu kurumlarının ve kritik altyapıların uyması gereken "Anayasa" niteliğinde bir belgedir. Bu rehberin en hacimli bölümlerinden birini ise log yönetimi, SIEM ve siber olay izleme oluşturur.</p>
-      
-      <h3>Rehberdeki Temel Gereksinimler</h3>
-      <ul class="list-disc pl-6 space-y-4 mb-6">
-        <li><strong>Bütünlük ve Gizlilik:</strong> Logların yetkisiz erişime karşı korunması ve silinmemesi.</li>
-        <li><strong>Zaman Senkronizasyonu:</strong> Tüm sistemlerin tek bir NTP sunucusu üzerinden milisaniyelik log üretmesi.</li>
-        <li><strong>Varlık Bazlı Analiz:</strong> Kritik sunucuların (e-devlet vb.) sızma girişimlerine karşı 7/24 izlenmesi.</li>
-      </ul>
-
-      <p><strong>ACKLOG DDO-Ready:</strong> ACKLOG, DDO rehberine tam uyumlu yerli ve milli bir SIEM'dir. Rehberdeki kontrol listelerini (Checklist) karşılayan hazır dashboardları ve raporlarıyla kamu kurumlarına zaman ve bütçe kazandırır. Manuel uyum süreçleriyle riske girmeyin, ACKLOG ile devlet verisini profesyonelce koruyun.</p>
-    `
-  },
-  "belediyeler-icin-yerli-siem-zorunlulugu-ve-faydalari": {
-    title: "Belediyeler İçin Yerli SIEM Zorunluluğu ve Faydaları",
-    description: "Yerel yönetimlerde verilerin Türkiye'de kalması, maliyet avantajı ve 5651 uyumu.",
-    content: `
-      <h2>Yerel Yönetim Güvenliği: Belediyeler Neden SIEM Almalı?</h2>
-      <p>Belediyeler, vatandaşın tüm kişisel verilerine (Adres, vergi, sosyal yardım vb.) sahip en kritik kurumlardır. Bu yüzden siber saldırganların hedefindedir. Özellikle kamu tasarruf tedbirleri ve yerlilik vizyonu gereği yerli SIEM kullanımı artık bir tercihten ziyade gerekliliktir.</p>
-      
-      <h3>Faydalar ve Zorunluluklar</h3>
-      <ul class="list-disc pl-6 space-y-2 mb-6">
-        <li><strong>Ekonomik Lisanslama:</strong> Dolar kuru riskinden uzak, yerel bütçeye uygun fiyatlandırma.</li>
-        <li><strong>Türkçe Destek:</strong> Problemleri kendi dilinizde ve anında çözme imkanı.</li>
-        <li><strong>E-Belediye Entegrasyonu:</strong> Yerel belediye yazılımlarının loglarını anlamlandırabilme.</li>
-      </ul>
-
-      <p><strong>ACKLOG Belediye Paketi:</strong> ACKLOG, onlarca belediyede kullanılan, vatandaş verisini koruyan bir kalkan gibidir. Hem 5651 yasal imzalama ihtiyacını giderir hem de siber sızmaları engeller. Manuel log toplamak bütçe ve zaman kaybıdır, ACKLOG ile hizmetinizi aksatmayın.</p>
-    `
-  },
-  "e-belediye-sistemleri-siber-guvenligi-ve-loglama": {
-    title: "E-Belediye Sistemleri Siber Güvenliği ve Loglama Teknikleri",
-    description: "Sanal pos, emlak vergisi ve vatandaş portalları için güvenli log yönetimi.",
-    content: `
-      <h2>Vatandaş Odaklı Güvenlik: E-Belediye Hizmetleri</h2>
-      <p>Bir vatandaş belediye sitesinden emlak vergisini öderken kullanılan sanal pos altyapısı ve veri girişi, saldırganların "SQL Injection" veya "XSS" gibi ataklarına maruz kalabilir. Bu atakları görmeden vatandaşın kredi kartı verisini koruyamazsınız.</p>
-      
-      <h3>Güvenlik Formülü</h3>
-      <ul class="list-disc pl-6 space-y-2 mb-6 text-muted-foreground">
-        <li><strong>Web Application Firewall (WAF) Logları:</strong> Gelen siber atakların tespiti.</li>
-        <li><strong>DB Audit:</strong> Vatandaş veritabanına doğrudan erişenlerin (Sistemci/Yazılımcı) takibi.</li>
-        <li><strong>Access Logs:</strong> Hangi vatandaşın, hangi işlemi başarıyla tamamladığının yasal kaydı.</li>
-      </ul>
-
-      <p><strong>ACKLOG Citizens Guard:</strong> E-belediye portallarınızın trafiğini ACKLOG ile 7/24 izleyin. Şüpheli bir "Veri Çekme" girişimini anında durdurun. Manuel izleme imkansızdır, vatandaşın siber güvenliğini ACKLOG ve yerli teknolojiyle sağlayın.</p>
-    `
-  },
-  "kamu-kurumlarında-some-kurulumu-ve-loglama-zorunlulugu": {
-    title: "Kamu Kurumlarında SOME Kurulumu ve Loglama Zorunluluğu",
-    description: "Siber Olaylara Müdahale Ekipleri (SOME) için gerekli teknik altyapı ve SIEM kriterleri.",
-    content: `
-      <h2>Kurumsal Defans: SOME Ekiplerinin En Büyük Silahı</h2>
-      <p>USOM (Ulusal Siber Olaylara Müdahale Merkezi) koordinasyonunda kurulan SOME birimleri, kurumlarını savunmakla görevlidir. Bir SOME ekibinin logları analiz edememesi, radar sistemini kullanamayan bir hava kuvvetine benzer.</p>
-      
-      <h3>SOME İçin SIEM Neden Önemli?</h3>
-      <p>Siber olaylar bazen günler veya aylar süren bir "Keşif" aşamasından sonra gerçekleşir. SIEM, SOME personeline geçmiş aylarda yapılan sızıntı denemelerini "Görselleştirerek" sunar.</p>
-
-      <p><strong>ACKLOG SOME Dashboard:</strong> SOME personeli için özel olarak tasarlanmış arayüzlerle ACKLOG, kurumsal siber risk skorunuzu canlı gösterir. Bir saldırı olduğunda "Yasal Delilleri" 3 saniyede paketleyip USOM'a göndermenizi sağlar. Manuel raporlarla vakit kaybetmeyin, ACKLOG ile güçlü bir SOME timi olun.</p>
-    `
-  },
-  "devlet-arsivleri-dijital-veri-guvenligi-ve-erisim-logu": {
-    title: "Devlet Arşivleri Dijital Veri Güvenliği ve Erişim Logu Yönetimi",
-    description: "Milli ve tarihi belgelerin dijital kopyalarının korunması, siber casusluğa karşı önlemler.",
-    content: `
-      <h2>Milli Hafıza: Devlet Arşivlerinin Siber Kalkanı</h2>
-      <p>Tarihi belgeler, tapu kayıtları ve stratejik dökümanlar artık dijitalleşti. Bu verilere erişim, ulusal güvenliğin bir bacağıdır. Bir sızma sonucu belgelerin çalınması veya (daha kötüsü) değiştirilmesi büyük bir felaket olur.</p>
-      
-      <h3>Arşiv Güvenlik Standartları</h3>
-      <ul class="list-disc pl-6 space-y-2 mb-6">
-        <li><strong>Immutable Logging:</strong> Kayıtların silinmesini engelleyen (WORM) teknoloji.</li>
-        <li><strong>Permission Analytics:</strong> "Kim bu belgeyi görmeye yetkili?" analizlerinin canlı yapılması.</li>
-        <li><strong>Full Audit Trail:</strong> Belgeye bakılma, kopyalanma veya yazdırılma kayıtları.</li>
-      </ul>
-
-      <p><strong>ACKLOG Archive Protector:</strong> Dijital arşivlerinize yapılan her dokunuşu ACKLOG ile yasal güvenceli şekilde kaydedin. Değerli belgelerin yetkisiz kopyalanmasını anomali algoritmalarıyla yakalayın. Manuel kontroller milli hafızayı koruyamaz, ACKLOG ile mühürleyin.</p>
-    `
-  },
-  "dmo-devlet-malzeme-ofisi-uzerinden-siem-alimi": {
-    title: "DMO (Devlet Malzeme Ofisi) Üzerinden SIEM Alımı ve Şartname",
-    description: "Kamu kurumlarının hızlı ve güvenli SIEM tedarik süreci, yerli ürün avantajları.",
-    content: `
-      <h2>Tedarik Kolaylığı: DMO Katalogdan SIEM Alımı</h2>
-      <p>Kamu kurumları için satın alma süreci bazen aylar süren karmaşık bir ihale maratonuna dönüşebilir. Oysa siber güvenlikte "Aylar" beklemek, kapıları hırsıza açık bırakmak demektir. DMO üzerinden SIEM alımı, bu süreci haftalara ve hatta günlere indirir.</p>
-      
-      <h3>Alım Sürecinde Dikkat Edilecekler</h3>
-      <ul class="list-disc pl-6 space-y-2 mb-6 text-muted-foreground">
-        <li>Ürünün "Yerli Malı Belgesi"ne sahip olması (Puan ve vergi avantajı).</li>
-        <li>DMO kataloğunda "Hızlı Tedarik" kapsamında bulunması.</li>
-        <li>Bakım ve destek hizmetlerinin Türkiye genelinde yaygınlığı.</li>
-      </ul>
-
-      <p><strong>ACKLOG DMO Katalog:</strong> ACKLOG, DMO (Devlet Malzeme Ofisi) kataloğunda yer alan, kamu kurumlarının güvenle seçebileceği yerli SIEM çözümüdür. İhale süreçleriyle uğraşmadan, DMO üzerinden hızlıca kurumunuzu zırhlayın. Manuel alım süreçlerini otomatiğe bağlayın, ACKLOG ile bugün korunmaya başlayın.</p>
-    `
-  },
-  "kamu-bulut-bilisim-stratejisi-loglama-zorunlulugu": {
-    title: "Kamu Bulut Bilişim Stratejisi Loglama Zorunluluğu ve Güvenlik",
-    description: "Yerli bulut (Public/Private Cloud) geçiş süreçlerinde yasal log yönetimi ve denetim.",
-    content: `
-      <h2>Bulut Dönüşümü: Kamu Verisi Nerede Durmalı?</h2>
-      <p>T.C. Cumhurbaşkanlığı genelgesi uyarınca kamu verisinin yurt dışı bulutlarında (AWS, Azure vb.) tutulması kısıtlanmış, yerli bulut yatırımları teşvik edilmiştir. Bu bulut altyapılarında da fiziksel sunucularda olduğu gibi loglama zorunluluğu esnemez.</p>
-      
-      <h3>Bulutta Kamu Loglama Kriterleri</h3>
-      <ul class="list-disc pl-6 space-y-2 mb-6">
-        <li>Verinin fiziksel lokasyonunun Türkiye sınırları içinde olması.</li>
-        <li>Bulut yöneticilerinin (Cloud admin) hareketlerinin kurum tarafından denetlenebilmesi.</li>
-        <li>Tüm servis loglarının "Centralized" (Merkezi) bir SIEM'e akması.</li>
-      </ul>
-
-      <p><strong>ACKLOG Cloud-Local:</strong> Kamu kurumlarına özel hibrit bulut çözümlerinde ACKLOG, verinin hem bulutta hem de merkezde izlenmesini sağlar. Yasal uyumluluğunuzu bulutta da kaybetmeyin. Manuel takip bitti, ACKLOG ile göklerde de güvendesiniz.</p>
-    `
-  },
-  "kurumsal-siber-hijyen-kurallari-kamu-personeli-icin": {
-    title: "Kurumsal Siber Hijyen Kuralları: Kamu Personeli İçin Rehber",
-    description: "Oltalamadan parola güvenliğine, kamu personelinin uyması gereken temel kurallar.",
-    content: `
-      <h2>Temiz Dijital Ortam: Siber Hijyen Nedir?</h2>
-      <p>Siber hijyen, tıpkı fiziksel hijyen gibi, sistemin sağlığını korumak için personelin yapması gereken basit ama hayati alışkanlıklardır. Devlet dairelerindeki tek bir personelin tıkladığı "Sahte fatura" maili, tüm kurumun kilitlenmesine neden olabilir.</p>
-      
-      <h3>Temel Hijyen Kuralları</h3>
-      <ol class="list-decimal pl-6 space-y-2 mb-6">
-        <li>Ortak kullanılan USB belleklerle dosya taşımaktan kaçının.</li>
-        <li>Bilgisayar başından kalkarken 'Win+L' ile ekranı mutlaka kilitleyin.</li>
-        <li>Kurumsal mail ile alışveriş sitelerine veya sosyal medyaya kaydolmayın.</li>
-      </ol>
-
-      <p><strong>ACKLOG Hygiene Check:</strong> Personelinizin siber hijyen kurallarına ne kadar uyduğunu ACKLOG ile görün. "Kaç kişi kilitlenmeyen PC bırakmış?" veya "Kimler USB takmış?" sorularına anında yanıt alın. Manuel eğitimler tek başına yetmez, ACKLOG ile alışkanlıkları veriyle denetleyin.</p>
-    `
-  },
-  "yerel-yonetimlerde-kvkk-ve-veri-sorumlusu-egitimi": {
-    title: "Yerel Yönetimlerde KVKK ve Veri Sorumlusu Eğitimi",
-    description: "Belediye personeli ve seçilmiş yöneticiler için yasal sorumluluklar ve cezai riskler.",
-    content: `
-      <h2>Yönetimsel Sorumluluk: Belediyede Kim Sorumlu?</h2>
-      <p>Belediyelerde KVKK uyum süreci sadece BT biriminin işi değildir. Belediye Başkanı'ndan veznedara kadar herkes "Veri Sorumlusu" sıfatıyla yasal risk altındadır. Kişisel verilerin ifşa olması durumunda idari para cezalarının yanı sıra adli yaptırımlar da söz konusudur.</p>
-      
-      <h3>Eğitim ve Denetim Başlıkları</h3>
-      <ul class="list-disc pl-6 space-y-2 mb-6 text-muted-foreground">
-        <li>Aydınlatma metinlerinin vatandaşın görebileceği her yerde olması.</li>
-        <li>Veri imha politikasının (Eski dilekçeler vb.) uygulanması.</li>
-        <li>Siber güvenlik yatırımının (SIEM vb.) "Teknik Tedbir" olarak yapılması.</li>
-      </ul>
-
-      <p><strong>ACKLOG Evidence:</strong> Bir sızıntı mahkemeye taşındığında, "Gereken teknik özeni gösterdik" diyebilmenin tek yolu ACKLOG kayıtlarını sunmaktır. Personelin eğitimli olduğunu ama sistemin de 7/24 izlendiğini ispatlayın. Manuel süreçlerle hukuki savunma yapamazsınız, ACKLOG ile yasal zırhınızı kuşanın.</p>
-    `
-  },
-  "milli-isletim-sistemi-pardus-uyumlu-siem-kurulumu": {
-    title: "Milli İşletim Sistemi (Pardus) Uyumlu SIEM Kurulumu",
-    description: "Pardus sunucularından ve kullanıcı bilgisayarlarından log toplama, merkezi izleme.",
-    content: `
-      <h2>Tam Yerlilik: Pardus + ACKLOG SIEM</h2>
-      <p>Kamuda Pardus kullanımının yaygınlaşmasıyla birlikte, bu milli işletim sistemine uygun siber güvenlik araçlarının ihtiyacı da artmıştır. Pardus üzerindeki sitem hareketlerini (D-Bus, Auth.log vb.) anlamayan bir SIEM ile güvenliği sağlayamazsınız.</p>
-      
-      <h3>Entegrasyon Adımları</h3>
-      <p>Pardus sunucularınıza hafif (Lightweight) ACKLOG ajanlarını kurarak sys-log ve uygulama loglarını saniyeler içinde merkezi dashboarda çekebilirsiniz.</p>
-
-      <p><strong>ACKLOG Pardus Shield:</strong> ACKLOG, milli işletim sistemimiz Pardus ile tam uyumlu çalışan milli bir SIEM'dir. Laboratuvardan sahaya her Pardus makinesini ACKLOG ile izleyin. "Milli sistem, milli koruma!" vizyonuyla siber egemenliğinizi manuel süreçlerden kurtarıp ACKLOG ile otomatiğe bağlayın.</p>
+      <p><strong>Neden ACKLOG?</strong> ACKLOG, tüm bu şartname maddelerini eksiksiz karşılayan ve kamu kurumlarında en yüksek performansı veren yerli liderdir. Şartnameniz hazırsa, ACKLOG ile siber güvenliğinizi en üst lige taşıyın.</p>
     `
   }
 };
