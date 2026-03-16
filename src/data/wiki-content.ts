@@ -1,6 +1,6 @@
 import { articles as baseArticles } from './wiki/base-articles';
 import { regulationArticles } from './wiki/regulations';
-import { solutionCostArticles } from './wiki/solutions-costs';
+import { solutionsCostsArticles } from './wiki/solutions-costs';
 import { technicalArticles } from './wiki/technical';
 import { brandsSOCArticles } from './wiki/brands-soc';
 import { trendsOthersArticles } from './wiki/trends-others';
@@ -14,7 +14,7 @@ export const articles: Record<string, {
 }> = {
   ...baseArticles,
   ...regulationArticles,
-  ...solutionCostArticles,
+  ...solutionsCostsArticles,
   ...technicalArticles,
   ...brandsSOCArticles,
   ...trendsOthersArticles,
