@@ -14,16 +14,21 @@ import { technicalArticles } from '@/data/wiki/technical';
 import { brandsSOCArticles } from '@/data/wiki/brands-soc';
 import { trendsOthersArticles } from '@/data/wiki/trends-others';
 import { generalPurchasingArticles } from '@/data/wiki/general-purchasing';
+import { userDataSecurityArticles } from '@/data/wiki/user-data-security';
+import { networkOpsSecurityArticles } from '@/data/wiki/network-ops-security';
+import { threatWebSecurityArticles } from '@/data/wiki/threat-web-security';
+import { complianceIndustrialArticles } from '@/data/wiki/compliance-industrial';
+import { serverCloudAdminArticles } from '@/data/wiki/server-cloud-admin';
 
 const CATEGORIES = [
     { id: "all", label: "Tümü", icon: LayoutGrid },
-    { id: "base", label: "Genel Rehberler", icon: BookOpen },
+    { id: "user", label: "Dosya & Kullanıcı", icon: UserCheck },
+    { id: "net", label: "Ağ & Operasyon", icon: Zap },
+    { id: "threat", label: "Saldırı & Web", icon: Target },
     { id: "reg", label: "Mevzuat & KVKK", icon: Scale },
-    { id: "tech", label: "Teknik & How-to", icon: HardDrive },
+    { id: "tech", label: "Sunucu & DB", icon: HardDrive },
     { id: "cost", label: "Çözümler & Maliyet", icon: DollarSign },
-    { id: "brands", label: "Markalar & SOC", icon: Target },
-    { id: "trends", label: "Trendler & AI", icon: TrendingUp },
-    { id: "purchase", label: "Satın Alma & Kariyer", icon: UserCheck },
+    { id: "trends", label: "Trendler & Yeni nesil", icon: TrendingUp },
 ];
 
 export default function WikiIndexPage() {
@@ -32,15 +37,14 @@ export default function WikiIndexPage() {
 
     // Convert articles object to array and assign categories
     const allArticles = Object.entries(articles).map(([slug, data]) => {
-        let categoryId = "base";
-        if (slug in regulationArticles) categoryId = "reg";
-        else if (slug in technicalArticles) categoryId = "tech";
+        let categoryId = "all";
+        if (slug in userDataSecurityArticles) categoryId = "user";
+        else if (slug in networkOpsSecurityArticles) categoryId = "net";
+        else if (slug in threatWebSecurityArticles) categoryId = "threat";
+        else if (slug in regulationArticles || slug in complianceIndustrialArticles) categoryId = "reg";
+        else if (slug in technicalArticles || slug in serverCloudAdminArticles) categoryId = "tech";
         else if (slug in solutionsCostsArticles) categoryId = "cost";
-        else if (slug in brandsSOCArticles) categoryId = "brands";
-        else if (slug in trendsOthersArticles) categoryId = "trends";
-        else if (slug in generalPurchasingArticles) categoryId = "purchase";
-        else if (slug in baseArticles) categoryId = "base";
-
+        else if (slug in brandsSOCArticles || slug in trendsOthersArticles) categoryId = "trends";
         return {
             slug,
             ...data,
@@ -48,17 +52,39 @@ export default function WikiIndexPage() {
         };
     });
 
-    // Filter articles based on search query AND selected category
-    const filteredArticles = allArticles.filter(article => {
-        const matchesSearch = 
-            article.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            article.content.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            article.description?.toLowerCase().includes(searchQuery.toLowerCase());
-        
+    // Advanced search logic: Term-based scoring
+    const filteredArticles = allArticles.map(article => {
+        if (!searchQuery.trim()) return { ...article, score: 1 };
+
+        const searchTerms = searchQuery.toLowerCase().trim().split(/\s+/);
+        let score = 0;
+
+        const titleLower = article.title.toLowerCase();
+        const contentLower = article.content.toLowerCase();
+        const descLower = article.description?.toLowerCase() || "";
+
+        searchTerms.forEach(term => {
+            // Title matches are high priority (3 points)
+            if (titleLower.includes(term)) score += 3;
+            // Content matches are medium priority (1 point)
+            if (contentLower.includes(term)) score += 1;
+            // Description matches (1 point)
+            if (descLower.includes(term)) score += 1;
+            
+            // Exact word match bonus (e.g., searching for "SIEM" matches "SIEM" exactly)
+            const exactRegex = new RegExp(`\\b${term}\\b`, 'i');
+            if (exactRegex.test(titleLower)) score += 2;
+        });
+
+        return { ...article, score };
+    })
+    .filter(article => {
         const matchesCategory = selectedCategory === "all" || article.categoryId === selectedCategory;
-        
+        // If there's a search, score must be > 0. If no search, everything in category matches.
+        const matchesSearch = searchQuery.trim() ? article.score > 0 : true;
         return matchesSearch && matchesCategory;
-    });
+    })
+    .sort((a, b) => b.score - a.score); // Sort by highest relevance score
 
     return (
         <main className="flex min-h-screen flex-col bg-background text-foreground">
