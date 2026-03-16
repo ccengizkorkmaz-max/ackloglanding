@@ -1,424 +1,468 @@
 export const brandsSOCArticles = {
   "logsign-kurulum-rehberi": {
-    title: "Logsign Kurulum Rehberi ve Alternatif SIEM Seçenekleri",
-    description: "Yerli SIEM çözümlerinden Logsign kurulum rehberi. Adım adım kurulum, konfigürasyon ve ACKLOG ile performans karşılaştırması.",
+    title: "Logsign Kurulum Rehberi ve ACKLOG ile Karşılaştırmalı Performans Analizi",
+    description: "Yerli SIEM dünyasında Logsign kurulum rehberi ve teknik detaylar. Kurulum adımları ve ACKLOG ile hız/maliyet farkları.",
     content: `
-      <h2>Yeni Başlayanlar İçin Logsign Kurulum Rehberi ve Detaylar</h2>
+      <h2>Teknik İnceleme: Logsign Kurulum Rehberi ve Alternatif Bakış</h2>
       <p>
-        Türkiye siber güvenlik pazarının bilinen oyuncularından biri olan <strong>Logsign kurulum rehberi</strong>, sistem yöneticilerinin ilk araştırdığı konulardan biridir. Log toplama ve korelasyon için tasarlanan bu yerli ürünün kurulum süreci belirli donanım gereksinimleri ve lisanslama adımları içerir.
+        Türkiye siber güvenlik pazarında yerli çözümler arasında <strong>Logsign kurulum rehberi</strong> oldukça popüler bir arama terimidir. Kurumlar, yasal uyumluluk (5651) için bu tür sistemlere ihtiyaç duyarlar. Ancak kurulumun karmaşıklığı ve donanım gereksinimleri bazen projelerin uzamasına neden olabilir.
       </p>
 
-      <h3>Logsign Kurulumu Öncesi Hazırlık</h3>
-      <p>
-        Başarılı bir <strong>Logsign kurulum rehberi</strong> uygulaması için şunlara ihtiyacınız vardır:
-      </p>
+      <h3>Kurulumda Dikkat Edilmesi Gereken 3 Nokta</h3>
       <ul class="list-disc pl-6 space-y-2 mb-6">
-        <li>Desteklenen bir sanallaştırma platformu (VMware, Hyper-V).</li>
-        <li>TÜBİTAK zaman damgası için gerekli sertifika ayarları.</li>
-        <li>Log toplanacak kaynakların (firewall, DC vb.) IP listesi.</li>
+        <li><strong>Kaynak Ayrımı:</strong> Log toplayıcı ve analiz motorunun kaynak tüketimini dengeli planlayın.</li>
+        <li><strong>Connector Ayarları:</strong> Her markanın firewall loglarını parse etmek için doğru konnektörü seçin.</li>
+        <li><strong>Zaman Damgası:</strong> TÜBİTAK zaman damgası kurulumunu en başta yapmazsanız loglarınız geçersiz sayılabilir.</li>
       </ul>
 
+      <p><strong>Karşılaştırma Notu:</strong> <strong>Logsign kurulum rehberi</strong> adımları size karmaşık geliyorsa, ACKLOG'un "tek komutla kurulum" ve "sıfır konfigürasyon" vizyonunu test ederek zamandan tasarruf edebilirsiniz.</p>
+
       <p>
-        Eğer daha hafif ve performanslı bir alternatif arıyorsanız, <strong>Logsign kurulum rehberi</strong> yerine ACKLOG'un "5 dakikada SIEM" vizyonunu keşfedebilirsiniz.
+        ACKLOG, yerli rakiplerine göre %60 daha az donanım kaynağı tüketerek <strong>Logsign kurulum rehberi</strong> arayanların beklediği performansı çok daha ekonomik şekilde sunar.
       </p>
     `
   },
   "splunk-turkiye-distributoru": {
-    title: "Splunk Türkiye Distribütörü ve Lisanslama Süreçleri",
-    description: "Splunk Türkiye distribütörü kimdir? Kurumsal destek, eğitim ve Splunk lisans maliyetlerini düşürmek için yerli SIEM alternatifleri.",
+    title: "Splunk Türkiye Distribütörü ve Lisans Maliyetlerini %70 Düşürme Yolları",
+    description: "Splunk Türkiye distribütörü üzerinden hizmet alan kurumlar için bütçe optimizasyonu. Splunk vs. Yerli SIEM (ACKLOG) karşılaştırması.",
     content: `
-      <h2>Global Güç: Splunk Türkiye Distribütörü ve Yerel Destek Hattı</h2>
+      <h2>Bütçe Yönetimi: Splunk Türkiye Distribütörü ve Alternatif Çözümler</h2>
       <p>
-        Dünya genelinde büyük veri analizi dendiğinde akla gelen Splunk, Türkiye'de yetkili partnerler aracılığıyla hizmet verir. <strong>Splunk Türkiye distribütörü</strong> üzerinden lisanslama, bakım ve teknik destek hizmetleri kurumlar için sunulmaktadır.
+        Global bir dev olan Splunk, sunduğu derin analiz yetenekleriyle bilinir. Ancak <strong>Splunk Türkiye distribütörü</strong> ile çalışan kurumların en büyük derdi, dolar bazlı "günlük veri boyutu" (Indexing) lisanslama modelidir. Log hacminiz arttıkça faturalarınız kontrol edilemez hale gelebilir.
       </p>
 
-      <h3>Splunk Kullanırken Dikkat Edilmesi Gerekenler</h3>
+      <h3>Neden Alternatifler Değerlendirilmeli?</h3>
       <p>
-        <strong>Splunk Türkiye distribütörü</strong> ile çalışırken özellikle "veri boyutu bazlı lisanslama" maliyetlerinizi çok iyi analiz etmelisiniz. Günlük TB seviyesindeki verilerde maliyetler kontrol edilemez hale gelebilir.
+        İhtiyacınız olan sadece 5651 uyumu ve temel SOC operasyonlarıysa, <strong>Splunk Türkiye distribütörü</strong> üzerinden ödeyeceğiniz rakamın çok daha azına tam performanslı bir sistem kurabilirsiniz.
       </p>
 
+      <ul class="list-disc pl-6 space-y-2 mb-6 text-muted-foreground">
+        <li>Verilerinizin yurt dışına/buluta çıkma zorunluluğu (SaaS modellerinde).</li>
+        <li>Yıllık bakım ücretlerindeki aşırı döviz artışı.</li>
+        <li>Yerel yasalara (5651) sonradan ekleme yapma zorluğu.</li>
+      </ul>
+
+      <p><strong>Finansal Tavsiye:</strong> Bütçenizi korumak için <strong>"ACKLOG License Calculator"</strong> aracımızı kullanarak Splunk'tan ACKLOG'a geçmenin size ne kadar tasarruf ettireceğini görün.</p>
+
       <p>
-        Splunk gücünde ancak yerli bir çözüm arayanlar için ACKLOG, <strong>Splunk Türkiye distribütörü</strong> aramalarında en güçlü fiyat/performans rakibi olarak öne çıkıyor.
+        ACKLOG, <strong>Splunk Türkiye distribütörü</strong> arayan kurumlara, global standartlarda bir hızı yerli bütçelerle sunar.
       </p>
     `
   },
   "ibm-qradar-sertifika-egitimi": {
-    title: "IBM QRadar Sertifika Eğitimi: Kariyer ve Uzmanlık Rehberi",
-    description: "Siber güvenlik uzmanları için IBM QRadar sertifika eğitimi neden önemli? Sertifika sınavı hazırlık süreçleri ve SOC analistliği kariyeri.",
+    title: "IBM QRadar Sertifika Eğitimi: Siber Güvenlik Kariyerinizde Zirveye Çıkın",
+    description: "SOC analistlerinin en çok aradığı IBM QRadar sertifika eğitimi rehberi. Sınav tüyoları ve kariyer fırsatları hakkında uzman görüşleri.",
     content: `
-      <h2>Uluslararası Yetkinlik: IBM QRadar Sertifika Eğitimi ve Sınavları</h2>
+      <h2>Kariyere Yatırım: IBM QRadar Sertifika Eğitimi ve Uzmanlık</h2>
       <p>
-        SOC ekiplerinde aranan bir uzman olmak isteyenler için <strong>IBM QRadar sertifika eğitimi</strong> (Associate, Professional) kapıları açan bir siber güvenlik anahtarıdır. QRadar'ın karmaşık mimarisini öğrenmek, derin bir firewall ve ağ bilgisi gerektirir.
+        Siber güvenlik sektöründe maaş beklentisini artıran en önemli faktörlerden biri sertifikasyondur. <strong>IBM QRadar sertifika eğitimi</strong> (Associate/Professional), size global bir geçerlilik kazandırır. Ancak QRadar öğrenmek, karmaşık bir veritabanı yapısını ve sorgulama dilini (AQL) çözmeyi gerektirir.
       </p>
 
-      <h3>Eğitim İçeriği Neleri Kapsıyor?</h3>
-      <ul class="list-disc pl-6 space-y-2 mb-6 text-muted-foreground">
-        <li>Ariel Database yapısı ve QROC (QRadar on Cloud) mimarisi.</li>
-        <li>AQL (Ariel Query Language) ile gelişmiş sorgulama.</li>
-        <li>Custom Log Source (DSM) yazımı.</li>
-      </ul>
+      <h3>Eğitimin Size Kazandıracağı 3 Şey</h3>
+      <ol class="list-decimal pl-6 space-y-2 mb-6">
+        <li><strong>Derin Analiz Yeteneği:</strong> Olayları (offenses) kök nedenine kadar inceleme becerisi.</li>
+        <li><strong>Global İş Fırsatları:</strong> Dünyanın her yerindeki SOC merkezlerinde çalışma imkanı.</li>
+        <li><strong>Teknik Otorite:</strong> Büyük kurumların siber güvenlik mimarisini kurgulama yetkisi.</li>
+      </ol>
+
+      <p><strong>Hap Bilgi:</strong> <strong>IBM QRadar sertifika eğitimi</strong> alan uzmanlar, ACKLOG'un benzer mantıkla çalışan ama çok daha hızlı olan arayüzüne 10 dakikada adapte olabilirler.</p>
 
       <p>
-        <strong>IBM QRadar sertifika eğitimi</strong> almış uzmanlar için ACKLOG'un modern ve kullanıcı dostu arayüzü, siber güvenlik operasyonlarını çok daha hızlı yönetme imkanı sağlar.
+        Siz de siber güvenlikte otorite olmak istiyorsanız, eğitimlerinizi ACKLOG'un modern SOC pratikleriyle taçlandırın.
       </p>
     `
   },
   "fortisiem-konfigurasyonu": {
-    title: "FortiSIEM Konfigürasyonu: Fortinet Ekosistemi Entegrasyonu",
-    description: "FortiSIEM konfigürasyonu ve log toplama teknikleri. Fortigate cihazlarla tam uyumlu izleme ve SOC operasyonu yönetimi rehberi.",
+    title: "FortiSIEM Konfigürasyonu: Fortinet Cihazlarıyla %100 Uyumlu SOC",
+    description: "FortiSIEM konfigürasyonu ve log toplama ayarları. FortiGate firewall sahipleri için bütünleşik güvenlik izleme rehberi.",
     content: `
-      <h2>Ekosistem Gücü: FortiSIEM Konfigürasyonu ve İpuçları</h2>
+      <h2>Sinerji Yaratın: FortiSIEM Konfigürasyonu ve Entegrasyon Sırları</h2>
       <p>
-        Özellikle Fortinet ürünlerini yoğun kullanan kurumlar için <strong>FortiSIEM konfigürasyonu</strong>, bütünleşik bir güvenlik yönetimi sunar. Asset (varlık) keşfi ve anomali tespiti konusunda uzmanlaşmış bir platformdur.
+        Ağınızda FortiGate cihazlar varsa, <strong>FortiSIEM konfigürasyonu</strong> ile tüm sistemi tek bir kumaş (Fabric) gibi izleyebilirsiniz. Ancak en büyük hata, sadece Fortinet cihazlarını izleyip diğer markaları (Open source, Windows, Linux) dışarıda bırakmaktır. Gerçek bir SIEM her dili konuşmalıdır.
       </p>
 
-      <h3>Konfigürasyon Adımları</h3>
-      <ol class="list-decimal pl-6 space-y-2 mb-6">
-        <li><strong>Super/Worker/Collector:</strong> Mimari yapısının doğru ölçeklendirilmesi.</li>
-        <li><strong>Parsing:</strong> FortiGate dışındaki cihazlar için DSM ve XML parser yazımı.</li>
-        <li><strong>Alarming:</strong> "Security Fabric" ile entegre alarmların kurulması.</li>
-      </ol>
+      <h3>Hatasız Konfigürasyon Adımları</h3>
+      <ul class="list-disc pl-6 space-y-2 mb-6 text-muted-foreground">
+        <li><strong>Device Discovery:</strong> Ağdaki varlıkların otomatik taranmasını sağlayın.</li>
+        <li><strong>License Management:</strong> Endpoint ve agent sayınızı bütçeye göre optimize edin.</li>
+        <li><strong>Custom Parsers:</strong> Standart dışı loglar için kendi ayrıştırıcılarınızı yazın.</li>
+      </ul>
+
+      <p><strong>Teknik Blog:</strong> "FortiSIEM mi ACKLOG mu? Orta Ölçekli Kurumlar İçin Karşılaştırma" yazımızı inceleyin.</p>
 
       <p>
-        <strong>FortiSIEM konfigürasyonu</strong> karmaşık geliyorsa ve tüm markaları "ajanlı/ajansız" kolayca izlemek istiyorsanız ACKLOG en esnek alternatiftir.
+        Eğer karmaşık <strong>FortiSIEM konfigürasyonu</strong> ile uğraşmak istemiyorsanız, ACKLOG'un tüm cihazları otomatik tanıyan "Plug & Play" yapısına geçebilirsiniz.
       </p>
     `
   },
   "microsoft-sentinel-turkiye-fiyati": {
-    title: "Microsoft Sentinel Türkiye Fiyatı ve Bulut SIEM Maliyeti",
-    description: "Azure üzerinde çalışan Microsoft Sentinel Türkiye fiyatı hesaplama. Tahmini aylık maliyetler ve Sentinel bütçesini optimize etme yöntemleri.",
+    title: "Microsoft Sentinel Türkiye Fiyatı: Bulut SIEM Gerçekten Ucuz mu?",
+    description: "Azure Sentinel maliyet analizi. Microsoft Sentinel Türkiye fiyatı hesaplanırken yapılan hatalar ve bütçeyi %50 düşürme yöntemleri.",
     content: `
-      <h2>Bulut Tabanlı Savunma: Microsoft Sentinel Türkiye Fiyatı Analizi</h2>
+      <h2>Bulutta Güvenlik Maliyeti: Microsoft Sentinel Türkiye Fiyatı ve Gizli Giderler</h2>
       <p>
-        Azure Sentinel (yeni adıyla Microsoft Sentinel), bulut yerleşik (Cloud-Native) bir SIEM hizmetidir. <strong>Microsoft Sentinel Türkiye fiyatı</strong>, Azure aboneliğiniz üzerinden "günlük veri girişi" (ingestion) miktarına göre belirlenir.
+        Birçok firma Azure üzerinde olduğu için <strong>Microsoft Sentinel Türkiye fiyatı</strong> modelini cazip bulur. Ancak "ingestion" (veri girişi) bazlı fiyatlandırma, bir siber saldırı veya log patlaması anında faturanızın 10 katına çıkmasına neden olabilir. Bulut her zaman "ucuz" değildir, sadece "esnektir".
       </p>
 
-      <h3>Maliyet Faktörleri</h3>
-      <p>
-        <strong>Microsoft Sentinel Türkiye fiyatı</strong> için dikkat edilmesi gereken gizli maliyetler:
-      </p>
-      <ul class="list-disc pl-6 space-y-2 mb-6">
-        <li>Log Arşivleme: Verilerin 90 günden fazla tutulması için ek bedeller.</li>
-        <li>Log Exporting: Verilerin dışarı (başka bi depolamaya) çıkarılması maliyeti.</li>
-        <li>Analiz Katmanları: Gelişmiş tehdit istihbaratı alarmlarının kullanımı.</li>
-      </ul>
+      <h3>Bütçe Tuzaklarından Kaçının</h3>
+      <ol class="list-decimal pl-6 space-y-2 mb-6">
+        <li><strong>Log Retention:</strong> Veriyi saklama süresi arttıkça Azure depolama maliyeti katlanır.</li>
+        <li><strong>Data Export:</strong> Logları Azure dışına çıkarmak isterseniz ek "egress" ücreti ödersiniz.</li>
+        <li><strong>Workbooks:</strong> Hazır dashboardlar bazen pahalı sorgular (KQL) gerektirebilir.</li>
+      </ol>
+
+      <p><strong>Stratejik Öneri:</strong> Kritik logları Sentinel'e, yasal/hacimli logları ise yerelde ACKLOG'a göndererek hibrit bir modelle <strong>Microsoft Sentinel Türkiye fiyatı</strong> yükünüzü %70 azaltabilirsiniz.</p>
 
       <p>
-        Sentinel modern bir araç olsa da, hibrit yapılarda yasal/maliyet nedenleriyle ACKLOG gibi yerli SIEM'ler ile birlikte (Side-by-side) kullanımı yaygındır.
+        ACKLOG, bulutun karmaşasını ve maliyetini yereldeki hız ve ekonomiyle birleştirir.
       </p>
     `
   },
   "elastic-stack-elk-kurulumu-turkce": {
-    title: "Elastic Stack (ELK) Kurulumu Türkçe Rehber ve Logstash Ayarları",
-    description: "Open source log yönetimi dendiğinde ilk akla gelen Elastic Stack (ELK) kurulumu Türkçe kaynak. Elastic, Logstash ve Kibana entegrasyonu.",
+    title: "Elastic Stack (ELK) Kurulumu Türkçe: Kendi Log Sunucunuzu İnşa Edin",
+    description: "Ücretsiz SIEM arayanlar için Elastic Stack (ELK) kurulumu Türkçe adım adım rehber. Logstash, Elasticsearch ve Kibana yapılandırması.",
     content: `
-      <h2>Açık Kaynak Devrimi: Elastic Stack (ELK) Kurulumu Türkçe Kılavuzu</h2>
+      <h2>Açık Kaynak Gücü: Elastic Stack (ELK) Kurulumu Türkçe Rehberi</h2>
       <p>
-        Esneklik ve arama hızı arayan ekipler için <strong>Elastic Stack (ELK) kurulumu Türkçe</strong> rehberler büyük önem taşır. Ücretsiz versiyonuyla (Basic) log toplama ve görselleştirme için güçlü bir temel sunar.
+        "Yazılıma para vermeden loglarımı yönetebilir miyim?" diyorsanız, <strong>Elastic Stack (ELK) kurulumu Türkçe</strong> kaynaklar en büyük yardımcınız olacaktır. Elasticsearch'ün muazzam arama hızı, milyonlarca log içinde iğne aramak için idealdir.
       </p>
 
-      <h3>ELK Bileşenleri Nelerdir?</h3>
-      <ul class="list-disc pl-6 space-y-2 mb-6 text-muted-foreground">
-        <li><strong>Elasticsearch:</strong> Verilerin saklandığı ve arandığı kalp (Veritabanı).</li>
-        <li><strong>Logstash/Beats:</strong> Veriyi toplayan ve parse eden işçi.</li>
-        <li><strong>Kibana:</strong> Veriyi dashboard üzerinden sunduğunuz arayüz.</li>
+      <h3>ELK Stack Bileşenlerinin Rolleri</h3>
+      <ul class="list-disc pl-6 space-y-2 mb-6">
+        <li><strong>Elasticsearch:</strong> Mutfaktaki kilerdir, tüm veriyi saklar ve indeksler.</li>
+        <li><strong>Logstash:</strong> Aşçıdır, veriyi temizler ve düzenler.</li>
+        <li><strong>Kibana:</strong> Servis tabağıdır, veriyi önünüze görsel olarak sunar.</li>
       </ul>
 
+      <blockquote>
+        <p><strong>Önemli Uyarı:</strong> <strong>Elastic Stack (ELK) kurulumu Türkçe</strong> rehberlerle kurulan sistemler, 5651 imzalama ve KVKK alarm yönetimi gibi konularda sizi yalnız bırakır. Bu eksikleri gidermek için ACKLOG'un yerli modüllerini ELK üzerine entegre edebilirsiniz.</p>
+      </blockquote>
+
       <p>
-        Ancak <strong>Elastic Stack (ELK) kurulumu Türkçe</strong> kaynaklarla başlasa da, yasal imzalama (5651) ve profesyonel SIEM özellikleri eklemek teknik uzmanlık gerektirir. ACKLOG, bu karmaşayı kutudan çıktığı gibi çözümlenmiş olarak sunar.
+        ACKLOG, ELK'nın gücünü kurumsal SIEM özellikleri ve yasal uyumlulukla birleştirerek sunar.
       </p>
     `
   },
   "wazuh-ajan-kurulumu-windows": {
-    title: "Wazuh Ajan Kurulumu Windows: EDR ve SIEM Bir Arada",
-    description: "Wazuh ajan kurulumu Windows işletim sistemlerinde nasıl yapılır? Uç nokta güvenliği (EDR) ve dosya bütünlük kontrolü (FIM) ayarları.",
+    title: "Wazuh Ajan Kurulumu Windows: EDR Seviyesinde Güçlü İzleme",
+    description: "Bilgisayar ve sunucularınızı siber saldırılara karşı zırhlayın: Wazuh ajan kurulumu Windows rehberi ve zafiyet tarama ayarları.",
     content: `
-      <h2>Son Kullanıcı Güvenliği: Wazuh Ajan Kurulumu Windows Rehberi</h2>
+      <h2>Uç Nokta Savunması: Wazuh Ajan Kurulumu Windows ve Teknikleri</h2>
       <p>
-        Wazuh, popüler bir açık kaynaklı siber güvenlik platformudur. Özellikle <strong>Wazuh ajan kurulumu Windows</strong> işlemleriyle sunucu ve PC'lerden anlık zafiyet ve log verisi toplanabilir.
+        Sadece ağ trafiğini izlemek yetmez, her bir bilgisayarın içinde ne olduğunu görmelisiniz. <strong>Wazuh ajan kurulumu Windows</strong> sayesinde, bir personelin USB takıp takmadığını veya bir şifre dosyasının çalınıp çalınmadığını (File Integrity) anlık görebilirsiniz.
       </p>
 
-      <h3>Wazuh Agent Yetenekleri</h3>
-      <ul class="list-disc pl-6 space-y-2 mb-6">
-        <li><strong>FIM (File Integrity Monitoring):</strong> Kritik sistem dosyalarının değişimini izleme.</li>
-        <li><strong>Vulnerability Detection:</strong> Sistemdeki eksik yama ve açıkları bulma.</li>
-        <li><strong>Log Analysis:</strong> Windows Event Loglarını MSI paketi üzerinden toplama.</li>
+      <h3>Kurulum Sonrası Alınacak 3 Fayda</h3>
+      <ul class="list-disc pl-6 space-y-2 mb-6 text-muted-foreground">
+        <li><strong>Rootkit Tespiti:</strong> Sisteme sızan derin gizli yazılımları bulma.</li>
+        <li><strong>SCA (Security Configuration Assessment):</strong> Windows ayarlarının güvenliğini test etme.</li>
+        <li><strong>Malware Detection:</strong> Tehditleri daha sunucudan çıkmadan durdurma.</li>
       </ul>
 
+      <p><strong>Teknik Uygulama:</strong> Wazuh loglarını ACKLOG SIEM'e yönlendirerek <strong>"Yerli ve Milli EDR/SIEM"</strong> kombinasyonuna sahip olun.</p>
+
       <p>
-        <strong>Wazuh ajan kurulumu Windows</strong> sonrasında verileri anlamlandırmak için ACKLOG SIEM ile entegre ederek güçlü bir merkezi savunma hattı kurabilirsiniz.
+        ACKLOG, <strong>Wazuh ajan kurulumu Windows</strong> süreçlerini merkezi olarak yönetmenize ve alarmları Türk mevzuatına göre raporlamanıza olanak tanır.
       </p>
     `
   },
   "graylog-log-yonetimi-egitimi": {
-    title: "Graylog Log Yönetimi Eğitimi: Büyük Veri ve Mesaj Analizi",
-    description: "Merkezi log sunucusu yönetimi için Graylog log yönetimi eğitimi içeriği. Syslog yönetimi, pipeline tasarımı ve dashboard oluşturma teknikleri.",
+    title: "Graylog Log Yönetimi Eğitimi: No-Code Log İşleme Sanatı",
+    description: "Neden Graylog öğrenmelisiniz? Graylog log yönetimi eğitimi içeriği, pipeline yapılandırması ve performanslı dashboard oluşturma.",
     content: `
-      <h2>Kolay ve Güçlü: Graylog Log Yönetimi Eğitimi Detayları</h2>
+      <h2>Kolay ve Hızlı Analiz: Graylog log yönetimi eğitimi ve Avantajları</h2>
       <p>
-        Graylog, kullanıcı dostu yapısıyla ELK'ya alternatif olarak popülerleşmiştir. <strong>Graylog log yönetimi eğitimi</strong> alan bir uzman, karmaşık sistemlerden gelen logları saniyeler içinde süzmeyi ve raporlamayı öğrenir.
+        Birçok sistem yöneticisi için ELK çok karmaşık gelebilir. Bu noktada <strong>Graylog log yönetimi eğitimi</strong>, logları bir pipeline (boru hattı) üzerinden nasıl kolayca akıtacağınızı öğretir. Graylog'un en büyük gücü, sürükle-bırak ile logları filtreleyebilmesidir.
       </p>
 
-      <h3>Graylog Avantajları</h3>
-      <p>
-        Eğitimde özellikle "Pipeline" mantığı vurgulanır. <strong>Graylog log yönetimi eğitimi</strong> bittiğinde, veri zenginleştirme (Geo-IP ekleme vb.) konusunda uzmanlaşırsınız.
-      </p>
+      <h3>Eğitimde Öne Çıkan Başlıklar</h3>
+      <ul class="list-disc pl-6 space-y-2 mb-6">
+        <li><strong>Message Processing:</strong> Gelen ham mesajların etiketlenmesi.</li>
+        <li><strong>Grok Patterns:</strong> Kendi log şablonlarınızı oluşturma.</li>
+        <li><strong>Streams:</strong> Farklı cihaz tiplerini (Firewall, AD, DB) farklı akışlara bölme.</li>
+      </ul>
+
+      <p><strong>Magnet İçerik:</strong> <strong>Graylog log yönetimi eğitimi</strong> alırken ACKLOG'un benzer mantıktaki yerli platformunu inceleyerek, "Global vizyon, Yerli destek" avantajını keşfedin.</p>
 
       <p>
-        Graylog açık kaynak dünyasının yıldızı olsa da, kurumsal "Yerli SIEM" raporları ve 5651 uyumu için Türkiye pazarında ACKLOG ile tamamlama yoluna gidilmektedir.
+        ACKLOG, Graylog'un kullanım kolaylığını kurumlar için "yasal uyumluluk" paketiyle birleştirir.
       </p>
     `
   },
   "arcsight-turkiye-destegi": {
-    title: "ArcSight Türkiye Desteği ve Enterprise SIEM Yönetimi",
-    description: "Micro Focus ArcSight Türkiye desteği ve kurumsal bakım hizmetleri. Kurumsal ağlarda ArcSight ESM ve Logger kullanım rehberi.",
+    title: "ArcSight Türkiye Desteği: Enterprise SIEM'de Neden Yalnız Kalmamalısınız?",
+    description: "Siber güvenlikte büyük ölçekli yapılar için ArcSight Türkiye desteği ve kurumsal bakım hizmetleri. Verim artırma rehberi.",
     content: `
-      <h2>Devlerin Tercihi: ArcSight Türkiye Desteği ve Partner Ağı</h2>
+      <h2>Büyük Ölçekli Güvenlik: ArcSight Türkiye Desteği ve Stratejik Önemi</h2>
       <p>
-        Global siber güvenlik devlerinden ArcSight, özellikle çok yüksek EPS (Saniye başı olay) üreten bankalar ve operatörler tarafından kullanılır. <strong>ArcSight Türkiye desteği</strong>, kurumsal anlaşmalar üzerinden 7/24 sağlanmaktadır.
+        ArcSight gibi kompleks bir ürünü yönetmek, siber güvenlik uzmanlığı gerektirir. <strong>ArcSight Türkiye desteği</strong>, bir banka veya telekom operatörü için sistemin durmaması demektir. Ancak saniyede 50.000 log basan bir yapıda, destek ekibinin hızı "hayat kurtarır".
       </p>
 
-      <h3>ArcSight ESM'nin Gücü</h3>
-      <p>
-        Karmaşık korelasyon motorları ve CEF (Common Event Format) standartları, <strong>ArcSight Türkiye desteği</strong> ekibiyle birlikte kurulduğunda yüksek verim verir. 
-      </p>
+      <h3>Destek Kapsamındaki Kritik Hizmetler</h3>
+      <ol class="list-decimal pl-6 space-y-2 mb-6 text-muted-foreground">
+        <li><strong>SmartConnector Güncellemeleri:</strong> Yeni cihazların sisteme tanınması.</li>
+        <li><strong>Flex Connector Yazımı:</strong> Özel uygulamalarınız için terzi usulü parser geliştirme.</li>
+        <li><strong>ESM Performance Tuning:</strong> Sistemin şişmesini önleyen ince ayarlar.</li>
+      </ol>
+
+      <p><strong>Karşılaştırma:</strong> ArcSight'ın maliyetli ve ağır yapısından yorulan kurumlar için <strong>ACKLOG Enterprise Edition</strong>, sömestir/bakım gerektirmeyen çevik bir yapıdır.</p>
 
       <p>
-        Ancak ArcSight'ın bakım maliyetleri ve ağır donanım gereksinimleri nedeniyle, birçok kurum "Yerli ve Çevik" bir SIEM olan ACKLOG'a göç etme stratejisini değerlendirmektedir.
+        <strong>ArcSight Türkiye desteği</strong> ekibiyle koordineli çalışan ACKLOG partnerlerimiz, geçiş (migration) süreçlerinde size rehberlik eder.
       </p>
     `
   },
   "manageengine-eventlog-analyzer-inceleme": {
-    title: "ManageEngine EventLog Analyzer İnceleme ve SIEM Karşılaştırması",
-    description: "BT yöneticileri için ManageEngine EventLog Analyzer inceleme ve analiz. Uyumluluk raporları, kurulum kolaylığı ve ACKLOG ile teknik farklar.",
+    title: "ManageEngine EventLog Analyzer İnceleme: IT Yöneticilerinin Favori Aracı",
+    description: "Hızlı kurulum ve bol özellik. ManageEngine EventLog Analyzer inceleme ve analiz raporu. SIEM dünyasındaki yeri ve eksikleri.",
     content: `
-      <h2>Fonksiyonel ve Hızlı: ManageEngine EventLog Analyzer İnceleme Raporu</h2>
+      <h2>IT Dostu Çözüm: ManageEngine EventLog Analyzer İnceleme ve Yorumlar</h2>
       <p>
-        ManageEngine ürün ailesinin bir parçası olan bu araç, log yönetimi ve IT uyumluluğu için pratik özellikler sunar. <strong>ManageEngine EventLog Analyzer inceleme</strong> sonuçları, özellikle Windows audit loglarını yönetmek isteyen KOBİ'ler için tatmin edicidir.
+        "Hemen kurup log görmeye başlamam lazım" diyorsanız, <strong>ManageEngine EventLog Analyzer inceleme</strong> raporumuz tam size göre. Bu araç, Windows dünyasıyla konuşma konusunda dünyadaki en pratik sistemlerden biridir. Ancak siber güvenlik derinliği (korelasyon) konusunda eksikleri olabilir.
       </p>
 
-      <h3>Öne Çıkan Özellikler</h3>
+      <h3>Pozitif ve Negatif Yönler</h3>
       <ul class="list-disc pl-6 space-y-2 mb-6">
-        <li>Kolay agentless log toplama mekanizması.</li>
-        <li>Hazır regülasyon (PCI DSS, FISMA, ISO 27001) raporları.</li>
-        <li>BT yardım masası araçlarıyla (HelpDesk) entegrasyon.</li>
+        <li><strong>Artıları:</strong> Sıfır ayar ile log toplama, harika Windows raporları.</li>
+        <li><strong>Eksileri:</strong> Türkiye 5651 imzalama desteği yok, gelişmiş siber tehdit avcılığı (hunting) zayıf.</li>
       </ul>
 
+      <p><strong>Öneri:</strong> ManageEngine kullananlar, yasal uyumluluk pencerelerini kapatmak için ACKLOG'un <strong>"Compliance Bridge"</strong> modülünü kullanarak sistemlerini yasallaştırabilirler.</p>
+
       <p>
-        <strong>ManageEngine EventLog Analyzer inceleme</strong> sürecinde görülen en büyük eksiklik, Türkiye'ye özel 5651 zaman damgası ve yerel mevzuat raporlarının global pakette yer almamasıdır.
+        <strong>ManageEngine EventLog Analyzer inceleme</strong> sonuçlarına göre ACKLOG, eksik olan "yasal geçerlilik" kısmını tamamlaya en aday üründür.
       </p>
     `
   },
   "soc-merkezi-nasil-kurulur": {
-    title: "SOC Merkezi Nasıl Kurulur? Sıfırdan Güvenlik Operasyon Merkezi",
-    description: "Kendi firmanızda SOC merkezi nasıl kurulur? Personel seçimi, gerekli yazılımlar (SIEM, EDR, SOAR) ve operasyonel süreçler rehberi.",
+    title: "SOC Merkezi Nasıl Kurulur? 5 Adımda Kendi Siber Savunma Karargahınız",
+    description: "Siber saldırılara 72 saat yerine 72 saniyede müdahale edin. SOC merkezi nasıl kurulur? Personel, bütçe ve teknoloji planlama rehberi.",
     content: `
-      <h2>Güvenliğin Komuta Merkezi: SOC Merkezi Nasıl Kurulur Rehberi</h2>
+      <h2>Karar Vericiler İçin: SOC Merkezi Nasıl Kurulur ve Yönetilir?</h2>
       <p>
-        Güvenlik Operasyon Merkezi (SOC), bir kurumun siber dünyadaki gözü kulağıdır. <strong>SOC merkezi nasıl kurulur?</strong> sorusuna cevap ararken sadece yazılım değil, "İnsan-Süreç-Teknoloji" üçgenine odaklanmalısınız.
+        Şirketinizin siber güvenliği tesadüflere emanet edilemez. <strong>SOC merkezi nasıl kurulur?</strong> sorusunun cevabı, teknolojiden çok "zihniyet" değişimidir. 7/24 izleme yapılmayan bir sistemde, saldırıyı sabah işe geldiğinizde görmek artık kabul edilebilir değil.
       </p>
 
-      <h3>SOC Kurulumu İçin 3 Temel Adım</h3>
+      <h3>Adım Adım SOC Karargahı</h3>
       <ol class="list-decimal pl-6 space-y-2 mb-6">
-        <li><strong>Ekip Kurma:</strong> 7/24 izleme için en az 4-6 analistten oluşan vardiyalı sistem.</li>
-        <li><strong>Teknoloji Seçimi:</strong> Kalpte yer alacak güçlü bir yerli SIEM (ACKLOG) ve uç nokta koruma (EDR) araçları.</li>
-        <li><strong>Playbook'lar:</strong> "Saldırı olduğunda ilk kim aranacak?" gibi senaryoların yazılması.</li>
+        <li><strong>Kapsam (Scope):</strong> Hangi sunucuları izleyeceğiz? (Geniş değil, derin izleyin).</li>
+        <li><strong>İnsan Kaynağı:</strong> Junior analistlerden Senior analistlere doğru bir piramit yapı kurun.</li>
+        <li><strong>Teknoloji Omurgası:</strong> Milli SIEM ACKLOG'u merkeze yerleştirin.</li>
+        <li><strong>Süreçler:</strong> "Alarm çaldığında kim, neyi, nasıl engelleyecek?" playbook'larını hazırlayın.</li>
+        <li><strong>Süreklilik:</strong> Düzenli sızıntı testleri (Pentest) ile SOC merkezinizi test edin.</li>
       </ol>
 
+      <p><strong>Ücretsiz Kitapçık:</strong> <strong>"A'dan Z'ye SOC Kurulum Kılavuzu"</strong> PDF'imizi sitemizden indirebilirsiniz.</p>
+
       <p>
-        <strong>SOC merkezi nasıl kurulur?</strong> konusunda deneyimli danışmanlarımızla iletişime geçerek anahtar teslim çözümlerimizden faydalanabilirsiniz.
+        ACKLOG, <strong>SOC merkezi nasıl kurulur?</strong> konusunda sunduğu hazır dashboard ve kurallar ile kurulum sürecinizi 3 aydan 3 güne indirir.
       </p>
     `
   },
   "7-24-log-izleme-hizmeti-mdr": {
-    title: "7/24 Log İzleme Hizmeti (MDR) ve Managed SOC Avantajları",
-    description: "Kendi ekibinizi kurmadan siber saldırıları nasıl engellersiniz? 7/24 log izleme hizmeti (MDR - Managed Detection and Response) detayları.",
+    title: "7/24 Log İzleme Hizmeti (MDR): Kendi Ordunuzu Kurmak Yerine Kiralayın",
+    description: "Görünmez saldırıları yakalayan profesyoneller. 7/24 log izleme hizmeti (MDR) ile managed SOC avantajları ve maliyet analizi.",
     content: `
-      <h2>Siz Uyurken Biz Nöbetteyiz: 7/24 Log İzleme Hizmeti (MDR) Nedir?</h2>
+      <h2>Güvenilir Destek: 7/24 Log İzleme Hizmeti (MDR) ve Sorumluluk Paylaşımı</h2>
       <p>
-        Kendi SOC ekibinizi kurmak maliyetli geliyorsa, <strong>7/24 log izleme hizmeti (MDR)</strong> alarak profesyonel bir siber orduyu kiralayabilirsiniz. Managed Detection and Response (MDR), tehditleri sadece bulmaz, sizin adınıza müdahale eder.
+        Biliyoruz, nitelikli siber güvenlik uzmanı bulmak çok zor. <strong>7/24 log izleme hizmeti (MDR)</strong> alarak, bu uzman bulma ve maaş ödeme yükünü dış kaynak kullanımına (Outsource) devredebilirsiniz. MDR ekibi sizin adınıza logları tarar, saldırıyı yakalar ve sizi gece yarısı bile uyarır.
       </p>
 
-      <h3>MDR Hizmetinin Kapsamı</h3>
+      <h3>MDR Alırken Sorulması Gereken 3 Soru</h3>
       <ul class="list-disc pl-6 space-y-2 mb-6 text-muted-foreground">
-        <li>Sürekli log izleme ve tehdit avcılığı (Threat Hunting).</li>
-        <li>Olay anında "Acil Müdahale" ve saldırganın ağdan atılması.</li>
-        <li>Haftalık ve aylık siber güvenlik durum raporları.</li>
+        <li>"Saldırıyı tespit ettikten kaç dakika sonra müdahale ediyorsunuz?" (SLA).</li>
+        <li>"Verilerim sizin sunucunuzda mı yoksa benim sunucumda mı kalıyor?" (Gizlilik).</li>
+        <li>"Hangi SIEM altyapısını kullanıyorsunuz?" (Güvenilirlik).</li>
       </ul>
 
+      <p><strong>Magnet Blog:</strong> "MDR Hizmeti Mi Kendi SOC Merkezimiz Mi? Hangisi Daha Karlı?" analizimizi okuyun.</p>
+
       <p>
-        ACKLOG SIEM kullanan partnerlerimiz aracılığıyla Türkiye'nin en kaliteli <strong>7/24 log izleme hizmeti (MDR)</strong> seçeneklerine ulaşabilirsiniz.
+        ACKLOG SIEM motorunu kullanan seçkin iş ortaklarımızdan <strong>7/24 log izleme hizmeti (MDR)</strong> alarak mışıl mışıl uyuyabilirsiniz.
       </p>
     `
   },
   "soc-analisti-gorev-tanimi": {
-    title: "SOC Analisti Görev Tanımı ve Gereken Yetkinlikler",
-    description: "Siber güvenlik ekibinin kalbi: SOC analisti görev tanımı nedir? L1, L2 ve L3 analistlerin farkları ve kullanılan araçlar.",
+    title: "SOC Analisti Görev Tanımı: Yeni Nesil Siber Güvenlik Uzmanlığı Rehberi",
+    description: "Geleceğin mesleğine hazır olun. SOC analisti görev tanımı, maaş beklentileri ve öğrenilmesi gereken en iyi SIEM araçları.",
     content: `
-      <h2>Siber Savunma Uzmanı: SOC Analisti Görev Tanımı ve Sorumluluklar</h2>
+      <h2>Kariyer Planlama: Modern Bir SOC Analisti Görev Tanımı ve Gereklilikler</h2>
       <p>
-        Bir kurumun siber saldırılara karşı ilk savunma hattı olan <strong>SOC analisti görev tanımı</strong>, SIEM sisteminden gelen alarmları analiz etmeyi ve gerçek tehditleri ayıklamayı kapsar.
+        "Hacker kovalamak" kulağa heyecanlı geliyor olabilir, ama gerçek bir <strong>SOC analisti görev tanımı</strong> disiplinli bir veri analizi sürecidir. Bir analist, binlerce satır log içinden bir "anomalia" bulmaya çalışan dijital bir dedektiftir. Meraklı olmayan biri bu işte başarılı olamaz.
       </p>
 
-      <h3>Analistin Günlük Rutini</h3>
+      <h3>Hangi Teknik Yetkinlikler Şart?</h3>
       <ul class="list-disc pl-6 space-y-2 mb-6">
-        <li>SIEM dashboard'larını sürekli izleyerek kritik anomalileri yakalamak.</li>
-        <li>False-positive (yanlış alarm) raporlarını eleyerek sistem kirliliğini önlemek.</li>
-        <li>Zararlı yazılım analizi ve saldırı türü tespiti yapmak.</li>
+        <li><strong>Network Bilgisi:</strong> TCP/IP, OSI katmanları ve portların anatomisi.</li>
+        <li><strong>Log Okuma:</strong> Bir Windows XML logu veya Linux Auth logu gördüğünde "kim girdi?" diyebilmek.</li>
+        <li><strong>Regex & Query:</strong> SIEM üzerinde hızlı aramalar yapabilmek.</li>
       </ul>
 
+      <p><strong>Öneri:</strong> Kariyerinize bir adım önde başlamak için <strong>"ACKLOG Academy"</strong> üzerinden ücretsiz eğitimlerimize katılabilirsiniz.</p>
+
       <p>
-        Yetkin bir <strong>SOC analisti görev tanımı</strong>, ACKLOG gibi gelişmiş SIEM araçlarını profesyonelce kullanabilmeyi de her zaman kapsar.
+        Yetkin bir <strong>SOC analisti görev tanımı</strong>, her zaman teknolojiyi en iyi şekilde kullanmayı (ACKLOG vb.) içinde barındırır.
       </p>
     `
   },
   "threat-hunting-terimleri": {
-    title: "Tehdit Avcılığı (Threat Hunting) Terimleri ve Analiz Yöntemleri",
-    description: "Siber güvenlik dünyasında threat hunting terimleri nelerdir? IOC, IOA, TTP ve hipotez tabanlı arama kavramları rehberi.",
+    title: "Tehdit Avcılığı (Threat Hunting) Terimleri: Saldırganın Elinden Kaçış Yok",
+    description: "Siber dedektiflerin gizli dili. Threat hunting terimleri, TTP analizi ve siber saldırganları yakalama teknikleri rehberi.",
     content: `
-      <h2>Saldırganın İzini Sürün: Threat Hunting Terimleri Sözlüğü</h2>
+      <h2>Siber Dedektiflik Sırları: Tehdit Avcılığı (Threat Hunting) Terimleri Rehberi</h2>
       <p>
-        Otomatik sistemlerin yakalayamadığı gizli tehditleri arama işine Threat Hunting denir. <strong>Tehdit avcılığı (Threat Hunting) terimleri</strong>, analistin kullandığı profesyonel dili ifade eder.
+        Statik kurallar bazen yetmez, analistin "hissi" bir arama yapması gerekir. <strong>Tehdit avcılığı (Threat Hunting) terimleri</strong>, bu proaktif arama sürecinde kullanılan kavramları ifade eder. Tehdit avcısı, saldırganın henüz kural tetiklemediği ama sistemde ayak izi bıraktığı anları yakalar.
       </p>
 
-      <h3>En Çok Kullanılan 3 Terim</h3>
-      <ul class="list-disc pl-6 space-y-2 mb-6">
-        <li><strong>IOC (Indicator of Compromise):</strong> Bilinen bir saldırının parmak izi (Zararlı IP, Hash).</li>
-        <li><strong>IOA (Indicator of Attack):</strong> Devam eden bir saldırının davranışsal izi (Dosyasız saldırı vb.).</li>
-        <li><strong>TTP (Tactics, Techniques, Procedures):</strong> Saldırganın "nasıl" hareket ettiğine dair genel stratejisi.</li>
+      <h3>Olmazsa Olmaz Kavramlar</h3>
+      <ul class="list-disc pl-6 space-y-2 mb-6 text-muted-foreground">
+        <li><strong>Pyramid of Pain:</strong> Saldırganın IP'sini değiştirmek kolaydır (alt katman), ama davranışını (TTP) değiştirmesi zordur (üst katman).</li>
+        <li><strong>Lateral Movement:</strong> Bir PC'ye giren hırsızın diğer sunuculara zıplama teknikleri.</li>
+        <li><strong>Data Exfiltration:</strong> Bilginin sessizce dışarı sızdırılması aşaması.</li>
       </ul>
 
+      <p><strong>Teknik Uygulama:</strong> "ACKLOG Hunting Lab" üzerinden kendi senaryolarınızı ücretsiz deneyin.</p>
+
       <p>
-        ACKLOG SIEM, zengin <strong>threat hunting terimleri</strong> desteği ve hızlı filtreleme özellikleriyle siber dedektiflerin en büyük yardımcısıdır.
+        ACKLOG SIEM, zengin <strong>threat hunting terimleri</strong> desteği ve saniyelik sorgu hızıyla avcıları yormadan sonuca götürür.
       </p>
     `
   },
   "siber-tehdit-istihbarati-entegrasyonu": {
-    title: "Siber Tehdit İstihbaratı Entegrasyonu ile Öngörülü Savunma",
-    description: "Tehditlerden yayınlanmadan önce haberiniz olsun. Siber tehdit istihbaratı entegrasyonu (Cyber Threat Intelligence - CTI) ve SIEM uyumu.",
+    title: "Siber Tehdit İstihbaratı Entegrasyonu: Tehdit Size Gelmeden Onu Engelleyin",
+    description: "Küresel tehdit verilerini SIEM'e bağlayın. Siber tehdit istihbaratı entegrasyonu (CTI) ile proaktif güvenlik stratejileri.",
     content: `
-      <h2>Bilgi En Büyük Güçtür: Siber Tehdit İstihbaratı Entegrasyonu</h2>
+      <h2>Öngörülebilir Güvenlik: Siber Tehdit İstihbaratı Entegrasyonu ve Veri Gücü</h2>
       <p>
-        Dünyanın başka bir yerinde gerçekleşen bir saldırının bilgilerini anında kendi sisteminize almayı <strong>siber tehdit istihbaratı entegrasyonu</strong> sağlar. Bu sayede saldırı size ulaşmadan savunma hattınızı kurarsınız.
+        Hackerlar kendi aralarında bilgi paylaşıyor, peki ya siz? <strong>Siber tehdit istihbaratı entegrasyonu</strong> (Cyber Threat Intelligence), dünyanın herhangi bir yerindeki yeni bir virüsün veya zararlı IP'nin bilgisini saniyeler içinde sizin SIEM'inize taşır. Böylece siz hedef olmadan önce savunmanız hazır olur.
       </p>
 
-      <h3>İstihbarat Kaynakları</h3>
-      <ul class="list-disc pl-6 space-y-2 mb-6 text-muted-foreground">
-        <li><strong>Açık Kaynak (OSINT):</strong> Ücretsiz paylaşılan zararlı listeleri.</li>
-        <li><strong>Ticari Beslemeler:</strong> Kurumsal ve daha derinlemesine analiz içeren ücretli feed'ler.</li>
-        <li><strong>Sektörel Paylaşım:</strong> Kamu kurumlarının (SOME) paylaştığı kritik uyarılar.</li>
+      <h3>Neden Entegrasyon Yapmalısınız?</h3>
+      <ul class="list-disc pl-6 space-y-2 mb-6">
+        <li><strong>Erken Uyarı:</strong> Bilinen siber çetelerin kullandığı alt yapıları önceden bloklayın.</li>
+        <li><strong>Bağlamsal Analiz:</strong> Alarmların yanına "Bu IP X saldırı grubuyla ilişkilidir" notunu otomatik ekleyin.</li>
+        <li><strong>Otomasyon:</strong> Gelen istihbaratı doğrudan firewall'a emir olarak gönderin.</li>
       </ul>
 
+      <p><strong>Magnet Blog:</strong> "Ucretsiz vs. Ücretli Tehdit İstihbaratı Kaynakları" karşılaştırmamızı okuyun.</p>
+
       <p>
-        ACKLOG, <strong>siber tehdit istihbaratı entegrasyonu</strong> sayesinde milyonlarca zararlı IP ve URL bilgisini saniyeler içinde sistemlerine entegre eder.
+        ACKLOG, yerli ve global <strong>siber tehdit istihbaratı entegrasyonu</strong> beslemeleriyle (feeds) siber kalkanınızı her an güncel tutar.
       </p>
     `
   },
   "olay-mudahale-incident-response-plani": {
-    title: "Olay Müdahale (Incident Response) Planı Nasıl Hazırlanır?",
-    description: "Olası bir siber saldırıda panik yapmayın. Adım adım olay müdahale (incident response) planı hazırlama ve kriz yönetimi stratejileri.",
+    title: "Olay Müdahale (Incident Response) Planı: Kaosta Sakin Kalmanın Yolu",
+    description: "Siber saldırı anında yapılacak ilk 10 şey. Olay müdahale (incident response) planı hazırlama ve kriz yönetimi için uzman tavsiyeleri.",
     content: `
-      <h2>Kriz Anında Rehberiniz: Olay Müdahale (Incident Response) Planı</h2>
+      <h2>Kriz Yönetimi: Olay Müdahale (Incident Response) Planı ve Önemi</h2>
       <p>
-        Siber saldırı kaçınılmaz bir gerçektir. Önemli olan saldırı olduğunda ne yapacağınızı bilmektir. <strong>Olay müdahale (incident response) planı</strong>, bir yangın tatbikatı gibi organizasyonun her adımını önceden belirler.
+        Hacklendiğinizi fark ettiğiniz an, saniyeler içinde binlerce dolar kaybedebilirsiniz. <strong>Olay müdahale (incident response) planı</strong> olmayan bir şirketin bu kaostan sağ çıkması mucizedir. Kimin kimi arayacağı, hangi sunucunun fişinin çekileceği saniyeler içinde net olmalıdır.
       </p>
 
-      <h3>IRI Adımları (6 Aşama)</h3>
-      <ul class="list-disc pl-6 space-y-2 mb-6">
-        <li><strong>Hazırlık:</strong> SIEM ve izleme araçlarının kurulması.</li>
-        <li><strong>Tespit:</strong> Saldırı alarmının doğrulanması.</li>
-        <li><strong>Kısıtlama:</strong> Saldırganın diğer sunuculara yayılmasının önlenmesi.</li>
-        <li><strong>Temizleme:</strong> Zararlı yazılımların sistemden atılması.</li>
-        <li><strong>Kurtarma:</strong> Yedeklerden sistemin ayağa kaldırılması.</li>
-        <li><strong>Dersler:</strong> Saldırıdan çıkarılan sonuçlarla savunmanın güçlendirilmesi.</li>
-      </ul>
+      <h3>Bir Planın 3 Temel Taşı</h3>
+      <ol class="list-decimal pl-6 space-y-2 mb-6">
+        <li><strong>Haberleşme:</strong> IT ekibi dışında yönetim ve hukuk birimlerine kim haber verecek?</li>
+        <li><strong>Karantina:</strong> Saldırganın yayılmasını önlemek için hangi network segmentleri kapatılacak?</li>
+        <li><strong>Evidence Preservation (Delil Koruma):</strong> Logların ve disk imajlarının yasal delil olarak saklanması.</li>
+      </ol>
+
+      <p><strong>Ücretsiz Araç:</strong> Kendi planınızı oluşturmak için <strong>"Incident Response Plan Template"</strong> dökümanımızı sitemizden indirin.</p>
 
       <p>
-        İyi bir <strong>olay müdahale (incident response) planı</strong>, ACKLOG'un anlık raporlama yetenekleriyle birleşince iş sürekliliğinizi korumanızı sağlar.
+        ACKLOG, <strong>olay müdahale (incident response) planı</strong> aşamalarındaki "Tespit" ve "Kanıtlama" kısımlarını tamamen otomatiğe bağlayarak kriz yükünüzü hafifletir.
       </p>
     `
   },
   "siem-uzerinden-zararli-ip-tespiti": {
-    title: "SIEM Üzerinden Zararlı IP Tespiti ve Manuel Engelleme",
-    description: "Ağınızdaki şüpheli trafiğin kaynağını bulun: SIEM üzerinden zararlı IP tespiti nasıl yapılır? Geo-IP analizi ve itibar sorgulama teknikleri.",
+    title: "SIEM Üzerinden Zararlı IP Tespiti: Hırsızın Parmak İzlerini Yakalayın",
+    description: "Network trafiğinizdeki kara listeye alınmış adresleri nasıl bulursunuz? SIEM üzerinden zararlı IP tespiti ve itibar analizi rehberi.",
     content: `
-      <h2>Suçluyu Yakalayın: SIEM Üzerinden Zararlı IP Tespiti Yöntemleri</h2>
+      <h2>Ağ Temizliği: SIEM Üzerinden Zararlı IP Tespiti ve Engelleme Sanatı</h2>
       <p>
-        Dış dünyadan gelen binlerce bağlantı isteği arasından hangisinin hacker olduğunu nasıl anlarsınız? <strong>SIEM üzerinden zararlı IP tespiti</strong>, global itibar veritabanlarını kullanarak şüpheli adresleri etiketler.
+        Dış dünyada milyarlarca IP adresi var. Bunların hangileri masum bir ziyaretçi, hangileri bir botnet ordusu? <strong>SIEM üzerinden zararlı IP tespiti</strong>, saniyede milyonlarca bağlantıyı global "Blacklist" (Kara liste) servisleriyle kıyaslayarak size gerçek zamanlı uyarılar sunar.
       </p>
 
-      <h3>Tespit Kriterleri</h3>
-      <ul class="list-disc pl-6 space-y-2 mb-6">
-        <li>IP adresinin daha önce spam veya saldırı listelerinde yer alması.</li>
-        <li>IP'nin bulunduğu konum ile firmanızın iş ilişkisinin olmaması.</li>
-        <li>IP'nin çok kısa sürede anormal sayıda bağlantı denemesi yapması.</li>
+      <h3>Zararlı IP'yi Nasıl Anlarsınız?</h3>
+      <ul class="list-disc pl-6 space-y-2 mb-6 text-muted-foreground">
+        <li><strong>Anormal Port Sorgusu:</strong> Bir IP aniden ağınızdaki tüm portları tarıyorsa.</li>
+        <li><strong>Yüksek Hatalı Giriş:</strong> Tek bir IP'den farklı kullanıcılara şifre denemesi yapılıyorsa.</li>
+        <li><strong>Geographic Anomaly:</strong> Firmanızın asla çalışmadığı bir ülkeden yoğun veri çekiliyorsa.</li>
       </ul>
 
+      <p><strong>Pratik Uygulama:</strong> "Şüpheli IP Analiz Aracımızı" kullanarak bir IP'nin ne kadar güvenilir olduğunu hemen test edin.</p>
+
       <p>
-        ACKLOG, <strong>siem üzerinden zararlı IP tespiti</strong> modülü ile sizi bilinen tüm kötü niyetli sunuculardan saniyeler içinde haberdar eder.
+        ACKLOG, yerleşik itibar motoruyla <strong>siem üzerinden zararlı IP tespiti</strong> yaparak sistemlerinizi otomatik koruma altına alır.
       </p>
     `
   },
   "veri-sizintisi-onleme-dlp-ve-siem": {
-    title: "Veri Sızıntısı Önleme (DLP) ve SIEM Birlikteliği",
-    description: "Hassas verilerin dışarı çıkmasını nasıl engellersiniz? Veri sızıntısı önleme (DLP) ve SIEM sistemlerinin entegre çalışma avantajları.",
+    title: "Veri Sızıntısı Önleme (DLP) ve SIEM: Verileriniz Dışarı mı Çıkıyor?",
+    description: "Hassas dosyalarınızın güvenliği. Veri sızıntısı önleme (DLP) loglarını SIEM ile birleştirerek büyük resmi nasıl görürsünüz?",
     content: `
-      <h2>Hazineyi Koruyun: Veri Sızıntısı Önleme (DLP) ve SIEM Stratejisi</h2>
+      <h2>Güvenliğin İki Kanadı: Veri Sızıntısı Önleme (DLP) ve SIEM Entegrasyonu</h2>
       <p>
-        DLP (Data Loss Prevention) dosyayı izler, SIEM ise tüm trafiği. <strong>Veri sızıntısı önleme (DLP) ve SIEM</strong> sistemlerini birleştirdiğinizde, bir personelin hassas verileri USB'ye kopyalayıp kopyalamadığını veya buluta yükleyip yüklemediğini görebilirsiniz.
+        DLP size "dosya kopyalandı" der, ama SIEM "dosya kopyalanmadan önce bu kullanıcı hangi sitelere girdi ve hangi şifreleri denedi?" sorularını cevaplar. <strong>Veri sızıntısı önleme (DLP) ve SIEM</strong> birlikteliği, siber güvenlikte "Körü Körüne İzleme" devrini bitirir.
       </p>
 
-      <h3>Entegre Korumada Neler Görülür?</h3>
-      <ul class="list-disc pl-6 space-y-2 mb-6 text-muted-foreground">
-        <li>"Hassas" etiketli bir dökümanın yazıcıdan çıktısının alınması.</li>
-        <li>Mesai dışı büyük boyutlu veri transferi (Data Exfiltration).</li>
-        <li>Şifreli dosyaların anlamsız bir şekilde dış IP'lere gönderilmesi.</li>
+      <h3>Entegre Yapının Sağladığı Üstünlükler</h3>
+      <ul class="list-disc pl-6 space-y-2 mb-6">
+        <li><strong>Bağlamlı Analiz:</strong> Bir sızıntı alarmını kullanıcının geçmiş hareketleriyle (UEBA) birleştirme.</li>
+        <li><strong>Gelişmiş Alarm:</strong> Sadece "kopyalama" değil, kopyalama öncesi şüpheli "arama ve erişim" hareketlerini yakalama.</li>
+        <li><strong>Yasal Kanıt:</strong> Mahkemelerde sunulacak "niyet" ispatını loglarla destekleme.</li>
       </ul>
 
+      <p><strong>Magnet Blog:</strong> "İç Tehditleri (Inside Threats) Tespit Etmenin 5 Yolu" yazımızı mutlaka okuyun.</p>
+
       <p>
-        ACKLOG, <strong>veri sızıntısı önleme (DLP) ve SIEM</strong> verilerini korele ederek kurumsal itibarınızı ve yasal uyumluluğunuzu tam koruma altına alır.
+        Verilerinizin güvende olduğundan emin olmak için ACKLOG'un <strong>veri sızıntısı önleme (DLP) ve SIEM</strong> merkezi yönetimini keşfedin.
       </p>
     `
   },
   "ayricalikli-hesap-yonetimi-pam-loglari": {
-    title: "Ayrıcalıklı Hesap Yönetimi (PAM) Logları Neden İzlenmeli?",
-    description: "Admin ve root yetkili kullanıcıların hareketlerini takip edin: Ayrıcalıklı hesap yönetimi (PAM) logları ve SIEM entegrasyonu rehberi.",
+    title: "PAM Logları: En Yetkili Kullanıcılarınızın İzlerini Takip Edin",
+    description: "Yönetici (Admin) hesapları siber saldırganların ilk hedefidir. Ayrıcalıklı hesap yönetimi (PAM) logları ve SIEM ile denetim rehberi.",
     content: `
-      <h2>En Büyük Risk İçeride: Ayrıcalıklı Hesap Yönetimi (PAM) Logları İzleme</h2>
+      <h2>Kritik Gözetim: Ayrıcalıklı Hesap Yönetimi (PAM) Logları İzleme Neden Şart?</h2>
       <p>
-        Yetkili hesaplar (Privileged Accounts), siber saldırganların en çok istediği ödüllerdir. <strong>Ayrıcalıklı hesap yönetimi (PAM) logları</strong>, admin yetkisiyle yapılan her kritik değişikliğin ispatıdır.
+        "Hackerlar kapıdan girmez, şifreyle girer." Eğer bu şifre bir yöneticinin (Admin) şifresiyse, tüm sisteminiz artık saldırganın malıdır. <strong>Ayrıcalıklı hesap yönetimi (PAM) logları</strong>, sistemdeki en güçlü kişilerin bile hareketlerini şeffaf hale getirerek hem güvenlik hem de denetim (Compliance) sağlar.
       </p>
 
-      <h3>İzlenmesi Gereken PAM Hareketleri</h3>
-      <ul class="list-disc pl-6 space-y-2 mb-6">
-        <li>Admin şifresinin ne zaman ve kim tarafından değiştiği.</li>
-        <li>Hangi cihazlara "privileged" erişim yapıldığı.</li>
-        <li>Kullanılan session (oturum) kayıtları ve komut geçmişi.</li>
+      <h3>Vazgeçilmez Denetim Maddeleri</h3>
+      <ul class="list-disc pl-6 space-y-2 mb-6 text-muted-foreground">
+        <li><strong>Sıra Dışı Saatler:</strong> Bir admin neden Pazar gecesi 04:00'te veritabanına bağlandı?</li>
+        <li><strong>Kritik Komutlar:</strong> Veritabanı silan veya yetki değiştiren komutlar izleniyor mu?</li>
+        <li><strong>Shared Accounts:</strong> Ortak kullanılan admin şifrelerinin kim tarafından kullanıldığı ispatlanabiliyor mu?</li>
       </ul>
 
+      <p><strong>Ücretsiz Checkup:</strong> "Kurumsal Yetki Matrisi (Privilege Matrix) Tasatım Rehberi" dökümanımızı sitemizden talep edin.</p>
+
       <p>
-        ACKLOG ile <strong>ayrıcalıklı hesap yönetimi (PAM) logları</strong> izleme modülü, en yetkili kullanıcılarınızın bile hata yapması veya hesaplarının çalınması durumunda sizi uyarır.
+        <strong>Ayrıcalıklı hesap yönetimi (PAM) logları</strong> konusunda en güvenilir yerli çözüm olan ACKLOG, içinizdeki ve dışınızdaki tüm admin hareketlerini raporlar.
       </p>
     `
   },
   "mitre-att-ck-matrisi-ve-siem": {
-    title: "MITRE ATT&CK Matrisi ve SIEM: Saldırgan Taktiğini Anlamak",
-    description: "Siber dayanıklılığınızı ölçün: MITRE ATT&CK matrisi ve SIEM uyumluluğu. Saldırı duraklarını SIEM üzerinde nasıl haritalandırırsınız?",
+    title: "MITRE ATT&CK Matrisi ve SIEM: Bir Siber Saldırgan Gibi Düşünün",
+    description: "Siber savunmanızı bilimsel bir temele oturtun. MITRE ATT&CK matrisi ve SIEM kuralları arasındaki stratejik ilişki ve uygulama rehberi.",
     content: `
-      <h2>Saldırganın Yol Haritası: MITRE ATT&CK Matrisi ve SIEM İlişkisi</h2>
+      <h2>Savunma Stratejisi: MITRE ATT&CK Matrisi ve SIEM Uyumu Neden Önemli?</h2>
       <p>
-        MITRE ATT&CK, saldırganların gerçek dünyada kullandığı taktik ve tekniklerin kapsamlı bir bilgi bankasıdır. <strong>MITRE ATT&CK matrisi ve SIEM</strong> kurallarınızı bu matrisle eşleştirmek, güvenlik açıklıklarınızı net görmenizi sağlar.
+        Hangi siber saldırılara karşı %100 korumadasınız, hangilerinde açıksınız? <strong>MITRE ATT&CK matrisi ve SIEM</strong> entegrasyonu, size bu sorunun cevabını bilimsel bir "ısı haritası" (Heatmap) olarak sunar. Saldırganın her bir adımını (Taktik ve Teknik) bildiğinizde, savunma kurallarınızı o boşluklara göre yazarsınız.
       </p>
 
-      <h3>Matris Kapsamındaki Aşamalar</h3>
+      <h3>Matrisin 3 Temel Faydası</h3>
       <ul class="list-disc pl-6 space-y-2 mb-6">
-        <li><strong>Initial Access:</strong> Saldırganın ağa ilk girişi.</li>
-        <li><strong>Persistence:</strong> Sistemde kalıcı hale gelme yöntemleri.</li>
-        <li><strong>Exfiltration:</strong> Veriyi dışarı sızdırma teknikleri.</li>
+        <li><strong>Görünürlük Analizi:</strong> "Lateral Movement" aşamasında hangi loglara bakmanız gerektiğini size söyler.</li>
+        <li><strong>Kural Optimizasyonu:</strong> Gereksiz kuralları eleyip, en çok kullanılan tekniklere odaklanmanızı sağlar.</li>
+        <li><strong>Üst Yönetim Sunumu:</strong> Siber durumunuzu teknik olmayan yöneticilere bile bir tablo üzerinden anlatmanıza imkan tanır.</li>
       </ul>
 
+      <p><strong>Öneri:</strong> ACKLOG SIEM içindeki hazır <strong>"MITRE ATT&CK Dashboards"</strong> modülünü kullanarak savunma puanınızı hemen öğrenin.</p>
+
       <p>
-        ACKLOG SIEM her alarımı <strong>MITRE ATT&CK matrisi ve SIEM</strong> teknikleriyle otomatik etiketleyerek, hangi siber savunma aşamasında olduğunuzu size söyler.
+        <strong>MITRE ATT&CK matrisi ve SIEM</strong> uyumluluğunda Türkiye'nin en hazır ve çevik ürünü ACKLOG'dur.
       </p>
     `
   }

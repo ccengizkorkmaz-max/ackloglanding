@@ -1,526 +1,587 @@
 export const trendsOthersArticles = {
   "yapay-zeka-destekli-siem-ai-driven": {
-    title: "Yapay Zeka Destekli SIEM (AI-Driven) ve Otonom Savunma",
-    description: "Trendler 2026: Yapay zeka destekli SIEM (AI-Driven) sistemleri nasıl çalışır? SOC ekiplerinin yeni nesil yardımcısı yapay zeka.",
+    title: "Yapay Zeka Destekli SIEM (AI-SIEM) 2026: Siber Güvenlikte Yeni Bir Çağ Başlıyor",
+    description: "Yapay zeka siber savunmayı nasıl değiştiriyor? Yapay zeka destekli SIEM (AI-Driven) sistemlerinin otonom yetenekleri ve SOC ekiplerine katkısı.",
     content: `
-      <h2>Geleceğin Güvenlik Teknolojisi: Yapay Zeka Destekli SIEM (AI-Driven)</h2>
+      <h2>Gelecek Burada: Yapay Zeka Destekli SIEM (AI-SIEM) Teknolojileri</h2>
       <p>
-        Klasik kuralların ötesine geçme vakti geldi. <strong>Yapay zeka destekli SIEM (AI-Driven)</strong> sistemleri, milyarlarca logu analiz ederek insan gözünün kaçırabileceği örüntüleri (pattern) anında fark eder. Bu teknoloji, reaktif savunmayı proaktif bir kalkan haline getirir.
+        Klasik "Eğer A olursa B yap" kuralları artık siber saldırganları durdurmaya yetmiyor. <strong>Yapay zeka destekli SIEM (AI-Driven)</strong> sistemleri, milyarlarca log verisi içinden "normal olmayan" sapmaları, henüz bir kural yazılmamış olsa bile fark edebiliyor. Siber savunma artık bir satranç maçına dönüştü ve yapay zeka sizin en iyi hamleniz.
       </p>
 
-      <h3>AI-Driven SIEM'in Sağladığı Üstünlükler</h3>
+      <h3>Yapay Zekanın SOC Takımına 3 Büyük Katkısı</h3>
       <ul class="list-disc pl-6 space-y-2 mb-6">
-        <li><strong>False-Positive Minimizasyonu:</strong> Yanlış alarmları yapay zekayla otomatik eleme.</li>
-        <li><strong>Otonom Karar Verme:</strong> Saldırı anında otomatik müdahale senaryoları.</li>
-        <li><strong>Tahminleme (Forecasting):</strong> Gelecekteki saldırı trendlerini bugünden görme.</li>
+        <li><strong>Anomali Avcılığı:</strong> İmzasız (Zero-day) saldırıları davranışsal analizle yakalama.</li>
+        <li><strong>Yorulmayan Analist:</strong> 7/24 uyanık kalan ve saniyede milyonlarca karar veren otonom motor.</li>
+        <li><strong>Akıllı Alarmlar:</strong> Binlerce gereksiz (false positive) alarmı susturup sadece gerçeğe odaklanma.</li>
       </ul>
 
+      <p><strong>Magnet İçeriği:</strong> Kendi ağınızın AI hazır bulunuşluk puanını ölçmek için <strong>"AI-SIEM Maturity Assessment"</strong> testimizi yapın.</p>
+
       <p>
-        ACKLOG, <strong>yapay zeka destekli SIEM (AI-Driven)</strong> mimarisi üzerine kurulu yerli ve mili çözümünüz olarak siber güvenliği bir sonraki seviyeye taşır.
+        <strong>ACKLOG</strong>, yerli mühendislik ve global <strong>yapay zeka destekli SIEM (AI-SIEM)</strong> vizyonuyla, 2026'nın en iddialı siber kalkanını sunuyor.
       </p>
     `
   },
   "makine-ogrenmesi-ile-anomali-tespiti": {
-    title: "Makine Öğrenmesi İle Anomali Tespiti ve Siber Güvenlik",
-    description: "Log verilerinde makine öğrenmesi ile anomali tespiti teknikleri. İstatistiksel modellerle bilinmeyen tehditleri yakalamanın yolları.",
+    title: "Makine Öğrenmesi İle Anomali Tespiti: Görünmezi Görür Hale Gelin",
+    description: "Siber güvenlikte davranışsal analiz devrimi. Makine öğrenmesi ile anomali tespiti nasıl çalışır? İstatistiksel modellerle tehdit avcılığı.",
     content: `
-      <h2>Bilinenin Ötesini Görün: Makine Öğrenmesi İle Anomali Tespiti</h2>
+      <h2>İstatistiksel Savunma: Makine Öğrenmesi İle Anomali Tespiti Stratejileri</h2>
       <p>
-        Bilinmeyen saldırı türlerini durdurmak için imzalara değil, davranışlara odaklanmalısınız. <strong>Makine öğrenmesi ile anomali tespiti</strong>, sistemin "normalini" öğrenir ve bu çizgiden sapan her hareketi şüpheli olarak işaretler.
+        Kurallar bellidir, ama saldırganlar kuralları çiğnemeyi sever. <strong>Makine öğrenmesi ile anomali tespiti</strong>, sistemin "dijital nabzını" tutar. Eğer bir kullanıcı normalde günde 10 MB veri gönderirken aniden 10 GB gönderiyorsa, sistem bunu saniyeler içinde "anormal" olarak damgalar.
       </p>
 
-      <h3>Öğrenme Modelleri ve Süreçleri</h3>
-      <p>
-        <strong>Makine öğrenmesi ile anomali tespiti</strong> şu aşamalarla gerçekleşir:
-      </p>
-      <ul class="list-disc pl-6 space-y-2 mb-6 text-muted-foreground">
-        <li><strong>Training (Eğitim):</strong> Sistem 14-30 gün boyunca kullanıcı hareketlerini izler.</li>
-        <li><strong>Detection (Tespit):</strong> Normal dışı veri aktarımı veya port kullanımı anında uyarılır.</li>
-        <li><strong>Correction:</strong> Analistin geri bildirimiyle sistem kendini günceller.</li>
-      </ul>
+      <h3>Nasıl Çalışır? (Basit 3 Adım)</h3>
+      <ol class="list-decimal pl-6 space-y-2 mb-6 text-muted-foreground">
+        <li><strong>Baseline Oluşturma:</strong> Sistem 2 hafta boyunca normal işleyişinizi izler ve öğrenir.</li>
+        <li><strong>Sapma Analizi:</strong> Normalden %20 sapan her hareketi şüpheli listesine alır.</li>
+        <li><strong>Skorlama:</strong> Birden fazla anomaliyi birleştirerek bir risk puanı (Risk Score) üretir.</li>
+      </ol>
+
+      <blockquote>
+        <p><strong>Vaka Analizi:</strong> Bir bulut projesinde, <strong>makine öğrenmesi ile anomali tespiti</strong> sayesinde, gizli bir veri sızıntısı 12. saniyede yakalanarak milyonlarca dolarlık kayıp önlendi.</p>
+      </blockquote>
 
       <p>
-        ACKLOG'un yerleşik motoru <strong>makine öğrenmesi ile anomali tespiti</strong> sayesinde, henüz adı konmamış "0-Day" saldırılarını bile engellemenize yardımcı olur.
+        ACKLOG'un adaptif motoru, <strong>makine öğrenmesi ile anomali tespiti</strong> yaparak sizin yerinize siber dedektiflik yapar.
       </p>
     `
   },
   "ueba-kullanici-davranis-analizi-nedir": {
-    title: "UEBA Nedir? Kullanıcı ve Varlık Davranış Analizi Rehberi",
-    description: "Siber güvenlikte UEBA (User and Entity Behavior Analytics) nedir? İç tehditleri ve hesap ele geçirme saldırılarını tespit etme yöntemleri.",
+    title: "UEBA Nedir? İçerideki Tehdidi (Insider Threat) Yakalamanın En Garanti Yolu",
+    description: "Düşman kapıda değil, içeride olabilir. UEBA (Kullanıcı ve Varlık Davranış Analizi) nedir? Hesap ele geçirme saldırılarını durdurma teknikleri.",
     content: `
-      <h2>İçerideki Tehditi Yakalayın: UEBA Nedir?</h2>
+      <h2>Siber Psikoloji: UEBA Nedir ve Neden Hayatidir?</h2>
       <p>
-        Saldırıların birçoğu içeriden veya çalınan hesaplarla gerçekleşir. <strong>UEBA (Kullanıcı davranış analizi) nedir?</strong> sorusuna en kısa cevap: "Kimin ne yaptığına değil, nasıl yaptığına odaklanmaktır."
+        Çoğu siber saldırı, çalınmış bir "geçerli şifre" ile yapılır. Dışarıdan bakıldığında her şey normaldir; ta ki <strong>UEBA (Kullanıcı davranış analizi) nedir?</strong> sorusuna cevap veren sistemleri kuruna kadar. UEBA, "Admin Ahmet"in her zamanki Ahmet mi yoksa o hesabı ele geçirmiş bir hacker mı olduğunu davranışlarından anlar.
       </p>
 
-      <h3>UEBA'nın Takip Ettiği 3 Temel Faktör</h3>
+      <h3>İçerideki Tehlikenin 3 Ayak İzi</h3>
       <ul class="list-disc pl-6 space-y-2 mb-6">
-        <li><strong>Hız:</strong> Bir saniyede binlerce klasöre erişen bir kullanıcı hesabı.</li>
-        <li><strong>Konum:</strong> Hep ofisten bağlanan kişinin aniden yurt dışından bağlanması.</li>
-        <li><strong>Zaman:</strong> Normalde gündüz çalışan personelin gece yarısı yetki yükseltmeye çalışması.</li>
+        <li><strong>Zaman Anomalisi:</strong> Finans personeli neden Cumartesi gecesi SQL sunucusuna bağlandı?</li>
+        <li><strong>Erişim Anomalisi:</strong> Bir IT personeli neden pazarlama veritabanını sorguladı?</li>
+        <li><strong>Coğrafi Anomali:</strong> Aynı kullanıcı 5 dakika arayla Ankara ve Moskova'dan mı login oldu?</li>
       </ul>
 
+      <p><strong>Teknik Blog:</strong> "İç Tehditleri Tespit Etmek İçin Yazılması Gereken En İyi 5 UEBA Senaryosu" başlıklı makalemizi okuyun.</p>
+
       <p>
-        ACKLOG, <strong>UEBA (Kullanıcı davranış analizi) nedir?</strong> sorusunu sormanıza gerek kalmadan bu analizleri otomatik yaparak raporlar.
+        ACKLOG, <strong>UEBA (Kullanıcı davranış analizi) nedir?</strong> sorusunun tam karşılığını, kurumunuzun dijital hafızası olarak sunar.
       </p>
     `
   },
   "bulut-tabanli-log-yonetimi-saas": {
-    title: "Bulut Tabanlı Log Yönetimi (SaaS) ve Veri Güvenliği",
-    description: "Modern mimariler için bulut tabanlı log yönetimi (SaaS) çözümleri. Sunucu kurmadan saniyeler içinde log toplamaya başlayın.",
+    title: "Bulut Tabanlı Log Yönetimi (SaaS): Donanım Yatırımına Veda Edin",
+    description: "SIEM altyapınızı buluta taşıyın. Bulut tabanlı log yönetimi (SaaS) avantajları, maliyet analizi ve güvenli arşivleme rehberi.",
     content: `
-      <h2>Her Yerden Yönetim: Bulut Tabanlı Log Yönetimi (SaaS) Avantajları</h2>
+      <h2>Hızlı ve Esnek: Bulut Tabanlı Log Yönetimi (SaaS) Neden Yükselişte?</h2>
       <p>
-        Donanım dertlerinden kurtulun. <strong>Bulut tabanlı log yönetimi (SaaS)</strong>, siber güvenlik altyapınızı bulutun esnekliğiyle birleştirir. Kurulum süresini haftalardan dakikalara indirir.
+        Geleneksel sunucu kurulumları haftalar sürerken, <strong>bulut tabanlı log yönetimi (SaaS)</strong> ile dakikalar içinde log toplamaya başlayabilirsiniz. Üstelik sunucu bakımı, soğutma masrafı veya disk yenileme gibi dertlerle uğraşmazsınız. Gelecek "Hizmet Olarak Güvenlik" (SECaaS) modelinde.
       </p>
 
-      <h3>Bulut Loglamanın Temel Faydaları</h3>
-      <ul class="list-disc pl-6 space-y-2 mb-6">
-        <li><strong>Sınırsız Ölçeklenebilirlik:</strong> Veri boyutunuz artsa da sistem kilitlenmez.</li>
-        <li><strong>Düşük Başlangıç Maliyeti:</strong> Lisans için dev bütçeler yerine aylık ödeme.</li>
-        <li><strong>Yüksek Erişilebilirlik:</strong> Log sisteminiz her an, her cihazdan web tabanlı hazırdır.</li>
-      </ul>
+      <h3>SaaS Modelinin 3 Ekonomik Avantajı</h3>
+      <ol class="list-decimal pl-6 space-y-2 mb-6">
+        <li><strong>CAPEX Yerine OPEX:</strong> Büyük peşin yatırımlar yerine kullandığın kadar öde modeli.</li>
+        <li><strong>Otomatik Ölçekleme:</strong> Trafik arttığında sistem kendiliğinden büyür, kapanmaz.</li>
+        <li><strong>Sıfır Bakım:</strong> Tüm yamalar ve güncellemeler arka planda sizin yerinize yapılır.</li>
+      </ol>
+
+      <p><strong>Hibrit Çözüm:</strong> Hassas loglar yerelde (On-prem), diğerleri bulutta kalsın istiyorsanız <strong>"ACKLOG Hybrid Cloud"</strong> mimarimizi inceleyin.</p>
 
       <p>
-        ACKLOG'un <strong>bulut tabanlı log yönetimi (SaaS)</strong> modelleri, veri güvenliğini Türkiye'deki güvenli veri merkezlerinde (Cloud) saklayarak sağlar.
+        ACKLOG, Türkiye odaklı <strong>bulut tabanlı log yönetimi (SaaS)</strong> seçenekleriyle verilerinizi yerli bulut sunucularımızda güvende tutar.
       </p>
     `
   },
   "containers-ve-kubernetes-loglama": {
-    title: "Modern Uygulamalarda Containers ve Kubernetes Loglama",
-    description: "Mikroservis mimarileri için containers ve Kubernetes loglama teknikleri. Docker logları ve pod olaylarının SIEM platformuna aktarılması.",
+    title: "Kubernetes Loglama: Mikroservis Dünyasında Görünürlük Rehberi",
+    description: "Konteyner yapılarınızdaki loglar uçup gitmesin. Containers ve Kubernetes loglama teknikleri: Sidecar vs DaemonSet karşılaştırması.",
     content: `
-      <h2>Mikroservis Dünyası: Containers ve Kubernetes Loglama Stratejileri</h2>
+      <h2>Modern Altyapı: Containers ve Kubernetes Loglama ve Takibi</h2>
       <p>
-        Docker ve Kubernetes kullanan yapılarda loglar kalıcı olmayabilir (Ephemeral). Bu yüzden <strong>containers ve Kubernetes loglama</strong>, bu verilerin yok olmadan önce merkezi bir SIEM'e (ACKLOG) aktarılmasını zorunlu kılar.
+        Kubernetes üzerinde çalışan uygulamalarınız saniyeler içinde doğar ve ölür. Eğer bu kısa yaşam döngüsünde oluşan logları merkezi bir yere almıyorsanız, bir hata oluştuğunda "neden kapandı?" sorusuna asla cevap bulamazsınız. <strong>Containers ve Kubernetes loglama</strong>, modern yazılım ekipleri için bir opsiyon değil, zorunluluktur.
       </p>
 
-      <h3>Kubernetes'te Log Toplama Yöntemleri</h3>
-      <ol class="list-decimal pl-6 space-y-2 mb-6 text-muted-foreground">
-        <li><strong>Sidecar Container:</strong> Uygulamanın yanına kurulu log toplayıcı container.</li>
-        <li><strong>DaemonSet:</strong> Her node için otomatik çalışan log ajanı.</li>
-        <li><strong>Fluentd/FluentBit:</strong> Standartlaşmış log toplama araçları ile entegrasyon.</li>
-      </ol>
+      <h3>K8s Loglama Mimarisi Seçenekleri</h3>
+      <ul class="list-disc pl-6 space-y-2 mb-6 text-muted-foreground">
+        <li><strong>DaemonSet:</strong> Her node'a bir gözcü dikin, tüm logları merkezi ACKLOG'a göndersin.</li>
+        <li><strong>Sidecar Pattern:</strong> Sadece kritik podların içine log toplayıcı yerleştirin.</li>
+        <li><strong>Cluster-level Logging:</strong> Tüm kümenin loglarını tek bir akışta birleştirin.</li>
+      </ul>
+
+      <p><strong>Magnet Blog:</strong> "Kubernetes Loglarını SIEM'e Aktarırken Performans Kaybını Önlemenin 3 Yolu" yazımızı inceleyin.</p>
 
       <p>
-        ACKLOG üzerinden <strong>containers ve Kubernetes loglama</strong> yaparak mikroservis trafiğinizdeki her bir isteği izleyebilir ve anomali tespiti yapabilirsiniz.
+        ACKLOG, yerleşik Helm chartları ile <strong>containers ve Kubernetes loglama</strong> sürecini çocuk oyuncağına dönüştürür.
       </p>
     `
   },
   "serverless-mimari-log-izleme": {
-    title: "Serverless Mimari Log İzleme: AWS Lambda ve Azure Functions",
-    description: "Sunucusuz sistemlerde serverless mimari log izleme nasıl yapılır? Fonksiyon logları ve API Gateway trafiğinin SIEM ile analizi.",
+    title: "Serverless Log İzleme: Sunucusuz Sistemlerde Güvenlik Boşluğu Bırakmayın",
+    description: "AWS Lambda, Azure Functions ve Google Cloud Functions loglarını nasıl izlersiniz? Serverless mimari log izleme rehberi.",
     content: `
-      <h2>Sunucusuz Dünyada Güvenlik: Serverless Mimari Log İzleme</h2>
+      <h2>Yeni Nesil İzleme: Serverless Mimari Log İzleme ve Analizi</h2>
       <p>
-        Geleneksel sunucu logları artık tarih mi oluyor? <strong>Serverless mimari log izleme</strong>, AWS Lambda veya Azure Functions gibi servislerin ürettiği "Event" kayıtlarını takip etmenizi sağlar.
+        Bir sunucunuz yoksa logları nereden alacaksınız? <strong>Serverless mimari log izleme</strong>, fonksiyonel programlama dünyasında güvenliğin en büyük "kör noktası" haline geldi. Fonksiyonlar çalışıp yok olurken bıraktıkları izleri (trace) gerçek zamanlı yakalamak şarttır.
       </p>
 
-      <h3>Serverless Log Analizinin Zorlukları</h3>
-      <p>
-        <strong>Serverless mimari log izleme</strong> yaparken, fonksiyonların çok kısa süreli çalışması ve ardından silinmesi en büyük zorluktur. Bu yüzden gerçek zamanlı veri akışı (Streaming) şarttır.
-      </p>
+      <h3>Neleri Takip Etmelisiniz?</h3>
+      <ul class="list-disc pl-6 space-y-2 mb-6">
+        <li><strong>Invocations:</strong> Fonksiyon kaç kez çağrıldı? (DDoS tespiti).</li>
+        <li><strong>Execution Time:</strong> Olağandışı yavaşlıklar (Saldırı belirtisi olabilir).</li>
+        <li><strong>Errors & Exceptions:</strong> Yazılımsal açıkların tespiti için hayati önemdedir.</li>
+      </ul>
+
+      <p><strong>Teknik Rehber:</strong> "Serverless Sistemlerde Log Maliyetlerini Düşürme Teknikleri" dökümanımızı sitemizden indirin.</p>
 
       <p>
-        ACKLOG, <strong>serverless mimari log izleme</strong> ihtiyaçlarınız için hazır API konnektörleri sunarak bulut yerleşik (Cloud-native) güvenliğinizi pekiştirir.
+        ACKLOG, bulut API entegrasyonları ile <strong>serverless mimari log izleme</strong> süreçlerinizi tek merkezden yönetmenizi sağlar.
       </p>
     `
   },
   "soar-guvenlik-otomasyonu-avantajlari": {
-    title: "SOAR (Güvenlik Otomasyonu) Avantajları ve SOC Verimliliği",
-    description: "Siber tehditlere otomatik yanıt verin: SOAR (Güvenlik Otomasyonu) avantajları nelerdir? Tekrarlayan işlerden kurtulmanın yolları.",
+    title: "SOAR Avantajları: Siber Saldırılara Milisaniyeler İçinde Cevap Verin",
+    description: "Analistlerin elini hızlandırın. SOAR (Security Orchestration, Automation and Response) avantajları ve SOC ekipleri için otomasyon rehberi.",
     content: `
-      <h2>Daha Hızlı Daha Güçlü: SOAR (Güvenlik Otomasyonu) Avantajları</h2>
+      <h2>Hız Kazandırır: SOAR (Güvenlik Otomasyonu) Avantajları ve Yatırım Getirisi</h2>
       <p>
-        Siber saldırıya bir robotun hızıyla cevap verin. <strong>SOAR (Güvenlik Otomasyonu) avantajları</strong>, siber güvenlik ekiplerinin üzerindeki operasyonel yükü %80'e kadar azaltma kapasitesine sahiptir.
+        İnsanlar yorulur, uyur ve hata yapar; ama otomasyon asla. <strong>SOAR (Güvenlik Otomasyonu) avantajları</strong>, siber saldırıların tespiti ile engellenmesi arasındaki süreyi (MTTR) saatlerden saniyelere indirir. Saldırgan kapıyı açmaya çalışırken, SOAR sistemi kapıyı ona sormadan kilitler.
       </p>
 
-      <h3>Kurumunuzun Kazanımları</h3>
-      <ul class="list-disc pl-6 space-y-2 mb-6">
-        <li><strong>Otomatik IP Bloklama:</strong> Saldırganın IP'sini anında tüm firewall'larda engelleyin.</li>
-        <li><strong>Zararlı URL Taraması:</strong> E-posta ile gelen linkleri otomatik sandbox üzerinde test edin.</li>
-        <li><strong>Kullanıcı Devre Dışı Bırakma:</strong> Şüpheli hareket yapan AD hesabını otomatik askıya alma.</li>
-      </ul>
+      <h3>Otomasyonun 3 Altın Faydası</h3>
+      <ol class="list-decimal pl-6 space-y-2 mb-6">
+        <li><strong>Düşük Hata Payı:</strong> Standart senaryolarda (Playbook) insan hatasını sıfırlar.</li>
+        <li><strong>Analist Verimliliği:</strong> Analistin "hamallık" işlerini robotlar yapar, analist strateji geliştirir.</li>
+        <li><strong>Yüksek Moral:</strong> Aynı alarmları defalarca incelemekten sıkılan ekibinizi teknolojiyle özgürleştirin.</li>
+      </ol>
+
+      <p><strong>Magnet Blog:</strong> "En Çok Kullanılan 10 Otomatik Savunma Senaryosu (Playbook)" dökümanımızı talep edin.</p>
 
       <p>
-        ACKLOG SIEM ve partnerlerinin sunduğu <strong>SOAR (Güvenlik Otomasyonu) avantajları</strong> ile siber savunmanızı otonom hale getirin.
+        ACKLOG, entegre <strong>SOAR (Güvenlik Otomasyonu) avantajları</strong> ile siber savunmanızı bir "otopilot" sistemine emanet etmenizi sağlar.
       </p>
     `
   },
   "zero-trust-mimarisinde-siem-in-rolu": {
-    title: "Zero Trust Mimarisinde SIEM'in Rolü ve Görünürlük",
-    description: "Asla güvenme, her zaman doğrula! Zero Trust mimarisinde SIEM'in rolü nedir? Ağ güvenliğinde yeni nesil yaklaşım analizi.",
+    title: "Zero Trust Mimarisinde SIEM: 'Asla Güvenme, Her Zaman Logla!'",
+    description: "Sıfır Güven (Zero Trust) stratejisinin kalbinde neden SIEM var? Zero Trust mimarisinde SIEM'in rolü ve görünürlük analizleri.",
     content: `
-      <h2>Geleceğin Güvenlik Paradigması: Zero Trust Mimarisinde SIEM'in Rolü</h2>
+      <h2>Savunma Dönüşümü: Zero Trust Mimarisinde SIEM'in Rolü ve Önemi</h2>
       <p>
-        Zero Trust (Sıfır Güven) modeline göre iç ağdaki herkes potansiyel bir tehdittir. <strong>Zero Trust mimarisinde SIEM'in rolü</strong>, yapılan her bir erişim isteğini anlık olarak "doğrulama" ve "onaylama" sürecini izlemekten geçer.
+        Artık "İç ağ güvenlidir" algısı tarih oldu. <strong>Zero Trust mimarisinde SIEM'in rolü</strong>, yapılan her bir erişim isteğinin, her bir şifre denemesinin "kimlik doğrulama" ile eşleştirilip kaydedilmesini sağlar. Bir kullanıcı sadece "bir kullanıcı" değil, her an bir risk faktörüdür.
       </p>
 
-      <h3>Zero Trust İçin Loglama Kritikliği</h3>
+      <h3>Görünmezlikten Görünürlüğe</h3>
       <p>
-        Bu modelde ağ çevresi (Perimeter) değil, veri ve kullanıcı korunur. <strong>Zero Trust mimarisinde SIEM'in rolü</strong>, kimlik doğrulama sistemlerinden gelen logları analiz ederek oturumun güvenirliğini sürekli ölçmektir.
+        Eğer ağınızda <strong>Zero Trust mimarisinde SIEM'in rolü</strong> eksikse, kimin hangi yetkiyle nereye bağlandığını asla ispatlayamazsınız. Zero Trust, veri temelli bir disiplindir ve verinin kaynağı SIEM'dir.
       </p>
 
+      <ul class="list-disc pl-6 space-y-2 mb-6 text-muted-foreground">
+        <li>Her cihazın durumu anlık kontrol edilmeli.</li>
+        <li>En az yetki (Least Privilege) ilkesi loglarla denetlenmeli.</li>
+        <li>Tüm ağ trafiği şifreli ve izlenebilir olmalı.</li>
+      </ul>
+
       <p>
-        ACKLOG ile <strong>Zero Trust mimarisinde SIEM'in rolü</strong> her zamankinden daha kritiktir; çünkü her bir kullanıcı hareketini milisaniyeler içinde doğrulamanız gerekir.
+        ACKLOG ile <strong>Zero Trust mimarisinde SIEM'in rolü</strong>, kurumunuzu geleceğin siber savaşlarına hazırlar.
       </p>
     `
   },
   "multi-tenancy-siem-mimarisi": {
-    title: "Multi-tenancy SIEM Mimarisi ve MSSP Hizmetleri",
-    description: "Büyük holdingler ve hizmet sağlayıcılar için multi-tenancy SIEM mimarisi avantajları. Tek bir ekrandan yüzlerce şubeyi güvenle izleyin.",
+    title: "Multi-tenancy SIEM Mimarisi: Holdingler ve MSP'ler İçin Devrim",
+    description: "Tek platformdan yüzlerce şubeyi veya müşteriyi yönetin. Multi-tenancy SIEM mimarisi avantajları ve veri izolasyonu teknikleri.",
     content: `
-      <h2>Merkezi Güç: Multi-tenancy SIEM Mimarisi Nedir?</h2>
+      <h2>Ölçeklenebilir Güç: Multi-tenancy SIEM Mimarisi ve Verimlilik</h2>
       <p>
-        Birden fazla şubesi veya müşterisi olan yapılar için <strong>multi-tenancy SIEM mimarisi</strong>, verilerin birbirine karışmadan tek bir kontrol panelinden yönetilmesini sağlar. MSSP (Yönetilen Güvenlik Hizmet Sağlayıcıları) için olmazsa olmazdır.
+        Büyük bir holdingin 50 farklı markası mı var? Veya 100 farklı müşterisi olan bir MSSP misiniz? Her biri için ayrı sunucu kurmak bir kabustur. <strong>Multi-tenancy SIEM mimarisi</strong>, tek bir ana sistem üzerinde her bir birimin verilerini "birbirine değmeden" ve yüksek güvenlikle yönetmenizi sağlar.
       </p>
 
-      <h3>Neden Multi-tenancy?</h3>
+      <h3>Multi-Tenancy Neden Fark Yaratır?</h3>
       <ul class="list-disc pl-6 space-y-2 mb-6">
-        <li>Her müşteri için tamamen izole edilmiş veri tabanı katmanı.</li>
-        <li>Farklı yetkilere sahip dashboard erişimleri.</li>
-        <li>Merkezi kural (Log Correlation) ve rapor şablonu dağıtımı.</li>
+        <li><strong>Merkezi Kural Dağıtımı:</strong> Bir kural yazın, tüm müşterilerde/şubelerde aynı anda devreye girsin.</li>
+        <li><strong>Veri İzolasyonu:</strong> A firmasının veritabanı ile B firmasınınki teknolojik olarak ayrıdır.</li>
+        <li><strong>Markalama (White-label):</strong> Arayüzü kendi logonuzla müşteriye sunabilme imkanı.</li>
       </ul>
 
+      <p><strong>Maliyet Analizi:</strong> "MSSP İş Modeli İçin SIEM Kiralama Rehberi" dökümanımızı sitemizden inceleyin.</p>
+
       <p>
-        ACKLOG'un <strong>multi-tenancy SIEM mimarisi</strong> desteği, Türkiye'deki holdinglerin IT yapılarına en uygun güvenli ve ölçeklenebilir altyapıyı sunar.
+        ACKLOG, <strong>multi-tenancy SIEM mimarisi</strong> ile Türkiye'nin en büyük holdinglerinin itibarını ve verisini korumaktadır.
       </p>
     `
   },
   "api-tabanli-log-toplama": {
-    title: "API Tabanlı Log Toplama: Modern SaaS Uygulamalarını İzleme",
-    description: "Bulut uygulamalarından (Office 365, Salesforce vb.) API tabanlı log toplama teknikleri. Syslog ötesinde veri zenginleştirme rehberi.",
+    title: "API Tabanlı Log Toplama: Syslog Çağının Ötesine Geçin",
+    description: "Modern bulut dünyasında veri çekme sanatı. API tabanlı log toplama teknikleri ve zengin veri analizi rehberi.",
     content: `
-      <h2>Veriye Doğrudan Erişim: API Tabanlı Log Toplama Teknolojisi</h2>
+      <h2>Veri Derinliği: API Tabanlı Log Toplama ve Analiz Avantajları</h2>
       <p>
-        Geleneksel Syslog protokolünün yetersiz kaldığı bulut servislerinde <strong>API tabanlı log toplama</strong> devreye girer. Bu yöntemle Office 365, AWS CloudTrail veya GCP gibi servislerden zengin içerikli loglar çekilebilir.
+        Eski moda cihazlardan syslog alıyoruz, peki ya modern bulut uygulamalarımız? <strong>API tabanlı log toplama</strong>, Office 365, AWS veya Salesforce gibi sistemlerden sadece "bir mesaj" değil, o olayın tüm hikayesini (Context) çekmenizi sağlar. JSON formatındaki bu temiz veri, analiz hızını 10 kat artırır.
       </p>
 
-      <h3>API ile Loglamanın Artıları</h3>
-      <ul class="list-disc pl-6 space-y-2 mb-6">
-        <li>Yapılandırılmış veri formatı (genellikle JSON) sayesinde yüksek doğruluk.</li>
-        <li>Gerçek zamanlı olmasa bile kesin (Event-based) veri akışı.</li>
-        <li>Trafik şifreleme ve güvenli kimlik doğrulama (OAuth 2.0 vb.).</li>
+      <h3>API Loglamanın 3 Güçlü Yanı</h3>
+      <ul class="list-disc pl-6 space-y-2 mb-6 text-muted-foreground">
+        <li><strong>Kesin Teslimat:</strong> Network paket kaybı yaşanmaz, veri doğrudan çekilir (Pull).</li>
+        <li><strong>Yüksek Detay:</strong> Kim, hangi butona, hangi IP ile tıkladı? Tüm detaylar kutudan çıktığı gibi hazırdır.</li>
+        <li><strong>Güvenlik:</strong> Veriler HTTPS üzerinden şifreli ve onaylı aktarılır.</li>
       </ul>
 
+      <p><strong>Teknik Uygulama:</strong> "Sıfır Yazılımla Bulut Loglarını SIEM'e Bağlama" web seminerimize sitemizden ulaşabilirsiniz.</p>
+
       <p>
-        ACKLOG'un kütüphanesindeki hazır konnektörler ile <strong>api tabanlı log toplama</strong> işlemlerinizi tek tıkla başlatabilirsiniz.
+        ACKLOG, yüzlerce <strong>api tabanlı log toplama</strong> konnektörüyle bulut bağımlılığınızı güvenliğe dönüştürür.
       </p>
     `
   },
   "siem-neden-yavas-calisiyor": {
-    title: "SIEM Neden Yavaş Çalışıyor? Sorgu Hızı ve Performans Çözümleri",
-    description: "SIEM yavaşlama nedenleri ve performans artırma yolları. Veritabanı optimizasyonu, parser hataları ve disk I/O darboğazları tespiti.",
+    title: "SIEM Neden Yavaş Çalışıyor? 5 Saniyede Dashboard Açma Rehberi",
+    description: "Dashboardların dönen halkasından sıkıldınız mı? SIEM neden yavaş çalışıyor sorusuna 5 teknik çözüm ve optimizasyon yolları.",
     content: `
-      <h2>Sorun Giderme: SIEM Neden Yavaş Çalışıyor Sorusuna Cevaplar</h2>
+      <h2>Performans Krizi: SIEM Neden Yavaş Çalışıyor? İşte Gerçek Nedenler</h2>
       <p>
-        Bir dashboard'un yüklenmesi dakikalar sürüyorsa orada bir sorun var demektir. <strong>SIEM neden yavaş çalışıyor?</strong> sorusunun altında yatan temel neden genellikle verinin disk üzerinde okunurken yaşadığı gecikmedir.
+        Bir dashboard açılana kadar kahve alıp geliyorsanız, o SIEM projesi ölü doğmuştur. <strong>SIEM neden yavaş çalışıyor?</strong> sorusunun cevabı genellikle yanlış kurgulanmış veritabanı mimarisi veya disk I/O yetersizliğidir. Log verisi büyüdükçe yavaşlamayan bir sistem seçmediyseniz, sorunlarınız her gün katlanacaktır.
       </p>
 
-      <h3>Yavaşlamanın 3 Temel Nedini</h3>
-      <ul class="list-disc pl-6 space-y-2 mb-6">
-        <li><strong>Kötü Yazılmış Regex:</strong> CPU'yu kilitleyen karmaşık log ayrıştırma kuralları.</li>
-        <li><strong>Endeksleme Problemleri:</strong> Veritabanı şişmesi ve eksik endeksler.</li>
-        <li><strong>Disk I/O Darboğazı:</strong> SSD olmayan veya IOPS değeri düşük disk kullanımı.</li>
-      </ul>
+      <h3>Hızlandırmak İçin 3 Tavsiye</h3>
+      <ol class="list-decimal pl-6 space-y-2 mb-6">
+        <li><strong>Index Optimizasyonu:</strong> Gereksiz alanları veritabanında indekslemeyin, arama motorunu yormayın.</li>
+        <li><strong>Parser Temizliği:</strong> CPU sömüren karmaşık Regex (Regular Expression) kurallarını basitleştirin.</li>
+        <li><strong>In-Memory Mimari:</strong> Diske bağımlı kalmak yerine veriyi RAM üzerinde işleyen modern modellere (ACKLOG) geçin.</li>
+      </ol>
+
+      <p><strong>Hız Testi:</strong> Mevcut SIEM'inizin sorgu performansını ölçmek için <strong>"ACKLOG Speed Tester"</strong> modülümüzü deneyin.</p>
 
       <p>
-        Eğer "<strong>SIEM neden yavaş çalışıyor?</strong>" diye yorulmak istemiyorsanız, In-memory teknolojisiyle çalışan ACKLOG'un ışık hızındaki yapısına geçme vaktiniz gelmiştir.
+        Eğer "<strong>SIEM neden yavaş çalışıyor?</strong>" sorusu her gün toplantılarınızın konusu oluyorsa, ACKLOG'un ışık hızındaki yerli motoruyla tanışma vaktiniz gelmiştir.
       </p>
     `
   },
   "log-kaybi-nasil-onlenir": {
-    title: "Siber Güvenlikte Log Kaybı Nasıl Önlenir? Data Loss Prevention",
-    description: "Kritik güvenlik olaylarını kaçırmayın! Log kaybı nasıl önlenir? Buffer yönetimi, TCP syslog ve yedekli mimari planlama rehberi.",
+    title: "Siber Güvenlikte Log Kaybı Nasıl Önlenir? Hiçbir İz Kaybolmasın!",
+    description: "Saldırgan logları silebilir ama sistemi silemez mi? Log kaybı nasıl önlenir? Buffer yönetimi ve yedekli loglama stratejileri.",
     content: `
-      <h2>Veri Koruma Sigortası: Log Kaybı Nasıl Önlenir Rehberi</h2>
+      <h2>Kanıtları Korumak: Log Kaybı Nasıl Önlenir ve Önemi?</h2>
       <p>
-        Bir saldırı olduğunda loglar gelmiyorsa sisteminizin bir değeri yoktur. <strong>Log kaybı nasıl önlenir?</strong> sorusu, mimari tasarımdaki yedeklilik (Redundancy) ile doğrudan ilişkilidir.
+        Bir siber saldırıdan sonra yapılacak adli analiz (Forensics) için en önemli şey log verisidir. <strong>Log kaybı nasıl önlenir?</strong> sorusu, felaket anında saldırganın kimliğini belirleyip belirleyemeyeceğinizi seçer. Log gelmiyorsa, siber güvenlikte "körsünüz" demektir.
       </p>
 
-      <h3>Log Kaybını Durdurma Teknikleri</h3>
-      <ol class="list-decimal pl-6 space-y-2 mb-6">
-        <li><strong>UDP Yerine TCP:</strong> Paket doğrulamalı veri iletimine (TCP) geçiş yapmak.</li>
-        <li><strong>Intermediate Collectors:</strong> Uç noktalarda logları geçici tamponlayan birimler (Buffering).</li>
-        <li><strong>Yedekli Kayıt:</strong> Logların hem lokalde hem de SIEM üzerinde eş zamanlı tutulması.</li>
-      </ol>
+      <h3>Kaybı Önleyen 3 Kritik Teknoloji</h3>
+      <ul class="list-disc pl-6 space-y-2 mb-6">
+        <li><strong>Local Buffer (Lokal Tampon):</strong> Network kopsa bile loglar cihazın kendi hafızasında birikir.</li>
+        <li><strong>ACK (Acknowledgement):</strong> Logun SIEM'e ulaştığından emin olmadan kaynak sistem logu silmez.</li>
+        <li><strong>Load Balancing:</strong> Tek bir log sunucusuna yüklenmek yerine trafiği dağıtın.</li>
+      </ul>
+
+      <blockquote>
+        <p><strong>Önemli Bilgi:</strong> ACKLOG ajanları, saniyede 100.000 log akışında bile %0 kayıp garantisiyle siber vatanınızı korur.</p>
+      </blockquote>
 
       <p>
-        ACKLOG'un benzersiz "Ajan" mimarisi, internet kopsa bile logları biriktirir ve bağlantı gelince aktararak <strong>log kaybı nasıl önlenir?</strong> derdini ortadan kaldırır.
+        Geleceğinize güvenle bakmak için "<strong>Log kaybı nasıl önlenir?</strong>" rehberimizin detaylarını sitemizden inceleyin.
       </p>
     `
   },
   "hangi-loglar-mutlaka-tutulmali": {
-    title: "Siber Denetimlerde Hangi Loglar Mutlaka Tutulmalı? (Checklist)",
-    description: "Tüm logları toplamak mümkün değilse öncelik ne olmalı? Hangi loglar mutlaka tutulmalı? Güvenlik, sistem ve uygulama öncelikleri listesi.",
+    title: "Hangi Loglar Mutlaka Tutulmalı? Gereksiz Veriden Kurtulma Rehberi",
+    description: "Diskinizde yer kalmadı mı? Hangi loglar mutlaka tutulmalı? Stratejik log toplama checklist'i ve maliyet tasarrufu yolları.",
     content: `
-      <h2>Stratejik Seçim: Hangi Loglar Mutlaka Tutulmalı? Önem Sıralaması</h2>
+      <h2>Akıllı Filtreleme: Hangi Loglar Mutlaka Tutulmalı? Öncelik Sıralaması</h2>
       <p>
-        Veri depolama maliyetleri artarken her şeyi toplamak mantıklı olmayabilir. <strong>Hangi loglar mutlaka tutulmalı?</strong> sorusunun cevabı siber risk analizinize göre değişir.
+        Dünyadaki tüm dijital ayak izlerini toplamanız imkansızdır. <strong>Hangi loglar mutlaka tutulmalı?</strong> sorusuna verilen cevap, sizin siber dayanıklılığınızı belirler. Çöp veri (noise) toplamak, gerçek bir alarmı (signal) görmenizi engeller.
       </p>
 
-      <h3>Altın Değerindeki 5 Log Tipi</h3>
+      <h3>Analistin Checklist'i: "Olmazsa Olmaz" Loglar</h3>
       <ul class="list-disc pl-6 space-y-2 mb-6 text-muted-foreground">
-        <li>Admin Login/Logout hareketleri ve yetki değişiklikleri.</li>
-        <li>Firewall üzerinde dışarıdan gelen (Inbound) "Deny" kayıtları.</li>
-        <li>Veritabanı erişim ve tablo değişim audit logları.</li>
-        <li>Kritik dosya ve klasör erişim kayıtları.</li>
-        <li>Endpoint üzerindeki süreç (Process) başlama logları.</li>
+        <li><strong>Kimlik (Identity):</strong> Tüm login/logout ve hesap oluşturma hareketleri.</li>
+        <li><strong>Erişim (Firewall):</strong> İçeriden dışarıya (Egress) yapılan şüpheli bağlantılar.</li>
+        <li><strong>Sistem (Security):</strong> Windows üzerinde "Event ID 4624" ve türevleri.</li>
+        <li><strong>Uygulama (DB):</strong> Hassas müşteri verilerine yapılan sorguların izleri.</li>
       </ul>
 
+      <p><strong>Öneri Tool:</strong> Kendi envanterinizi sitemizdeki <strong>"SIEM Scope Builder"</strong> aracımıza girin, size hangi logları toplamanız gerektiğini söyleyelim.</p>
+
       <p>
-        ACKLOG, "<strong>Hangi loglar mutlaka tutulmalı?</strong>" sorusu için size akıllı filtreleme sunarak sadece "anlamlı" veriye bütçe ayırmanızı sağlar.
+        ACKLOG, "<strong>Hangi loglar mutlaka tutulmalı?</strong>" karmaşasını hazır profil setleriyle saniyeler içinde çözer.
       </p>
     `
   },
   "log-veritabanı-sismesi-cozumu": {
-    title: "Log Veritabanı Şişmesi Çözümü ve Arşivleme Stratejileri",
-    description: "SIEM sistemlerinde log veritabanı şişmesi çözümü nedir? Disk doluluğunu önlemek için log sıkıştırma ve hot-warm-cold storage modelleri.",
+    title: "Log Veritabanı Şişmesi Çözümü: 10 Kat Daha Fazla Veriyi Aynı Diskte Saklayın",
+    description: "Disk bütçeniz tükendi mi? Log veritabanı şişmesi çözümü, veri sıkıştırma teknikleri ve arşivleme otomasyonu rehberi.",
     content: `
-      <h2>Sisteminizi Ferahlatın: Log Veritabanı Şişmesi Çözümü Yolları</h2>
+      <h2>Veritabanı Sağlığı: Log Veritabanı Şişmesi Çözümü ve Alan Tasarrufu</h2>
       <p>
-        Günlük milyonlarca log tutulan sistemlerde disk doluluğu kaçınılmazdır. <strong>Log veritabanı şişmesi çözümü</strong>, verimli bir arşivleme ve "Tiered Storage" (Katmanlı Depolama) mimarisi gerektirir.
+        Log verisi bir kartopu gibi büyür ve bir gün sisteminizi kilitler. <strong>Log veritabanı şişmesi çözümü</strong> araması yapanlar için en pratik yol, veri sıkıştırma (Compression) ve etkili bir purgalama (temizlik) politikası uygulamaktır. Yer kaplayan her gereksiz log, bir siber güvenlik bütçesi hırsızıdır.
       </p>
 
-      <h3>Veritabanını Yönetme İpuçları</h3>
-      <ul class="list-disc pl-6 space-y-2 mb-6">
-        <li>Yüksek Sıkıştırma (Compression): Logları ham haliyle değil, sıkıştırılmış olarak saklayın.</li>
-        <li>Retention Policy: Yasal süre dolsa bile saklanan gereksiz logları otomatik silin.</li>
-        <li>Cold Storage: Eski logları yavaş ama ucuz disklere (veya S3 buluta) taşıyın.</li>
-      </ul>
+      <h3>Şişmeyi Duru durmanın 3 Yolu</h3>
+      <ol class="list-decimal pl-6 space-y-2 mb-6">
+        <li><strong>Sıkıştırma Oranı:</strong> Logları ham metin olarak değil, ACKLOG'un sunduğu gibi özel sıkıştırılmış formatlarda saklayın.</li>
+        <li><strong>Cold Storage:</strong> 1 yıldan eski logları ucuz arşiv sunucularına taşıyın.</li>
+        <li><strong>Filtreleme:</strong> Değersiz logların daha kapıdan girmeden atılmasını sağlayın.</li>
+      </ol>
+
+      <p><strong>Hesapla:</strong> Şirketiniz için ne kadar depolama alanı gerekeceğini <strong>"ACKLOG Storage Estimator"</strong> ile hemen hesaplayın.</p>
 
       <p>
-        ACKLOG'un saniyeler içinde devreye giren <strong>log veritabanı şişmesi çözümü</strong> modülü, verilerinizi aslına uygun sıkıştırarak %80 disk tasarrufu sağlar.
+        <strong>Log veritabanı şişmesi çözümü</strong> için ACKLOG'un sunduğu otonom arşivleme siber güvenliğinizi durdurulamaz kılar.
       </p>
     `
   },
   "siem-eps-degerini-nasil-dusururum": {
-    title: "SIEM EPS Değerini Nasıl Düşürürüm? Maliyet Optimizasyonu",
-    description: "EPS bazlı lisanslamada bütçenizi koruyun: SIEM EPS değerini nasıl düşürürüm? Log filtreleme ve gürültü azaltma teknikleri.",
+    title: "SIEM EPS Değerini Nasıl Düşürürüm? Fatura Şoklarından Kurtulun",
+    description: "EPS limitlerinizi verimli kullanın: SIEM EPS değerini nasıl düşürürüm? Gereksiz gürültüyü ezip gerçek alarmlara odaklanma yolları.",
     content: `
-      <h2>Maliyetinizi Yönetin: SIEM EPS Değerini Nasıl Düşürürüm?</h2>
+      <h2>Maliyet Optimizasyonu: SIEM EPS Değerini Nasıl Düşürürüm? Rehberi</h2>
       <p>
-        SIEM lisansınız saniye başına olay (EPS) sayısına bağlıysa, her "gürültü" log faturanızı artırır. <strong>SIEM EPS değerini nasıl düşürürüm?</strong> sorusuna en iyi cevap: Filtreleme!
+        Global SIEM üreticileri saniye başına olay (EPS) sayısına göre fatura keser. Peki bu faturayı ödemeye gerçekten mecbur musunuz? <strong>SIEM EPS değerini nasıl düşürürüm?</strong> sorusu, aslında "Gereksiz logları nasıl elerim?" sorusudur. Akıllı bir filtreleme ile faturanızı %50 düşürebilirsiniz.
       </p>
 
-      <h3>Gereksiz EPS'yi Filtreleme Yolları</h3>
+      <h3>EPS Düşürme Teknikleri</h3>
       <ul class="list-disc pl-6 space-y-2 mb-6 text-muted-foreground">
-        <li>Her saniye üretilen "Keep-alive" network paketlerini SIEM'e almayın.</li>
-        <li>Başarılı erişim loglarını (eğer kritik değilse) daha az sıklıkla toplayın.</li>
-        <li>Fiziksel Switch port up/down loglarından gereksizleri eleyin.</li>
+        <li><strong>De-duplication:</strong> Tekrarlayan log mesajlarını tek bir satıra indirin.</li>
+        <li><strong>Source Filters:</strong> Test sunucuları gibi önemsiz kaynakların loglarını SIEM'e almayın.</li>
+        <li><strong>Level Filtering:</strong> "Information" seviyesindeki logları ezip sadece "Warning" ve "Error"ları toplayın.</li>
       </ul>
 
+      <p><strong>Neden ACKLOG?</strong> Bizde EPS sınırı yok! <strong>SIEM EPS değerini nasıl düşürürüm?</strong> diye dertlenmek yerine tüm verinizi ACKLOG ile özgürce toplayın.</p>
+
       <p>
-        ACKLOG'un sınırsız EPS politikası sayesinde "<strong>SIEM EPS değerini nasıl düşürürüm?</strong>" diye strese girmeden tüm güvenliğinize odaklanabilirsiniz.
+        Maliyetlerinizi kuruşu kuruşuna yönetmek için ACKLOG şeffaflığıyla tanışın.
       </p>
     `
   },
   "ucretsiz-siem-yazilimlari-nelerdir": {
-    title: "Ücretsiz SIEM Yazılımları Nelerdir? En İyi 5 Seçenek",
-    description: "Düşük bütçeli projeler için ücretsiz SIEM yazılımları nelerdir? ELK Stack, Wazuh, Graylog Open ve diğer bedava seçeneklerin incelemesi.",
+    title: "Ücretsiz SIEM Yazılımları Nelerdir? Bedava Güvenlik Mümkün mü?",
+    description: "Açık kaynak dünyasının en iyi üyeleri. Ücretsiz SIEM yazılımları nelerdir? Wazuh, ELK ve Graylog karşılaştırmalı analizi.",
     content: `
-      <h2>Bütçe Dostu Güvenlik: Ücretsiz SIEM Yazılımları Nelerdir?</h2>
+      <h2>Açık Kaynak Rehberi: Ücretsiz SIEM Yazılımları Nelerdir?</h2>
       <p>
-        Siber güvenliğe adım atmak için her zaman büyük bütçeler gerekmeyebilir. <strong>Ücretsiz SIEM yazılımları nelerdir?</strong> diye araştırdığınızda karşınıza güçlü açık kaynaklı topluluklar çıkacaktır.
+        Siber güvenliğe yeni başlayan bir KOBİ veya meraklı bir uzmansanız, <strong>ücretsiz SIEM yazılımları nelerdir?</strong> sorusu ilk adımınızdır. Topluluk desteğiyle büyüyen bu araçlar, profesyonel bir SIEM'in temellerini hiçbir ücret ödemeden öğrenmenizi sağlar.
       </p>
 
-      <h3>En Popüler Ücretsiz Araçlar</h3>
+      <h3>En İyi 3 Ücretsiz SIEM Adayı</h3>
       <ol class="list-decimal pl-6 space-y-2 mb-6">
-        <li><strong>Wazuh:</strong> EDR ve SIEM birleşimi güçlü bir seçenek.</li>
-        <li><strong>Graylog Open Source:</strong> Log yönetimi için hızlı ve kolay.</li>
-        <li><strong>Security Onion:</strong> Ağ trafiği izleme odaklı komple paket.</li>
+        <li><strong>Wazuh:</strong> Host tabanlı izlemede (EDR) dünya lideri ücretsiz araç.</li>
+        <li><strong>Elastic Stack (ELK):</strong> Veri görselleştirme ve log aramada en hızlısı.</li>
+        <li><strong>Security Onion:</strong> Ağ trafiği analizi ve tehdit avcılığı için hepsi bir arada çözüm.</li>
       </ol>
 
+      <p><strong>Dikkat:</strong> <strong>Ücretsiz SIEM yazılımları nelerdir?</strong> sorusuna cevap bulduktan sonra, yasal 5651 imzalama ve profesyonel SOC desteği için ACKLOG yerli eklentileriyle sisteminizi zırhlamayı unutmayın.</p>
+
       <p>
-        <strong>Ücretsiz SIEM yazılımları nelerdir?</strong> sorusuna verilen cevaplardaki ürünler, kurulduktan sonra uzman desteği ve yasal uyumluluk için (imzalama vb.) ACKLOG gibi profesyonel araçlarla desteklenmelidir.
+        ACKLOG, açık kaynak dünyasının esnekliğini kurumsal garantörlükle birleştirir.
       </p>
     `
   },
   "loglari-kac-yil-saklamaliyiz": {
-    title: "Logları Kaç Yıl Saklamalıyız? Yasal ve Teknik Süreler",
-    description: "Denetimlerden geçmek için logları kaç yıl saklamalıyız? 5651, KVKK ve sektör bazlı saklama süreleri karşılaştırma tablosu.",
+    title: "Logları Kaç Yıl Saklamalıyiz? 2026 Yasal Denetim Şartları",
+    description: "KVKK ve 5651 kapsamında log tutma süreleri. Logları kaç yıl saklamalıyız? Dijital arşivleme kuralları ve cezai yaptırımlar rehberi.",
     content: `
-      <h2>Yasal Arşivleme Rehberi: Logları Kaç Yıl Saklamalıyız?</h2>
+      <h2>Yasal Uyumluluk: Logları Kaç Yıl Saklamalıyız? Süreler ve Cezalar</h2>
       <p>
-        "Sonsuza kadar saklamak" hem maliyetli hem de yasal olarak risklidir (Verinin silinmesi hakkı). <strong>Logları kaç yıl saklamalıyız?</strong> sorusunun cevabı dahil olduğunuz regülasyona bağlıdır.
+        Denetim anında "Loglarımız silinmiş" demek, yasal olarak ağır yaptırımlarla karşılaşmanıza neden olur. <strong>Logları kaç yıl saklamalıyız?</strong> sorusunun cevabı siber güvenlikten çok, hukuk biriminizin ilgi alanındadır. Türkiye'de bu süreler net çizgilerle belirlenmiştir.
       </p>
 
-      <h3>Regülasyonlara Göre Süreler</h3>
-      <ul class="list-disc pl-6 space-y-2 mb-6">
-        <li><strong>5651 Sayılı Kanun:</strong> En az 2 (iki) yıl.</li>
-        <li><strong>BDDK (Bankacılık):</strong> Genellikle 10 yıl.</li>
-        <li><strong>KVKK:</strong> Kişisel veri işlenme amacına uygun süre (Makul süre).</li>
-      </ul>
+      <h3>Türkiye Regülasyon Tablosu</h3>
+      <table class="w-full text-sm my-6 border">
+        <tr class="bg-muted"><th>Kanun/Kurum</th><th>Süre</th><th>Zorunluluk</th></tr>
+        <tr><td>5651 Kanunu</td><td>2 Yıl</td><td>Log İmzalama + Zaman Damgası</td></tr>
+        <tr><td>KVKK</td><td>Makul Süre</td><td>Veri İzolasyonu + Erişim Kontrolü</td></tr>
+        <tr><td>BDDK/EPDK</td><td>5-10 Yıl</td><td>Tam Denetim İzleri</td></tr>
+      </table>
+
+      <p><strong>Önemli Tavsiye:</strong> <strong>Logları kaç yıl saklamalıyız?</strong> dertlerine son vermek için ACKLOG'un "Yasal Arşivleme Otomasyonu" modülünü kullanın.</p>
 
       <p>
-        ACKLOG, "<strong>Logları kaç yıl saklamalıyız?</strong>" politikanızı otomatikleştirir; süresi dolan kayıtları arşivden çıkararak diskinizde yer açar.
+        ACKLOG ile yasal denetimlerde her zaman güvende kalın, cezai riskleri sıfırlayın.
       </p>
     `
   },
   "iis-loglari-neden-siem-e-dusmuyor": {
-    title: "Sorun Giderme: IIS Logları Neden SIEM'e Düşmüyor? Çözüm",
-    description: "Web sunucusu izlemede sık yaşanan hata: IIS logları neden SIEM'e düşmüyor? Log dosyası kilitlenmesi ve W3C formatı düzeltme kılavuzu.",
+    title: "IIS Logları Neden SIEM'e Düşmüyor? İşte Kesin Çözüm Yolları",
+    description: "Microsoft IIS web sunucusu izlemede hayati sorun giderme rehberi. IIS logları neden SIEM'e düşmüyor? Sık yaşanan 5 teknik hata.",
     content: `
-      <h2>IIS Logları Neden SIEM'e Düşmüyor? Sık Karşılaşılan Hatalar</h2>
+      <h2>Hızlı Çözüm: IIS Logları Neden SIEM'e Düşmüyor? Problem Analizi</h2>
       <p>
-        Microsoft Web Server (IIS) kullananlar bazen logların merkeze akmadığını fark eder. <strong>IIS logları neden SIEM'e düşmüyor?</strong> probleminin en büyük sebebi dosya kilitlenme mekanizmasıdır.
+        Web sitelerinize yapılan saldırıları göremiyor musunuz? <strong>IIS logları neden SIEM'e düşmüyor?</strong> problemi genellikle bir konfigürasyon hatası değil, Windows'un log dosyası kilit sisteminden kaynaklanır. Hackerlar web sunucunuza sızarken sizin logları izleyemiyor olmanız büyük bir felakettir.
       </p>
 
-      <h3>Çözüm İçin Kontrol Listesi</h3>
+      <h3>Analistin Kontrol Listesi</h3>
       <ul class="list-disc pl-6 space-y-2 mb-6 text-muted-foreground">
-        <li><strong>Log Dosyası Kilitlenmesi:</strong> IIS log dosyasını o an yazdığı için SIEM ajanı okuyamıyor olabilir. Log rollover ayarlarını kontrol edin.</li>
-        <li><strong>Encoding (Kodlama):</strong> UTF-16 vs UTF-8 farkları logların anlamsız düşmesine neden olabilir.</li>
-        <li><strong>W3C Log Formatı:</strong> SIEM'in anlayabileceği standart alanların seçili olduğundan emin olun.</li>
+        <li><strong>File Locking:</strong> IIS log yazarken başka bir uygulama dosyayı okuyamaz. Çözüm: Log rollover ayarını "Hourly" yapın.</li>
+        <li><strong>Logging Fields:</strong> W3C formatında "Client IP" ve "User Agent" alanlarının seçili olduğundan emin olun.</li>
+        <li><strong>Ajan Yetkisi:</strong> SIEM ajanının IIS log klasöründe "Read" yetkisi var mı?</li>
       </ul>
 
+      <p><strong>Screencast:</strong> "IIS Loglarını 2 Dakikada SIEM'e Bağlama" videolu rehberimizi sitemizden izleyin.</p>
+
       <p>
-        ACKLOG IIS Agent, tüm bu engelleri aşarak "<strong>IIS logları neden SIEM'e düşmüyor?</strong>" derdinize son veren özel bir toplama teknolojisi sunar.
+        ACKLOG, özel <strong>IIS Log Reader</strong> modülüyle "<strong>IIS logları neden SIEM'e düşmüyor?</strong>" tartışmasını kökten çözer.
       </p>
     `
   },
   "log-toplarken-bant-genisligi-kullanimi": {
-    title: "Log Toplarken Bant Genişliği Kullanımı ve Ağ Optimizasyonu",
-    description: "Uzak şubelerden veri çekerken log toplarken bant genişliği kullanımı nasıl azaltılır? Sıkıştırma (Compression) ve delta log iletimi teknikleri.",
+    title: "Log Toplarken Bant Genişliği Kullanımı: Ağınızı Korumaya Alın",
+    description: "Uzak şubelerden log toplarken internetinizi yormayın. Log toplarken bant genişliği kullanımı nasıl azaltılır? Optimizasyon teknikleri rehberi.",
     content: `
-      <h2>Ağınızı Yormayın: Log Toplarken Bant Genişliği Kullanımı Analizi</h2>
+      <h2>Verimli Veri Akışı: Log Toplarken Bant Genişliği Kullanımı ve Çözümler</h2>
       <p>
-        Uzak ofislerden merkeze log çekerken internet hattının şişmesi büyük bir sorundur. <strong>Log toplarken bant genişliği kullanımı</strong>, toplanan verinin ham değil, sıkıştırılmış gönderilmesiyle optimize edilebilir.
+        Yüzlerce şubeden merkeze log akıtırken ana hattın (uplink) sature olması işlerinizi durdurabilir. <strong>Log toplarken bant genişliği kullanımı</strong> yönetimi, siber güvenlikte "Ağ Dostu" bir yaklaşım gerektirir. Veriyi sıkıştırmadan göndermek, otobanda boş kamyon sürmek gibidir.
       </p>
 
-      <h3>Bant Genişliğini Azaltma Stratejileri</h3>
+      <h3>Bant Genişliği Tasarrufu İçin 3 Yöntem</h3>
       <ul class="list-disc pl-6 space-y-2 mb-6">
-        <li><strong>Stream Compression:</strong> Logların %10-20 oranına kadar sıkıştırılarak aktarılması.</li>
-        <li><strong>Filtering at Source:</strong> Gereksiz logların daha şubeden çıkmadan elenmesi.</li>
-        <li><strong>Düşük Mesai Transferi:</strong> Arşiv loglarının internetin boş olduğu gece saatlerinde gönderilmesi.</li>
+        <li><strong>Compression (Sıkıştırma):</strong> Logları 1/10 oranında küçülterek gönderin.</li>
+        <li><strong>Batching:</strong> Tek tek değil, binlerce logu paketler (batches) halinde iletin.</li>
+        <li><strong>Priority:</strong> Kritik alarmları anında, düşük öncelikli logları gece vakti aktarın.</li>
       </ul>
 
+      <p><strong>Teknik Araç:</strong> Ağınızdaki log yükünü ölçmek için <strong>"ACKLOG Bandwidth Calculator"</strong> sitemizde yayında.</p>
+
       <p>
-        ACKLOG, <strong>log toplarken bant genişliği kullanımı</strong> konusunda devrim yaratan sıkıştırma algoritmasıyla düşük hızlı hatlarda bile sorunsuz çalışır.
+        ACKLOG, <strong>log toplarken bant genişliği kullanımı</strong> konusunda Türkiye'nin en verimli "Low-Bandwidth" teknolojisine sahiptir.
       </p>
     `
   },
   "siem-kurulumunda-dikkat-edilmesi-gerekenler": {
-    title: "Profesyonel Rehber: SIEM Kurulumunda Dikkat Edilmesi Gerekenler",
-    description: "SIEM projelerinizin başarısız olmasını istemiyorsanız bu listeye bakın. SIEM kurulumunda dikkat edilmesi gerekenler ve proje yönetim ipuçları.",
+    title: "SIEM Kurulumunda Dikkat Edilmesi Gerekenler: Başarıya Giden 5 Adım",
+    description: "SIEM projeniz neden başarısız olur? SIEM kurulumunda dikkat edilmesi gerekenler ve siber güvenlik yöneticileri için stratejik planlama.",
     content: `
-      <h2>Hatasız Başlangıç: SIEM Kurulumunda Dikkat Edilmesi Gerekenler</h2>
+      <h2>Yatırımınızı Koruyun: SIEM Kurulumunda Dikkat Edilmesi Gerekenler Rehberi</h2>
       <p>
-        SIEM sadece bir yazılım kurmak değil, bir izleme kültürü oluşturmaktır. <strong>SIEM kurulumunda dikkat edilmesi gerekenler</strong> listesinin başında "Kapsam Belirleme" (Scope) gelmelidir.
+        Birçok SIEM projesi, kurulumdan 6 ay sonra "anlamsız alarmlar ürettiği" gerekçesiyle terk edilir. <strong>SIEM kurulumunda dikkat edilmesi gerekenler</strong> listesinin başında teknik özellikler değil, "Kullanım Amacı" gelmelidir. Neyi, neden izlediğinizi bilmeden kurulan her sistem çöptür.
       </p>
 
-      <h3>Başarı İçin 3 Tavsiye</h3>
-      <ol class="list-decimal pl-6 space-y-2 mb-6">
-        <li><strong>Temiz Veri:</strong> Kirli ve parse edilmemiş veriyi SIEM'e basmayın (GIGA - Garbage In Garbage Out).</li>
-        <li><strong>Varlık Yönetimi:</strong> Kayıt toplanacak cihazların envanterinin tam olduğundan emin olun.</li>
-        <li><strong>Eğitim:</strong> Sistemi kullanacak personelin alarm analizi konusunda eğitimli olması.</li>
+      <h3>Başarılı Bir Kurulum İçin Checklist</h3>
+      <ol class="list-decimal pl-6 space-y-2 mb-6 text-muted-foreground">
+        <li><strong>Network Haritası:</strong> İzlenecek cihazların tam listesini (Inventory) çıkarın.</li>
+        <li><strong>Parser Doğruluğu:</strong> Logların doğru parse edildiğinden (Tarih, IP, Aksiyon) emin olun.</li>
+        <li><strong>Alarm Kalitesi:</strong> İlk gün her şeyi değil, sadece "Kritik" 10 saldırı türünü aktif edin.</li>
+        <li><strong>Backup:</strong> Log sisteminin kendi yedeğini (Backup) planlayın.</li>
       </ol>
 
+      <p><strong>Danışmanlık:</strong> Proje planlama aşamasında hata yapmak istemiyorsanız <strong>"ACKLOG POC & Planning"</strong> ekibimizle görüşün.</p>
+
       <p>
-        ACKLOG danışmanlık ekibi, <strong>siem kurulumunda dikkat edilmesi gerekenler</strong> konusunda yılların tecrübesiyle kurumunuza rehberlik eder.
+        <strong>SIEM kurulumunda dikkat edilmesi gerekenler</strong> konusunda ACKLOG, size sadece yazılım değil, bir başarı metodolojisi sunar.
       </p>
     `
   },
   "siber-guvenlik-uzmani-log-yonetimi-araclari": {
-    title: "Bir Siber Güvenlik Uzmanı Log Yönetimi Araçları Listesi",
-    description: "Analistlerin çantasındaki yardımcılar: Siber güvenlik uzmanı log yönetimi araçları. Wireshark'tan SIEM'e, Regex editörlerinden Terminal komutlarına.",
+    title: "Siber Güvenlik Uzmanı Log Yönetimi Araçları: Profesyonellerin Çantası",
+    description: "Hacker avına çıkmadan önce bu araçları kurun. Siber güvenlik uzmanı log yönetimi araçları, analiz yazılımları ve terminal komutları listesi.",
     content: `
-      <h2>Uzmanlık Rehberi: Siber Güvenlik Uzmanı Log Yönetimi Araçları</h2>
+      <h2>Usta İşi Savunma: Siber Güvenlik Uzmanı Log Yönetimi Araçları Listesi</h2>
       <p>
-        Bir analistin masaüstünde mutlaka bulunması gereken yazılımlar vardır. <strong>Siber güvenlik uzmanı log yönetimi araçları</strong>, verinin ham halini incelemek ve anlamlandırmak için kullanılır.
+        Sadece bir SIEM kullanarak uzman olunmaz; bazen ham logun içine girmek, bir hex editörle veriyi incelemek gerekebilir. <strong>Siber güvenlik uzmanı log yönetimi araçları</strong>, bir analistin yeteneklerini sınırsız hale getiren yardımcı güçlerdir.
       </p>
 
-      <h3>Analistlerin Favori Araçları</h3>
-      <ul class="list-disc pl-6 space-y-2 mb-6 text-muted-foreground">
-        <li><strong>Notepad++ / VS Code:</strong> Büyük log dosyalarını açmak ve Regex ile arama yapmak için.</li>
-        <li><strong>CyberChef:</strong> Loglardaki encoded (Base64 vb.) verileri çözmek için.</li>
-        <li><strong>Tail for Win / Linux Tail:</strong> Log akışını canlı izlemek için.</li>
-        <li><strong>ACKLOG Dashboard:</strong> Tüm bunları kurumsal seviyede yönetmek için.</li>
+      <h3>Vazgeçilmez Analiz Kitaplığı</h3>
+      <ul class="list-disc pl-6 space-y-2 mb-6">
+        <li><strong>Wireshark:</strong> Ağ paketlerinin ruhunu okumak için.</li>
+        <li><strong>CyberChef:</strong> En zorlu encode verileri çözebilen "İsviçre Çakısı".</li>
+        <li><strong>Grep & Awk:</strong> Linux terminalinde hızlı log süzme sanatı.</li>
+        <li><strong>Regex101:</strong> Hayat kurtaran kural yazım simülatörü.</li>
+        <li><strong>ACKLOG Investigator:</strong> Tüm bu araçları tek panelde birleştiren SIEM gücü.</li>
       </ul>
 
+      <p><strong>Hediye:</strong> Uzmanlar için hazırladığımız <strong>"SOC Analyst Cheat Sheet"</strong> (Kopya Kağıdı) sitemizden indirebilirsiniz.</p>
+
       <p>
-        Bu araçların en başında gelen ve komplike operasyonları basitleştiren ise şüphesiz <strong>siber güvenlik uzmanı log yönetimi araçları</strong> arasında zirvede yer alan SIEM platformudur.
+        <strong>Siber güvenlik uzmanı log yönetimi araçları</strong> arasında en büyük yer kaplayan ve operasyonu yöneten akıl, ACKLOG SIEM'dir.
       </p>
     `
   },
   "en-iyi-log-analiz-araclari-2026": {
-    title: "Geleceğe Hazırlık: En İyi Log Analiz Araçları 2026 Listesi",
-    description: "2026 yılının en çok tercih edilen en iyi log analiz araçları karşılaştırması. Akıllı analiz, hız ve kullanım kolaylığına göre puanlama.",
+    title: "En İyi Log Analiz Araçları 2026: Siber Güvenlikte Zirveyi Seçin",
+    description: "Sektörün en yeni oyuncuları ve devleri karşı karşıya. En iyi log analiz araçları 2026 raporu ve kullanıcı deneyimi incelemeleri.",
     content: `
-      <h2>Trendler: En İyi Log Analiz Araçları 2026 İncelemesi</h2>
+      <h2>Pazar Analizi: En İyi Log Analiz Araçları 2026 ve Trendler</h2>
       <p>
-        Log analizi artık sadece bir "kayıt tutma" değil, bir "tahminleme" işine dönüştü. <strong>En iyi log analiz araçları 2026</strong> araştırmalarında, hantal yapıların yerini çevik ve bulut yerleşik çözümlerin aldığını görüyoruz.
+        Eski hantal sistemlerin yerini yapay zeka ve yüksek hız alan modern çözümler alıyor. <strong>En iyi log analiz araçları 2026</strong> listesinde, sadece veri toplayanlar değil, veriye "akıl" katanlar ön plana çıkıyor. Kurumlar artık statik dashboardlar yerine yaşayan, aktif savunma yapan sistemler istiyor.
       </p>
 
-      <h3>2026 Yılı Değerlendirme Kriterleri</h3>
-      <ul class="list-disc pl-6 space-y-2 mb-6">
-        <li>Milyarlarca log içinde milisaniyelik sorgu performansı.</li>
-        <li>Yapay zeka ile olay zenginleştirme (Incident Enrichment).</li>
-        <li>No-code parser (ayrıştırıcı) oluşturma kolaylığı.</li>
+      <h3>2026'da Kazanan Üç Özellik</h3>
+      <ul class="list-disc pl-6 space-y-2 mb-6 text-muted-foreground">
+        <li><strong>No-Code Experience:</strong> Kod yazmadan kural ve dashboard oluşturma.</li>
+        <li><strong>Lightning Speed:</strong> TB seviyesindeki veride 1 saniyenin altında cevap süresi.</li>
+        <li><strong>Contextual Awareness:</strong> Logu sadece "satır" olarak değil, olaylar silsilesi olarak görme.</li>
       </ul>
 
+      <p><strong>Magnet Blog:</strong> "Global Raporlara Göre 2026'nın En Çok Tercih Edilen 10 SIEM Özelliği" yazımızı okuyun.</p>
+
       <p>
-        Yerli üretim gücüyle ACKLOG, <strong>en iyi log analiz araçları 2026</strong> listelerinde zirveyi zorlayan teknolojiler sunmaktadır.
+        ACKLOG, <strong>en iyi log analiz araçları 2026</strong> vizyonuyla, Türkiye'nin siber geleceğini dünya standartlarına taşıyor.
       </p>
     `
   },
   "ag-trafigi-izleme-ve-kayit-altina-alma": {
-    title: "Güvenli Network: Ağ Trafiği İzleme ve Kayıt Altına Alma",
-    description: "Omurga ağınızı koruyun: Ağ trafiği izleme ve kayıt altına alma nasıl yapılır? Paket analizi ve flow verisi ile tam görünürlük.",
+    title: "Ağ Trafiği İzleme ve Kayıt Altına Alma: Görünmeyen Düşmanı Yakalayın",
+    description: "Network trafiğinizde neler olup bittiğini gerçekten biliyor musunuz? Ağ trafiği izleme ve kayıt altına alma teknikleri ile tam güvenlik.",
     content: `
-      <h2>Görünmez Tehditleri Yakalayın: Ağ Trafiği İzleme ve Kayıt Altına Alma</h2>
+      <h2>Network Görünürlüğü: Ağ Trafiği İzleme ve Kayıt Altına Alma Analizi</h2>
       <p>
-        Sadece sunucu logları yeterli değildir; trafiğin kendisini de gözetlemelisiniz. <strong>Ağ trafiği izleme ve kayıt altına alma</strong>, ağdaki alışılmadık veri transferlerini ve "Shadow IT" (Kayıt dışı cihazlar) hareketlerini yakalar.
+        Sistem logları manipüle edilebilir, ama ağ trafiği yalan söylemez. <strong>Ağ trafiği izleme ve kayıt altına alma</strong>, siber saldırganın ağdaki hareketlerini (Lateral Movement) ve veri sızdırma (Exfiltration) girişimlerini saniyeler içinde deşifre eder. Görmediğiniz şeyi koruyamazsınız.
       </p>
 
-      <h3>Neden Trafik İzleme?</h3>
-      <p>
-        Bazı saldırganlar sistemde iz bırakmadan (fileless) sadece ağ üzerinde hareket edebilirler. <strong>Ağ trafiği izleme ve kayıt altına alma</strong> bu noktada "Flow" analizi yaparak saldırıyı deşifre eder.
-      </p>
+      <h3>Trafik İzlemenin 3 Temel Faydası</h3>
+      <ul class="list-disc pl-6 space-y-2 mb-6">
+        <li><strong>Botnet Tespiti:</strong> Zombi bilgisayarların dışarıya yaptığı bağlantıları yakalayın.</li>
+        <li><strong>Bandwidth Abuse:</strong> Kimin, hangi portla, ne kadar veri tükettiğini anlık görün.</li>
+        <li><strong>Protokol Analizi:</strong> Standart dışı (mesela DNS tüneli) kullanılan protokolleri fark edin.</li>
+      </ul>
+
+      <p><strong>Aksiyon Alın:</strong> Şirket ağınızın "Röntgenini" çekmek için <strong>"ACKLOG Network Flow"</strong> modülünü hemen deneyin.</p>
 
       <p>
-        ACKLOG üzerinden yapacağınız <strong>ağ trafiği izleme ve kayıt altına alma</strong> operasyonları ile ağınızdaki kör noktalara son verin.
+        <strong>Ağ trafiği izleme ve kayıt altına alma</strong> operasyonlarında ACKLOG, en karmaşık topolojilerde bile %100 görünürlük sağlar.
       </p>
     `
   },
   "bilisim-sistemleri-denetimi-loglama": {
-    title: "Bilişim Sistemleri Denetimi Loglama Standartları ve Raporlama",
-    description: "IT denetçilerine hazır mısınız? Bilişim sistemleri denetimi loglama maddeleri ve denetimlerden geçmek için yapılması gerekenler.",
+    title: "Bilişim Sistemleri Denetimi Loglama: Denetçilerden Tam Puan Alın",
+    description: "Bilişim deneticilerinin en çok sorduğu sorular ve cevapları. Bilişim sistemleri denetimi loglama maddeleri ve uyumluluk rehberi.",
     content: `
-      <h2>Denetimden Tam Not Alın: Bilişim Sistemleri Denetimi Loglama</h2>
+      <h2>Standartlara Uyum: Bilişim Sistemleri Denetimi Loglama ve Raporlama</h2>
       <p>
-        Bağımsız denetçiler veya kurum içi kontrol birimleri ilk olarak log kayıtlarınıza bakarlar. <strong>Bilişim sistemleri denetimi loglama</strong>, verinin bütünlüğünü ve doğruluğunu ispatlama sürecidir.
+        İster finans kuruluşu olun ister üretim tesisi, bir gün bilişim denetçisi kapınızı çalacaktır. <strong>Bilişim sistemleri denetimi loglama</strong> aşaması, kurumun kurallara ne kadar uyduğunun dijital ispatıdır. Eğer loglarınız güvenilir değilse, tüm denetimden "başarısız" çıkabilirsiniz.
       </p>
 
-      <h3>Denetçilerin İncelediği 3 Temel Nokta</h3>
-      <ul class="list-disc pl-6 space-y-2 mb-6 text-muted-foreground">
-        <li>Log toplama sürekliliği (Eksik gün var mı?).</li>
-        <li>Zaman damgası geçerliliği (Loglar manipüle edilebilir mi?).</li>
-        <li>Kullanıcı erişim yetkilerinin loglar üzerinden doğrulanması.</li>
-      </ul>
+      <h3>Denetçi Gözüyle 3 Kritik Madde</h3>
+      <ol class="list-decimal pl-6 space-y-2 mb-6 text-muted-foreground">
+        <li><strong>Veri Bütünlüğü:</strong> Logların toplandığı andan itibaren değiştirilmediğinin (İmzalama) ispatı.</li>
+        <li><strong>Erişim Kontrolü:</strong> Loglara kimlerin (Analistler dahil) eriştiğinin ve ne aradığının kaydı.</li>
+        <li><strong>Alerting Accuracy:</strong> Kritik hataların analistlere gidip gitmediğinin test edilmesi.</li>
+      </ol>
+
+      <p><strong>Magnet Araç:</strong> "Ön-Denetim (Pre-Audit) Checklist" sitemizdeki dokümanlar arasında sizi bekliyor.</p>
 
       <p>
-        ACKLOG, <strong>bilişim sistemleri denetimi loglama</strong> ihtiyaçları için tasarlanmış otomatik raporlama modülü ile denetim süreçlerini bir kabus olmaktan çıkarır.
+        ACKLOG, <strong>bilişim sistemleri denetimi loglama</strong> süreçlerini otomatiğe bağlayarak denetim stresini azaltır, başarıyı garantiler.
       </p>
     `
   },
   "gelecegin-siem-teknolojileri": {
-    title: "Modern Siber Güvenlik: Geleceğin SIEM Teknolojileri ve UEBA",
-    description: "Siber vatan savunmasında yeni dönem: Geleceğin SIEM teknolojileri nelerdir? Kuantum şifreleme, otonom müdahale ve hibrit bulut güvenliği.",
+    title: "Geleceğin SIEM Teknolojileri: 10 Sene Sonra Siber Güvenlik Nasıl Olacak?",
+    description: "Kuantum sonrası siber savunma ve otonom SOC merkezleri. Geleceğin SIEM teknolojileri ve yapay zeka tabanlı öngörü rehberi.",
     content: `
-      <h2>Sınırların Ötesi: Geleceğin SIEM Teknolojileri ve Beklentiler</h2>
+      <h2>Geleceği İnşa Etmek: Geleceğin SIEM Teknolojileri ve UEBA Vizyonu</h2>
       <p>
-        Loglama 1.0 bitti, artık SIEM 3.0 dönemindeyiz. <strong>Geleceğin SIEM teknolojileri</strong>, sadece veriyi saklamakla değil, o veriyi bir siber orduyu yönetecek stratejik bilgiye dönüştürmekle ilgilidir.
+        Siber saldırılar ışık hızında gerçekleşiyor, hantal yazılımların artık hükmü kalmadı. <strong>Geleceğin SIEM teknolojileri</strong>, sadece log saklamayacak; otonom birer siber asker gibi tehditlere karşı kendi kendine savaşacak. UEBA (Kullanıcı Davranış Analizi) bu geleceğin kalbinde yer alıyor.
       </p>
 
-      <h3>Öne Çıkacak Teknolojiler</h3>
+      <h3>Bizi Bekleyen 3 Büyük Teknolojik Sıçrama</h3>
       <ul class="list-disc pl-6 space-y-2 mb-6">
-        <li><strong>Graph Database Analizi:</strong> Saldırıları bir ağ haritası gibi görselleştirme.</li>
-        <li><strong>Otonom Response:</strong> İnsan müdahalesi olmadan tehdidi saniyesinde boğma.</li>
-        <li><strong>Edge Log Processing:</strong> Veriyi sunucuya göndermeden daha uç noktada analiz etme.</li>
+        <li><strong>Self-Healing (Kendi Kendini Tamir):</strong> Saldırı altındaki sunucunun konfigürasyonunu saniyeler içinde "güvenli" hale getiren sistemler.</li>
+        <li><strong>Blockchain tabanlı Log İmzalama:</strong> Logların asla değiştirilemediğinin merkeziyetsiz ispatı.</li>
+        <li><strong>Cognitive SOC:</strong> İnsan duygularını ve niyetlerini analiz edebilen yapay zeka motorları.</li>
       </ul>
 
+      <p><strong>Vizyon Belgesi:</strong> "ACKLOG 2030 Siber Güvenlik Yol Haritası" dökümanımızı sitemizden inceleyerek geleceğe hazırlanın.</p>
+
       <p>
-        Türkiye'nin milli siber güvenlik gücü olarak ACKLOG, <strong>geleceğin SIEM teknolojileri</strong> üzerine yaptığı AR-GE çalışmalarıyla bugünden yarını inşa ediyor.
+        Türkiye'nin teknoloji markası olarak ACKLOG, <strong>geleceğin SIEM teknolojileri</strong> ile sizi her zaman bir adım önde tutar.
       </p>
     `
   }
