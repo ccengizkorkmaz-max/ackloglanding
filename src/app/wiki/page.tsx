@@ -29,7 +29,13 @@ import { sectoralEduPublicArticles } from '@/data/wiki/sectoral-edu-public';
 import { sectoralEnergyRetailArticles } from '@/data/wiki/sectoral-energy-retail';
 import { sectoralTourismLogisticsArticles } from '@/data/wiki/sectoral-tourism-logistics';
 import { sectoralLegalMediaArticles } from '@/data/wiki/sectoral-legal-media';
+import { troubleshootingLogsArticles } from '@/data/wiki/troubleshooting-logs';
+import { trainingCareerArticles } from '@/data/wiki/training-career';
+import { comparisonsAlternativesArticles } from '@/data/wiki/comparisons-alternatives';
+import { trendsFutureArticles } from '@/data/wiki/trends-future';
+import { templatesChecklistsArticles } from '@/data/wiki/templates-checklists';
 import { Building2 } from "lucide-react";
+
 
 const CATEGORIES = [
     { id: "all", label: "Tümü", icon: LayoutGrid },
@@ -69,6 +75,11 @@ export default function WikiIndexPage() {
             slug in threatSoftwareArticles ||
             slug in opsCloudArticles
         ) categoryId = "sector";
+        else if (slug in troubleshootingLogsArticles) categoryId = "tech";
+        else if (slug in trainingCareerArticles || slug in trendsFutureArticles) categoryId = "trends";
+        else if (slug in comparisonsAlternativesArticles) categoryId = "cost";
+        else if (slug in templatesChecklistsArticles) categoryId = "reg";
+
         return {
             slug,
             ...data,

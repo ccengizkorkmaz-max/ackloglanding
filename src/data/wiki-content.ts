@@ -20,6 +20,12 @@ import { sectoralEduPublicArticles } from './wiki/sectoral-edu-public';
 import { sectoralEnergyRetailArticles } from './wiki/sectoral-energy-retail';
 import { sectoralTourismLogisticsArticles } from './wiki/sectoral-tourism-logistics';
 import { sectoralLegalMediaArticles } from './wiki/sectoral-legal-media';
+import { troubleshootingLogsArticles } from './wiki/troubleshooting-logs';
+import { trainingCareerArticles } from './wiki/training-career';
+import { comparisonsAlternativesArticles } from './wiki/comparisons-alternatives';
+import { trendsFutureArticles } from './wiki/trends-future';
+import { templatesChecklistsArticles } from './wiki/templates-checklists';
+
 
 export const articles: Record<string, { 
   title: string; 
@@ -48,5 +54,11 @@ export const articles: Record<string, {
   ...sectoralEduPublicArticles,
   ...sectoralEnergyRetailArticles,
   ...sectoralTourismLogisticsArticles,
-  ...sectoralLegalMediaArticles
+  ...sectoralLegalMediaArticles,
+  ...troubleshootingLogsArticles,
+  ...trainingCareerArticles,
+  ...comparisonsAlternativesArticles,
+  ...trendsFutureArticles,
+  ...templatesChecklistsArticles
 };
+
