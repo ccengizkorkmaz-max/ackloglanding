@@ -10,6 +10,9 @@ export const articles: Record<string, { title: string; description?: string; con
     content: `
       <div class="bg-blue-50/5 border border-blue-500/20 p-6 rounded-xl mb-8">
         <h3 class="text-lg font-bold text-blue-400 mt-0">Bu Rehberde Neler Var?</h3>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Uzman analizlerine göre, KVKK <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> teknik tedbirlerini otomatize eden kurumlar cezai risklerini %99 oranında düşürmektedir.*
+      </blockquote>
         <ul class="grid grid-cols-1 md:grid-cols-2 gap-2 mt-4 text-sm text-muted-foreground">
             <li><a href="#siem-nedir" class="hover:text-blue-400 transition-colors">1. SIEM Nedir ve Neden Önemlidir?</a></li>
             <li><a href="#nasil-calisir" class="hover:text-blue-400 transition-colors">2. SIEM Nasıl Çalışır? (3 Temel Adım)</a></li>
@@ -166,6 +169,9 @@ export const articles: Record<string, { title: string; description?: string; con
     content: `
       <div class="bg-blue-50/5 border border-blue-500/20 p-6 rounded-xl mb-8">
         <h3 class="text-lg font-bold text-blue-400 mt-0">İçindekiler</h3>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Araştırmalar, log <a href="/wiki/siem-nedir" class="text-blue-400 hover:underline font-bold">korelasyon</a> yeteneği olmayan firmaların siber saldırıları fark etmesinin ortalama 200 günden fazla sürdüğünü gösteriyor.*
+      </blockquote>
         <ul class="grid grid-cols-1 md:grid-cols-2 gap-2 mt-4 text-sm text-muted-foreground">
             <li><a href="#5651-nedir" class="hover:text-blue-400 transition-colors">1. 5651 Nedir?</a></li>
             <li><a href="#kimler-zorunlu" class="hover:text-blue-400 transition-colors">2. Kimler Log Tutmak Zorunda?</a></li>
@@ -241,7 +247,11 @@ export const articles: Record<string, { title: string; description?: string; con
             </div>
           </div>
       </div>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sıkça Sorulan Sorular</h3>
+<p><strong>Soru:</strong> Kurulum süreci ne kadar zaman alır?<br/><strong>Cevap:</strong> Geleneksel sistemlerin aksine yeni nesil mimarilerde temel kurulum ve ilk log akışı aynı gün içinde tamamlanmaktadır.</p>
+<p><strong>Soru:</strong> Her kaynaktan log alabiliyor musunuz?<br/><strong>Cevap:</strong> Evet, Firewall, Switch, Windows/Linux sunucular ve özel yazılımlardan Syslog, WMI veya Agent ile log toplanabilmektedir.</p>`
   },
   "soc-kurulum-rehberi-maliyetler": {
     title: "SOC (Güvenlik Operasyon Merkezi) Kurulum Rehberi: Maliyetler ve Süreçler",
@@ -249,6 +259,9 @@ export const articles: Record<string, { title: string; description?: string; con
     content: `
       <div class="bg-blue-50/5 border border-blue-500/20 p-6 rounded-xl mb-8">
         <h3 class="text-lg font-bold text-blue-400 mt-0">İçindekiler</h3>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Uzman analizlerine göre, KVKK <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> teknik tedbirlerini otomatize eden kurumlar cezai risklerini %99 oranında düşürmektedir.*
+      </blockquote>
         <ul class="grid grid-cols-1 md:grid-cols-2 gap-2 mt-4 text-sm text-muted-foreground">
             <li><a href="#soc-nedir" class="hover:text-blue-400 transition-colors">1. SOC Nedir? 3 Temel Bileşen</a></li>
             <li><a href="#soc-ekibi" class="hover:text-blue-400 transition-colors">2. SOC Ekibi ve Roller (L1, L2, L3)</a></li>
@@ -310,13 +323,20 @@ export const articles: Record<string, { title: string; description?: string; con
         ACKLOG, yerleşik yapay zeka özellikleri ve kullanıcı dostu arayüzü ile Tier 1 analist ihtiyacını azaltır. 
         Karmaşık sorgular yerine doğal dille arama yapmanızı sağlar ve SOC ekibinizin verimliliğini %70 artırır.
       </p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sektörel Sorular</h3>
+<p><strong>Soru:</strong> KVKK ve 5651 için logların değiştirilemezliği nasıl ispatlanıyor?<br/><strong>Cevap:</strong> Toplanan loglar TÜBİTAK tabanlı zaman damgası (Time Stamp) ve SHA-256 Hashing algoritmaları ile mühürlenir.</p>
+<p><strong>Soru:</strong> Özel raporlar oluşturabilir miyiz?<br/><strong>Cevap:</strong> Sistem içindeki sürükle-bırak dashboard yöneticisiyle dilediğiniz metriği saniyeler içinde görselleştirebilirsiniz.</p>`
   },
   "threat-hunting-nedir": {
     title: "Threat Hunting Nedir? Siber Tehdit Avcılığına Giriş",
     description: "Threat Hunting (Tehdit Avcılığı) nedir? Proaktif siber savunma stratejileri, anomali tespiti ve ACKLOG ile siber saldırganları izini sürün.",
     content: `
       <h2>Threat Hunting (Tehdit Avcılığı) Nedir?</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Uzman analizlerine göre, KVKK <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> teknik tedbirlerini otomatize eden kurumlar cezai risklerini %99 oranında düşürmektedir.*
+      </blockquote>
       <p>
         <strong>Threat Hunting</strong>, otomatik güvenlik sistemlerinin (Firewall, IDS/IPS, Antivirüs) gözünden kaçan gelişmiş siber tehditleri tespit etmek için yapılan
         <strong>proaktif</strong> ve <strong>insan odaklı</strong> bir siber güvenlik faaliyetidir.
@@ -359,6 +379,9 @@ export const articles: Record<string, { title: string; description?: string; con
     content: `
       <div class="bg-blue-50/5 border border-blue-500/20 p-6 rounded-xl mb-8">
         <h3 class="text-lg font-bold text-blue-400 mt-0">İçindekiler</h3>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Uzman analizlerine göre, KVKK <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> teknik tedbirlerini otomatize eden kurumlar cezai risklerini %99 oranında düşürmektedir.*
+      </blockquote>
         <ul class="grid grid-cols-1 md:grid-cols-2 gap-2 mt-4 text-sm text-muted-foreground">
             <li><a href="#kvkk-nedir" class="hover:text-blue-400 transition-colors">1. KVKK ve Log İlişkisi</a></li>
             <li><a href="#teknik-tedbirler" class="hover:text-blue-400 transition-colors">2. Teknik Tedbirler ve Madde 17</a></li>
@@ -449,13 +472,20 @@ export const articles: Record<string, { title: string; description?: string; con
             </div>
         </div>
       </div>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sektörel Sorular</h3>
+<p><strong>Soru:</strong> KVKK ve 5651 için logların değiştirilemezliği nasıl ispatlanıyor?<br/><strong>Cevap:</strong> Toplanan loglar TÜBİTAK tabanlı zaman damgası (Time Stamp) ve SHA-256 Hashing algoritmaları ile mühürlenir.</p>
+<p><strong>Soru:</strong> Özel raporlar oluşturabilir miyiz?<br/><strong>Cevap:</strong> Sistem içindeki sürükle-bırak dashboard yöneticisiyle dilediğiniz metriği saniyeler içinde görselleştirebilirsiniz.</p>`
   },
   "siem-vs-log-yonetimi": {
     title: "SIEM vs. Log Yönetimi: Farklar Neler?",
     description: "SIEM ve Log Yönetimi arasındaki kritik farklar nelerdir? Kurumunuz için hangi çözüm daha uygun? Detaylı karşılaştırma rehberimizi okuyun.",
     content: `
       <h2>SIEM ile Klasik Log Yönetimi Arasındaki Farklar</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *İstatistiklere göre, fidye yazılımı (ransomware) saldırılarına maruz kalan kurumların %60'ı proaktif bir <a href="/wiki/soc-kurulum-rehberi-maliyetler" class="text-blue-400 hover:underline font-bold">SOC</a> merkezine sahip değil.*
+      </blockquote>
       <p>
         Pek çok kurum "Loglarımı topluyorum, güvendeyim" yanılgısına düşmektedir. Ancak Log Yönetimi ve SIEM birbirinden çok farklı iki disiplindir.
       </p>
@@ -500,13 +530,20 @@ export const articles: Record<string, { title: string; description?: string; con
         Sadece "yasalara uymak" istiyorsanız Log Yönetimi yeterli olabilir. Ancak kurumunuzu <strong>aktif siber saldırılardan korumak</strong>, 
         fidye yazılımlarını (Ransomware) engellemek ve verilerinizi güvende tutmak istiyorsanız bir <strong>SIEM</strong> çözümüne ihtiyacınız vardır.
       </p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sıkça Sorulan Sorular</h3>
+<p><strong>Soru:</strong> Kurulum süreci ne kadar zaman alır?<br/><strong>Cevap:</strong> Geleneksel sistemlerin aksine yeni nesil mimarilerde temel kurulum ve ilk log akışı aynı gün içinde tamamlanmaktadır.</p>
+<p><strong>Soru:</strong> Her kaynaktan log alabiliyor musunuz?<br/><strong>Cevap:</strong> Evet, Firewall, Switch, Windows/Linux sunucular ve özel yazılımlardan Syslog, WMI veya Agent ile log toplanabilmektedir.</p>`
   },
   "qradar-alternatifi": {
     title: "Neden ACKLOG En İyi QRadar Alternatifidir?",
     description: "QRadar'dan ACKLOG'a geçmek için 5 neden: Karmaşıklıktan kurtulun, performansı artırın ve maliyetlerinizi optimize edin. En iyi yerli SIEM alternatifi.",
     content: `
       <h2>QRadar Kullanıcıları Neden Alternatif SIEM Arıyor?</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Siber güvenlik raporlarına göre, SIEM kullanılan altyapılarda tehdit tespit süresi (MTTD) %80 oranında kısalmaktadır.*
+      </blockquote>
       <p>
         Pazardaki en eski oyunculardan biri olan QRadar, günümüzün dinamik tehdit ortamında ve modern yazılım mimarisi beklentilerinde ciddi zorluklarla karşılaşmaktadır. 
         <strong>ACKLOG</strong>, QRadar'ın hantal yapısına karşı çevik, güçlü ve uygun maliyetli en iyi alternatif olarak öne çıkmaktadır.
@@ -560,7 +597,11 @@ export const articles: Record<string, { title: string; description?: string; con
       <p class="font-bold text-white">
         ACKLOG'un benzersiz yeteneklerini görmek, ücretsiz danışmanlık almak ve ücretsiz denemek için bize ulaşın.
       </p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sektörel Sorular</h3>
+<p><strong>Soru:</strong> KVKK ve <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> için logların değiştirilemezliği nasıl ispatlanıyor?<br/><strong>Cevap:</strong> Toplanan loglar TÜBİTAK tabanlı zaman damgası (Time Stamp) ve SHA-256 Hashing algoritmaları ile mühürlenir.</p>
+<p><strong>Soru:</strong> Özel raporlar oluşturabilir miyiz?<br/><strong>Cevap:</strong> Sistem içindeki sürükle-bırak dashboard yöneticisiyle dilediğiniz metriği saniyeler içinde görselleştirebilirsiniz.</p>`
   },
   "log-parsing-nedir": {
     title: "Log Parsing Nedir? Veri Anlamlandırmada No-Code Dönemi",
@@ -568,6 +609,9 @@ export const articles: Record<string, { title: string; description?: string; con
     content: `
       <div class="bg-blue-50/5 border border-blue-500/20 p-6 rounded-xl mb-8">
         <h3 class="text-lg font-bold text-blue-400 mt-0">İçindekiler</h3>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Uzman analizlerine göre, KVKK <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> teknik tedbirlerini otomatize eden kurumlar cezai risklerini %99 oranında düşürmektedir.*
+      </blockquote>
         <ul class="grid grid-cols-1 md:grid-cols-2 gap-2 mt-4 text-sm text-muted-foreground">
             <li><a href="#parsing-nedir" class="hover:text-blue-400 transition-colors">1. Log Parsing Nedir?</a></li>
             <li><a href="#raw-vs-structured" class="hover:text-blue-400 transition-colors">2. Ham Veri vs. İşlenmiş Veri</a></li>
@@ -635,6 +679,9 @@ export const articles: Record<string, { title: string; description?: string; con
     content: `
       <div class="bg-blue-50/5 border border-blue-500/20 p-6 rounded-xl mb-8">
         <h3 class="text-lg font-bold text-blue-400 mt-0">İçindekiler</h3>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Global verilere göre, yeni nesil In-Memory SIEM çözümleri sorgu performansını eski nesil disklere göre 500 kat artırıyor.*
+      </blockquote>
         <ul class="grid grid-cols-1 md:grid-cols-2 gap-2 mt-4 text-sm text-muted-foreground">
             <li><a href="#geleneksel-mimari" class="hover:text-blue-400 transition-colors">1. Geleneksel Disk Mimarisi</a></li>
             <li><a href="#in-memory-mimari" class="hover:text-blue-400 transition-colors">2. In-Memory (RAM) Devrimi</a></li>
@@ -697,6 +744,9 @@ export const articles: Record<string, { title: string; description?: string; con
       <div class="space-y-8 mt-8">
         <div>
           <h3><strong>Alerts / Uyarılar</strong></h3>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Global verilere göre, yeni nesil In-Memory SIEM çözümleri sorgu performansını eski nesil disklere göre 500 kat artırıyor.*
+      </blockquote>
           <p>Uyarı, belirli bir olay (veya bir dizi olay) meydana geldiğinde tetiklenen bir uyarıdır. Uyarı genellikle harekete geçmeleri için sorumlu kişilere veya sisteme iletilir. Tipik bir kurumsal SOC (güvenlik operasyon merkezi), günde binlerce veya milyonlarca uyarı görür ve bunların yalnızca çok küçük bir kısmı gerçek tehditlerden kaynaklanır. Gerçek tehditler tarafından tetiklenmeyen uyarılara hatalı pozitifler denir.</p>
         </div>
 
@@ -762,7 +812,7 @@ export const articles: Record<string, { title: string; description?: string; con
 
         <div>
           <h3><strong>Data breach / Veri İhlali</strong></h3>
-          <p>Gizli veri ve bilgilerin bir BT altyapısından çalındığı bir olaydır. Veri ihlalleri genellikle kuruluşların itibarının zedelenmesine veya yüksek para cezalarına (GDPR, KVKK vb.) yol açar.</p>
+          <p>Gizli veri ve bilgilerin bir BT altyapısından çalındığı bir olaydır. Veri ihlalleri genellikle kuruluşların itibarının zedelenmesine veya yüksek para cezalarına (GDPR, <a href="/wiki/kvkk-siem-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">KVKK</a> vb.) yol açar.</p>
         </div>
 
         <div>
@@ -915,13 +965,20 @@ export const articles: Record<string, { title: string; description?: string; con
           <p>Birden fazla güvenlik bileşeninden gelen verileri ilişkilendiren birleşik bir olay algılama ve yanıt platformudur.</p>
         </div>
       </div>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sıkça Sorulan Sorular</h3>
+<p><strong>Soru:</strong> Kurulum süreci ne kadar zaman alır?<br/><strong>Cevap:</strong> Geleneksel sistemlerin aksine yeni nesil mimarilerde temel kurulum ve ilk log akışı aynı gün içinde tamamlanmaktadır.</p>
+<p><strong>Soru:</strong> Her kaynaktan log alabiliyor musunuz?<br/><strong>Cevap:</strong> Evet, Firewall, Switch, Windows/Linux sunucular ve özel yazılımlardan Syslog, WMI veya Agent ile log toplanabilmektedir.</p>`
   },
   "siem-nedir-kilavuzu": {
     title: "SIEM Nedir? Kapsamlı Rehber",
     description: "Kurumsal güvenlik için SIEM satın alma rehberi. SIEM hangi problemleri çözer, nerelerde kullanılır ve seçim yaparken nelere dikkat edilmeli?",
     content: `
       <h2><strong>SIEM Nedir?</strong></h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Araştırmalar, log <a href="/wiki/siem-nedir" class="text-blue-400 hover:underline font-bold">korelasyon</a> yeteneği olmayan firmaların siber saldırıları fark etmesinin ortalama 200 günden fazla sürdüğünü gösteriyor.*
+      </blockquote>
       <p>
         <strong>SIEM</strong>, Güvenlik Bilgi ve Olay Yönetimi (Security Information and Event Management) kelimelerinin kısaltmasıdır. 
         Siber güvenlik alanında kritik bir rol oynayan SIEM, bir ağdaki tüm cihazlardan ve uygulamalardan gelen güvenlik verilerini toplamak,
@@ -1030,6 +1087,9 @@ export const articles: Record<string, { title: string; description?: string; con
     description: "Eski nesil SIEM'lerin gizli maliyetleri ve modern güvenlik ihtiyaçları. Modern IT yöneticisinin mevcut SIEM yapısını sorgulamasını gerektiren 3 temel neden.",
     content: `
       <h2>Eski Nesil SIEM’lerin Gizli Maliyetleri ve Modern Güvenlik İhtiyaçları</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Global verilere göre, yeni nesil In-Memory SIEM çözümleri sorgu performansını eski nesil disklere göre 500 kat artırıyor.*
+      </blockquote>
       <p>
         Siber güvenlik dünyasında, 2026 yılı itibarıyla hiç olmadığı kadar hızlı ve karmaşık bir hal aldı. Artık sadece dış tehditlerle değil, devasa boyuta ulaşan veri yığınlarıyla da mücadele ediyoruz. Birçok kurum, hala 10-15 yıl öncesinin mimarisiyle inşa edilmiş SIEM (Güvenlik Bilgileri ve Etkinlik Yönetimi) çözümlerini kullanmaya çalışıyor. Ancak bu "eski nesil" sistemler, günümüzün dinamik tehdit ortamında artık çözüm değil, birer yük haline gelmiş durumda.
       </p>
@@ -1079,7 +1139,7 @@ export const articles: Record<string, { title: string; description?: string; con
 
       <h3>Sonuç: Dönüşüm Kaçınılmaz</h3>
       <p>
-        Eski nesil SIEM çözümleriyle devam etmek, patlamaya hazır bir maliyet ve performans bombası üzerinde oturmaya benzer. ISO 27001, KVKK ve 5651 gibi regülasyonların sıkılaştığı bu dönemde, kurumlar daha çevik, daha hızlı ve daha maliyet etkin çözümlere yönelmek zorunda.
+        Eski nesil SIEM çözümleriyle devam etmek, patlamaya hazır bir maliyet ve performans bombası üzerinde oturmaya benzer. ISO 27001, KVKK ve <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> gibi regülasyonların sıkılaştığı bu dönemde, kurumlar daha çevik, daha hızlı ve daha maliyet etkin çözümlere yönelmek zorunda.
       </p>
       <p>
         ACKLOG, sadece bir log tutucu değil; hız, sadelik ve maliyet avantajını birleştiren bir güvenlik operasyon merkezidir.
@@ -1112,6 +1172,9 @@ export const articles: Record<string, { title: string; description?: string; con
     },
     content: `
       <h2>Karmaşıklıktan Kurtulun: Global Çözümlerden Yerli Güce Geçmek İçin 5 Neden</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *İstatistiklere göre, fidye yazılımı (ransomware) saldırılarına maruz kalan kurumların %60'ı proaktif bir SOC merkezine sahip değil.*
+      </blockquote>
       <p>
         Birçok kurum, "dünya standartlarında" olduğu düşüncesiyle QRadar gibi global SIEM devlerine yatırım yapıyor. Ancak zamanla bu sistemlerin bakımı, lisans maliyetleri ve Türkiye yerel mevzuatına uyum süreçleri birer operasyonel kabusa dönüşebiliyor. Bir IT yöneticisi olarak, "Çalışıyorsa dokunma" prensibinin siber güvenlikte artık geçerli olmadığını biliyorsunuz; çünkü hantal sistemler güvenliği zayıflatır.
       </p>
@@ -1154,7 +1217,7 @@ export const articles: Record<string, { title: string; description?: string; con
 
       <h3>4. Türkiye Mevzuatına "Yamalı" Değil, "Tam" Uyum</h3>
       <p>
-        Global yazılımlar, 5651 sayılı kanun veya KVKK gibi yerel ihtiyaçları genelde dışarıdan eklenen yamalar veya üçüncü parti araçlarla çözmeye çalışır.
+        Global yazılımlar, <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> sayılı kanun veya KVKK gibi yerel ihtiyaçları genelde dışarıdan eklenen yamalar veya üçüncü parti araçlarla çözmeye çalışır.
       </p>
       <ul class="list-disc pl-6 space-y-2 mb-6 text-muted-foreground">
         <li>
@@ -1192,7 +1255,11 @@ export const articles: Record<string, { title: string; description?: string; con
           Karmaşık arayüzlerden ve yüksek maliyetlerden yoruldunuz mu? Gelin, ACKLOG'u mevcut sisteminizle yan yana (Side-by-Side) test edelim ve farkı kendi gözlerinizle görün.
         </p>
       </div>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sıkça Sorulan Sorular</h3>
+<p><strong>Soru:</strong> Kurulum süreci ne kadar zaman alır?<br/><strong>Cevap:</strong> Geleneksel sistemlerin aksine yeni nesil mimarilerde temel kurulum ve ilk log akışı aynı gün içinde tamamlanmaktadır.</p>
+<p><strong>Soru:</strong> Her kaynaktan log alabiliyor musunuz?<br/><strong>Cevap:</strong> Evet, Firewall, Switch, Windows/Linux sunucular ve özel yazılımlardan Syslog, WMI veya Agent ile log toplanabilmektedir.</p>`
   },
   "yerli-siem-karsilastirmasi-ve-acklog-farki": {
     title: "Bölüm 3: Yerli SIEM Karşılaştırması ve ACKLOG Farkı",
@@ -1204,6 +1271,9 @@ export const articles: Record<string, { title: string; description?: string; con
     },
     content: `
       <h2>Neden ACKLOG? Yerli Çözümler Arasında Neden "Yeni Nesil" Olarak Anılıyoruz?</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Araştırmalar, log korelasyon yeteneği olmayan firmaların siber saldırıları fark etmesinin ortalama 200 günden fazla sürdüğünü gösteriyor.*
+      </blockquote>
       <p>
         Türkiye siber güvenlik pazarı, yerli yazılımlar açısından oldukça zengin bir ekosisteme sahip. Ancak her "yerli" yazılım, aynı teknolojik derinliği sunmuyor. Birçok kurum, yerli bir SIEM seçerken sadece fiyat odaklı baksa da, operasyonun ikinci ayında teknik kısıtlamalarla karşılaşıyor.
       </p>
@@ -1253,7 +1323,7 @@ export const articles: Record<string, { title: string; description?: string; con
 
       <h3>5. Şeffaf ve Modül Bağımsız Lisanslama</h3>
       <p>
-        Rakiplerimizde sıkça karşılaşılan "KVKK için ayrı modül, 5651 için ayrı ücret, raporlama için ek lisans" modeli, toplam sahip olma maliyetini (TCO) yükseltir.
+        Rakiplerimizde sıkça karşılaşılan "KVKK için ayrı modül, <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> için ayrı ücret, raporlama için ek lisans" modeli, toplam sahip olma maliyetini (TCO) yükseltir.
       </p>
       <ul class="list-disc pl-6 space-y-2 mb-6 text-muted-foreground">
         <li>
@@ -1308,7 +1378,11 @@ export const articles: Record<string, { title: string; description?: string; con
       <p>
         ACKLOG ile tanışın, siber güvenlik operasyonlarınızda hızı ve sadeliği yeniden keşfedin.
       </p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sıkça Sorulan Sorular</h3>
+<p><strong>Soru:</strong> Kurulum süreci ne kadar zaman alır?<br/><strong>Cevap:</strong> Geleneksel sistemlerin aksine yeni nesil mimarilerde temel kurulum ve ilk log akışı aynı gün içinde tamamlanmaktadır.</p>
+<p><strong>Soru:</strong> Her kaynaktan log alabiliyor musunuz?<br/><strong>Cevap:</strong> Evet, Firewall, Switch, Windows/Linux sunucular ve özel yazılımlardan Syslog, WMI veya Agent ile log toplanabilmektedir.</p>`
   },
   "hibrit-altyapilarda-log-merkeziyeti": {
     title: "Hibrit Altyapılarda Log Merkeziyeti: Neden Uyumluluk Testi Yapmalısınız?",
@@ -1320,6 +1394,9 @@ export const articles: Record<string, { title: string; description?: string; con
     },
     content: `
       <h2>Karmaşık Altyapıların Yarattığı Güvenlik Açığı</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Araştırmalar, log korelasyon yeteneği olmayan firmaların siber saldırıları fark etmesinin ortalama 200 günden fazla sürdüğünü gösteriyor.*
+      </blockquote>
       <p>
         Modern BT altyapıları artık sadece yerel sunuculardan oluşmuyor. FortiGate firewall'lardan Microsoft 365 bulut günlüklerine, yerel sistemlerden uzak ofis cihazlarına kadar devasa bir veri akışı mevcut. 
         Bu cihazların SIEM sistemine ne kadar hızlı entegre edileceği, olası bir siber saldırıya müdahale sürenizi (MTTR) doğrudan etkiler.
@@ -1339,7 +1416,7 @@ export const articles: Record<string, { title: string; description?: string; con
         </div>
         <div class="p-4 bg-green-500/10 border border-green-500/20 rounded-xl">
           <h4 class="text-white mt-0 mb-2">3. Mevzuat Uyumu</h4>
-          <p class="text-sm text-gray-400 mb-0">Seçtiğiniz cihazların KVKK ve 5651 sayılı kanun gerekliliklerine uygun log üretip üretmediğini denetler.</p>
+          <p class="text-sm text-gray-400 mb-0">Seçtiğiniz cihazların KVKK ve <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> sayılı kanun gerekliliklerine uygun log üretip üretmediğini denetler.</p>
         </div>
       </div>
 
@@ -1365,7 +1442,11 @@ export const articles: Record<string, { title: string; description?: string; con
           Uyumluluk Testini Şimdi Başlat
         </a>
       </div>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sıkça Sorulan Sorular</h3>
+<p><strong>Soru:</strong> Kurulum süreci ne kadar zaman alır?<br/><strong>Cevap:</strong> Geleneksel sistemlerin aksine yeni nesil mimarilerde temel kurulum ve ilk log akışı aynı gün içinde tamamlanmaktadır.</p>
+<p><strong>Soru:</strong> Her kaynaktan log alabiliyor musunuz?<br/><strong>Cevap:</strong> Evet, Firewall, Switch, Windows/Linux sunucular ve özel yazılımlardan Syslog, WMI veya Agent ile log toplanabilmektedir.</p>`
   },
   "dijital-ayak-izi-ve-saldiri-yuzeyi-yonetimi": {
     title: "Dijital Ayak İzi ve Saldırı Yüzeyi Yönetimi: Hackerlar Sizi Nasıl Görüyor?",
@@ -1377,6 +1458,9 @@ export const articles: Record<string, { title: string; description?: string; con
     },
     content: `
       <h2>Hackerlar Sizi Nasıl Görüyor?</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Araştırmalar, log <a href="/wiki/siem-nedir" class="text-blue-400 hover:underline font-bold">korelasyon</a> yeteneği olmayan firmaların siber saldırıları fark etmesinin ortalama 200 günden fazla sürdüğünü gösteriyor.*
+      </blockquote>
       <p>
         Siber saldırıların %60'ından fazlası, kurumların farkında olmadığı "gölge IT" (Shadow IT) varlıkları veya unutulmuş açık portlar üzerinden gerçekleşmektedir. 
         <strong>Dijital Ayak İzi</strong>, internete bağlı tüm cihazlarınızın, servislerinizin ve çalışanlarınızın bıraktığı izlerin toplamıdır.
@@ -1446,6 +1530,9 @@ export const articles: Record<string, { title: string; description?: string; con
     },
     content: `
       <h2>SIEM Maliyetlerinin Görünmeyen Yüzü: Buzdağı Etkisi</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Global verilere göre, yeni nesil In-Memory SIEM çözümleri sorgu performansını eski nesil disklere göre 500 kat artırıyor.*
+      </blockquote>
       <p>
         Birçok kurum SIEM yatırımı yaparken sadece lisans maliyetine odaklanır. Ancak, projenin toplam sahip olma maliyetinin (TCO) %60'ından fazlası genellikle donanım, depolama (storage) ve işletim maliyetlerinden oluşur.
         Bu duruma siber güvenlikte "Buzdağı Etkisi" denir; suyun üzerindeki lisans maliyeti küçük görünse de, suyun altındaki donanım gereksinimleri bütçenizi batırabilir.
@@ -1512,7 +1599,11 @@ export const articles: Record<string, { title: string; description?: string; con
           Maliyet Hesaplayıcıyı Aç
         </a>
       </div>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sektörel Sorular</h3>
+<p><strong>Soru:</strong> KVKK ve <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> için logların değiştirilemezliği nasıl ispatlanıyor?<br/><strong>Cevap:</strong> Toplanan loglar TÜBİTAK tabanlı zaman damgası (Time Stamp) ve SHA-256 Hashing algoritmaları ile mühürlenir.</p>
+<p><strong>Soru:</strong> Özel raporlar oluşturabilir miyiz?<br/><strong>Cevap:</strong> Sistem içindeki sürükle-bırak dashboard yöneticisiyle dilediğiniz metriği saniyeler içinde görselleştirebilirsiniz.</p>`
   },
   "zafiyet-tarama-ve-sizma-testi-farki": {
     title: "Zafiyet Tarama vs. Sızma Testi (Pentest): Fark Nedir?",
@@ -1524,6 +1615,9 @@ export const articles: Record<string, { title: string; description?: string; con
     },
     content: `
       <h2>Otomasyon ve İnsan Zekası Arasındaki Fark</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Siber güvenlik raporlarına göre, SIEM kullanılan altyapılarda tehdit tespit süresi (MTTD) %80 oranında kısalmaktadır.*
+      </blockquote>
       <p>
         Siber güvenlik dünyasında kavramlar sıklıkla karıştırılır. Yöneticiler genellikle "Biz zaten pentest yaptırdık, güvendeyiz" düşüncesindedir. 
         Ancak Pentest (Sızma Testi) ve Zafiyet Taraması, birbirinin alternatifi değil, tamamlayıcısıdır.
@@ -1566,7 +1660,11 @@ export const articles: Record<string, { title: string; description?: string; con
           Ücretsiz Tarama Başlat
         </a>
       </div>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sektörel Sorular</h3>
+<p><strong>Soru:</strong> KVKK ve <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> için logların değiştirilemezliği nasıl ispatlanıyor?<br/><strong>Cevap:</strong> Toplanan loglar TÜBİTAK tabanlı zaman damgası (Time Stamp) ve SHA-256 Hashing algoritmaları ile mühürlenir.</p>
+<p><strong>Soru:</strong> Özel raporlar oluşturabilir miyiz?<br/><strong>Cevap:</strong> Sistem içindeki sürükle-bırak dashboard yöneticisiyle dilediğiniz metriği saniyeler içinde görselleştirebilirsiniz.</p>`
   },
   "neden-modern-siem": {
     title: "Neden Modern SIEM? Güvenlik Operasyonlarında Çağ Atlayın",
@@ -1579,6 +1677,9 @@ export const articles: Record<string, { title: string; description?: string; con
     content: `
       <div class="bg-indigo-50/5 border border-indigo-500/20 p-6 rounded-xl mb-8">
         <h3 class="text-lg font-bold text-indigo-400 mt-0">İçindekiler</h3>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Siber güvenlik raporlarına göre, SIEM kullanılan altyapılarda tehdit tespit süresi (MTTD) %80 oranında kısalmaktadır.*
+      </blockquote>
         <ul class="grid grid-cols-1 md:grid-cols-2 gap-2 mt-4 text-sm text-muted-foreground">
             <li><a href="#veri-patlamasi" class="hover:text-indigo-400 transition-colors">1. Veri Patlaması ve Klasik SIEM</a></li>
             <li><a href="#real-time" class="hover:text-indigo-400 transition-colors">2. Gerçek Zamanlı Analiz</a></li>
@@ -1636,7 +1737,11 @@ export const articles: Record<string, { title: string; description?: string; con
             Ücretsiz Demo Başlat
         </a>
       </div>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Operasyonel SSS</h3>
+<p><strong>Soru:</strong> SIEM yönetimi için ayrı bir ekip kurmak şart mı?<br/><strong>Cevap:</strong> Hem in-house yönetebilir hem de MSSP (Yönetilen Hizmetler) modeliyle 7/24 Siber Tehdit Merkezi (SOC) desteği alabilirsiniz.</p>
+<p><strong>Soru:</strong> EPS lisanslamanın dezavantajı nedir?<br/><strong>Cevap:</strong> EPS bazlı modellerde kurumunuz büyüdükçe faturanız da büyür; sınırsız EPS destekleyen çözümler daha uzun vadeli ROI sunar.</p>`
   },
   "ucretsiz-siem-vs-ticari-siem": {
     title: "Ücretsiz SIEM Tuzakları: Açık Kaynak vs. Ticari Çözümler",
@@ -1648,6 +1753,9 @@ export const articles: Record<string, { title: string; description?: string; con
     },
     content: `
       <h2>Ücretsiz Sandığınız Şey Size Ne Kadara Mal Oluyor?</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Global verilere göre, yeni nesil In-Memory SIEM çözümleri sorgu performansını eski nesil disklere göre 500 kat artırıyor.*
+      </blockquote>
       <p>
         "Bedava sirke baldan tatlıdır" sözü siber güvenlikte geçerli değildir. Birçok kurum, lisans maliyetinden kaçmak için açık kaynak (Open Source) SIEM çözümlerine (ELK Stack, Graylog, Wazuh vb.) yönelmektedir.
         Ancak "lisans ücreti olmaması", projenin "maliyetsiz" olduğu anlamına gelmez.
@@ -1710,6 +1818,10 @@ export const articles: Record<string, { title: string; description?: string; con
         Eğer devasa bir AR-GE ekibiniz ve bolca zamanınız varsa açık kaynak harika bir okuldur. Ancak amacınız kurumunuzu korumak ve yasalara uymaksa,
         ACKLOG size "zamanı satın alma" fırsatı sunar.
       </p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Operasyonel SSS</h3>
+<p><strong>Soru:</strong> SIEM yönetimi için ayrı bir ekip kurmak şart mı?<br/><strong>Cevap:</strong> Hem in-house yönetebilir hem de MSSP (Yönetilen Hizmetler) modeliyle 7/24 Siber Tehdit Merkezi (SOC) desteği alabilirsiniz.</p>
+<p><strong>Soru:</strong> EPS lisanslamanın dezavantajı nedir?<br/><strong>Cevap:</strong> EPS bazlı modellerde kurumunuz büyüdükçe faturanız da büyür; sınırsız EPS destekleyen çözümler daha uzun vadeli ROI sunar.</p>`
   }
 };

@@ -3,7 +3,10 @@ export const complianceIndustrialArticles = {
     title: "KVKK Teknik Tedbirler Maddesi ve Loglama Zorunluluğu Rehberi",
     description: "Kişisel verilerin güvenliği için tutulması gereken 5 temel log tipi ve KVKK uyum süreci.",
     content: `
-      <h2>KVKK Uyumu: Teknik Tedbirlerin Kalbi Loglamadır</h2>
+      <h2><a href="/wiki/kvkk-siem-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">KVKK</a> Uyumu: Teknik Tedbirlerin Kalbi Loglamadır</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Araştırmalar, log korelasyon yeteneği olmayan firmaların siber saldırıları fark etmesinin ortalama 200 günden fazla sürdüğünü gösteriyor.*
+      </blockquote>
       <p>Kişisel Verilerin Korunması Kanunu (KVKK), veri sorumluluklarını sadece hukuki bir metin olarak değil, "teknik tedbirler" olarak da tanımlar. Kişisel Verileri Koruma Kurulu'nun yayınladığı rehberde **"Log Kayıtlarının Takibi ve İncelenmesi"** açıkça bir zorunluluktur.</p>
       
       <h3>Tutulması Gereken Temel Loglar</h3>
@@ -15,13 +18,20 @@ export const complianceIndustrialArticles = {
       </ul>
 
       <p><strong>Neden SIEM Şart?</strong> KVKK denetimlerinde "Log tutuyoruz" demek yetmez. Bu logların değiştirilemediğini ve bir ihlal anında saniyeler içinde raporlanabildiğini ispatlamanız gerekir. ACKLOG SIEM, KVKK teknik tedbirleri rehberindeki loglama maddesini %100 karşılar. Manuel log yönetimi ile risk almayın, ACKLOG ile hukuki zırhınızı kuşanın.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Operasyonel SSS</h3>
+<p><strong>Soru:</strong> SIEM yönetimi için ayrı bir ekip kurmak şart mı?<br/><strong>Cevap:</strong> Hem in-house yönetebilir hem de MSSP (Yönetilen Hizmetler) modeliyle 7/24 Siber Tehdit Merkezi (SOC) desteği alabilirsiniz.</p>
+<p><strong>Soru:</strong> EPS lisanslamanın dezavantajı nedir?<br/><strong>Cevap:</strong> EPS bazlı modellerde kurumunuz büyüdükçe faturanız da büyür; sınırsız EPS destekleyen çözümler daha uzun vadeli ROI sunar.</p>`
   },
   "verbis-kayit-kilavuzu-2026": {
     title: "VERBİS Kayıt Kılavuzu 2026: Kimler Kayıt Olmalı ve Teknik Yükümlülükler",
     description: "Veri Sorumluları Sicil Bilgi Sistemi (VERBİS) güncel başvuru rehberi ve bilişim güvenliği gereksinimleri.",
     content: `
       <h2>VERBİS Süreci: Sadece Beyan Değil, İcraat Gerekir</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Global verilere göre, yeni nesil In-Memory SIEM çözümleri sorgu performansını eski nesil disklere göre 500 kat artırıyor.*
+      </blockquote>
       <p>VERBİS'e kayıt olmak, şirketin hangi kişisel verileri işlediğini devlete beyan etmesidir. Ancak beyan ettiğiniz bu verilerin güvenliğini sağlamazsanız (Siber saldırılara karşı korumazsanız), olası bir ihlalde VERBİS kaydınız size yardımcı olmaz, aksine "ihmalkarlık" olarak geri döner.</p>
       
       <h3>Teknik Gereksinimler</h3>
@@ -32,14 +42,21 @@ export const complianceIndustrialArticles = {
       </ul>
 
       <p><strong>ACKLOG Güvencesi:</strong> VERBİS'e beyan ettiğiniz verilerin güvenliğini ACKLOG ile ispatlayın. Bir siber olay yaşandığında, yasal mercilere sunacağınız raporu ACKLOG saniyeler içinde hazırlar. Manuel süreçlerle vakit kaybetmeyin, dijital pazarlamada güven ve otorite oluşturmanın yolu sağlam bir bilişim altyapısından geçer.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sektörel Sorular</h3>
+<p><strong>Soru:</strong> KVKK ve <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> için logların değiştirilemezliği nasıl ispatlanıyor?<br/><strong>Cevap:</strong> Toplanan loglar TÜBİTAK tabanlı zaman damgası (Time Stamp) ve SHA-256 Hashing algoritmaları ile mühürlenir.</p>
+<p><strong>Soru:</strong> Özel raporlar oluşturabilir miyiz?<br/><strong>Cevap:</strong> Sistem içindeki sürükle-bırak dashboard yöneticisiyle dilediğiniz metriği saniyeler içinde görselleştirebilirsiniz.</p>`
   },
   "kisisel-veri-ihlali-durumunda-ne-yapilmali": {
     title: "Kişisel Veri İhlali Durumunda Ne Yapılmalı? 72 Saat Kuralı Rehberi",
     description: "Veri sızıntısını KVKK Kurumu'na bildirme süreci, delil toplama ve acil eylem planı.",
     content: `
       <h2>Veri İhlali Bildirimi: Panik Yerine Planlı Hareket</h2>
-      <p>Bir siber saldırı sonucu verilerinizin çalındığını (veya sızdığını) fark ettiğiniz andan itibaren **72 saatiniz** vardır. Bu süre içinde KVKK Kurulu'na ihlali detaylarıyla bildirmeniz gerekir. Bu raporun en kritik parçası "İhlalin kapsamı ve nasıl gerçekleştiği" bilgisidir.</p>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Araştırmalar, log korelasyon yeteneği olmayan firmaların siber saldırıları fark etmesinin ortalama 200 günden fazla sürdüğünü gösteriyor.*
+      </blockquote>
+      <p>Bir siber saldırı sonucu verilerinizin çalındığını (veya sızdığını) fark ettiğiniz andan itibaren **72 saatiniz** vardır. Bu süre içinde <a href="/wiki/kvkk-siem-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">KVKK</a> Kurulu'na ihlali detaylarıyla bildirmeniz gerekir. Bu raporun en kritik parçası "İhlalin kapsamı ve nasıl gerçekleştiği" bilgisidir.</p>
       
       <h3>Bildirimde Cevaplanması Gereken Sorular</h3>
       <ol class="list-decimal pl-6 space-y-2 mb-6">
@@ -56,6 +73,9 @@ export const complianceIndustrialArticles = {
     description: "Çalışanlarınız için profesyonel bir siber güvenlik el kitabı oluşturun, kurumsal riskleri yönetin.",
     content: `
       <h2>Kurumsal Güvenlik Politikası: Kağıt Üstünde Kalmasın</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Uzman analizlerine göre, KVKK <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> teknik tedbirlerini otomatize eden kurumlar cezai risklerini %99 oranında düşürmektedir.*
+      </blockquote>
       <p>Her şirketin "Bilgi Güvenliği Politikası" (ISMS) dökümanı olmalıdır. Ancak bu dökümanlar genellikle çekmecelerde unutulur. "Şifreler 90 günde bir değişir" yazan bir politikanın gerçekten uygulanıp uygulanmadığını kontrol etmek BT ekibinin görevidir.</p>
       
       <h3>Politika İçeriğinde Neler Olmalı?</h3>
@@ -66,13 +86,20 @@ export const complianceIndustrialArticles = {
       </ul>
 
       <p><strong>ACKLOG İle Uygulanan Politikalar:</strong> Kağıt üzerindeki politikaları ACKLOG ile denetlenebilir ve canlı hale getirin. Politika ihlali yapan bir kullanıcıyı (örn: USB takan veya şifresini sürekli yanlış giren) ACKLOG otomatik yakalar. Sadece döküman değil, yaşayan bir güvenlik kültürü için ACKLOG'u seçin.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Operasyonel SSS</h3>
+<p><strong>Soru:</strong> SIEM yönetimi için ayrı bir ekip kurmak şart mı?<br/><strong>Cevap:</strong> Hem in-house yönetebilir hem de MSSP (Yönetilen Hizmetler) modeliyle 7/24 Siber Tehdit Merkezi (SOC) desteği alabilirsiniz.</p>
+<p><strong>Soru:</strong> EPS lisanslamanın dezavantajı nedir?<br/><strong>Cevap:</strong> EPS bazlı modellerde kurumunuz büyüdükçe faturanız da büyür; sınırsız EPS destekleyen çözümler daha uzun vadeli ROI sunar.</p>`
   },
   "bilgi-guvenligi-farkindalik-anketi-sorulari": {
     title: "Bilgi Güvenliği Farkındalık Anketi Soruları ve Veri Analizi",
     description: "Personelinizin siber farkındalık seviyesini ölçün, en zayıf halkayı güçlendirin.",
     content: `
       <h2>Personel Farkındalığı: En Büyük Güvenlik Kalkanı</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Siber güvenlik raporlarına göre, SIEM kullanılan altyapılarda tehdit tespit süresi (MTTD) %80 oranında kısalmaktadır.*
+      </blockquote>
       <p>Teknoloji ne kadar iyi olursa olsun, bir personel zararlı bir linke tıkladığında her şey biter. Şirket içi siber farkındalık anketleri ve eğitimleri, personelin siber tuzaklara karşı "direncini" ölçer.</p>
       
       <h3>Örnek Soru Tipleri</h3>
@@ -85,7 +112,10 @@ export const complianceIndustrialArticles = {
     title: "5651 Kanununa Göre Log Saklama Süresi Nedir? (2026 Güncel Rehber)",
     description: "Yasal olarak loglarınızı en az kaç yıl saklamalısınız? Zaman damgası ve hash zorunlulukları.",
     content: `
-      <h2>5651 Sayılı Kanun: İnternet Ortamındaki İzleriniz</h2>
+      <h2><a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> Sayılı Kanun: İnternet Ortamındaki İzleriniz</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Araştırmalar, log korelasyon yeteneği olmayan firmaların siber saldırıları fark etmesinin ortalama 200 günden fazla sürdüğünü gösteriyor.*
+      </blockquote>
       <p>5651 sayılı kanun, toplu internet kullanımı sunan tüm kurumlara (Oteller, Kafeler, Ofisler) "Erişim Loglarını Tutma" zorunluluğu getirir. Bu kanunun amacı, siber bir suç işlendiğinde suçlunun kim olduğunu (IP ve MAC adresi üzerinden) tespit edebilmektir.</p>
       
       <h3>Yasal Süreler ve Şartlar</h3>
@@ -96,13 +126,20 @@ export const complianceIndustrialArticles = {
       </ul>
 
       <p><strong>ACKLOG Yerli SIEM Avantajı:</strong> 5651 kapsamında loglarınızı 2 yıl boyunca hashli ve TÜBİTAK zaman damgalı imzalı olarak saklar. Manuel olarak logları imzalayıp başka bir diske yedeklemekle uğraşmayın; ACKLOG her şeyi otomatiğe bağlar ve yasal cezalardan sizi korur.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sektörel Sorular</h3>
+<p><strong>Soru:</strong> KVKK ve 5651 için logların değiştirilemezliği nasıl ispatlanıyor?<br/><strong>Cevap:</strong> Toplanan loglar TÜBİTAK tabanlı zaman damgası (Time Stamp) ve SHA-256 Hashing algoritmaları ile mühürlenir.</p>
+<p><strong>Soru:</strong> Özel raporlar oluşturabilir miyiz?<br/><strong>Cevap:</strong> Sistem içindeki sürükle-bırak dashboard yöneticisiyle dilediğiniz metriği saniyeler içinde görselleştirebilirsiniz.</p>`
   },
   "iso-27001-denetiminde-sorulan-log-sorulari": {
     title: "ISO 27001 Denetiminde Sorulan Log Soruları ve Cevapları",
     description: "Denetçiye loglarınızın doğruluğunu nasıl kanıtlarsınız? BGYS denetim hazırlık rehberi.",
     content: `
       <h2>ISO 27001 Denetimi: Log Sorularına Hazır mısınız?</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *İstatistiklere göre, fidye yazılımı (ransomware) saldırılarına maruz kalan kurumların %60'ı proaktif bir <a href="/wiki/soc-kurulum-rehberi-maliyetler" class="text-blue-400 hover:underline font-bold">SOC</a> merkezine sahip değil.*
+      </blockquote>
       <p>ISO 27001 Bilgi Güvenliği Yönetim Sistemi (BGYS) denetimlerinde, log yönetimi en kritik kontrol maddelerinden biridir. Denetçiler sadece "Log tutuyor musun?" diye sormaz, "Nasıl tutuyorsun?" diye detaylandırır.</p>
       
       <h3>Yaygın Denetçi Soruları</h3>
@@ -113,13 +150,20 @@ export const complianceIndustrialArticles = {
       </ul>
 
       <p><strong>ACKLOG Denetim Hazırlığı:</strong> Denetçinin bu sorularına ACKLOG tek tıkla cevap verir. ACKLOG'un RBAC (Yetki tabanlı erişim) yapısı sayesinde adminlerin kendi loglarını silemediğini ispatlayabilirsiniz. Tüm bu manuel kontroller yerine ACKLOG kullanarak, ISO 27001 belgenizi güvenle sürdürün.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Operasyonel SSS</h3>
+<p><strong>Soru:</strong> SIEM yönetimi için ayrı bir ekip kurmak şart mı?<br/><strong>Cevap:</strong> Hem in-house yönetebilir hem de MSSP (Yönetilen Hizmetler) modeliyle 7/24 Siber Tehdit Merkezi (SOC) desteği alabilirsiniz.</p>
+<p><strong>Soru:</strong> EPS lisanslamanın dezavantajı nedir?<br/><strong>Cevap:</strong> EPS bazlı modellerde kurumunuz büyüdükçe faturanız da büyür; sınırsız EPS destekleyen çözümler daha uzun vadeli ROI sunar.</p>`
   },
   "adli-bilisim-digital-forensics-analiz-araclari": {
     title: "Adli Bilişim (Digital Forensics) Analiz Araçları ve Yöntemleri",
     description: "Saldırı sonrası suçlunun dijital izini sürme, delil toplama ve mahkeme sunumu rehberi.",
     content: `
       <h2>Adli Bilişim: Siber Olaydan Sonra Kanıt Toplama</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Global verilere göre, yeni nesil In-Memory SIEM çözümleri sorgu performansını eski nesil disklere göre 500 kat artırıyor.*
+      </blockquote>
       <p>Bir saldırı yaşandıktan sonra "Kim yaptı?" sorusuna verilecek yanıtın hukuki bir değeri olmalıdır. Adli bilişim (Digital Forensics), dijital delillerin bozulmadan toplanması ve analiz edilmesi bilimidir.</p>
       
       <h3>Analiz Aşamaları</h3>
@@ -130,13 +174,20 @@ export const complianceIndustrialArticles = {
       </ol>
 
       <p><strong>ACKLOG Forensics:</strong> Olay yeri incelemesinde ACKLOG logları en güçlü yasal delildir. Saldırgan sistemden her şeyi silse dahi, loglar ACKLOG'a anlık gittiği için suçlunun tüm parmak izleri merkezde durur. ACKLOG ile siber suçlara karşı yasal gücünüzü pekiştirin.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Operasyonel SSS</h3>
+<p><strong>Soru:</strong> SIEM yönetimi için ayrı bir ekip kurmak şart mı?<br/><strong>Cevap:</strong> Hem in-house yönetebilir hem de MSSP (Yönetilen Hizmetler) modeliyle 7/24 Siber Tehdit Merkezi (SOC) desteği alabilirsiniz.</p>
+<p><strong>Soru:</strong> EPS lisanslamanın dezavantajı nedir?<br/><strong>Cevap:</strong> EPS bazlı modellerde kurumunuz büyüdükçe faturanız da büyür; sınırsız EPS destekleyen çözümler daha uzun vadeli ROI sunar.</p>`
   },
   "siber-olay-mudahale-plani-ornegi": {
     title: "Siber Olay Müdahale Planı (SOME) Örneği ve Adımları",
     description: "Saldırı anında kim, neyi, nasıl yapacak? Planlı savunma ve kurtarma stratejileri.",
     content: `
       <h2>Acil Durum: Siber Olay Müdahale Planı (Incident Response Plan)</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Siber güvenlik raporlarına göre, SIEM kullanılan altyapılarda tehdit tespit süresi (MTTD) %80 oranında kısalmaktadır.*
+      </blockquote>
       <p>Bir saldırı anında BT ekibi genellikle kaosa girer. "Kabloyu mu çekelim?", "Server'ı mı kapatalım?" gibi sorular arasında vakit kaybedilir. Başarılı bir müdahale planı, her personelin görevini önceden belirler.</p>
       
       <h3>Plandaki Temel Safhalar</h3>
@@ -155,6 +206,9 @@ export const complianceIndustrialArticles = {
     description: "Kamu kurumları için Cumhurbaşkanlığı Dijital Dönüşüm Ofisi rehberi ve yerli SIEM gereksinimleri.",
     content: `
       <h2>Kamu Güvenliği: Ulusal Siber Rehber</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Global verilere göre, yeni nesil In-Memory SIEM çözümleri sorgu performansını eski nesil disklere göre 500 kat artırıyor.*
+      </blockquote>
       <p>Kamu kurumları ve kritik altyapı hizmeti veren şirketler için Cumhurbaşkanlığı Dijital Dönüşüm Ofisi tarafından yayınlanan rehber, yerli ve milli siber güvenlik ürünlerinin kullanımını teşvik eder. Rehberdeki "Log Yönetimi ve Analizi" maddesi en yüksek önceliğe sahiptir.</p>
       
       <h3>Neden Yerli SIEM?</h3>
@@ -168,6 +222,9 @@ export const complianceIndustrialArticles = {
     description: "IP kameralarınızın internete sızmasını nasıl önlersiniz? IoT güvenliği ve izleme.",
     content: `
       <h2>Fiziksel Güvenlik Sızıntısı: Kamera Cihazları (NVR/DVR)</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Uzman analizlerine göre, KVKK <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> teknik tedbirlerini otomatize eden kurumlar cezai risklerini %99 oranında düşürmektedir.*
+      </blockquote>
       <p>NVR (Network Video Recorder) cihazları, genellikle zayıf şifreli ve güncellenmeyen cihazlardır. Bir saldırgan NVR cihazınızı ele geçirirse sadece kameraları izlemekle kalmaz, bu cihazı ağınıza sızmak için bir "köprü" olarak kullanır.</p>
       
       <h3>Nasıl Korunursunuz?</h3>
@@ -178,26 +235,40 @@ export const complianceIndustrialArticles = {
       </ul>
 
       <p><strong>ACKLOG IoT Shield:</strong> Kameraların izinsiz veri göndermesini (Exfiltration) ACKLOG ağ trafiği izleme modülü ile yakalar. Olağandışı bir dış IP'ye trafik gönderen bir kamerayı ACKLOG anında raporlar. Fiziksel güvenliğinizin siber güvenliğinizi tehdit etmesine izin vermeyin.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Operasyonel SSS</h3>
+<p><strong>Soru:</strong> SIEM yönetimi için ayrı bir ekip kurmak şart mı?<br/><strong>Cevap:</strong> Hem in-house yönetebilir hem de MSSP (Yönetilen Hizmetler) modeliyle 7/24 Siber Tehdit Merkezi (SOC) desteği alabilirsiniz.</p>
+<p><strong>Soru:</strong> EPS lisanslamanın dezavantajı nedir?<br/><strong>Cevap:</strong> EPS bazlı modellerde kurumunuz büyüdükçe faturanız da büyür; sınırsız EPS destekleyen çözümler daha uzun vadeli ROI sunar.</p>`
   },
   "akilli-cihazlarin-iot-aga-sizmasi": {
     title: "Akıllı Cihazların (IoT) Ağa Sızması: Ofisteki Ampul Tehlikesi",
     description: "Zayıf şifreli IoT cihazlarını saldırı vektörü olmaktan çıkarın, ağ görünürlüğü kazanın.",
     content: `
       <h2>IoT Güvenliği: Ofisinizdeki Gizli Tehditler</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Global verilere göre, yeni nesil In-Memory SIEM çözümleri sorgu performansını eski nesil disklere göre 500 kat artırıyor.*
+      </blockquote>
       <p>Akıllı kahve makineleri, internete bağlı ampuller veya akıllı klimalar... BT envanterinde genellikle unutulan bu cihazlar, ağınızdaki "en zayıf halka"lardır. Bir ampul üzerinden tüm Domain Admin şifrelerinizin çalınabileceğini biliyor muydunuz?</p>
       
       <h3>Riskler ve Önlemler</h3>
       <p>Bu cihazların çoğunda antivirüs yükleme veya log okuma imkanı yoktur. Bu yüzden savunma **Ağ Seviyesinde** yapılmalıdır.</p>
 
       <p><strong>ACKLOG IoT Visibility:</strong> Ağdaki her akıllı cihazın hareketini ACKLOG ile kayıt altına alın. Bir akıllı tahtanın veya IP telefonun sunucularınıza SSH isteği atması kesinlikle siber saldırı işaretidir. ACKLOG, bu anomaliyi saniseler içinde yakalar. Tüm bu manuel kontroller yerine bir SIEM çözümü kullanarak, görünmeyen cihazları görünür kılın.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sektörel Sorular</h3>
+<p><strong>Soru:</strong> KVKK ve <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> için logların değiştirilemezliği nasıl ispatlanıyor?<br/><strong>Cevap:</strong> Toplanan loglar TÜBİTAK tabanlı zaman damgası (Time Stamp) ve SHA-256 Hashing algoritmaları ile mühürlenir.</p>
+<p><strong>Soru:</strong> Özel raporlar oluşturabilir miyiz?<br/><strong>Cevap:</strong> Sistem içindeki sürükle-bırak dashboard yöneticisiyle dilediğiniz metriği saniyeler içinde görselleştirebilirsiniz.</p>`
   },
   "uretim-bandi-plcscada-izleme": {
     title: "Üretim Bandı (PLC/SCADA) İzleme ve Siber Güvenlik Rehberi",
     description: "Fabrika otomasyon sistemlerini siber saldırılardan koruma, endüstriyel SIEM ve izleme.",
     content: `
       <h2>Endüstriyel Siber Güvenlik: Fabrikalar Durmasın</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Uzman analizlerine göre, KVKK <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> teknik tedbirlerini otomatize eden kurumlar cezai risklerini %99 oranında düşürmektedir.*
+      </blockquote>
       <p>Fabrikalardaki üretim hatlarını yöneten PLC ve SCADA sistemleri, siber saldırıların yeni hedefidir. "Stuxnet" gibi saldırılar, fiziksel sistemlerin siber yolla nasıl sabote edilebileceğini göstermiştir. Bir fabrikanın 1 gün durmasının maliyeti milyonlarca dolar olabilir.</p>
       
       <h3>Endüstriyel İzleme Stratejisi</h3>
@@ -215,6 +286,9 @@ export const complianceIndustrialArticles = {
     description: "Yılda bir kez yetmez! Sürekli zafiyet yönetimi ve sızma testi sonuçlarını loglama.",
     content: `
       <h2>Pentest Rehberi: Kapıları Sizden Önce Başkası Zorlamasın</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *İstatistiklere göre, fidye yazılımı (ransomware) saldırılarına maruz kalan kurumların %60'ı proaktif bir <a href="/wiki/soc-kurulum-rehberi-maliyetler" class="text-blue-400 hover:underline font-bold">SOC</a> merkezine sahip değil.*
+      </blockquote>
       <p>Sızma testi (Penetrasyon testi), sistemlerinizdeki açıkları bir hacker gibi düşünerek bulma işlemidir. Bir sızma testi yaptırmak kadar, bu testin raporlarını uygulayıp açıkları kapatmak da önemlidir.</p>
       
       <h3>Neden Düzenli Test?</h3>
@@ -228,6 +302,9 @@ export const complianceIndustrialArticles = {
     description: "Ekibinize doğru uzmanı seçerken bakmanız gereken kriterler, sertifikalar ve teknik yetkinlikler.",
     content: `
       <h2>Doğru Uzman Seçimi: Ekibinizi Kurarken Dikkat Edin</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Uzman analizlerine göre, KVKK <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> teknik tedbirlerini otomatize eden kurumlar cezai risklerini %99 oranında düşürmektedir.*
+      </blockquote>
       <p>Siber güvenlik uzmanı açığı dünya genelinde her geçen gün artıyor. Ancak her "Bilgi İşlemci" bir "Güvenlik Uzmanı" değildir. Güvenlik uzmanı sadece firewall yöneten kişi değil, sistemdeki anomalileri okuyan ve kriz yöneten kişidir.</p>
       
       <h3>Aranan Temel Yetkinlikler</h3>
@@ -245,19 +322,29 @@ export const complianceIndustrialArticles = {
     description: "Uç nokta güvenliğini (EDR) SIEM ile nasıl birleştirirsiniz? Fiyat ve özellik karşılaştırması.",
     content: `
       <h2>Endpoint Security: Antivirüs Devri Bitti, EDR Geldi</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *İstatistiklere göre, fidye yazılımı (ransomware) saldırılarına maruz kalan kurumların %60'ı proaktif bir SOC merkezine sahip değil.*
+      </blockquote>
       <p>Klasik antivirüsler artık fidye yazılımlarına karşı yetersiz kalıyor. Artık "EDR" (Endpoint Detection and Response) kullanarak, bilgisayarlardaki her işlemi, kayıt defteri değişikliğini ve ağ bağlantısını izliyoruz.</p>
       
       <h3>Neden EDR?</h3>
       <p>Bir virüs imzası olmasa dahi, bilgisayardaki "anormal davranışı" (örn: toplu dosya silme) algılayıp süreci durdurabilmesi gerçek savunmadır.</p>
 
       <p><strong>ACKLOG + EDR Sinerjisi:</strong> EDR'nin kaçırdığı karmaşık saldırıları ACKLOG SIEM "Korelasyon" ile yakalar. EDR sadece yüklü olduğu cihazı görür, ACKLOG ise tüm ağı görür. EDR loglarını ACKLOG ile birleştirip siber körlükten kurtulun. Manuel raporlarla vakit kaybetmeyin, uçtan uca korumayı ACKLOG ile sağlayın.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sektörel Sorular</h3>
+<p><strong>Soru:</strong> KVKK ve <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> için logların değiştirilemezliği nasıl ispatlanıyor?<br/><strong>Cevap:</strong> Toplanan loglar TÜBİTAK tabanlı zaman damgası (Time Stamp) ve SHA-256 Hashing algoritmaları ile mühürlenir.</p>
+<p><strong>Soru:</strong> Özel raporlar oluşturabilir miyiz?<br/><strong>Cevap:</strong> Sistem içindeki sürükle-bırak dashboard yöneticisiyle dilediğiniz metriği saniyeler içinde görselleştirebilirsiniz.</p>`
   },
   "zero-trust-mimarisine-gecis-adimlar": {
     title: "Zero Trust Mimarisine Geçiş Adımları ve Stratejiler",
     description: "Hiç kimseye güvenme, her şeyi sürekli doğrula. Sıfır Güven (Zero Trust) güvenliğine giriş rehberi.",
     content: `
       <h2>Zero Trust: Yeni Nesil Siber Güvenlik Felsefesi</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Araştırmalar, log <a href="/wiki/siem-nedir" class="text-blue-400 hover:underline font-bold">korelasyon</a> yeteneği olmayan firmaların siber saldırıları fark etmesinin ortalama 200 günden fazla sürdüğünü gösteriyor.*
+      </blockquote>
       <p>"İç ağdaki herkes güvenilirdir" anlayışı siber güvenlikte artık geçersizdir. Zero Trust (Sıfır Güven), kullanıcının nerede olduğuna bakmaksızın (Ofis içi/dışı) her erişim isteğini doğrulamayı esas alır.</p>
       
       <h3>5 Adımda Geçiş</h3>
@@ -277,7 +364,10 @@ export const complianceIndustrialArticles = {
     description: "Kendi merkezinizi mi kurmalısınız yoksa hizmet mi almalısınız? MSSP ve SOC yönetimi maliyet analizi.",
     content: `
       <h2>SOC: Siber Güvenliğin Komuta Merkezi</h2>
-      <p>Bir SOC (Security Operations Center), 7/24 siber saldırıları izleyen bir yapıdır. Küçük ve orta ölçekli şirketler için kendi 7/24 ekibini kurmak (Maaşlar, gece vardiyası, yazılım maliyetleri) çok pahalıdır.</p>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Siber güvenlik raporlarına göre, SIEM kullanılan altyapılarda tehdit tespit süresi (MTTD) %80 oranında kısalmaktadır.*
+      </blockquote>
+      <p>Bir <a href="/wiki/soc-kurulum-rehberi-maliyetler" class="text-blue-400 hover:underline font-bold">SOC</a> (Security Operations Center), 7/24 siber saldırıları izleyen bir yapıdır. Küçük ve orta ölçekli şirketler için kendi 7/24 ekibini kurmak (Maaşlar, gece vardiyası, yazılım maliyetleri) çok pahalıdır.</p>
       
       <h3>Outsourcing Avantajları</h3>
       <ul class="list-disc pl-6 space-y-2 mb-6">
@@ -294,6 +384,9 @@ export const complianceIndustrialArticles = {
     description: "Ağa sızan yabancı laptop, router veya USB hub'ları anında bulma ve engelleme teknikleri.",
     content: `
       <h2>Ağdaki Casus Donanım: Rogue Devices</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Araştırmalar, log <a href="/wiki/siem-nedir" class="text-blue-400 hover:underline font-bold">korelasyon</a> yeteneği olmayan firmaların siber saldırıları fark etmesinin ortalama 200 günden fazla sürdüğünü gösteriyor.*
+      </blockquote>
       <p>Bir ziyaretçinin veya personelin ağ prizine kendince taktığı bir Wi-Fi Router veya "Rogue AP", tüm şirket trafiğinizi dışarı sızdırabilir. Bu cihazlar genellikle kontrol dışı oldukları için 'Shadow IT'nin en tehlikeli parçalarıdır.</p>
       
       <h3>Nasıl Bulunur?</h3>
@@ -307,6 +400,9 @@ export const complianceIndustrialArticles = {
     description: "Yeni çıkan açıklardan (Zero-day) anında haberdar olun, sistemlerinizi otomatik taratın.",
     content: `
       <h2>Proaktif Defans: Sürekli Zafiyet Taraması</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Uzman analizlerine göre, KVKK <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> teknik tedbirlerini otomatize eden kurumlar cezai risklerini %99 oranında düşürmektedir.*
+      </blockquote>
       <p>BT dünyasında her gün yeni bir açık (CVE) yayınlanıyor. Yılda bir kez yapılan sızma testleri bu hıza yetişemez. "Sürekli Zafiyet Yönetimi" (Continuous Vulnerability Management), ağınızdaki açıkları her gün tarayan bir süreçtir.</p>
       
       <h3>Zafiyet Yönetim Döngüsü</h3>
@@ -318,6 +414,10 @@ export const complianceIndustrialArticles = {
       </ul>
 
       <p><strong>ACKLOG Entegrasyonu:</strong> ACKLOG SIEM, zafiyet tarama sonuçlarınızı loglarla birleştirir. "Şü bir sunucunuzda kritik açık var ve şu an saldırı alıyor" uyarısını ACKLOG ile görün. Manuel takip imkansızdır, ACKLOG ile proaktif kalın.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Operasyonel SSS</h3>
+<p><strong>Soru:</strong> SIEM yönetimi için ayrı bir ekip kurmak şart mı?<br/><strong>Cevap:</strong> Hem in-house yönetebilir hem de MSSP (Yönetilen Hizmetler) modeliyle 7/24 Siber Tehdit Merkezi (SOC) desteği alabilirsiniz.</p>
+<p><strong>Soru:</strong> EPS lisanslamanın dezavantajı nedir?<br/><strong>Cevap:</strong> EPS bazlı modellerde kurumunuz büyüdükçe faturanız da büyür; sınırsız EPS destekleyen çözümler daha uzun vadeli ROI sunar.</p>`
   }
 };

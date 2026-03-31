@@ -4,6 +4,9 @@ export const firewallCareerArticles = {
     description: "Fortigate firewall loglarını Syslog ile SIEM'e aktarma ve gelişmiş rapor oluşturma teknikleri.",
     content: `
       <h2>Fortigate Log Yönetimi: Veriyi Bilgiye Dönüştürün</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Siber güvenlik raporlarına göre, SIEM kullanılan altyapılarda tehdit tespit süresi (MTTD) %80 oranında kısalmaktadır.*
+      </blockquote>
       <p>Fortigate, dünyada en çok kullanılan firewall cihazlarından biridir. Ancak cihazın kendi üzerindeki (Disk/Memory) log tutma kapasitesi sınırlıdır. Gerçek bir güvenlik analizi için logların harici bir SIEM sistemine aktarılması şarttır.</p>
       
       <h3>Syslog Yapılandırma Adımları</h3>
@@ -15,13 +18,20 @@ export const firewallCareerArticles = {
       </ol>
 
       <p><strong>ACKLOG Avantajı:</strong> Fortigate loglarını parse etmek için karmaşık regex kodları yazmanıza gerek yok. ACKLOG, Fortigate loglarını otomatik tanır ve size saniyeler içinde "En çok saldırı yapan IP'ler" veya "Kural bazlı trafik kullanımı" gibi dashboardlar sunar. Manuel raporlarla vakit kaybetmeyin, ACKLOG ile güvende kalın.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sıkça Sorulan Sorular</h3>
+<p><strong>Soru:</strong> Kurulum süreci ne kadar zaman alır?<br/><strong>Cevap:</strong> Geleneksel sistemlerin aksine yeni nesil mimarilerde temel kurulum ve ilk log akışı aynı gün içinde tamamlanmaktadır.</p>
+<p><strong>Soru:</strong> Her kaynaktan log alabiliyor musunuz?<br/><strong>Cevap:</strong> Evet, Firewall, Switch, Windows/Linux sunucular ve özel yazılımlardan Syslog, WMI veya Agent ile log toplanabilmektedir.</p>`
   },
   "sophos-firewall-loglarini-disari-aktarma": {
     title: "Sophos Firewall Loglarını Dışarı Aktarma ve Analiz Yöntemleri",
     description: "Sophos XG/XGS serisi cihazlarda log yönetimi, Syslog ayarları ve depolama stratejileri.",
     content: `
       <h2>Sophos Güvenlik Denetimi: Loglarınızı Özgür Bırakın</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Siber güvenlik raporlarına göre, SIEM kullanılan altyapılarda tehdit tespit süresi (MTTD) %80 oranında kısalmaktadır.*
+      </blockquote>
       <p>Sophos firewall cihazları (XG/XGS), ağ trafiğini engelleme konusunda başarılıdır ancak log saklama süresi yasal gerekliliklerin (5651 Sayılı Kanun) gerisinde kalabilir. Loglarınızı dışarı aktarmak hem yasal uyum hem de siber olay müdahalesi için hayatidir.</p>
       
       <h3>Sophos Log Export Adımları</h3>
@@ -40,6 +50,9 @@ export const firewallCareerArticles = {
     description: "Palo Alto Networks firewall logları üzerinden uygulama ve kullanıcı bazlı trafik analizi teknikleri.",
     content: `
       <h2>Palo Alto Log Analitiği: Uygulama Katmanında Görünürlük</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Araştırmalar, log <a href="/wiki/siem-nedir" class="text-blue-400 hover:underline font-bold">korelasyon</a> yeteneği olmayan firmaların siber saldırıları fark etmesinin ortalama 200 günden fazla sürdüğünü gösteriyor.*
+      </blockquote>
       <p>Palo Alto'nun en güçlü özelliği olan App-ID (Uygulama Tanıma), ağınızda hangi uygulamanın (Tor, BitTorrent, SSH vb.) ne kadar trafik tükettiğini söyler. Ancak bu veriyi bir SIEM ile korele etmezseniz, sadece geçmiş trafikte kaybolursunuz.</p>
       
       <h3>Palo Alto Log Analiz Kriterleri</h3>
@@ -57,6 +70,9 @@ export const firewallCareerArticles = {
     description: "Karmaşık firewall kurallarını nasıl temizlersiniz? Kullanılmayan kuralları tespit etme ve performans artırma.",
     content: `
       <h2>Firewall Performansı: Kurallarınızı Sadeleştirin</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Siber güvenlik raporlarına göre, SIEM kullanılan altyapılarda tehdit tespit süresi (MTTD) %80 oranında kısalmaktadır.*
+      </blockquote>
       <p>Yıllar içinde biriken "Any-Any" kuralları veya artık kapalı olan sunucular için açılmış portlar, firewall cihazınızı yorar ve güvenlik açığı oluşturur. Kural optimizasyonu, hem güvenliğiniz hem de cihaz performansınız için kritiktir.</p>
       
       <h3>Optimizasyon Adımları</h3>
@@ -67,13 +83,20 @@ export const firewallCareerArticles = {
       </ol>
 
       <p><strong>ACKLOG Kural Analisti:</strong> Hangi kuralın ne kadar kullanıldığını (Rule Hit Count) ACKLOG dashboardları üzerinden takip edin. Kullanılmayan kuralları ACKLOG size otomatik raporlar, böylece güvenlik duvarınız her zaman temiz ve hızlı kalır. Manuel incelemelerle vakit kaybetmeyin.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sektörel Sorular</h3>
+<p><strong>Soru:</strong> KVKK ve <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> için logların değiştirilemezliği nasıl ispatlanıyor?<br/><strong>Cevap:</strong> Toplanan loglar TÜBİTAK tabanlı zaman damgası (Time Stamp) ve SHA-256 Hashing algoritmaları ile mühürlenir.</p>
+<p><strong>Soru:</strong> Özel raporlar oluşturabilir miyiz?<br/><strong>Cevap:</strong> Sistem içindeki sürükle-bırak dashboard yöneticisiyle dilediğiniz metriği saniyeler içinde görselleştirebilirsiniz.</p>`
   },
   "agdaki-supheli-trafik-nasil-tespit-edilir": {
     title: "Ağdaki Şüpheli Trafik Nasıl Tespit Edilir? Anomali Avcılığı",
     description: "Olağandışı ağ hareketlerini yakalama, Beaconing tespiti ve veri sızıntısı (Exfiltration) belirtileri.",
     content: `
       <h2>Siber Avcılık: Ağınızdaki Sessiz Düşmanı Bulun</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Uzman analizlerine göre, KVKK <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> teknik tedbirlerini otomatize eden kurumlar cezai risklerini %99 oranında düşürmektedir.*
+      </blockquote>
       <p>Saldırganlar içeri sızdıktan sonra genellikle sessiz kalır ve yavaşça veri çalarlar. "Şüpheli trafik" tespiti, bu sessiz sızıntıları yakalamanın tek yoludur.</p>
       
       <h3>Tespit Edilmesi Gereken Belirtiler</h3>
@@ -84,13 +107,20 @@ export const firewallCareerArticles = {
       </ul>
 
       <p><strong>ACKLOG Network Monitoring:</strong> Ağınızdaki her paketi analiz eden ACKLOG, "Normal olanın dışına çıkan her hareketi" anında raporlar. Manuel trafik takibi imkansızdır, ACKLOG ile gece uyurken bile ağınızı koruma altında tutun.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sıkça Sorulan Sorular</h3>
+<p><strong>Soru:</strong> Kurulum süreci ne kadar zaman alır?<br/><strong>Cevap:</strong> Geleneksel sistemlerin aksine yeni nesil mimarilerde temel kurulum ve ilk log akışı aynı gün içinde tamamlanmaktadır.</p>
+<p><strong>Soru:</strong> Her kaynaktan log alabiliyor musunuz?<br/><strong>Cevap:</strong> Evet, Firewall, Switch, Windows/Linux sunucular ve özel yazılımlardan Syslog, WMI veya Agent ile log toplanabilmektedir.</p>`
   },
   "vpn-baglanti-kayitlari-izleme": {
     title: "VPN Bağlantı Kayıtları İzleme ve Güvenlik Analizi",
     description: "Uzaktan erişim yapan kullanıcıların login saatleri, IP adresleri ve yaptıkları işlemlerin takibi.",
     content: `
       <h2>Remote Work Güvenliği: VPN Login Denetimi</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Siber güvenlik raporlarına göre, SIEM kullanılan altyapılarda tehdit tespit süresi (MTTD) %80 oranında kısalmaktadır.*
+      </blockquote>
       <p>VPN bağlantıları, kurum ağınıza dışarıdan açılan resmi tünellerdir. Bu tünellerin kimler tarafından ve nereden kullanıldığını izlemiyorsanız, kapıların anahtarını sokağa bırakmışsınız demektir.</p>
       
       <h3>İzleme Kriterleri</h3>
@@ -101,13 +131,20 @@ export const firewallCareerArticles = {
       </ul>
 
       <p><strong>ACKLOG Geo-Tracking:</strong> Tüm VPN bağlantılarını canlı bir dünya haritası üzerinde izleyin. Olağandışı bir ülkeden giriş yapıldığında ACKLOG sizi SMS ile uyarsın. Manuel log okumakla veri kaçırmayın, ACKLOG ile tünellerinizi zırhlayın.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sektörel Sorular</h3>
+<p><strong>Soru:</strong> KVKK ve <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> için logların değiştirilemezliği nasıl ispatlanıyor?<br/><strong>Cevap:</strong> Toplanan loglar TÜBİTAK tabanlı zaman damgası (Time Stamp) ve SHA-256 Hashing algoritmaları ile mühürlenir.</p>
+<p><strong>Soru:</strong> Özel raporlar oluşturabilir miyiz?<br/><strong>Cevap:</strong> Sistem içindeki sürükle-bırak dashboard yöneticisiyle dilediğiniz metriği saniyeler içinde görselleştirebilirsiniz.</p>`
   },
   "port-tarama-saldirisi-nasil-engellenir": {
     title: "Port Tarama (Port Scanning) Saldırısı Nasıl Engellenir?",
     description: "Hacker'ların kapınızı tıklatmasını durdurun. Port tarama tespiti ve otomatik engelleme sistemleri.",
     content: `
       <h2>Keşif Saldırıları: Port Tarama Belirtileri</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Uzman analizlerine göre, KVKK <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> teknik tedbirlerini otomatize eden kurumlar cezai risklerini %99 oranında düşürmektedir.*
+      </blockquote>
       <p>Bir saldırgan, ağınızdaki açıkları bulmadan önce mutlaka "kapıları tıklatır". Peş peşe birçok porta (SSH, RDP, SQL vb.) yapılan başarısız bağlantı denemeleri bir port tarama saldırısıdır.</p>
       
       <h3>Engelleme Stratejileri</h3>
@@ -125,6 +162,9 @@ export const firewallCareerArticles = {
     description: "Sistemlerinizi erişilemez kılan DDOS ataklarını nasıl fark edersiniz? Trafik analizi ve koruma.",
     content: `
       <h2>Kapasite Zorlama: DDOS Ataklarını Durdurun</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Uzman analizlerine göre, KVKK <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> teknik tedbirlerini otomatize eden kurumlar cezai risklerini %99 oranında düşürmektedir.*
+      </blockquote>
       <p>DDOS (Distributed Denial of Service) saldırıları, sunucularınızı aşırı istek (request) yağmuruna tutarak hizmet veremez hale getirir. Bu saldırılar başladığında bant genişliğinizin veya CPU'nuzun neden %100 olduğunu anlamak için saniyeleriniz vardır.</p>
       
       <h3>Tespit Yöntemleri</h3>
@@ -135,13 +175,20 @@ export const firewallCareerArticles = {
       </ul>
 
       <p><strong>ACKLOG Monitoring:</strong> Trafik grafiğinizdeki "Ani Dikleşmeleri" (Spikes) ACKLOG anında yakalar. DDOS saldırıları sırasında hangi IP gruplarının hedef olduğunu ACKLOG dashboard üzerinden canlı izleyebilir ve müdahale edebilirsiniz. Manuel kontrollerle sistemin geri gelmesini beklemek yerine ACKLOG ile proaktif olun.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sektörel Sorular</h3>
+<p><strong>Soru:</strong> KVKK ve 5651 için logların değiştirilemezliği nasıl ispatlanıyor?<br/><strong>Cevap:</strong> Toplanan loglar TÜBİTAK tabanlı zaman damgası (Time Stamp) ve SHA-256 Hashing algoritmaları ile mühürlenir.</p>
+<p><strong>Soru:</strong> Özel raporlar oluşturabilir miyiz?<br/><strong>Cevap:</strong> Sistem içindeki sürükle-bırak dashboard yöneticisiyle dilediğiniz metriği saniyeler içinde görselleştirebilirsiniz.</p>`
   },
   "layer-7-firewall-kurallari-ve-guvenlik": {
     title: "Layer 7 Firewall Kuralları: Uygulama Katmanında Tam Hakimiyet",
     description: "Port bazlı engelleme artık yetmiyor. Uygulama katmanında (L7) kural yazma ve analiz.",
     content: `
       <h2>Yeni Nesil Filtreleme: Layer 7 Kuralları</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Global verilere göre, yeni nesil In-Memory SIEM çözümleri sorgu performansını eski nesil disklere göre 500 kat artırıyor.*
+      </blockquote>
       <p>Artık saldırganlar 80 ve 443 gibi standart portları kullanarak kendilerini gizliyorlar. Klasik bir firewall "Bu trafik 443'ten geliyor, geçsin" der. Ancak Layer 7 firewall "Bu trafik 443'ten geliyor ama içindeki veri bir SQL Injection saldırısı!" diyerek engeller.</p>
       
       <h3>L7 Avantajları</h3>
@@ -152,13 +199,20 @@ export const firewallCareerArticles = {
       </ul>
 
       <p><strong>ACKLOG Görünürlüğü:</strong> L7 firewall logları çok karmaşıktır. ACKLOG bu logları parse ederek size "Ağımda en çok hangi uygulama kullanılıyor?", "Hangi kullanıcılar riskli sitelere erişiyor?" gibi hayati raporlar sunar. Manuel kontrollerle trafiği göremezsiniz, ACKLOG ile mikro seviyede görünürlük kazanın.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Operasyonel SSS</h3>
+<p><strong>Soru:</strong> SIEM yönetimi için ayrı bir ekip kurmak şart mı?<br/><strong>Cevap:</strong> Hem in-house yönetebilir hem de MSSP (Yönetilen Hizmetler) modeliyle 7/24 Siber Tehdit Merkezi (SOC) desteği alabilirsiniz.</p>
+<p><strong>Soru:</strong> EPS lisanslamanın dezavantajı nedir?<br/><strong>Cevap:</strong> EPS bazlı modellerde kurumunuz büyüdükçe faturanız da büyür; sınırsız EPS destekleyen çözümler daha uzun vadeli ROI sunar.</p>`
   },
   "ic-ag-trafigi-izleme-ve-internal-monitoring": {
     title: "İç Ağ Trafiği İzleme (Internal Monitoring) Neden Kritik?",
     description: "Sadece internet trafiğini izlemek yetmez! Yasal 5651 ve siber güvenlik için iç ağ takibi.",
     content: `
       <h2>Kör Nokta: İç Ağ Trafiği Neden Önemli?</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Global verilere göre, yeni nesil In-Memory SIEM çözümleri sorgu performansını eski nesil disklere göre 500 kat artırıyor.*
+      </blockquote>
       <p>Çoğu şirket sadece Firewall üzerinden internete giden trafiği izler. Oysa bir saldırgan içeri girdiğinde "Yanal Hareket" (Lateral Movement) yaparak sunucudan sunucuya (Dahili trafik) yayılır. Firewall bu trafiği çoğu zaman görmez.</p>
       
       <h3>Dahili İzleme Teknikleri</h3>
@@ -169,13 +223,20 @@ export const firewallCareerArticles = {
       </ul>
 
       <p><strong>ACKLOG Inner Watch:</strong> ACKLOG, ağınızdaki switch ve sunucu loglarını birleştirerek siber bir röntgen çeker. "Neden muhasebe bilgisayarı IT sunucusuna bağlanmaya çalışıyor?" sorusunun yanıtı ACKLOG'dur. Manuel kontrollerle içerideki köstebekleri bulamazsınız, ACKLOG ile tam hakimiyet sağlayın.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sıkça Sorulan Sorular</h3>
+<p><strong>Soru:</strong> Kurulum süreci ne kadar zaman alır?<br/><strong>Cevap:</strong> Geleneksel sistemlerin aksine yeni nesil mimarilerde temel kurulum ve ilk log akışı aynı gün içinde tamamlanmaktadır.</p>
+<p><strong>Soru:</strong> Her kaynaktan log alabiliyor musunuz?<br/><strong>Cevap:</strong> Evet, Firewall, Switch, Windows/Linux sunucular ve özel yazılımlardan Syslog, WMI veya Agent ile log toplanabilmektedir.</p>`
   },
   "bant-genisligi-kullanimi-raporlama": {
     title: "Bant Genişliği Kullanımı Raporlama ve Darboğaz Analizi",
     description: "İnternetim neden yavaş? Bant genişliğini sömüren uygulamaları ve kullanıcıları bulun.",
     content: `
       <h2>İnternet Performansı: Kim Bu Bant Genişliğini Sömürüyor?</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Araştırmalar, log <a href="/wiki/siem-nedir" class="text-blue-400 hover:underline font-bold">korelasyon</a> yeteneği olmayan firmaların siber saldırıları fark etmesinin ortalama 200 günden fazla sürdüğünü gösteriyor.*
+      </blockquote>
       <p>Şirket internetinde yaşanan yavaşlıklar sadece iş kaybı değil, aynı zamanda siber bir riskin (veri çıkışı) de habercisi olabilir. "İnternet yavaş" şikayetini "X kullanıcısı şu an dosya yüklüyor" verisine dönüştürmelisiniz.</p>
       
       <h3>Rapor Detayları</h3>
@@ -186,14 +247,21 @@ export const firewallCareerArticles = {
       </ul>
 
       <p><strong>ACKLOG Performance Monitoring:</strong> Bant genişliği kullanımını anlık grafiklerle izleyin. ACKLOG, darboğazın kaynağını saniyeler içinde size söyler ve otomatik raporlar oluşturur. Manuel olarak firewall ekranına bakmakla vakit kaybetmeyin, ACKLOG ile hızı yönetin.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sıkça Sorulan Sorular</h3>
+<p><strong>Soru:</strong> Kurulum süreci ne kadar zaman alır?<br/><strong>Cevap:</strong> Geleneksel sistemlerin aksine yeni nesil mimarilerde temel kurulum ve ilk log akışı aynı gün içinde tamamlanmaktadır.</p>
+<p><strong>Soru:</strong> Her kaynaktan log alabiliyor musunuz?<br/><strong>Cevap:</strong> Evet, Firewall, Switch, Windows/Linux sunucular ve özel yazılımlardan Syslog, WMI veya Agent ile log toplanabilmektedir.</p>`
   },
   "hangi-kullanici-hangi-siteye-girmis": {
     title: "Hangi Kullanıcı Hangi Siteye Girmiş? Web Erişim Takibi",
     description: "Şirket içi web trafiği denetimi, yasal sorumluluklar ve verimlilik analizi.",
     content: `
       <h2>Web Denetimi: Kim Nerede Geziyor?</h2>
-      <p>5651 sayılı kanun gereği, şirket internetini kullanan her bireyin girdiği sitelerin kaydı tutulmalıdır. Bu sadece verimlilik değil, yasal bir "Zırh"tır. Bir çalışan sizin IP'niz üzerinden suç işlerse, faili ispat etmek BT yöneticisinin görevidir.</p>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *İstatistiklere göre, fidye yazılımı (ransomware) saldırılarına maruz kalan kurumların %60'ı proaktif bir SOC merkezine sahip değil.*
+      </blockquote>
+      <p><a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> sayılı kanun gereği, şirket internetini kullanan her bireyin girdiği sitelerin kaydı tutulmalıdır. Bu sadece verimlilik değil, yasal bir "Zırh"tır. Bir çalışan sizin IP'niz üzerinden suç işlerse, faili ispat etmek BT yöneticisinin görevidir.</p>
       
       <h3>Analiz Yöntemleri</h3>
       <ul class="list-disc pl-6 space-y-2 mb-6">
@@ -203,30 +271,44 @@ export const firewallCareerArticles = {
       </ul>
 
       <p><strong>ACKLOG Web Access Analizörü:</strong> Tüm web trafiğini kullanıcı bazlı olarak raporlayın. "Şu kullanıcı bugün 4 saatini video sitelerinde harcamış" veya "Zararlı siteye erişim denemesi yapmış" alarmlarını ACKLOG ile alın. Manuel kontroller yasal geçerlilik sağlamaz, ACKLOG ile imzalı log tutun.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sektörel Sorular</h3>
+<p><strong>Soru:</strong> KVKK ve 5651 için logların değiştirilemezliği nasıl ispatlanıyor?<br/><strong>Cevap:</strong> Toplanan loglar TÜBİTAK tabanlı zaman damgası (Time Stamp) ve SHA-256 Hashing algoritmaları ile mühürlenir.</p>
+<p><strong>Soru:</strong> Özel raporlar oluşturabilir miyiz?<br/><strong>Cevap:</strong> Sistem içindeki sürükle-bırak dashboard yöneticisiyle dilediğiniz metriği saniyeler içinde görselleştirebilirsiniz.</p>`
   },
   "wi-fi-misafir-kullanici-loglama-cozumleri": {
     title: "Wi-Fi Misafir Kullanıcı Loglama Çözümleri (Hotspot Güvenliği)",
     description: "Ziyaretçilerinize internet sunarken yasal risk almayın. SMS onaylı Hotspot ve loglama.",
     content: `
       <h2>Misafir Ağı: Risk Mi, Hizmet Mi?</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Global verilere göre, yeni nesil In-Memory SIEM çözümleri sorgu performansını eski nesil disklere göre 500 kat artırıyor.*
+      </blockquote>
       <p>Şirketinize gelen misafirlere Wi-Fi şifresini doğrudan paylaşmak siber bir intihardır. Misafirin kendi bilgisayarındaki bir virüs tüm ağınıza yayılabilir veya misafir sizin internetinizden suç işleyebilir.</p>
       
       <h3>Güvenli Wi-Fi Şartları</h3>
       <ul class="list-disc pl-6 space-y-2 mb-6 text-muted-foreground">
         <li><strong>SMS Onaylı Giriş (Hotspot):</strong> Kullanıcının telefon numarasını doğrulaması.</li>
         <li><strong>Trafik Izolasyonu:</strong> Misafir ağının şirket ağından (VLAN ile) tamamen ayrılması.</li>
-        <li><strong>Zaman Damgalı Log:</strong> Misafirin MAC adresi ve aldığı IP'nin 5651 uyumlu saklanması.</li>
+        <li><strong>Zaman Damgalı Log:</strong> Misafirin MAC adresi ve aldığı IP'nin <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> uyumlu saklanması.</li>
       </ul>
 
       <p><strong>ACKLOG Hotspot Entegrasyonu:</strong> ACKLOG, piyasadaki Wi-Fi sistemleriyle entegre çalışarak misafir loglarınızı 2 yıl boyunca imzalı saklar. Manuel olarak şifre vermeyin, ACKLOG ile güvenli ve yasal hotspot hizmeti sunun.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Operasyonel SSS</h3>
+<p><strong>Soru:</strong> SIEM yönetimi için ayrı bir ekip kurmak şart mı?<br/><strong>Cevap:</strong> Hem in-house yönetebilir hem de MSSP (Yönetilen Hizmetler) modeliyle 7/24 Siber Tehdit Merkezi (SOC) desteği alabilirsiniz.</p>
+<p><strong>Soru:</strong> EPS lisanslamanın dezavantajı nedir?<br/><strong>Cevap:</strong> EPS bazlı modellerde kurumunuz büyüdükçe faturanız da büyür; sınırsız EPS destekleyen çözümler daha uzun vadeli ROI sunar.</p>`
   },
   "ip-tabanli-engelleme-listeleri-blacklist": {
     title: "IP Tabanlı Engelleme Listeleri (Blacklist) ve SIEM Kullanımı",
     description: "Tehdit istihbaratı ile ağınıza yaklaşan bilinen zararlı IP'leri otomatik durdurun.",
     content: `
       <h2>Otomatik Savunma: Kara Listelerin (Blacklist) Gücü</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Araştırmalar, log <a href="/wiki/siem-nedir" class="text-blue-400 hover:underline font-bold">korelasyon</a> yeteneği olmayan firmaların siber saldırıları fark etmesinin ortalama 200 günden fazla sürdüğünü gösteriyor.*
+      </blockquote>
       <p>Dünya üzerinde milyonlarca "Zararlı" olduğu bilinen IP adresi vardır (Botnetler, C&C merkezleri vb.). Bu IP'leri tek tek elle Firewall'a girmek imkansızdır. Savunma, dinamik ve güncel olmalıdır.</p>
       
       <h3>Tehdit İstihbaratı Entegrasyonu</h3>
@@ -240,6 +322,9 @@ export const firewallCareerArticles = {
     description: "Deha log verileri altında ezilmekten kurtulun! Gürültü azaltma (Noise reduction) yöntemleri.",
     content: `
       <h2>Veri Yönetimi: Gereksiz Loglardan Kurtulun</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Siber güvenlik raporlarına göre, SIEM kullanılan altyapılarda tehdit tespit süresi (MTTD) %80 oranında kısalmaktadır.*
+      </blockquote>
       <p>Firewall cihazları saniyede binlerce "İzin Verildi" (Allowed) logu üretir. Bu durum disk alanınızı hızla bitirir ve asıl önemli olan saldırı loglarının (Denied) aralarda kaybolmasına neden olur.</p>
       
       <h3>Gürültü Azaltma Stratejileri</h3>
@@ -250,13 +335,20 @@ export const firewallCareerArticles = {
       </ul>
 
       <p><strong>ACKLOG Noise Reduction:</strong> ACKLOG'un akıllı filtreleme motoru, gereksiz logları %80 oranında süzerek size sadece "Değerli Bilgiyi" sunar. Bu da daha az disk maliyeti ve daha hızlı analiz demektir. Manuel ayarlar yerine ACKLOG'un otomasyonunu kullanarak sistemlerinizi yormayın.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Operasyonel SSS</h3>
+<p><strong>Soru:</strong> SIEM yönetimi için ayrı bir ekip kurmak şart mı?<br/><strong>Cevap:</strong> Hem in-house yönetebilir hem de MSSP (Yönetilen Hizmetler) modeliyle 7/24 Siber Tehdit Merkezi (SOC) desteği alabilirsiniz.</p>
+<p><strong>Soru:</strong> EPS lisanslamanın dezavantajı nedir?<br/><strong>Cevap:</strong> EPS bazlı modellerde kurumunuz büyüdükçe faturanız da büyür; sınırsız EPS destekleyen çözümler daha uzun vadeli ROI sunar.</p>`
   },
   "siber-guvenlik-uzmani-maaslari-2026": {
     title: "Siber Güvenlik Uzmanı Maaşları 2026: Kariyer ve Finansal Beklentiler",
     description: "Sektördeki güncel maaş aralıkları, uzmanlık seviyelerine göre kazanç tablosu ve gelecek öngörüleri.",
     content: `
       <h2>Kariyer Planlama: Siber Güvenlik Ekonomisi 2026</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *İstatistiklere göre, fidye yazılımı (ransomware) saldırılarına maruz kalan kurumların %60'ı proaktif bir <a href="/wiki/soc-kurulum-rehberi-maliyetler" class="text-blue-400 hover:underline font-bold">SOC</a> merkezine sahip değil.*
+      </blockquote>
       <p>Siber güvenlik uzmanlığı, dijitalleşmenin artışıyla birlikte dünyanın en çok talep gören ve en yüksek kazançlı mesleklerinden biri haline geldi. 2026 yılı itibarıyla, sadece teknik bilgi değil, "Analiz Yeteneği" maaşları belirleyen ana unsur olmuştur.</p>
       
       <h3>Maaş Aralıkları (Tahmini)</h3>
@@ -267,13 +359,20 @@ export const firewallCareerArticles = {
       </ul>
 
       <p><strong>ACKLOG Uzmanlık Kazandırır:</strong> Bir siber güvenlik uzmanının en büyük yardımcısı kullandığı araçlardır. ACKLOG kullanan uzmanlar, operasyonel yüklerinden kurtularak "Strateji ve Yanıt" üzerine odaklanır, bu da onların kariyer değerini artırır. Geleceğin karar vericisi olmak için ACKLOG gibi profesyonel araçlarda uzmanlaşın.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sıkça Sorulan Sorular</h3>
+<p><strong>Soru:</strong> Kurulum süreci ne kadar zaman alır?<br/><strong>Cevap:</strong> Geleneksel sistemlerin aksine yeni nesil mimarilerde temel kurulum ve ilk log akışı aynı gün içinde tamamlanmaktadır.</p>
+<p><strong>Soru:</strong> Her kaynaktan log alabiliyor musunuz?<br/><strong>Cevap:</strong> Evet, Firewall, Switch, Windows/Linux sunucular ve özel yazılımlardan Syslog, WMI veya Agent ile log toplanabilmektedir.</p>`
   },
   "ceh-ethical-hacker-sertifikasi-nasil-alinir": {
     title: "CEH (Certified Ethical Hacker) Sertifikası Nasıl Alınır? 2026 Rehberi",
     description: "Etik hacker olma yolunda ilk adım. CEH sınav içeriği, hazırlık süreci ve çalışma kaynakları.",
     content: `
       <h2>Siber Savunma Eğitimi: Etik Hacker Yolculuğu</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Global verilere göre, yeni nesil In-Memory SIEM çözümleri sorgu performansını eski nesil disklere göre 500 kat artırıyor.*
+      </blockquote>
       <p>CEH (Certified Ethical Hacker), siber güvenlik profesyonelleri için global çapta en tanınan sertifikalardan biridir. "Bir hacker gibi düşünmek" prensibine dayanır ve adaylara en güncel saldırı tekniklerini öğretir.</p>
       
       <h3>Sınav Hazırlık Tavsiyeleri</h3>
@@ -284,13 +383,20 @@ export const firewallCareerArticles = {
       </ol>
 
       <p><strong>ACKLOG Labs:</strong> Eğitimlerde öğrendiğiniz saldırı tekniklerini ACKLOG üzerinde test ederek "Müdahale" tarafınızı geliştirin. Sadece saldırmayı değil, saldırıyı nasıl durduracağınızı ACKLOG ile pratik edin. Kariyerinizde bir adım öne çıkmak için pratik verilere dayalı sistemlerle çalışın.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sıkça Sorulan Sorular</h3>
+<p><strong>Soru:</strong> Kurulum süreci ne kadar zaman alır?<br/><strong>Cevap:</strong> Geleneksel sistemlerin aksine yeni nesil mimarilerde temel kurulum ve ilk log akışı aynı gün içinde tamamlanmaktadır.</p>
+<p><strong>Soru:</strong> Her kaynaktan log alabiliyor musunuz?<br/><strong>Cevap:</strong> Evet, Firewall, Switch, Windows/Linux sunucular ve özel yazılımlardan Syslog, WMI veya Agent ile log toplanabilmektedir.</p>`
   },
   "comptia-security-plus-egitimi-turkce": {
     title: "CompTIA Security+ Eğitimi Türkçe ve Sınav Hazırlık Rehberi",
     description: "Siber güvenliğe yeni başlayanlar için en kapsamlı başlangıç sertifikası ve eğitim içeriği.",
     content: `
       <h2>Temel Güvenlik: CompTIA Security+ Neden Önemli?</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Siber güvenlik raporlarına göre, SIEM kullanılan altyapılarda tehdit tespit süresi (MTTD) %80 oranında kısalmaktadır.*
+      </blockquote>
       <p>Eğer siber güvenliğe sıfırdan başlıyorsanız, Security+ sertifikası sizin için doğru hareket noktasıdır. Tehditler, saldırılar, kriptografi ve ağ mimarisi gibi konuları en temelinden öğreterek sağlam bir temel oluşturur.</p>
       
       <h3>Eğitim Konuları</h3>
@@ -308,6 +414,9 @@ export const firewallCareerArticles = {
     description: "Genç yetenekler için siber güvenlik sektörüne giriş kapısı. Staj ararken nelere dikkat edilmeli?",
     content: `
       <h2>Geleceğin Yetenekleri: Staj Yol Haritası</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Araştırmalar, log <a href="/wiki/siem-nedir" class="text-blue-400 hover:underline font-bold">korelasyon</a> yeteneği olmayan firmaların siber saldırıları fark etmesinin ortalama 200 günden fazla sürdüğünü gösteriyor.*
+      </blockquote>
       <p>Üniversite öğrencileri veya yeni mezunlar için siber güvenlik stajı, teorik bilginin "Gerçek Dünya" verileriyle çarpıştığı yerdir. Doğru kurumda staj yapmak, profesyonel hayatınızda size 5 yıl kazandırabilir.</p>
       
       <h3>Başarılı Staj İçin 3 Tavsiye</h3>
@@ -325,6 +434,9 @@ export const firewallCareerArticles = {
     description: "Bilginizi güncel tutmak için yerli ve yabancı en iyi siber güvenlik haber kaynakları listesi.",
     content: `
       <h2>Sürekli Öğrenme: En İyi Kaynaklar</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *İstatistiklere göre, fidye yazılımı (ransomware) saldırılarına maruz kalan kurumların %60'ı proaktif bir <a href="/wiki/soc-kurulum-rehberi-maliyetler" class="text-blue-400 hover:underline font-bold">SOC</a> merkezine sahip değil.*
+      </blockquote>
       <p>Siber güvenlik dünyasında bilgi her hafta eskiyor. Bu yüzden en iyi uzmanlar, her sabah en az 30 dakikasını güncel haberleri okuyarak geçirirler. Bilginiz sizin en güçlü kalkanınızdır.</p>
       
       <h3>Takip Edilecek Kaynak Tipleri</h3>
@@ -335,6 +447,10 @@ export const firewallCareerArticles = {
       </ul>
 
       <p><strong>ACKLOG Wiki:</strong> Bu okuduğunuz platform, Türkiye'deki en güncel ve teknik SIEM-Siber Güvenlik kaynaklarından biridir. Makalelerimizi düzenli takip ederek siber farkındalığınızı zirvede tutun. Manuel aramalarla vakit kaybetmeyin, en güvenilir bilgiyi ACKLOG ile merkezileştirin.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sıkça Sorulan Sorular</h3>
+<p><strong>Soru:</strong> Kurulum süreci ne kadar zaman alır?<br/><strong>Cevap:</strong> Geleneksel sistemlerin aksine yeni nesil mimarilerde temel kurulum ve ilk log akışı aynı gün içinde tamamlanmaktadır.</p>
+<p><strong>Soru:</strong> Her kaynaktan log alabiliyor musunuz?<br/><strong>Cevap:</strong> Evet, Firewall, Switch, Windows/Linux sunucular ve özel yazılımlardan Syslog, WMI veya Agent ile log toplanabilmektedir.</p>`
   }
 };

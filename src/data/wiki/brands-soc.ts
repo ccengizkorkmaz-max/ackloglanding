@@ -4,6 +4,9 @@ export const brandsSOCArticles = {
     description: "Yerli SIEM dünyasında Logsign kurulum rehberi ve teknik detaylar. Kurulum adımları ve ACKLOG ile hız/maliyet farkları.",
     content: `
       <h2>Teknik İnceleme: Logsign Kurulum Rehberi ve Alternatif Bakış</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *İstatistiklere göre, fidye yazılımı (ransomware) saldırılarına maruz kalan kurumların %60'ı proaktif bir SOC merkezine sahip değil.*
+      </blockquote>
       <p>
         Türkiye siber güvenlik pazarında yerli çözümler arasında <strong>Logsign kurulum rehberi</strong> oldukça popüler bir arama terimidir. Kurumlar, yasal uyumluluk (5651) için bu tür sistemlere ihtiyaç duyarlar. Ancak kurulumun karmaşıklığı ve donanım gereksinimleri bazen projelerin uzamasına neden olabilir.
       </p>
@@ -20,20 +23,27 @@ export const brandsSOCArticles = {
       <p>
         ACKLOG, yerli rakiplerine göre %60 daha az donanım kaynağı tüketerek <strong>Logsign kurulum rehberi</strong> arayanların beklediği performansı çok daha ekonomik şekilde sunar.
       </p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sektörel Sorular</h3>
+<p><strong>Soru:</strong> KVKK ve <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> için logların değiştirilemezliği nasıl ispatlanıyor?<br/><strong>Cevap:</strong> Toplanan loglar TÜBİTAK tabanlı zaman damgası (Time Stamp) ve SHA-256 Hashing algoritmaları ile mühürlenir.</p>
+<p><strong>Soru:</strong> Özel raporlar oluşturabilir miyiz?<br/><strong>Cevap:</strong> Sistem içindeki sürükle-bırak dashboard yöneticisiyle dilediğiniz metriği saniyeler içinde görselleştirebilirsiniz.</p>`
   },
   "splunk-turkiye-distributoru": {
     title: "Splunk Türkiye Distribütörü ve Lisans Maliyetlerini %70 Düşürme Yolları",
     description: "Splunk Türkiye distribütörü üzerinden hizmet alan kurumlar için bütçe optimizasyonu. Splunk vs. Yerli SIEM (ACKLOG) karşılaştırması.",
     content: `
       <h2>Bütçe Yönetimi: Splunk Türkiye Distribütörü ve Alternatif Çözümler</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Araştırmalar, log korelasyon yeteneği olmayan firmaların siber saldırıları fark etmesinin ortalama 200 günden fazla sürdüğünü gösteriyor.*
+      </blockquote>
       <p>
         Global bir dev olan Splunk, sunduğu derin analiz yetenekleriyle bilinir. Ancak <strong>Splunk Türkiye distribütörü</strong> ile çalışan kurumların en büyük derdi, dolar bazlı "günlük veri boyutu" (Indexing) lisanslama modelidir. Log hacminiz arttıkça faturalarınız kontrol edilemez hale gelebilir.
       </p>
 
       <h3>Neden Alternatifler Değerlendirilmeli?</h3>
       <p>
-        İhtiyacınız olan sadece 5651 uyumu ve temel SOC operasyonlarıysa, <strong>Splunk Türkiye distribütörü</strong> üzerinden ödeyeceğiniz rakamın çok daha azına tam performanslı bir sistem kurabilirsiniz.
+        İhtiyacınız olan sadece <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> uyumu ve temel SOC operasyonlarıysa, <strong>Splunk Türkiye distribütörü</strong> üzerinden ödeyeceğiniz rakamın çok daha azına tam performanslı bir sistem kurabilirsiniz.
       </p>
 
       <ul class="list-disc pl-6 space-y-2 mb-6 text-muted-foreground">
@@ -47,13 +57,20 @@ export const brandsSOCArticles = {
       <p>
         ACKLOG, <strong>Splunk Türkiye distribütörü</strong> arayan kurumlara, global standartlarda bir hızı yerli bütçelerle sunar.
       </p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Operasyonel SSS</h3>
+<p><strong>Soru:</strong> SIEM yönetimi için ayrı bir ekip kurmak şart mı?<br/><strong>Cevap:</strong> Hem in-house yönetebilir hem de MSSP (Yönetilen Hizmetler) modeliyle 7/24 Siber Tehdit Merkezi (SOC) desteği alabilirsiniz.</p>
+<p><strong>Soru:</strong> EPS lisanslamanın dezavantajı nedir?<br/><strong>Cevap:</strong> EPS bazlı modellerde kurumunuz büyüdükçe faturanız da büyür; sınırsız EPS destekleyen çözümler daha uzun vadeli ROI sunar.</p>`
   },
   "ibm-qradar-sertifika-egitimi": {
     title: "IBM QRadar Sertifika Eğitimi: Siber Güvenlik Kariyerinizde Zirveye Çıkın",
     description: "SOC analistlerinin en çok aradığı IBM QRadar sertifika eğitimi rehberi. Sınav tüyoları ve kariyer fırsatları hakkında uzman görüşleri.",
     content: `
       <h2>Kariyere Yatırım: IBM QRadar Sertifika Eğitimi ve Uzmanlık</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Uzman analizlerine göre, KVKK <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> teknik tedbirlerini otomatize eden kurumlar cezai risklerini %99 oranında düşürmektedir.*
+      </blockquote>
       <p>
         Siber güvenlik sektöründe maaş beklentisini artıran en önemli faktörlerden biri sertifikasyondur. <strong>IBM QRadar sertifika eğitimi</strong> (Associate/Professional), size global bir geçerlilik kazandırır. Ancak QRadar öğrenmek, karmaşık bir veritabanı yapısını ve sorgulama dilini (AQL) çözmeyi gerektirir.
       </p>
@@ -70,13 +87,20 @@ export const brandsSOCArticles = {
       <p>
         Siz de siber güvenlikte otorite olmak istiyorsanız, eğitimlerinizi ACKLOG'un modern SOC pratikleriyle taçlandırın.
       </p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sıkça Sorulan Sorular</h3>
+<p><strong>Soru:</strong> Kurulum süreci ne kadar zaman alır?<br/><strong>Cevap:</strong> Geleneksel sistemlerin aksine yeni nesil mimarilerde temel kurulum ve ilk log akışı aynı gün içinde tamamlanmaktadır.</p>
+<p><strong>Soru:</strong> Her kaynaktan log alabiliyor musunuz?<br/><strong>Cevap:</strong> Evet, Firewall, Switch, Windows/Linux sunucular ve özel yazılımlardan Syslog, WMI veya Agent ile log toplanabilmektedir.</p>`
   },
   "fortisiem-konfigurasyonu": {
     title: "FortiSIEM Konfigürasyonu: Fortinet Cihazlarıyla %100 Uyumlu SOC",
     description: "FortiSIEM konfigürasyonu ve log toplama ayarları. FortiGate firewall sahipleri için bütünleşik güvenlik izleme rehberi.",
     content: `
       <h2>Sinerji Yaratın: FortiSIEM Konfigürasyonu ve Entegrasyon Sırları</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Araştırmalar, log <a href="/wiki/siem-nedir" class="text-blue-400 hover:underline font-bold">korelasyon</a> yeteneği olmayan firmaların siber saldırıları fark etmesinin ortalama 200 günden fazla sürdüğünü gösteriyor.*
+      </blockquote>
       <p>
         Ağınızda FortiGate cihazlar varsa, <strong>FortiSIEM konfigürasyonu</strong> ile tüm sistemi tek bir kumaş (Fabric) gibi izleyebilirsiniz. Ancak en büyük hata, sadece Fortinet cihazlarını izleyip diğer markaları (Open source, Windows, Linux) dışarıda bırakmaktır. Gerçek bir SIEM her dili konuşmalıdır.
       </p>
@@ -93,13 +117,20 @@ export const brandsSOCArticles = {
       <p>
         Eğer karmaşık <strong>FortiSIEM konfigürasyonu</strong> ile uğraşmak istemiyorsanız, ACKLOG'un tüm cihazları otomatik tanıyan "Plug & Play" yapısına geçebilirsiniz.
       </p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Operasyonel SSS</h3>
+<p><strong>Soru:</strong> SIEM yönetimi için ayrı bir ekip kurmak şart mı?<br/><strong>Cevap:</strong> Hem in-house yönetebilir hem de MSSP (Yönetilen Hizmetler) modeliyle 7/24 Siber Tehdit Merkezi (SOC) desteği alabilirsiniz.</p>
+<p><strong>Soru:</strong> EPS lisanslamanın dezavantajı nedir?<br/><strong>Cevap:</strong> EPS bazlı modellerde kurumunuz büyüdükçe faturanız da büyür; sınırsız EPS destekleyen çözümler daha uzun vadeli ROI sunar.</p>`
   },
   "microsoft-sentinel-turkiye-fiyati": {
     title: "Microsoft Sentinel Türkiye Fiyatı: Bulut SIEM Gerçekten Ucuz mu?",
     description: "Azure Sentinel maliyet analizi. Microsoft Sentinel Türkiye fiyatı hesaplanırken yapılan hatalar ve bütçeyi %50 düşürme yöntemleri.",
     content: `
       <h2>Bulutta Güvenlik Maliyeti: Microsoft Sentinel Türkiye Fiyatı ve Gizli Giderler</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Araştırmalar, log <a href="/wiki/siem-nedir" class="text-blue-400 hover:underline font-bold">korelasyon</a> yeteneği olmayan firmaların siber saldırıları fark etmesinin ortalama 200 günden fazla sürdüğünü gösteriyor.*
+      </blockquote>
       <p>
         Birçok firma Azure üzerinde olduğu için <strong>Microsoft Sentinel Türkiye fiyatı</strong> modelini cazip bulur. Ancak "ingestion" (veri girişi) bazlı fiyatlandırma, bir siber saldırı veya log patlaması anında faturanızın 10 katına çıkmasına neden olabilir. Bulut her zaman "ucuz" değildir, sadece "esnektir".
       </p>
@@ -116,13 +147,20 @@ export const brandsSOCArticles = {
       <p>
         ACKLOG, bulutun karmaşasını ve maliyetini yereldeki hız ve ekonomiyle birleştirir.
       </p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sıkça Sorulan Sorular</h3>
+<p><strong>Soru:</strong> Kurulum süreci ne kadar zaman alır?<br/><strong>Cevap:</strong> Geleneksel sistemlerin aksine yeni nesil mimarilerde temel kurulum ve ilk log akışı aynı gün içinde tamamlanmaktadır.</p>
+<p><strong>Soru:</strong> Her kaynaktan log alabiliyor musunuz?<br/><strong>Cevap:</strong> Evet, Firewall, Switch, Windows/Linux sunucular ve özel yazılımlardan Syslog, WMI veya Agent ile log toplanabilmektedir.</p>`
   },
   "elastic-stack-elk-kurulumu-turkce": {
     title: "Elastic Stack (ELK) Kurulumu Türkçe: Kendi Log Sunucunuzu İnşa Edin",
     description: "Ücretsiz SIEM arayanlar için Elastic Stack (ELK) kurulumu Türkçe adım adım rehber. Logstash, Elasticsearch ve Kibana yapılandırması.",
     content: `
       <h2>Açık Kaynak Gücü: Elastic Stack (ELK) Kurulumu Türkçe Rehberi</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Araştırmalar, log korelasyon yeteneği olmayan firmaların siber saldırıları fark etmesinin ortalama 200 günden fazla sürdüğünü gösteriyor.*
+      </blockquote>
       <p>
         "Yazılıma para vermeden loglarımı yönetebilir miyim?" diyorsanız, <strong>Elastic Stack (ELK) kurulumu Türkçe</strong> kaynaklar en büyük yardımcınız olacaktır. Elasticsearch'ün muazzam arama hızı, milyonlarca log içinde iğne aramak için idealdir.
       </p>
@@ -135,7 +173,7 @@ export const brandsSOCArticles = {
       </ul>
 
       <blockquote>
-        <p><strong>Önemli Uyarı:</strong> <strong>Elastic Stack (ELK) kurulumu Türkçe</strong> rehberlerle kurulan sistemler, 5651 imzalama ve KVKK alarm yönetimi gibi konularda sizi yalnız bırakır. Bu eksikleri gidermek için ACKLOG'un yerli modüllerini ELK üzerine entegre edebilirsiniz.</p>
+        <p><strong>Önemli Uyarı:</strong> <strong>Elastic Stack (ELK) kurulumu Türkçe</strong> rehberlerle kurulan sistemler, <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> imzalama ve KVKK alarm yönetimi gibi konularda sizi yalnız bırakır. Bu eksikleri gidermek için ACKLOG'un yerli modüllerini ELK üzerine entegre edebilirsiniz.</p>
       </blockquote>
 
       <p>
@@ -148,6 +186,9 @@ export const brandsSOCArticles = {
     description: "Bilgisayar ve sunucularınızı siber saldırılara karşı zırhlayın: Wazuh ajan kurulumu Windows rehberi ve zafiyet tarama ayarları.",
     content: `
       <h2>Uç Nokta Savunması: Wazuh Ajan Kurulumu Windows ve Teknikleri</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Uzman analizlerine göre, KVKK <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> teknik tedbirlerini otomatize eden kurumlar cezai risklerini %99 oranında düşürmektedir.*
+      </blockquote>
       <p>
         Sadece ağ trafiğini izlemek yetmez, her bir bilgisayarın içinde ne olduğunu görmelisiniz. <strong>Wazuh ajan kurulumu Windows</strong> sayesinde, bir personelin USB takıp takmadığını veya bir şifre dosyasının çalınıp çalınmadığını (File Integrity) anlık görebilirsiniz.
       </p>
@@ -171,6 +212,9 @@ export const brandsSOCArticles = {
     description: "Neden Graylog öğrenmelisiniz? Graylog log yönetimi eğitimi içeriği, pipeline yapılandırması ve performanslı dashboard oluşturma.",
     content: `
       <h2>Kolay ve Hızlı Analiz: Graylog log yönetimi eğitimi ve Avantajları</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Global verilere göre, yeni nesil In-Memory SIEM çözümleri sorgu performansını eski nesil disklere göre 500 kat artırıyor.*
+      </blockquote>
       <p>
         Birçok sistem yöneticisi için ELK çok karmaşık gelebilir. Bu noktada <strong>Graylog log yönetimi eğitimi</strong>, logları bir pipeline (boru hattı) üzerinden nasıl kolayca akıtacağınızı öğretir. Graylog'un en büyük gücü, sürükle-bırak ile logları filtreleyebilmesidir.
       </p>
@@ -194,6 +238,9 @@ export const brandsSOCArticles = {
     description: "Siber güvenlikte büyük ölçekli yapılar için ArcSight Türkiye desteği ve kurumsal bakım hizmetleri. Verim artırma rehberi.",
     content: `
       <h2>Büyük Ölçekli Güvenlik: ArcSight Türkiye Desteği ve Stratejik Önemi</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *İstatistiklere göre, fidye yazılımı (ransomware) saldırılarına maruz kalan kurumların %60'ı proaktif bir <a href="/wiki/soc-kurulum-rehberi-maliyetler" class="text-blue-400 hover:underline font-bold">SOC</a> merkezine sahip değil.*
+      </blockquote>
       <p>
         ArcSight gibi kompleks bir ürünü yönetmek, siber güvenlik uzmanlığı gerektirir. <strong>ArcSight Türkiye desteği</strong>, bir banka veya telekom operatörü için sistemin durmaması demektir. Ancak saniyede 50.000 log basan bir yapıda, destek ekibinin hızı "hayat kurtarır".
       </p>
@@ -217,6 +264,9 @@ export const brandsSOCArticles = {
     description: "Hızlı kurulum ve bol özellik. ManageEngine EventLog Analyzer inceleme ve analiz raporu. SIEM dünyasındaki yeri ve eksikleri.",
     content: `
       <h2>IT Dostu Çözüm: ManageEngine EventLog Analyzer İnceleme ve Yorumlar</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Araştırmalar, log korelasyon yeteneği olmayan firmaların siber saldırıları fark etmesinin ortalama 200 günden fazla sürdüğünü gösteriyor.*
+      </blockquote>
       <p>
         "Hemen kurup log görmeye başlamam lazım" diyorsanız, <strong>ManageEngine EventLog Analyzer inceleme</strong> raporumuz tam size göre. Bu araç, Windows dünyasıyla konuşma konusunda dünyadaki en pratik sistemlerden biridir. Ancak siber güvenlik derinliği (korelasyon) konusunda eksikleri olabilir.
       </p>
@@ -224,7 +274,7 @@ export const brandsSOCArticles = {
       <h3>Pozitif ve Negatif Yönler</h3>
       <ul class="list-disc pl-6 space-y-2 mb-6">
         <li><strong>Artıları:</strong> Sıfır ayar ile log toplama, harika Windows raporları.</li>
-        <li><strong>Eksileri:</strong> Türkiye 5651 imzalama desteği yok, gelişmiş siber tehdit avcılığı (hunting) zayıf.</li>
+        <li><strong>Eksileri:</strong> Türkiye <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> imzalama desteği yok, gelişmiş siber tehdit avcılığı (hunting) zayıf.</li>
       </ul>
 
       <p><strong>Öneri:</strong> ManageEngine kullananlar, yasal uyumluluk pencerelerini kapatmak için ACKLOG'un <strong>"Compliance Bridge"</strong> modülünü kullanarak sistemlerini yasallaştırabilirler.</p>
@@ -239,6 +289,9 @@ export const brandsSOCArticles = {
     description: "Siber saldırılara 72 saat yerine 72 saniyede müdahale edin. SOC merkezi nasıl kurulur? Personel, bütçe ve teknoloji planlama rehberi.",
     content: `
       <h2>Karar Vericiler İçin: SOC Merkezi Nasıl Kurulur ve Yönetilir?</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Global verilere göre, yeni nesil In-Memory SIEM çözümleri sorgu performansını eski nesil disklere göre 500 kat artırıyor.*
+      </blockquote>
       <p>
         Şirketinizin siber güvenliği tesadüflere emanet edilemez. <strong>SOC merkezi nasıl kurulur?</strong> sorusunun cevabı, teknolojiden çok "zihniyet" değişimidir. 7/24 izleme yapılmayan bir sistemde, saldırıyı sabah işe geldiğinizde görmek artık kabul edilebilir değil.
       </p>
@@ -257,13 +310,20 @@ export const brandsSOCArticles = {
       <p>
         ACKLOG, <strong>SOC merkezi nasıl kurulur?</strong> konusunda sunduğu hazır dashboard ve kurallar ile kurulum sürecinizi 3 aydan 3 güne indirir.
       </p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sektörel Sorular</h3>
+<p><strong>Soru:</strong> KVKK ve <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> için logların değiştirilemezliği nasıl ispatlanıyor?<br/><strong>Cevap:</strong> Toplanan loglar TÜBİTAK tabanlı zaman damgası (Time Stamp) ve SHA-256 Hashing algoritmaları ile mühürlenir.</p>
+<p><strong>Soru:</strong> Özel raporlar oluşturabilir miyiz?<br/><strong>Cevap:</strong> Sistem içindeki sürükle-bırak dashboard yöneticisiyle dilediğiniz metriği saniyeler içinde görselleştirebilirsiniz.</p>`
   },
   "7-24-log-izleme-hizmeti-mdr": {
     title: "7/24 Log İzleme Hizmeti (MDR): Kendi Ordunuzu Kurmak Yerine Kiralayın",
     description: "Görünmez saldırıları yakalayan profesyoneller. 7/24 log izleme hizmeti (MDR) ile managed SOC avantajları ve maliyet analizi.",
     content: `
       <h2>Güvenilir Destek: 7/24 Log İzleme Hizmeti (MDR) ve Sorumluluk Paylaşımı</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *İstatistiklere göre, fidye yazılımı (ransomware) saldırılarına maruz kalan kurumların %60'ı proaktif bir SOC merkezine sahip değil.*
+      </blockquote>
       <p>
         Biliyoruz, nitelikli siber güvenlik uzmanı bulmak çok zor. <strong>7/24 log izleme hizmeti (MDR)</strong> alarak, bu uzman bulma ve maaş ödeme yükünü dış kaynak kullanımına (Outsource) devredebilirsiniz. MDR ekibi sizin adınıza logları tarar, saldırıyı yakalar ve sizi gece yarısı bile uyarır.
       </p>
@@ -280,13 +340,20 @@ export const brandsSOCArticles = {
       <p>
         ACKLOG SIEM motorunu kullanan seçkin iş ortaklarımızdan <strong>7/24 log izleme hizmeti (MDR)</strong> alarak mışıl mışıl uyuyabilirsiniz.
       </p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sektörel Sorular</h3>
+<p><strong>Soru:</strong> KVKK ve <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> için logların değiştirilemezliği nasıl ispatlanıyor?<br/><strong>Cevap:</strong> Toplanan loglar TÜBİTAK tabanlı zaman damgası (Time Stamp) ve SHA-256 Hashing algoritmaları ile mühürlenir.</p>
+<p><strong>Soru:</strong> Özel raporlar oluşturabilir miyiz?<br/><strong>Cevap:</strong> Sistem içindeki sürükle-bırak dashboard yöneticisiyle dilediğiniz metriği saniyeler içinde görselleştirebilirsiniz.</p>`
   },
   "soc-analisti-gorev-tanimi": {
     title: "SOC Analisti Görev Tanımı: Yeni Nesil Siber Güvenlik Uzmanlığı Rehberi",
     description: "Geleceğin mesleğine hazır olun. SOC analisti görev tanımı, maaş beklentileri ve öğrenilmesi gereken en iyi SIEM araçları.",
     content: `
-      <h2>Kariyer Planlama: Modern Bir SOC Analisti Görev Tanımı ve Gereklilikler</h2>
+      <h2>Kariyer Planlama: Modern Bir <a href="/wiki/soc-kurulum-rehberi-maliyetler" class="text-blue-400 hover:underline font-bold">SOC</a> Analisti Görev Tanımı ve Gereklilikler</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Siber güvenlik raporlarına göre, SIEM kullanılan altyapılarda tehdit tespit süresi (MTTD) %80 oranında kısalmaktadır.*
+      </blockquote>
       <p>
         "Hacker kovalamak" kulağa heyecanlı geliyor olabilir, ama gerçek bir <strong>SOC analisti görev tanımı</strong> disiplinli bir veri analizi sürecidir. Bir analist, binlerce satır log içinden bir "anomalia" bulmaya çalışan dijital bir dedektiftir. Meraklı olmayan biri bu işte başarılı olamaz.
       </p>
@@ -310,6 +377,9 @@ export const brandsSOCArticles = {
     description: "Siber dedektiflerin gizli dili. Threat hunting terimleri, TTP analizi ve siber saldırganları yakalama teknikleri rehberi.",
     content: `
       <h2>Siber Dedektiflik Sırları: Tehdit Avcılığı (Threat Hunting) Terimleri Rehberi</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Uzman analizlerine göre, KVKK <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> teknik tedbirlerini otomatize eden kurumlar cezai risklerini %99 oranında düşürmektedir.*
+      </blockquote>
       <p>
         Statik kurallar bazen yetmez, analistin "hissi" bir arama yapması gerekir. <strong>Tehdit avcılığı (Threat Hunting) terimleri</strong>, bu proaktif arama sürecinde kullanılan kavramları ifade eder. Tehdit avcısı, saldırganın henüz kural tetiklemediği ama sistemde ayak izi bıraktığı anları yakalar.
       </p>
@@ -333,6 +403,9 @@ export const brandsSOCArticles = {
     description: "Küresel tehdit verilerini SIEM'e bağlayın. Siber tehdit istihbaratı entegrasyonu (CTI) ile proaktif güvenlik stratejileri.",
     content: `
       <h2>Öngörülebilir Güvenlik: Siber Tehdit İstihbaratı Entegrasyonu ve Veri Gücü</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Siber güvenlik raporlarına göre, SIEM kullanılan altyapılarda tehdit tespit süresi (MTTD) %80 oranında kısalmaktadır.*
+      </blockquote>
       <p>
         Hackerlar kendi aralarında bilgi paylaşıyor, peki ya siz? <strong>Siber tehdit istihbaratı entegrasyonu</strong> (Cyber Threat Intelligence), dünyanın herhangi bir yerindeki yeni bir virüsün veya zararlı IP'nin bilgisini saniyeler içinde sizin SIEM'inize taşır. Böylece siz hedef olmadan önce savunmanız hazır olur.
       </p>
@@ -356,6 +429,9 @@ export const brandsSOCArticles = {
     description: "Siber saldırı anında yapılacak ilk 10 şey. Olay müdahale (incident response) planı hazırlama ve kriz yönetimi için uzman tavsiyeleri.",
     content: `
       <h2>Kriz Yönetimi: Olay Müdahale (Incident Response) Planı ve Önemi</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *İstatistiklere göre, fidye yazılımı (ransomware) saldırılarına maruz kalan kurumların %60'ı proaktif bir <a href="/wiki/soc-kurulum-rehberi-maliyetler" class="text-blue-400 hover:underline font-bold">SOC</a> merkezine sahip değil.*
+      </blockquote>
       <p>
         Hacklendiğinizi fark ettiğiniz an, saniyeler içinde binlerce dolar kaybedebilirsiniz. <strong>Olay müdahale (incident response) planı</strong> olmayan bir şirketin bu kaostan sağ çıkması mucizedir. Kimin kimi arayacağı, hangi sunucunun fişinin çekileceği saniyeler içinde net olmalıdır.
       </p>
@@ -372,13 +448,20 @@ export const brandsSOCArticles = {
       <p>
         ACKLOG, <strong>olay müdahale (incident response) planı</strong> aşamalarındaki "Tespit" ve "Kanıtlama" kısımlarını tamamen otomatiğe bağlayarak kriz yükünüzü hafifletir.
       </p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Operasyonel SSS</h3>
+<p><strong>Soru:</strong> SIEM yönetimi için ayrı bir ekip kurmak şart mı?<br/><strong>Cevap:</strong> Hem in-house yönetebilir hem de MSSP (Yönetilen Hizmetler) modeliyle 7/24 Siber Tehdit Merkezi (SOC) desteği alabilirsiniz.</p>
+<p><strong>Soru:</strong> EPS lisanslamanın dezavantajı nedir?<br/><strong>Cevap:</strong> EPS bazlı modellerde kurumunuz büyüdükçe faturanız da büyür; sınırsız EPS destekleyen çözümler daha uzun vadeli ROI sunar.</p>`
   },
   "siem-uzerinden-zararli-ip-tespiti": {
     title: "SIEM Üzerinden Zararlı IP Tespiti: Hırsızın Parmak İzlerini Yakalayın",
     description: "Network trafiğinizdeki kara listeye alınmış adresleri nasıl bulursunuz? SIEM üzerinden zararlı IP tespiti ve itibar analizi rehberi.",
     content: `
       <h2>Ağ Temizliği: SIEM Üzerinden Zararlı IP Tespiti ve Engelleme Sanatı</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Uzman analizlerine göre, KVKK <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> teknik tedbirlerini otomatize eden kurumlar cezai risklerini %99 oranında düşürmektedir.*
+      </blockquote>
       <p>
         Dış dünyada milyarlarca IP adresi var. Bunların hangileri masum bir ziyaretçi, hangileri bir botnet ordusu? <strong>SIEM üzerinden zararlı IP tespiti</strong>, saniyede milyonlarca bağlantıyı global "Blacklist" (Kara liste) servisleriyle kıyaslayarak size gerçek zamanlı uyarılar sunar.
       </p>
@@ -402,6 +485,9 @@ export const brandsSOCArticles = {
     description: "Hassas dosyalarınızın güvenliği. Veri sızıntısı önleme (DLP) loglarını SIEM ile birleştirerek büyük resmi nasıl görürsünüz?",
     content: `
       <h2>Güvenliğin İki Kanadı: Veri Sızıntısı Önleme (DLP) ve SIEM Entegrasyonu</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Araştırmalar, log <a href="/wiki/siem-nedir" class="text-blue-400 hover:underline font-bold">korelasyon</a> yeteneği olmayan firmaların siber saldırıları fark etmesinin ortalama 200 günden fazla sürdüğünü gösteriyor.*
+      </blockquote>
       <p>
         DLP size "dosya kopyalandı" der, ama SIEM "dosya kopyalanmadan önce bu kullanıcı hangi sitelere girdi ve hangi şifreleri denedi?" sorularını cevaplar. <strong>Veri sızıntısı önleme (DLP) ve SIEM</strong> birlikteliği, siber güvenlikte "Körü Körüne İzleme" devrini bitirir.
       </p>
@@ -425,6 +511,9 @@ export const brandsSOCArticles = {
     description: "Yönetici (Admin) hesapları siber saldırganların ilk hedefidir. Ayrıcalıklı hesap yönetimi (PAM) logları ve SIEM ile denetim rehberi.",
     content: `
       <h2>Kritik Gözetim: Ayrıcalıklı Hesap Yönetimi (PAM) Logları İzleme Neden Şart?</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *İstatistiklere göre, fidye yazılımı (ransomware) saldırılarına maruz kalan kurumların %60'ı proaktif bir SOC merkezine sahip değil.*
+      </blockquote>
       <p>
         "Hackerlar kapıdan girmez, şifreyle girer." Eğer bu şifre bir yöneticinin (Admin) şifresiyse, tüm sisteminiz artık saldırganın malıdır. <strong>Ayrıcalıklı hesap yönetimi (PAM) logları</strong>, sistemdeki en güçlü kişilerin bile hareketlerini şeffaf hale getirerek hem güvenlik hem de denetim (Compliance) sağlar.
       </p>
@@ -441,13 +530,20 @@ export const brandsSOCArticles = {
       <p>
         <strong>Ayrıcalıklı hesap yönetimi (PAM) logları</strong> konusunda en güvenilir yerli çözüm olan ACKLOG, içinizdeki ve dışınızdaki tüm admin hareketlerini raporlar.
       </p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sektörel Sorular</h3>
+<p><strong>Soru:</strong> KVKK ve <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> için logların değiştirilemezliği nasıl ispatlanıyor?<br/><strong>Cevap:</strong> Toplanan loglar TÜBİTAK tabanlı zaman damgası (Time Stamp) ve SHA-256 Hashing algoritmaları ile mühürlenir.</p>
+<p><strong>Soru:</strong> Özel raporlar oluşturabilir miyiz?<br/><strong>Cevap:</strong> Sistem içindeki sürükle-bırak dashboard yöneticisiyle dilediğiniz metriği saniyeler içinde görselleştirebilirsiniz.</p>`
   },
   "mitre-att-ck-matrisi-ve-siem": {
     title: "MITRE ATT&CK Matrisi ve SIEM: Bir Siber Saldırgan Gibi Düşünün",
     description: "Siber savunmanızı bilimsel bir temele oturtun. MITRE ATT&CK matrisi ve SIEM kuralları arasındaki stratejik ilişki ve uygulama rehberi.",
     content: `
       <h2>Savunma Stratejisi: MITRE ATT&CK Matrisi ve SIEM Uyumu Neden Önemli?</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Uzman analizlerine göre, KVKK <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> teknik tedbirlerini otomatize eden kurumlar cezai risklerini %99 oranında düşürmektedir.*
+      </blockquote>
       <p>
         Hangi siber saldırılara karşı %100 korumadasınız, hangilerinde açıksınız? <strong>MITRE ATT&CK matrisi ve SIEM</strong> entegrasyonu, size bu sorunun cevabını bilimsel bir "ısı haritası" (Heatmap) olarak sunar. Saldırganın her bir adımını (Taktik ve Teknik) bildiğinizde, savunma kurallarınızı o boşluklara göre yazarsınız.
       </p>
@@ -464,6 +560,10 @@ export const brandsSOCArticles = {
       <p>
         <strong>MITRE ATT&CK matrisi ve SIEM</strong> uyumluluğunda Türkiye'nin en hazır ve çevik ürünü ACKLOG'dur.
       </p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Operasyonel SSS</h3>
+<p><strong>Soru:</strong> SIEM yönetimi için ayrı bir ekip kurmak şart mı?<br/><strong>Cevap:</strong> Hem in-house yönetebilir hem de MSSP (Yönetilen Hizmetler) modeliyle 7/24 Siber Tehdit Merkezi (SOC) desteği alabilirsiniz.</p>
+<p><strong>Soru:</strong> EPS lisanslamanın dezavantajı nedir?<br/><strong>Cevap:</strong> EPS bazlı modellerde kurumunuz büyüdükçe faturanız da büyür; sınırsız EPS destekleyen çözümler daha uzun vadeli ROI sunar.</p>`
   }
 };

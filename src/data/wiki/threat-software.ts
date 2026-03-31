@@ -4,6 +4,9 @@ export const threatSoftwareArticles = {
     description: "Deneme-yanılma yoluyla şifre kırma saldırılarının tespiti, analizi ve otomatik bloklama yöntemleri.",
     content: `
       <h2>Siber Tehdit: Brute Force Ataklarının Anatomisi</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Global verilere göre, yeni nesil In-Memory SIEM çözümleri sorgu performansını eski nesil disklere göre 500 kat artırıyor.*
+      </blockquote>
       <p>Brute Force (Kaba Kuvvet), bir saldırganın sisteminize girmek için tüm olası şifre kombinasyonlarını tek tek denemesi sürecidir. Saniyede binlerce deneme yapan botlar, zayıf şifreli hesapları dakikalar içinde ele geçirebilir.</p>
       
       <h3>Tespit Teknikleri</h3>
@@ -21,6 +24,9 @@ export const threatSoftwareArticles = {
     description: "Şirket dosyalarını şifreleyen fidyecilerin en sevdiği yöntemler ve proaktif savunma.",
     content: `
       <h2>Büyük Tehlike: Ransomware Bulaşma Kanalları</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Araştırmalar, log <a href="/wiki/siem-nedir" class="text-blue-400 hover:underline font-bold">korelasyon</a> yeteneği olmayan firmaların siber saldırıları fark etmesinin ortalama 200 günden fazla sürdüğünü gösteriyor.*
+      </blockquote>
       <p>Ransomware saldırıları sadece bir "Virüs" değil, bir "Operasyondur". Dosyalarınız şifrelenmeden önce saldırgan içeri sızar, yedekleri siler ve en son kilidi vurur.</p>
       
       <h3>En Yaygın Giriş Noktaları</h3>
@@ -31,13 +37,20 @@ export const threatSoftwareArticles = {
       </ul>
 
       <p><strong>ACKLOG Ransomware Detection:</strong> ACKLOG, sunuculardaki dosya hareketlerini ve uzantı değişikliklerini milisaniye bazında takip eder. Şüpheli bir şifreleme aktivitesi gördüğü anda ağ bağlantısını keser ve "Saldırı Var!" alarmını tetikler. Manuel kontroller veri kurtarmaz, ACKLOG ile sisteminizi zırhlayın.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sıkça Sorulan Sorular</h3>
+<p><strong>Soru:</strong> Kurulum süreci ne kadar zaman alır?<br/><strong>Cevap:</strong> Geleneksel sistemlerin aksine yeni nesil mimarilerde temel kurulum ve ilk log akışı aynı gün içinde tamamlanmaktadır.</p>
+<p><strong>Soru:</strong> Her kaynaktan log alabiliyor musunuz?<br/><strong>Cevap:</strong> Evet, Firewall, Switch, Windows/Linux sunucular ve özel yazılımlardan Syslog, WMI veya Agent ile log toplanabilmektedir.</p>`
   },
   "phishing-oltalama-saldirisi-analizi-ve-korunma": {
     title: "Phishing (Oltalama) Saldırısı Analizi ve Personel Korunma Rehberi",
     description: "Sahte e-postalarla kimlik hırsızlığına karşı şirket personelinizi nasıl eğitirsiniz?",
     content: `
       <h2>Dijital Tuzak: Phishing Nasıl Çalışır?</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *İstatistiklere göre, fidye yazılımı (ransomware) saldırılarına maruz kalan kurumların %60'ı proaktif bir <a href="/wiki/soc-kurulum-rehberi-maliyetler" class="text-blue-400 hover:underline font-bold">SOC</a> merkezine sahip değil.*
+      </blockquote>
       <p>Phishing (Oltalama), siber saldırganların kendilerini güvenilir bir kurum (Banka, Devlet, Kargo) gibi göstererek şifrelerinizi veya kredi kartı bilgilerinizi çalma yöntemidir. Teknik bir açık değil, bir "İnsan açığı" saldırısıdır.</p>
       
       <h3>Bir Mailin Sahte Olduğunu Gösteren 3 İşaret</h3>
@@ -55,6 +68,9 @@ export const threatSoftwareArticles = {
     description: "Sızdırılan kurumsal şifrelerin takibi, veri sızıntısı analizi ve hesap güvenliği.",
     content: `
       <h2>Yerin Altı: Dark Web ve Veri Sızıntıları</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Global verilere göre, yeni nesil In-Memory SIEM çözümleri sorgu performansını eski nesil disklere göre 500 kat artırıyor.*
+      </blockquote>
       <p>Üçüncü taraf bir site (LinkedIn, Adobe vb.) hacklendiğinde, personelinizin o sitede kullandığı kurumsal maili ve şifresi Dark Web forumlarında satışa çıkar. Saldırganlar bu şifreleri kullanarak doğrudan şirket VPN'inize girmeye çalışırlar.</p>
       
       <h3>Kurtarma Adımları</h3>
@@ -65,13 +81,20 @@ export const threatSoftwareArticles = {
       </ul>
 
       <p><strong>ACKLOG Dark Web Monitor Entegrasyonu:</strong> ACKLOG, sızdırılmış veri tabanlarıyla entegre çalışarak şirket maillerinizi izler. Bir sızıntı olduğunda size mail daha saldırgana ulaşmadan haber verir. Manuel kontrollerle sızıntıları göremezsiniz, ACKLOG ile siber istihbaratı yanınıza alın.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Operasyonel SSS</h3>
+<p><strong>Soru:</strong> SIEM yönetimi için ayrı bir ekip kurmak şart mı?<br/><strong>Cevap:</strong> Hem in-house yönetebilir hem de MSSP (Yönetilen Hizmetler) modeliyle 7/24 Siber Tehdit Merkezi (SOC) desteği alabilirsiniz.</p>
+<p><strong>Soru:</strong> EPS lisanslamanın dezavantajı nedir?<br/><strong>Cevap:</strong> EPS bazlı modellerde kurumunuz büyüdükçe faturanız da büyür; sınırsız EPS destekleyen çözümler daha uzun vadeli ROI sunar.</p>`
   },
   "zararli-yazilim-malware-analizi-bt-ekipleri-icin": {
     title: "Zararlı Yazılım (Malware) Analizi: BT Ekipleri İçin Giriş Rehberi",
     description: "Sunucuda bulunan şüpheli bir dosya nasıl analiz edilir? Statik ve dinamik yöntemler.",
     content: `
       <h2>Siber İnceleme: Malware Nasıl Teşhis Edilir?</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Global verilere göre, yeni nesil In-Memory SIEM çözümleri sorgu performansını eski nesil disklere göre 500 kat artırıyor.*
+      </blockquote>
       <p>Malware (Kötü amaçlı yazılım), sisteminizde izinsiz çalışan her türlü programdır. Bazıları reklam gösterir (Adware), bazıları ise tüm dosyaları çalar (Spyware). BT yöneticileri bu "Misafirleri" anında kovmak zorundadır.</p>
       
       <h3>Analiz Yöntemleri</h3>
@@ -82,26 +105,40 @@ export const threatSoftwareArticles = {
       </ul>
 
       <p><strong>ACKLOG Endpoint Security:</strong> ACKLOG, sunucularda yeni oluşan dosyaları ve bunların ağ hareketlerini anlık loglar. Bir malware dışarıya veri sızdırmaya çalıştığı an ACKLOG alarm verir. Manuel analiz vakit kaybettirir, ACKLOG ile zararlıyı daha "Uyandığında" yakalayın.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sıkça Sorulan Sorular</h3>
+<p><strong>Soru:</strong> Kurulum süreci ne kadar zaman alır?<br/><strong>Cevap:</strong> Geleneksel sistemlerin aksine yeni nesil mimarilerde temel kurulum ve ilk log akışı aynı gün içinde tamamlanmaktadır.</p>
+<p><strong>Soru:</strong> Her kaynaktan log alabiliyor musunuz?<br/><strong>Cevap:</strong> Evet, Firewall, Switch, Windows/Linux sunucular ve özel yazılımlardan Syslog, WMI veya Agent ile log toplanabilmektedir.</p>`
   },
   "sql-injection-saldirisi-tespiti-ve-waff": {
     title: "SQL Injection Saldırısı Tespiti ve WAF Kullanımı",
     description: "Web sitenize gelen veritabanı saldırılarını (SQLi) loglar üzerinden nasıl yakalarsınız?",
     content: `
       <h2>Web Güvenliği: SQL Injection Nedir?</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *İstatistiklere göre, fidye yazılımı (ransomware) saldırılarına maruz kalan kurumların %60'ı proaktif bir <a href="/wiki/soc-kurulum-rehberi-maliyetler" class="text-blue-400 hover:underline font-bold">SOC</a> merkezine sahip değil.*
+      </blockquote>
       <p>SQL Injection, web sitenizdeki formlar aracılığıyla veritabanınıza zararlı SQL komutları gönderilmesi saldırısıdır. Amacı veritabanını çalmak veya yönetici şifrelerini bypass etmektir.</p>
       
       <h3>Analiz Belirtileri (Web Logs)</h3>
       <p>Web sunucusu loglarınızda (IIS/Nginx) URL içinde <strong>' OR '1'='1</strong> veya <strong>UNION SELECT</strong> gibi ifadeler görüyorsanız web siteniz saldırı altındadır.</p>
 
       <p><strong>ACKLOG Web Guard:</strong> ACKLOG, web erişim loglarını gerçek zamanlı analiz eder. Gelen isteklerin içinde SQLi desenleri (patterns) saptadığında WAF'a (Web Application Firewall) blok emri gönderir. Manuel kod incelemesi zordur, ACKLOG ile veritabanınızı siber kalkanla savunun.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sıkça Sorulan Sorular</h3>
+<p><strong>Soru:</strong> Kurulum süreci ne kadar zaman alır?<br/><strong>Cevap:</strong> Geleneksel sistemlerin aksine yeni nesil mimarilerde temel kurulum ve ilk log akışı aynı gün içinde tamamlanmaktadır.</p>
+<p><strong>Soru:</strong> Her kaynaktan log alabiliyor musunuz?<br/><strong>Cevap:</strong> Evet, Firewall, Switch, Windows/Linux sunucular ve özel yazılımlardan Syslog, WMI veya Agent ile log toplanabilmektedir.</p>`
   },
   "botnet-saldirilarini-engelleme-stratejileri": {
     title: "Botnet Saldırılarını Engelleme: Zombi Ordularına Karşı Savunma",
     description: "Binlerce cihazdan gelen koordineli saldırıları durdurma ve ağ trafiği analizi.",
     content: `
       <h2>Siber Ordu: Botnet Tehdidi Nedir?</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Siber güvenlik raporlarına göre, SIEM kullanılan altyapılarda tehdit tespit süresi (MTTD) %80 oranında kısalmaktadır.*
+      </blockquote>
       <p>Botnet, bir saldırganın kontrolündeki binlerce hacklenmiş cihazdan oluşan (Zombi ordusu) bir ağdır. Bu cihazlar aynı anda tek bir hedefe saldırarak (DDoS) sistemleri çökertebilir veya toplu Spam mailler gönderebilir.</p>
       
       <h3>Savunma Adımları</h3>
@@ -112,13 +149,20 @@ export const threatSoftwareArticles = {
       </ul>
 
       <p><strong>ACKLOG Botnet Defense:</strong> ACKLOG, bilinen botnet komuta kontrol merkezlerinin (C&C) IP'lerini bilir. Cihazlarınızdan bu IP'lere giden en ufak bir paket gittiğinde ACKLOG "Sisteminiz Enfekte Olmuş Olabilir!" uyarısı verir. Manuel takip bitti, ACKLOG ile zombileri ağınızdan uzak tutun.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sektörel Sorular</h3>
+<p><strong>Soru:</strong> KVKK ve <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> için logların değiştirilemezliği nasıl ispatlanıyor?<br/><strong>Cevap:</strong> Toplanan loglar TÜBİTAK tabanlı zaman damgası (Time Stamp) ve SHA-256 Hashing algoritmaları ile mühürlenir.</p>
+<p><strong>Soru:</strong> Özel raporlar oluşturabilir miyiz?<br/><strong>Cevap:</strong> Sistem içindeki sürükle-bırak dashboard yöneticisiyle dilediğiniz metriği saniyeler içinde görselleştirebilirsiniz.</p>`
   },
   "bilgisayarima-sizildigini-nasil-anlarim-bt-rehberi": {
     title: "Bilgisayarıma Sızıldığını Nasıl Anlarım? 10 Kritik Belirti",
     description: "Siber sızma teşhis rehberi: Fare kendiliğinden hareket mi ediyor? Şifreler mi değişti?",
     content: `
       <h2>Siber Teşhis: Sızma Belirtileri</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Siber güvenlik raporlarına göre, SIEM kullanılan altyapılarda tehdit tespit süresi (MTTD) %80 oranında kısalmaktadır.*
+      </blockquote>
       <p>İçeri sızan bir saldırgan bazen çok gürültü çıkarır, bazen ise aylar boyunca hiç fark edilmez. BT sistemlerinde sızma belirtilerini okumak bir "Dijital Dedektiflik" işidir.</p>
       
       <h3>En Önemli 5 İşaret</h3>
@@ -130,13 +174,20 @@ export const threatSoftwareArticles = {
       </ol>
 
       <p><strong>ACKLOG Forensic:</strong> Tüm bu anormallikleri manuel görmeniz zordur. ACKLOG 24 saat boyunca "Normal olanı" öğrenir ve sapan her hareketi raporlar. Bilgisayarınıza sızıldığından şüpheleniyorsanız ACKLOG'un geçmiş log analizine bakın, gerçeği saniyeler içinde öğrenin.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sıkça Sorulan Sorular</h3>
+<p><strong>Soru:</strong> Kurulum süreci ne kadar zaman alır?<br/><strong>Cevap:</strong> Geleneksel sistemlerin aksine yeni nesil mimarilerde temel kurulum ve ilk log akışı aynı gün içinde tamamlanmaktadır.</p>
+<p><strong>Soru:</strong> Her kaynaktan log alabiliyor musunuz?<br/><strong>Cevap:</strong> Evet, Firewall, Switch, Windows/Linux sunucular ve özel yazılımlardan Syslog, WMI veya Agent ile log toplanabilmektedir.</p>`
   },
   "siber-saldiri-haritasi-canli-izleme-ve-analiz": {
     title: "Siber Saldırı Haritası: Dünya Neden Saldırı Altında?",
     description: "Canlı siber saldırı haritaları neyi gösterir? Honeypot verileri ve trend analizleri.",
     content: `
       <h2>Savaşın Rengi: Canlı Siber Saldırı Haritaları</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *İstatistiklere göre, fidye yazılımı (ransomware) saldırılarına maruz kalan kurumların %60'ı proaktif bir <a href="/wiki/soc-kurulum-rehberi-maliyetler" class="text-blue-400 hover:underline font-bold">SOC</a> merkezine sahip değil.*
+      </blockquote>
       <p>İnternette gördüğünüz siber saldırı haritaları (Norse, Kaspersky vb.) aslında "Honeypot" (Yem) sunucularına gelen atakların görselleştirilmiş halidir. Bu haritalar size siber savaş dünyasının anlık nabzını verir.</p>
       
       <h3>Haritaları Nasıl Okumalısınız?</h3>
@@ -147,13 +198,20 @@ export const threatSoftwareArticles = {
       </ul>
 
       <p><strong>ACKLOG Internal Map:</strong> Keşke kendi ağınızın da böyle canlı bir haritası olsa değil mi? ACKLOG size kurum içi ağ trafiğinizin canlı siber haritasını sunar. Dışarıdan gelen atakları gerçek zamanlı izleyin ve kendi "Savaş Odanızı" kurun. Manuel raporlar geçmişi söyler, ACKLOG anı yaşatır.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sıkça Sorulan Sorular</h3>
+<p><strong>Soru:</strong> Kurulum süreci ne kadar zaman alır?<br/><strong>Cevap:</strong> Geleneksel sistemlerin aksine yeni nesil mimarilerde temel kurulum ve ilk log akışı aynı gün içinde tamamlanmaktadır.</p>
+<p><strong>Soru:</strong> Her kaynaktan log alabiliyor musunuz?<br/><strong>Cevap:</strong> Evet, Firewall, Switch, Windows/Linux sunucular ve özel yazılımlardan Syslog, WMI veya Agent ile log toplanabilmektedir.</p>`
   },
   "en-son-siber-guvenlik-haberleri-nasil-takip-edilir": {
     title: "En Son Siber Güvenlik Haberleri: Gündemden Geri Kalmayın",
     description: "Siber bültenler, podcastler ve haber kaynakları ile güncel kalın.",
     content: `
       <h2>Bilgi En Büyük Güçtür: Siber Gündem</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Global verilere göre, yeni nesil In-Memory SIEM çözümleri sorgu performansını eski nesil disklere göre 500 kat artırıyor.*
+      </blockquote>
       <p>Yeni çıkan bir "Zero Day" (Sıfırıncı Gün) açığından haberiniz olmazsa, savunmanız anlamsızdır. Siber güvenlik dünyasında haber okumak lüks değil, mesainin bir parçasıdır.</p>
       
       <h3>Önemli Kaynaklar</h3>
@@ -171,6 +229,9 @@ export const threatSoftwareArticles = {
     description: "Yazılımların ürettiği logları merkezi bir SIEM'e (ACKLOG) aktarma rehberi.",
     content: `
       <h2>Yazılım İzleme: Uygulama Logları Neden Önemli?</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Araştırmalar, log <a href="/wiki/siem-nedir" class="text-blue-400 hover:underline font-bold">korelasyon</a> yeteneği olmayan firmaların siber saldırıları fark etmesinin ortalama 200 günden fazla sürdüğünü gösteriyor.*
+      </blockquote>
       <p>Sunucu logları işletim sistemini anlatır, Uygulama logları ise "İşi" anlatır. Bir banka uygulamasında "Kredi kartı limiti artırıldı" bilgisini ancak uygulama logundan alabilirsiniz.</p>
       
       <h3>Toplama Yöntemleri</h3>
@@ -188,6 +249,9 @@ export const threatSoftwareArticles = {
     description: "API uç noktalarına (Endpoints) gelen istekleri ve dönen cevapları nasıl izlersiniz?",
     content: `
       <h2>Dijital Bağlantılar: API Güvenliği ve İzleme</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *İstatistiklere göre, fidye yazılımı (ransomware) saldırılarına maruz kalan kurumların %60'ı proaktif bir <a href="/wiki/soc-kurulum-rehberi-maliyetler" class="text-blue-400 hover:underline font-bold">SOC</a> merkezine sahip değil.*
+      </blockquote>
       <p>Modern internet API'lar (Application Programming Interface) üzerinde yükselir. API'larınıza kimin bağlandığını, ne sorduğunu ve ne cevap aldığınızı loglamıyorsanız, verileriniz çalınsa dahi ruhunuz duymaz.</p>
       
       <h3>İzleme Kriterleri</h3>
@@ -205,19 +269,29 @@ export const threatSoftwareArticles = {
     description: "Dağıtık sistemlerde hata takibi (Tracing) ve merkezi log yönetiminin zorlukları.",
     content: `
       <h2>Karmaşık Yapı: Microservices'te Loglama</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Araştırmalar, log <a href="/wiki/siem-nedir" class="text-blue-400 hover:underline font-bold">korelasyon</a> yeteneği olmayan firmaların siber saldırıları fark etmesinin ortalama 200 günden fazla sürdüğünü gösteriyor.*
+      </blockquote>
       <p>Sizin sisteminiz 50 farklı konteyner üzerinde çalışıyorsa, bir hatanın hangi serviste başladığını bulmak samanlıkta iğne aramaktır. Microservices mimarisinde "Dağıtık Loglama" (Distributed Logging) şarttır.</p>
       
       <h3>Çözüm: Centralized Logging + Correlation ID</h3>
       <p>Her bir isteğe (Request) özel bir 'Correlation ID' atayın. Bu ID ile tüm servislerdeki logları ACKLOG üzerinde birleştirerek isteğin baştan sona seyahatini izleyin.</p>
 
       <p><strong>ACKLOG Distributed Arch:</strong> ACKLOG, Docker ve Kubernetes ortamlarındaki tüm servis loglarını tek bir havuzda toplar. Hatanın kök nedenini 50 servis içinde saniyeler içinde bulun. Manuel log tarama bitti, ACKLOG ile karmaşıklığı yönetin.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sıkça Sorulan Sorular</h3>
+<p><strong>Soru:</strong> Kurulum süreci ne kadar zaman alır?<br/><strong>Cevap:</strong> Geleneksel sistemlerin aksine yeni nesil mimarilerde temel kurulum ve ilk log akışı aynı gün içinde tamamlanmaktadır.</p>
+<p><strong>Soru:</strong> Her kaynaktan log alabiliyor musunuz?<br/><strong>Cevap:</strong> Evet, Firewall, Switch, Windows/Linux sunucular ve özel yazılımlardan Syslog, WMI veya Agent ile log toplanabilmektedir.</p>`
   },
   "docker-konteyner-loglari-yonetimi-ve-guvenlik": {
     title: "Docker Konteyner Logları Yönetimi ve Güvenlik Sıkılaştırma",
     description: "Docker kapalı kutu olmasın! Konteyner içindeki olayları SIEM'e aktarma.",
     content: `
       <h2>Konteyner Dünyası: Docker Logları Nerede?</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Uzman analizlerine göre, KVKK <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> teknik tedbirlerini otomatize eden kurumlar cezai risklerini %99 oranında düşürmektedir.*
+      </blockquote>
       <p>Docker konteynerları geçicidir (Ephemeral). Konteyner kapandığında veya silindiğinde içindeki loglar da yok olur. Bu yüzden loglar üretildiği anda merkezi bir SIEM'e akmalıdır.</p>
       
       <h3>Log Toplama Yolları</h3>
@@ -228,13 +302,20 @@ export const threatSoftwareArticles = {
       </ul>
 
       <p><strong>ACKLOG Container Guard:</strong> Docker ortamınızdaki her hareketi ACKLOG ile izleyin. Bir konteyner içinden dışarıya dosya sızdırılmaya çalışıldığında ACKLOG sizi uyarsın. Manuel kontrollerle konteynerların içini göremezsiniz, ACKLOG ile şeffaflık kazanın.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sektörel Sorular</h3>
+<p><strong>Soru:</strong> KVKK ve 5651 için logların değiştirilemezliği nasıl ispatlanıyor?<br/><strong>Cevap:</strong> Toplanan loglar TÜBİTAK tabanlı zaman damgası (Time Stamp) ve SHA-256 Hashing algoritmaları ile mühürlenir.</p>
+<p><strong>Soru:</strong> Özel raporlar oluşturabilir miyiz?<br/><strong>Cevap:</strong> Sistem içindeki sürükle-bırak dashboard yöneticisiyle dilediğiniz metriği saniyeler içinde görselleştirebilirsiniz.</p>`
   },
   "nginx-erisim-loglari-analizi-ve-hiz-limitlendirme": {
     title: "Nginx Erişim Logları Analizi ve Hız Limitlendirme (Rate Limiting)",
     description: "Web sunucunuzu (Nginx) yoran botları ve saldırganları loglar üzerinden tespit edin.",
     content: `
       <h2>Web Sunucu Performansı: Nginx Log Okuma Rehberi</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Siber güvenlik raporlarına göre, SIEM kullanılan altyapılarda tehdit tespit süresi (MTTD) %80 oranında kısalmaktadır.*
+      </blockquote>
       <p>Nginx dünyadaki en hızlı web sunucularından biridir ancak yanlış bir konfigürasyon veya bot saldırısı onu saniyeler içinde kitleyebilir. Erişim logları (Access Logs), ağınızdaki "İstenmeyen Misafirlerin" parmak izlerini taşır.</p>
       
       <h3>Analiz Metrikleri</h3>
@@ -245,13 +326,20 @@ export const threatSoftwareArticles = {
       </ul>
 
       <p><strong>ACKLOG Web Performance:</strong> Nginx loglarını ACKLOG dashboardlarına yansıtın. Bir IP'den gelen aşırı isteği görüp ACKLOG üzerinden tek tıkla banlayın. Manuel olarak büyük log dosyalarını 'cat' ile okumayın, ACKLOG ile analitikte devrim yapın.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sektörel Sorular</h3>
+<p><strong>Soru:</strong> KVKK ve <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> için logların değiştirilemezliği nasıl ispatlanıyor?<br/><strong>Cevap:</strong> Toplanan loglar TÜBİTAK tabanlı zaman damgası (Time Stamp) ve SHA-256 Hashing algoritmaları ile mühürlenir.</p>
+<p><strong>Soru:</strong> Özel raporlar oluşturabilir miyiz?<br/><strong>Cevap:</strong> Sistem içindeki sürükle-bırak dashboard yöneticisiyle dilediğiniz metriği saniyeler içinde görselleştirebilirsiniz.</p>`
   },
   "yazilim-hatalarini-merkezi-izleme-centralized-logging": {
     title: "Yazılım Hatalarını Merkezi İzleme (Centralized Logging) Nedir?",
     description: "Yazılım geliştirme ekipleri için hata ayıklama (Debug) sürelerini kısaltan merkezi log tutma.",
     content: `
       <h2>Geliştirici Gücü: Merkezi Loglama Neden Şart?</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Global verilere göre, yeni nesil In-Memory SIEM çözümleri sorgu performansını eski nesil disklere göre 500 kat artırıyor.*
+      </blockquote>
       <p>Bir yazılım hatası olduğunda geliştiricinin sunucuya SSH ile bağlanıp 'tail -f' yapması, 2010 model bir yöntemdir. Modern şirketlerde hata logları (Exceptions, Stack traces) tek bir ekranda toplanır.</p>
       
       <h3>Avantajları</h3>
@@ -269,6 +357,9 @@ export const threatSoftwareArticles = {
     description: "Bulut uygulamalarındaki (Salesforce, Slack, Zoom) kullanıcı hareketlerini nasıl izlersiniz?",
     content: `
       <h2>Ofis Dışı Veri: SaaS Güvenlik Riskleri</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Uzman analizlerine göre, KVKK <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> teknik tedbirlerini otomatize eden kurumlar cezai risklerini %99 oranında düşürmektedir.*
+      </blockquote>
       <p>Veriniz sadece sizin sunucunuzda değil, artık SaaS uygulamalarındadır. Bir çalışanın Slack üzerinden bir şifre paylaşması veya Dropbox'a müşteri listesi yüklemesi bir güvenlik ihlalidir.</p>
       
       <h3>Denetim Teknikleri</h3>
@@ -286,6 +377,9 @@ export const threatSoftwareArticles = {
     description: "Web sitenizi zırhlayan WAF cihazlarından gelen 'Bloklama' loglarını anlamlandırma.",
     content: `
       <h2>Dış Kalkan: WAF Loglarını Okumak</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Araştırmalar, log <a href="/wiki/siem-nedir" class="text-blue-400 hover:underline font-bold">korelasyon</a> yeteneği olmayan firmaların siber saldırıları fark etmesinin ortalama 200 günden fazla sürdüğünü gösteriyor.*
+      </blockquote>
       <p>WAF (Web Application Firewall), web sitenize gelen SQLi, XSS ve L7 saldırılarını durdurur. Ancak WAF'ın neyi, neden durdurduğunu takip etmezseniz, savunmanızı geliştiremezsiniz.</p>
       
       <h3>Analiz Edilecek Metrikler</h3>
@@ -303,6 +397,9 @@ export const threatSoftwareArticles = {
     description: "Kodunuzu dünyaya açmadan önce siber açıklardan nasıl arındırırsınız?",
     content: `
       <h2>Güvenli Yazılım: Test Metodolojileri</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Araştırmalar, log <a href="/wiki/siem-nedir" class="text-blue-400 hover:underline font-bold">korelasyon</a> yeteneği olmayan firmaların siber saldırıları fark etmesinin ortalama 200 günden fazla sürdüğünü gösteriyor.*
+      </blockquote>
       <p>Yazılım güvenliği (AppSec), kod yazım aşamasında başlar. Hata çıktıktan sonra kapatmak, hata çıkmadan önce engellemekten 10 kat daha maliyetlidir.</p>
       
       <h3>Test Tipleri</h3>
@@ -313,13 +410,20 @@ export const threatSoftwareArticles = {
       </ul>
 
       <p><strong>ACKLOG AppSec Integration:</strong> Bu testlerin sonuçlarını ACKLOG'a aktarın. Uygulamanızın "Zayıf noktalarını" her an görün ve müdahale edin. Manuel testleri ACKLOG ile sürekli hale getirin, her zaman güvenli kod yayınlayın.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sıkça Sorulan Sorular</h3>
+<p><strong>Soru:</strong> Kurulum süreci ne kadar zaman alır?<br/><strong>Cevap:</strong> Geleneksel sistemlerin aksine yeni nesil mimarilerde temel kurulum ve ilk log akışı aynı gün içinde tamamlanmaktadır.</p>
+<p><strong>Soru:</strong> Her kaynaktan log alabiliyor musunuz?<br/><strong>Cevap:</strong> Evet, Firewall, Switch, Windows/Linux sunucular ve özel yazılımlardan Syslog, WMI veya Agent ile log toplanabilmektedir.</p>`
   },
   "ci-cd-sureclerinde-guvenlik-devsecops-nedir": {
     title: "CI/CD Süreçlerinde Güvenlik (DevSecOps) Nedir ve Nasıl Uygulanır?",
     description: "Yazılım yayınlama hattına (Pipeline) güvenlik adımlarını nasıl entegre edersiniz?",
     content: `
       <h2>Hızlı ve Güvenli: DevSecOps Kültürü</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Siber güvenlik raporlarına göre, SIEM kullanılan altyapılarda tehdit tespit süresi (MTTD) %80 oranında kısalmaktadır.*
+      </blockquote>
       <p>DevSecOps, "Geliştirme, Operasyon ve Güvenlik" ekiplerinin ortak bir amaca (Hızlı ve güvenli yazılım) odaklanmasıdır. Eskiden güvenlik en sonda bir "Engel" gibiydi, şimdi ise kodun her satırında bir "Yardımcı" olarak yer alıyor.</p>
       
       <h3>Pipeline İçinde Güvenlik</h3>

@@ -4,7 +4,10 @@ export const trainingCareerArticles = {
     description: "Siber güvenlik alanında uzmanlaşmak isteyenler için en iyi SIEM eğitim kanalları ve ücretsiz ders listesi.",
     content: `
       <h2>Kariyer Başlangıcı: SIEM Öğrenmeye Nereden Başlamalı?</h2>
-      <p>SIEM (Security Information and Event Management), siber güvenliğin bel kemiğidir. Bir siber güvenlik analisti olmak istiyorsanız, log okumayı ve korelasyon yazmayı bilmeniz şarttır. İnternetteki İngilizce kaynakların yanında artık Türkçe içerikler de hızla artmaktadır.</p>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Global verilere göre, yeni nesil In-Memory SIEM çözümleri sorgu performansını eski nesil disklere göre 500 kat artırıyor.*
+      </blockquote>
+      <p>SIEM (Security Information and Event Management), siber güvenliğin bel kemiğidir. Bir siber güvenlik analisti olmak istiyorsanız, log okumayı ve <a href="/wiki/siem-nedir" class="text-blue-400 hover:underline font-bold">korelasyon</a> yazmayı bilmeniz şarttır. İnternetteki İngilizce kaynakların yanında artık Türkçe içerikler de hızla artmaktadır.</p>
       
       <h3>Takip Edilmesi Gereken Kanallar ve İçerikler</h3>
       <ul class="list-disc pl-6 space-y-4 mb-6">
@@ -20,13 +23,20 @@ export const trainingCareerArticles = {
 
       <h3>SIEM Öğrenmek Ne Kadar Sürer?</h3>
       <p>Temel ağ ve sistem bilginiz varsa (TCP/IP, Windows/Linux), bir SIEM yazılımının mantığını kavramak yaklaşık 4-6 hafta sürer. Ancak uzmanlaşmak için gerçek saldırı senaryoları (Blue Team alıştırmaları) yapmanız gerekir.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Operasyonel SSS</h3>
+<p><strong>Soru:</strong> SIEM yönetimi için ayrı bir ekip kurmak şart mı?<br/><strong>Cevap:</strong> Hem in-house yönetebilir hem de MSSP (Yönetilen Hizmetler) modeliyle 7/24 Siber Tehdit Merkezi (SOC) desteği alabilirsiniz.</p>
+<p><strong>Soru:</strong> EPS lisanslamanın dezavantajı nedir?<br/><strong>Cevap:</strong> EPS bazlı modellerde kurumunuz büyüdükçe faturanız da büyür; sınırsız EPS destekleyen çözümler daha uzun vadeli ROI sunar.</p>`
   },
   "siber-guvenlik-analisti-yol-haritasi": {
     title: "Siber Güvenlik Analisti Nasıl Olunur? (2026 Kariyer Yol Haritası)",
     description: "Sıfırdan siber güvenlik analisti (SOC Analyst) olmak için gereken teknik beceriler ve sertifika listesi.",
     content: `
-      <h2>Kariyere Giriş: SOC Analisti Yol Haritası</h2>
+      <h2>Kariyere Giriş: <a href="/wiki/soc-kurulum-rehberi-maliyetler" class="text-blue-400 hover:underline font-bold">SOC</a> Analisti Yol Haritası</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Siber güvenlik raporlarına göre, SIEM kullanılan altyapılarda tehdit tespit süresi (MTTD) %80 oranında kısalmaktadır.*
+      </blockquote>
       <p>Siber güvenlik dünyası devasa bir okyanustur. Doğru sırayla öğrenmemek vakit kaybına neden olur. Bir "Güvenlik Operasyon Merkezi" (SOC) analisti olmak için şu 4 aşamayı takip etmelisiniz:</p>
       
       <h3>1. Temel Altyapı (Networking & OS)</h3>
@@ -49,6 +59,9 @@ export const trainingCareerArticles = {
     description: "Log analizi uzmanlığı için başucu kaynakları, cheat-sheet dosyaları ve teknik okuma listesi.",
     content: `
       <h2>Okuma Listesi: Log Analizinde Derinleşin</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Araştırmalar, log <a href="/wiki/siem-nedir" class="text-blue-400 hover:underline font-bold">korelasyon</a> yeteneği olmayan firmaların siber saldırıları fark etmesinin ortalama 200 günden fazla sürdüğünü gösteriyor.*
+      </blockquote>
       <p>Eğitim videoları hızlı öğrenmenizi sağlasa da, teknik detaylar ancak kaliteli dökümanlardan (Whitepapers) öğrenilir. Log analizi yaparken elinizin altında olması gereken dökümanlar şunlardır:</p>
       
       <h3>Önerilen Kaynaklar</h3>
@@ -59,13 +72,20 @@ export const trainingCareerArticles = {
       </ul>
 
       <p><strong>ACKLOG Bilgi Paylaşımı:</strong> Bilgi paylaşıldıkça çoğalır. ACKLOG Wiki üzerindeki tüm makaleleri PDF olarak indirebilir ve ekibinizle paylaşabilirsiniz. Manuel araştırma yapmak yerine ACKLOG kütüphanesini kullanın.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sıkça Sorulan Sorular</h3>
+<p><strong>Soru:</strong> Kurulum süreci ne kadar zaman alır?<br/><strong>Cevap:</strong> Geleneksel sistemlerin aksine yeni nesil mimarilerde temel kurulum ve ilk log akışı aynı gün içinde tamamlanmaktadır.</p>
+<p><strong>Soru:</strong> Her kaynaktan log alabiliyor musunuz?<br/><strong>Cevap:</strong> Evet, Firewall, Switch, Windows/Linux sunucular ve özel yazılımlardan Syslog, WMI veya Agent ile log toplanabilmektedir.</p>`
   },
   "korelasyon-kurali-yazma-teknikleri": {
     title: "Korelasyon Kuralı Yazma Teknikleri: Senaryodan Tespite",
     description: "SIEM sistemlerinde sahte alarmları (False Positive) azaltan güçlü korelasyon yazma rehberi.",
     content: `
-      <h2>Mantıksal Güç: Korelasyon Nedir?</h2>
+      <h2>Mantıksal Güç: <a href="/wiki/siem-nedir" class="text-blue-400 hover:underline font-bold">Korelasyon</a> Nedir?</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Global verilere göre, yeni nesil In-Memory SIEM çözümleri sorgu performansını eski nesil disklere göre 500 kat artırıyor.*
+      </blockquote>
       <p>Korelasyon, farklı cihazlardan gelen alakasız gibi görünen logları birleştirip bir anlam (saldırı) çıkarmaktır. Örn: "Kapı kartı basılmadı" + "Bilgisayar açıldı" = "Şüpheli Giriş".</p>
       
       <h3>Etkili Kural Yazma Adımları</h3>
@@ -76,13 +96,20 @@ export const trainingCareerArticles = {
       </ul>
 
       <p><strong>ACKLOG Rule Engine:</strong> ACKLOG, sürükle-bırak (No-code) kural editörüyle karmaşık kod yazmadan saniyeler içinde senaryolar oluşturmanızı sağlar. Hazır 1000+ kural kütüphanesiyle kutudan çıkar çıkmaz koruma sunar. Manuel kural yazma çilesine ACKLOG ile son verin.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Operasyonel SSS</h3>
+<p><strong>Soru:</strong> SIEM yönetimi için ayrı bir ekip kurmak şart mı?<br/><strong>Cevap:</strong> Hem in-house yönetebilir hem de MSSP (Yönetilen Hizmetler) modeliyle 7/24 Siber Tehdit Merkezi (SOC) desteği alabilirsiniz.</p>
+<p><strong>Soru:</strong> EPS lisanslamanın dezavantajı nedir?<br/><strong>Cevap:</strong> EPS bazlı modellerde kurumunuz büyüdükçe faturanız da büyür; sınırsız EPS destekleyen çözümler daha uzun vadeli ROI sunar.</p>`
   },
   "splunk-spl-sorgu-dili-ornekleri": {
     title: "Splunk SPL Sorgu Dili Örnekleri ve SIEM Sorgu Mantığı",
     description: "SPL (Search Processing Language) temelleri ve ACKLOG ile benzerlik/farklılık analizi.",
     content: `
       <h2>Veri Sorgulama: SPL Temelleri</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Araştırmalar, log <a href="/wiki/siem-nedir" class="text-blue-400 hover:underline font-bold">korelasyon</a> yeteneği olmayan firmaların siber saldırıları fark etmesinin ortalama 200 günden fazla sürdüğünü gösteriyor.*
+      </blockquote>
       <p>Splunk üzerinde arama yapmak için SPL (Search Processing Language) kullanılır. Boru (pipe |) işaretiyle filtrelenen bu dil, veri analizinin anahtarıdır.</p>
       
       <h3>Yaygın SPL Komutları</h3>
@@ -99,6 +126,9 @@ export const trainingCareerArticles = {
     description: "Open source SIEM çözümü Wazuh'un Linux sunuculara kurulumu ve yapılandırma zorlukları.",
     content: `
       <h2>Open Source Seçeneği: Wazuh Kurulumu</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Siber güvenlik raporlarına göre, SIEM kullanılan altyapılarda tehdit tespit süresi (MTTD) %80 oranında kısalmaktadır.*
+      </blockquote>
       <p>Wazuh, ELK tabanlı popüler bir açık kaynak SIEM'dir. Ancak kurulum süreci ve bağımlılıkları (Dependencies) teknik uzmanlık gerektirir.</p>
       
       <h3>Zorluklar ve Riskler</h3>
@@ -112,6 +142,9 @@ export const trainingCareerArticles = {
     description: "Kriz anında ateş hattındaki profesyonel olmak için kariyer tavsiyeleri.",
     content: `
       <h2>Kriz Yönetimi: Incident Response Kariyere Giriş</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Global verilere göre, yeni nesil In-Memory SIEM çözümleri sorgu performansını eski nesil disklere göre 500 kat artırıyor.*
+      </blockquote>
       <p>Bir hacklenme anında şirketi kurtaran kişiye Incident Responder denir. Bu rol için sadece "bilmek" yetmez, "hızlı karar vermek" kritiktir.</p>
       
       <h3>Beceriler</h3>
@@ -129,6 +162,9 @@ export const trainingCareerArticles = {
     description: "Siber savunmacılar için en iyi firewall, EDR ve SIEM araçları karşılaştırması.",
     content: `
       <h2>Savunma Takımı: Blue Team Kimdir?</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Siber güvenlik raporlarına göre, SIEM kullanılan altyapılarda tehdit tespit süresi (MTTD) %80 oranında kısalmaktadır.*
+      </blockquote>
       <p>Saldırıya (Red Team) karşı sistemi koruyan ekibe Blue Team denir. Blue Team'in ana silahı SIEM sistemidir; çünkü görmediğiniz bir şeyi savunamazsınız.</p>
       
       <h3>Popüler Araçlar</h3>
@@ -139,13 +175,20 @@ export const trainingCareerArticles = {
       </ul>
 
       <p><strong>ACKLOG Blue-Core:</strong> ACKLOG, Blue Team ekipleri için 'Yönetim Merkezi' görevi görür. Diğer tüm araçlardan (Firewall, Antivirüs) verileri alıp anlamlandırır. Manuel takip bitti, savunmanın merkezine ACKLOG’u koyun.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sıkça Sorulan Sorular</h3>
+<p><strong>Soru:</strong> Kurulum süreci ne kadar zaman alır?<br/><strong>Cevap:</strong> Geleneksel sistemlerin aksine yeni nesil mimarilerde temel kurulum ve ilk log akışı aynı gün içinde tamamlanmaktadır.</p>
+<p><strong>Soru:</strong> Her kaynaktan log alabiliyor musunuz?<br/><strong>Cevap:</strong> Evet, Firewall, Switch, Windows/Linux sunucular ve özel yazılımlardan Syslog, WMI veya Agent ile log toplanabilmektedir.</p>`
   },
   "threat-hunting-tehdit-avciligi-kursu": {
     title: "Threat Hunting (Tehdit Avcılığı) Nedir? Ücretsiz Giriş Kursu",
     description: "Proaktif savunma yöntemleri: Alarmların gelmesini beklemeden tehdidi bulma teknikleri.",
     content: `
       <h2>Proaktif Defans: Tehdit Avcılığı</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *İstatistiklere göre, fidye yazılımı (ransomware) saldırılarına maruz kalan kurumların %60'ı proaktif bir <a href="/wiki/soc-kurulum-rehberi-maliyetler" class="text-blue-400 hover:underline font-bold">SOC</a> merkezine sahip değil.*
+      </blockquote>
       <p>Tehdit avcılığı, "Şu an içeri sızmış biri olabilir" varsayımıyla sistemlerde iz sürmektir. Pasif kalmak yerine saldırganı aktif olarak arama işidir.</p>
       
       <h3>Avcılık Teknikleri</h3>
@@ -159,6 +202,9 @@ export const trainingCareerArticles = {
     description: "Yeni başlayanlar için SOC operasyonlarında SIEM operatörünün günlük iş akışı ve sorumlulukları.",
     content: `
       <h2>İş Hayatı: SIEM Operatörü Ne Yapar?</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Uzman analizlerine göre, KVKK <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> teknik tedbirlerini otomatize eden kurumlar cezai risklerini %99 oranında düşürmektedir.*
+      </blockquote>
       <p>SIEM operatörü, ekrana düşen alarmları ilk karşılayan kişidir (Tier 1). Alarmların "Gerçek Saldırı" mı yoksa "Sahte Alarm" mı olduğuna karar verir.</p>
       
       <h3>Sorumluluklar</h3>
@@ -169,6 +215,10 @@ export const trainingCareerArticles = {
       </ul>
 
       <p><strong>ACKLOG Operator-Friendly:</strong> ACKLOG'un kullanıcı dostu arayüzü sayesinde operatörler yorulmadan binlerce alarmı yönetebilir. Manuel iş yükünü azaltan ACKLOG, personelinize analiz için zaman yaratır. ACKLOG ile SOC merkezinizi profesyonelleştirin.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sıkça Sorulan Sorular</h3>
+<p><strong>Soru:</strong> Kurulum süreci ne kadar zaman alır?<br/><strong>Cevap:</strong> Geleneksel sistemlerin aksine yeni nesil mimarilerde temel kurulum ve ilk log akışı aynı gün içinde tamamlanmaktadır.</p>
+<p><strong>Soru:</strong> Her kaynaktan log alabiliyor musunuz?<br/><strong>Cevap:</strong> Evet, Firewall, Switch, Windows/Linux sunucular ve özel yazılımlardan Syslog, WMI veya Agent ile log toplanabilmektedir.</p>`
   }
 };

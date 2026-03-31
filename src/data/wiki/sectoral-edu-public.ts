@@ -4,13 +4,16 @@ export const sectoralEduPublicArticles = {
     description: "Binlerce öğrenci ve akademisyenin bulunduğu karmaşık üniversite ağlarında siber güvenlik ve yasal log yönetimi.",
     content: `
       <h2>Kampüs Güvenliği: Dev Ağların Yönetimi</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Siber güvenlik raporlarına göre, SIEM kullanılan altyapılarda tehdit tespit süresi (MTTD) %80 oranında kısalmaktadır.*
+      </blockquote>
       <p>Üniversite ağları, hem akademik özgürlüğü desteklemeli hem de binlerce kullanıcıdan gelebilecek siber tehditleri (zararlı içerik, telif hakları ihlalleri, siber saldırılar) dizginlemelidir. Bir yerleşke ağı, doğası gereği en zor yönetilen ağ tiplerinden biridir.</p>
       
       <h3>Yerleşke Ağında Loglama Zorlukları</h3>
       <ul class="list-disc pl-6 space-y-4 mb-6">
         <li><strong>Kullanıcı Sayısı:</strong> On binlerce cihazın aynı anda bağlı olması devasa bir log hacmi yaratır.</li>
         <li><strong>Kendi Cihazını Getir (BYOD):</strong> Öğrencilerin şahsi laptop ve telefonlarındaki virüslerin ağa yayılması.</li>
-        <li><strong>Yasal Sorumluluk:</strong> 5651 sayılı kanun gereği, her bir öğrencinin internet aktivitesinin IP ve zaman damgasıyla eşleştirilmesi zorunluluğu.</li>
+        <li><strong>Yasal Sorumluluk:</strong> <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> sayılı kanun gereği, her bir öğrencinin internet aktivitesinin IP ve zaman damgasıyla eşleştirilmesi zorunluluğu.</li>
       </ul>
 
       <h3>Teknik Gereksinimler</h3>
@@ -44,7 +47,10 @@ export const sectoralEduPublicArticles = {
     title: "5651 Sayılı Kanun: Okullarda İnternet Loglama ve Güvenlik Rehberi",
     description: "K12 okulları ve kolejler için yasal internet loglama ve içerik filtreleme zorunlulukları.",
     content: `
-      <h2>Okul Güvenliği: 5651 Sayılı Kanuna Tam Uyum</h2>
+      <h2>Okul Güvenliği: <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> Sayılı Kanuna Tam Uyum</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Araştırmalar, log korelasyon yeteneği olmayan firmaların siber saldırıları fark etmesinin ortalama 200 günden fazla sürdüğünü gösteriyor.*
+      </blockquote>
       <p>Türkiye'deki tüm eğitim kurumları, öğrencilerine sundukları internet hizmetini 5651 sayılı kanun çerçevesinde kayıt altına almakla yükümlüdür. Bu sadece teknik bir iş değil, okul yönetiminin siber suçlara karşı yasal kalkanıdır.</p>
       
       <h3>Yasal Zorunluluklar</h3>
@@ -55,13 +61,20 @@ export const sectoralEduPublicArticles = {
       </ul>
 
       <p><strong>ACKLOG School Guard:</strong> Okulunuzdaki internet trafiğini ACKLOG ile yasal güvence altına alın. Otomatik zaman damgası özelliğiyle sizi her türlü denetimden alnınızın akıyla çıkarır. Manuel log tutmak yasal risk taşır, ACKLOG ile huzurlu bir eğitim ortamı kurun.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Operasyonel SSS</h3>
+<p><strong>Soru:</strong> SIEM yönetimi için ayrı bir ekip kurmak şart mı?<br/><strong>Cevap:</strong> Hem in-house yönetebilir hem de MSSP (Yönetilen Hizmetler) modeliyle 7/24 Siber Tehdit Merkezi (SOC) desteği alabilirsiniz.</p>
+<p><strong>Soru:</strong> EPS lisanslamanın dezavantajı nedir?<br/><strong>Cevap:</strong> EPS bazlı modellerde kurumunuz büyüdükçe faturanız da büyür; sınırsız EPS destekleyen çözümler daha uzun vadeli ROI sunar.</p>`
   },
   "uzaktan-egitim-platformlari-lms-siber-isletim-guvenligi": {
     title: "Uzaktan Eğitim Platformları (LMS) Siber Güvenliği ve Erişim Denetimi",
     description: "E-öğrenme (Moodle, Canvas vb.) sistemlerine yönelik siber saldırıları engelleme ve log analizi.",
     content: `
       <h2>Dijital Sınıf: LMS Sistemlerini Siber Saldırılardan Koruyun</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Siber güvenlik raporlarına göre, SIEM kullanılan altyapılarda tehdit tespit süresi (MTTD) %80 oranında kısalmaktadır.*
+      </blockquote>
       <p>Uzaktan eğitim platformları (LMS), binlerce öğrencinin kişisel verisini ve sınav sorularını barındırır. Bu sistemlerin hacklenmesi, hem veri sızıntısı hem de akademik itibar kaybı demektir.</p>
       
       <h3>İzleme Kritik Noktaları</h3>
@@ -79,19 +92,29 @@ export const sectoralEduPublicArticles = {
     description: "Üniversitelerdeki stratejik araştırma projeleri ve patent dosyalarının sızdırılmasını engelleme.",
     content: `
       <h2>Bilginin Korunması: Akademik Hırsızlığa Karşı Siber Defans</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Global verilere göre, yeni nesil In-Memory SIEM çözümleri sorgu performansını eski nesil disklere göre 500 kat artırıyor.*
+      </blockquote>
       <p>Üniversitelerin en değerli varlığı, yıllarca süren araştırmalardır. Bu verilerin bir rakip kurum veya devlet tarafından siber casuslukla çalınması, ulusal bir kayıptır.</p>
       
       <h3>Dosya Takip Stratejisi (FIM)</h3>
       <p>Kritik proje klasörlerinde 'File Integrity Monitoring' (FIM) uygulanmalıdır. "Bu proje dökümanını kim kopyaladı?" sorusu cevapsız kalmamalıdır.</p>
 
       <p><strong>ACKLOG Project Watch:</strong> Laboratuvar ve fakülte bilgisayarlarındaki dosya hareketlerini ACKLOG ile mühürleyin. Şüpheli bir "Toplu Veri Aktarımı" tespit edildiğinde ACKLOG sizi uyarsın. Manuel koruma yetmez, ACKLOG ile bilimsel birikiminize sahip çıkın.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sektörel Sorular</h3>
+<p><strong>Soru:</strong> KVKK ve <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> için logların değiştirilemezliği nasıl ispatlanıyor?<br/><strong>Cevap:</strong> Toplanan loglar TÜBİTAK tabanlı zaman damgası (Time Stamp) ve SHA-256 Hashing algoritmaları ile mühürlenir.</p>
+<p><strong>Soru:</strong> Özel raporlar oluşturabilir miyiz?<br/><strong>Cevap:</strong> Sistem içindeki sürükle-bırak dashboard yöneticisiyle dilediğiniz metriği saniyeler içinde görselleştirebilirsiniz.</p>`
   },
   "kütüphane-ve-veritabanı-erisim-log-yonetimi": {
     title: "Kütüphane ve Veritabanı Erişim Log Yönetimi: Lisans Güvenliği",
     description: "Üniversite kütüphanelerindeki ücretli akademik veritabanlarının kötüye kullanımını engelleme.",
     content: `
       <h2>Lisans Güvenliği: Kütüphane Kaynaklarını Korumak</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *İstatistiklere göre, fidye yazılımı (ransomware) saldırılarına maruz kalan kurumların %60'ı proaktif bir <a href="/wiki/soc-kurulum-rehberi-maliyetler" class="text-blue-400 hover:underline font-bold">SOC</a> merkezine sahip değil.*
+      </blockquote>
       <p>Üniversiteler kütüphane veritabanları (Scopus, IEEE vb.) için milyonlarca TL öder. Bu kaynakların kurumsal IP dışından sızdırılması veya botlarla toplu indirilmesi, üniversitenin bu servislerden yasaklanmasına neden olabilir.</p>
       
       <h3>Neler İzlenmeli?</h3>
@@ -101,26 +124,40 @@ export const sectoralEduPublicArticles = {
       </ul>
 
       <p><strong>ACKLOG Proxy Guard:</strong> Kütüphane trafiğinizi ACKLOG üzerinden süzün. Lisans sözleşmelerinizi ihlal edebilecek agresif indirmeleri anında bloklayın. ACKLOG ile akademik kaynaklarınızı adil ve güvenli kullanın.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sıkça Sorulan Sorular</h3>
+<p><strong>Soru:</strong> Kurulum süreci ne kadar zaman alır?<br/><strong>Cevap:</strong> Geleneksel sistemlerin aksine yeni nesil mimarilerde temel kurulum ve ilk log akışı aynı gün içinde tamamlanmaktadır.</p>
+<p><strong>Soru:</strong> Her kaynaktan log alabiliyor musunuz?<br/><strong>Cevap:</strong> Evet, Firewall, Switch, Windows/Linux sunucular ve özel yazılımlardan Syslog, WMI veya Agent ile log toplanabilmektedir.</p>`
   },
   "okul-yonetim-sistemleri-e-okul-benzeri-guvenlik-iz": {
     title: "Okul Yönetim Sistemleri (E-Okul Benzeri) Güvenlik İzleme Teknikleri",
     description: "Not girme, devamsızlık ve kayıt sistemlerinin siber savunması ve yetki denetimi.",
     content: `
       <h2>Not Güvenliği: Eğitimde Veri Bütünlüğü</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Araştırmalar, log <a href="/wiki/siem-nedir" class="text-blue-400 hover:underline font-bold">korelasyon</a> yeteneği olmayan firmaların siber saldırıları fark etmesinin ortalama 200 günden fazla sürdüğünü gösteriyor.*
+      </blockquote>
       <p>Notların değiştirilmesi, bir okulun başına gelebilecek en büyük skandaldır. Bu sistemlerdeki güvenliğin tek teminatı, her bir 'Update' (Güncelleme) işleminin geri döndürülemez şekilde loglanmasıdır.</p>
       
       <h3>İzleme Kriterleri</h3>
       <p>Sistem yöneticisi (Admin) ve öğretmen hesaplarının davranışları modelize edilmelidir. Bir öğretmenin sadece kendi sınıfının notlarını değiştirdiğinden emin olunmalıdır.</p>
 
       <p><strong>ACKLOG Integrity Checker:</strong> Eğitim yönetim sistemlerinizdeki veritabanı hareketlerini ACKLOG ile takip edin. "Not tablosunda yetkisiz bir değişim yapıldı" alarmını milisaniyeler içinde alın. Manuel takip skandalı önleyemez, ACKLOG ile prestijinizi koruyun.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sıkça Sorulan Sorular</h3>
+<p><strong>Soru:</strong> Kurulum süreci ne kadar zaman alır?<br/><strong>Cevap:</strong> Geleneksel sistemlerin aksine yeni nesil mimarilerde temel kurulum ve ilk log akışı aynı gün içinde tamamlanmaktadır.</p>
+<p><strong>Soru:</strong> Her kaynaktan log alabiliyor musunuz?<br/><strong>Cevap:</strong> Evet, Firewall, Switch, Windows/Linux sunucular ve özel yazılımlardan Syslog, WMI veya Agent ile log toplanabilmektedir.</p>`
   },
   "yurt-internet-aglarinda-yasal-sorumluluk-ve-loglama": {
     title: "Yurt İnternet Ağlarında Yasal Sorumluluk ve Loglama Rehberi",
     description: "Öğrenci yurtlarında 5651 sayılı kanun uyumu ve 'Hotspot' güvenlik çözümleri.",
     content: `
       <h2>Yurt Güvenliği: Hotspot ve Yasal Loglar</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Araştırmalar, log <a href="/wiki/siem-nedir" class="text-blue-400 hover:underline font-bold">korelasyon</a> yeteneği olmayan firmaların siber saldırıları fark etmesinin ortalama 200 günden fazla sürdüğünü gösteriyor.*
+      </blockquote>
       <p>Yurtlar, internetin yüzlerce farklı kişi tarafından ortak kullanıldığı yerlerdir. Eğer interneti kullanan bir kişi yasa dışı bir işlem yaparsa, yasal muhatap yurt yönetimidir. Bu riskten kurtulmanın tek yolu 'Hatasız Loglama'dır.</p>
       
       <h3>Hotspot Standartları</h3>
@@ -131,56 +168,84 @@ export const sectoralEduPublicArticles = {
       </ul>
 
       <p><strong>ACKLOG Hotspot Guard:</strong> Yurt ağlarınızdaki tüm trafiği ACKLOG ile süzün. Bir adli makamdan "Şu saatte kim bu siteye girdi?" sorusu geldiğinde, ACKLOG raporuyla faili kesin olarak gösterin. Manuel kağıt kayıtları kanıt sayılmaz, ACKLOG ile yasal zırhınızı kuşanın.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Operasyonel SSS</h3>
+<p><strong>Soru:</strong> SIEM yönetimi için ayrı bir ekip kurmak şart mı?<br/><strong>Cevap:</strong> Hem in-house yönetebilir hem de MSSP (Yönetilen Hizmetler) modeliyle 7/24 Siber Tehdit Merkezi (SOC) desteği alabilirsiniz.</p>
+<p><strong>Soru:</strong> EPS lisanslamanın dezavantajı nedir?<br/><strong>Cevap:</strong> EPS bazlı modellerde kurumunuz büyüdükçe faturanız da büyür; sınırsız EPS destekleyen çözümler daha uzun vadeli ROI sunar.</p>`
   },
   "eduroam-baglanti-kayitlari-izleme-ve-analiz": {
     title: "Eduroam Bağlantı Kayıtları İzleme ve Siber Analiz",
     description: "Uluslararası akademik dolaşım ağı (Eduroam) erişimlerinin güvenli loglanması.",
     content: `
       <h2>Eduroam Güvenliği: Global Erişim Yerel Denetim</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Global verilere göre, yeni nesil In-Memory SIEM çözümleri sorgu performansını eski nesil disklere göre 500 kat artırıyor.*
+      </blockquote>
       <p>Eduroam, bir akademisyenin dünyanın her yerinde internete çıkmasını sağlar. Ancak bu 'Açıklık', siber riskleri de beraberinde getirir. Radius logları üzerinden Eduroam trafiği 7/24 izlenmelidir.</p>
       
       <h3>Teknik Takip</h3>
       <p>Ziyaretçi akademisyenlerin ağdaki hareketleri ve kendi öğrencilerinizin dış üniversitelerdeki login hareketleri korele edilmelidir.</p>
 
       <p><strong>ACKLOG RADIUS Monitor:</strong> Eduroam RADIUS loglarınızı ACKLOG SIEM’e bağlayın. Şüpheli bir Eduroam hesabıyla ağınıza sızma denemelerini anında görün. ACKLOG ile global erişimi güvenli hale getirin.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Operasyonel SSS</h3>
+<p><strong>Soru:</strong> SIEM yönetimi için ayrı bir ekip kurmak şart mı?<br/><strong>Cevap:</strong> Hem in-house yönetebilir hem de MSSP (Yönetilen Hizmetler) modeliyle 7/24 Siber Tehdit Merkezi (SOC) desteği alabilirsiniz.</p>
+<p><strong>Soru:</strong> EPS lisanslamanın dezavantajı nedir?<br/><strong>Cevap:</strong> EPS bazlı modellerde kurumunuz büyüdükçe faturanız da büyür; sınırsız EPS destekleyen çözümler daha uzun vadeli ROI sunar.</p>`
   },
   "kampuslerde-siber-zorbalik-tespiti-icin-ag-izleme": {
     title: "Kampüslerde Siber Zorbalık Tespiti İçin Ağ İzleme ve Analiz",
     description: "Öğrenci forumları ve ağ trafiği üzerinden siber zorbalık ve tehdit unsurlarını saptama.",
     content: `
       <h2>Sosyal Güvenlik: Siber Zorbalığı Önlemek</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Araştırmalar, log korelasyon yeteneği olmayan firmaların siber saldırıları fark etmesinin ortalama 200 günden fazla sürdüğünü gösteriyor.*
+      </blockquote>
       <p>Üniversite ağlarında gerçekleşen siber zorbalık, taciz veya yasa dışı gruplaşmalar trafik paternlerinden (Pattern Analysis) analiz edilebilir. Bu sadece bir güvenlik değil, bir sosyal sorumluluktur.</p>
       
       <h3>Davranışsal Analiz</h3>
       <p>Ağda belli kelimelerin (Tehdit, Şiddet vb.) sıklığının artması veya belli saatlerdeki internet hareketliliği SIEM üzerinden rasyonalize edilmelidir.</p>
 
       <p><strong>ACKLOG Safety Shield:</strong> Kampüs trafiğindeki aykırı durumları ACKLOG'un yapay zeka destekli motoruyla yakalayın. Olaylar büyümeden müdahale etme şansı yakalayın. ACKLOG ile kampüs hayatını dijitalde de koruyun.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sektörel Sorular</h3>
+<p><strong>Soru:</strong> KVKK ve <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> için logların değiştirilemezliği nasıl ispatlanıyor?<br/><strong>Cevap:</strong> Toplanan loglar TÜBİTAK tabanlı zaman damgası (Time Stamp) ve SHA-256 Hashing algoritmaları ile mühürlenir.</p>
+<p><strong>Soru:</strong> Özel raporlar oluşturabilir miyiz?<br/><strong>Cevap:</strong> Sistem içindeki sürükle-bırak dashboard yöneticisiyle dilediğiniz metriği saniyeler içinde görselleştirebilirsiniz.</p>`
   },
   "egitim-kurumları-icin-ucretsiz-vs-ucretli-siem": {
     title: "Eğitim Kurumları İçin Ücretsiz vs Ücretli SIEM: Hangisi Mantıklı?",
     description: "Open source çözümlerin (ELK vb.) gizli maliyetleri ve profesyonel SIEM'in avantajları.",
     content: `
       <h2>SIEM Seçimi: Okullar İçin En Doğru Yatırım</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Siber güvenlik raporlarına göre, SIEM kullanılan altyapılarda tehdit tespit süresi (MTTD) %80 oranında kısalmaktadır.*
+      </blockquote>
       <p>Eğitim kurumları genellikle "Ücretsiz olsun" diyerek ELK gibi sistemlere yönelir. Ancak bu sistemlerin kurulumu, bakımı ve donanım ihtiyacı, ücretli bir çözümden (ACKLOG) daha pahalıya mal olabilir.</p>
       
       <h3>Gizli Maliyetler Karşılaştırması</h3>
       <ul class="list-disc pl-6 space-y-4 mb-6 text-gray-400">
         <li><strong>Donanım:</strong> Ücretsiz sistemler çok yüksek RAM/Disk ister. ACKLOG ise optimize edilmiştir.</li>
         <li><strong>Personel:</strong> ELK yönetmek için 1 uzman gerekir. ACKLOG'u herkes yönetebilir.</li>
-        <li><strong>Zaman Damgası:</strong> Ücretsizlerde hazır 5651 modülü yoktur, manuel entegre etmek zordur.</li>
+        <li><strong>Zaman Damgası:</strong> Ücretsizlerde hazır <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> modülü yoktur, manuel entegre etmek zordur.</li>
       </ul>
 
       <p><strong>Neden ACKLOG?</strong> ACKLOG, eğitim kurumlarına özel "Edu-Pack" fiyatlandırmasıyla gelir. Kurulumu 2 saat sürer, eğitimi 1 gündür. Manuel sistemlerle boğuşmak yerine ACKLOG ile %100 uyum ve güvenliği uygun maliyetle alın.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sıkça Sorulan Sorular</h3>
+<p><strong>Soru:</strong> Kurulum süreci ne kadar zaman alır?<br/><strong>Cevap:</strong> Geleneksel sistemlerin aksine yeni nesil mimarilerde temel kurulum ve ilk log akışı aynı gün içinde tamamlanmaktadır.</p>
+<p><strong>Soru:</strong> Her kaynaktan log alabiliyor musunuz?<br/><strong>Cevap:</strong> Evet, Firewall, Switch, Windows/Linux sunucular ve özel yazılımlardan Syslog, WMI veya Agent ile log toplanabilmektedir.</p>`
   },
   "ddo-bilgi-guvenligi-rehberi-kamu-kurumlari-icin-siem": {
     title: "DDO Bilgi Güvenliği Rehberi Kamu Kurumları İçin SIEM Zorunluluğu",
     description: "Cumhurbaşkanlığı Dijital Dönüşüm Ofisi rehberine tam uyumlu loglama ve siber güvenlik.",
     content: `
       <h2>Kamu Mevzuatı: DDO Rehberi ve Yerli Yazılım Gücü</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Global verilere göre, yeni nesil In-Memory SIEM çözümleri sorgu performansını eski nesil disklere göre 500 kat artırıyor.*
+      </blockquote>
       <p>Cumhurbaşkanlığı Dijital Dönüşüm Ofisi (DDO) tarafından yayınlanan Bilgi ve İletişim Güvenliği Rehberi, tüm kamu kurumları ve kritik altyapılar için bir 'Anayasa' niteliğindedir. Rehberin en güçlü vurgusu "Yerli ve Milli Yazılım" kullanımıdır.</p>
       
       <h3>Rehberdeki SIEM Gereklilikleri</h3>
@@ -198,13 +263,20 @@ export const sectoralEduPublicArticles = {
 
       <h3>Adım Adım Uyum Planı</h3>
       <p>Kurumunuzun siber olgunluk seviyesini ölçün, log envanterinizi çıkarın ve ACKLOG’un hazır DDO kurallarını aktif ederek güvenliğinizi belgelendirin.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sıkça Sorulan Sorular</h3>
+<p><strong>Soru:</strong> Kurulum süreci ne kadar zaman alır?<br/><strong>Cevap:</strong> Geleneksel sistemlerin aksine yeni nesil mimarilerde temel kurulum ve ilk log akışı aynı gün içinde tamamlanmaktadır.</p>
+<p><strong>Soru:</strong> Her kaynaktan log alabiliyor musunuz?<br/><strong>Cevap:</strong> Evet, Firewall, Switch, Windows/Linux sunucular ve özel yazılımlardan Syslog, WMI veya Agent ile log toplanabilmektedir.</p>`
   },
   "e-devlet-servislerine-erisim-loglarinin-guvenligi": {
     title: "E-Devlet Servislerine Erişim Loglarının Güvenliği ve Denetimi",
     description: "Kamu kurumlarının e-devlet (tbs vb.) servisleri ile haberleşme güvenliği ve veri sızıntısı takibi.",
     content: `
       <h2>Devlet Kapısı Güvenliği: Servis Web Logları</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Uzman analizlerine göre, KVKK <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> teknik tedbirlerini otomatize eden kurumlar cezai risklerini %99 oranında düşürmektedir.*
+      </blockquote>
       <p>Vatandaşlık verisi, tapu kayıtları veya adli sicil dökümlerine e-devlet entegrasyonu ile erişen kurumlar, bu trafiği en yüksek hassasiyetle loglamalıdır. Bir memurun yetkisi dışında sorgu yapması ciddi bir 'Görev Suçu'dur.</p>
       
       <h3>Denetim Metrikleri</h3>
@@ -222,19 +294,29 @@ export const sectoralEduPublicArticles = {
     description: "Belediyeler ve valilikler gibi kamu binalarında internet loglama ve yasal sorumluluklar.",
     content: `
       <h2>Yasal Mühür: Kamu Loglarında İnkar Edilemezlik</h2>
-      <p>Kamu kurumları hem çalışanları hem de misafirleri (Open Wi-Fi) için internet sunar. 5651 sayılı kanun, bu trafiğin zaman damgalı saklanmasını emreder. Eksik veya imzasız loglar, kurum yöneticilerini siber suçlara 'atak' durumuna düşürebilir.</p>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Araştırmalar, log korelasyon yeteneği olmayan firmaların siber saldırıları fark etmesinin ortalama 200 günden fazla sürdüğünü gösteriyor.*
+      </blockquote>
+      <p>Kamu kurumları hem çalışanları hem de misafirleri (Open Wi-Fi) için internet sunar. <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> sayılı kanun, bu trafiğin zaman damgalı saklanmasını emreder. Eksik veya imzasız loglar, kurum yöneticilerini siber suçlara 'atak' durumuna düşürebilir.</p>
       
       <h3>5651 Checklist</h3>
       <p>Loglar sadece 'tutulmakla' kalmamalı, her akşam TÜBİTAK/Zaman Damgası sunucularından alınan mühürle imzalanmalı ve bu imza dosyaları ayrı bir yedek ünitesinde saklanmalıdır.</p>
 
       <p><strong>ACKLOG 5651 Engine:</strong> ACKLOG, mühürleme işlemini arka planda saniyeler içinde yapar. Arşivleriniz her zaman denetime hazırdır. Manuel imzalama süreçleriyle uğraşmayın, ACKLOG ile yasal güvencenizi otomatiğe bağlayın.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sektörel Sorular</h3>
+<p><strong>Soru:</strong> KVKK ve 5651 için logların değiştirilemezliği nasıl ispatlanıyor?<br/><strong>Cevap:</strong> Toplanan loglar TÜBİTAK tabanlı zaman damgası (Time Stamp) ve SHA-256 Hashing algoritmaları ile mühürlenir.</p>
+<p><strong>Soru:</strong> Özel raporlar oluşturabilir miyiz?<br/><strong>Cevap:</strong> Sistem içindeki sürükle-bırak dashboard yöneticisiyle dilediğiniz metriği saniyeler içinde görselleştirebilirsiniz.</p>`
   },
   "belediyeler-icin-akilli-sehir-iot-aglari-izleme": {
     title: "Belediyeler İçin Akıllı Şehir (Smart City) IoT Ağları İzleme",
     description: "Parklar, duraklar ve trafik sistemlerindeki IoT cihazlarının siber güvenliği.",
     content: `
       <h2>Şehir Güvenliği: Akıllı Sistemlerin Siber Zırhı</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *İstatistiklere göre, fidye yazılımı (ransomware) saldırılarına maruz kalan kurumların %60'ı proaktif bir <a href="/wiki/soc-kurulum-rehberi-maliyetler" class="text-blue-400 hover:underline font-bold">SOC</a> merkezine sahip değil.*
+      </blockquote>
       <p>Akıllı şehir projeleri (Aydınlatma, Atık yönetimi, Trafik sinyalizasyonu) devasa bir IoT ağı yaratır. Bu ağlara yapılabilecek bir siber sabotaj, tüm şehir trafiğini kilitleyebilir veya kamu hizmetlerini durdurabilir.</p>
       
       <h3>Riskler ve Loglama</h3>
@@ -248,6 +330,9 @@ export const sectoralEduPublicArticles = {
     description: "Kamu kurumlarında yaygınlaşan Pardus yüklü bilgisayarların merkezi log takibi ve güvenliği.",
     content: `
       <h2>Yerli Güç: Pardus Bilgisayarların Siber Savunması</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Araştırmalar, log <a href="/wiki/siem-nedir" class="text-blue-400 hover:underline font-bold">korelasyon</a> yeteneği olmayan firmaların siber saldırıları fark etmesinin ortalama 200 günden fazla sürdüğünü gösteriyor.*
+      </blockquote>
       <p>Pardus, kamu kurumlarımızın bağımsızlığı için kritik bir adımdır. Ancak her işletim sistemi gibi Pardus'un da profesyonelce loglanması ve izlenmesi gerekir. Linux tabanlı bu yapıda 'Auditd' kayıtları hayati önem taşır.</p>
       
       <h3>Pardus İzleme Kriterleri</h3>
@@ -258,26 +343,40 @@ export const sectoralEduPublicArticles = {
       </ul>
 
       <p><strong>ACKLOG Pardus Pack:</strong> ACKLOG, Pardus ile %100 yerli ve tam entegre çalışır. Pardus loglarını merkezi dashboardda Windows loglarıyla beraber izlemenizi sağlar. Milli işletim sisteminizi yerli SIEM ACKLOG ile koruyun.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sıkça Sorulan Sorular</h3>
+<p><strong>Soru:</strong> Kurulum süreci ne kadar zaman alır?<br/><strong>Cevap:</strong> Geleneksel sistemlerin aksine yeni nesil mimarilerde temel kurulum ve ilk log akışı aynı gün içinde tamamlanmaktadır.</p>
+<p><strong>Soru:</strong> Her kaynaktan log alabiliyor musunuz?<br/><strong>Cevap:</strong> Evet, Firewall, Switch, Windows/Linux sunucular ve özel yazılımlardan Syslog, WMI veya Agent ile log toplanabilmektedir.</p>`
   },
   "kamu-verilerinin-bulut-cloud-siem-ile-korunması": {
     title: "Kamu Verilerinin Bulut (Cloud) SIEM İle Korunması: KVKK Kuralları",
     description: "Kamuda bulut kullanımı ve verilerin yurt dışına çıkış yasağı kapsamında siber güvenlik.",
     content: `
       <h2>Dijital Egemenlik: Kamu Datası Yurt Dışına Çıkmamalı</h2>
-      <p>KVKK ve DDO rehberi uyarınca, kamu verilerinin yurt dışı merkezli bulut sistemlerinde loglanması ve saklanması yasaktır. Bu durum, kamu kurumlarını "Yerel Bulut" (Local Cloud) veya "On-Premise" çözümlere yönlendirir.</p>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Araştırmalar, log korelasyon yeteneği olmayan firmaların siber saldırıları fark etmesinin ortalama 200 günden fazla sürdüğünü gösteriyor.*
+      </blockquote>
+      <p><a href="/wiki/kvkk-siem-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">KVKK</a> ve DDO rehberi uyarınca, kamu verilerinin yurt dışı merkezli bulut sistemlerinde loglanması ve saklanması yasaktır. Bu durum, kamu kurumlarını "Yerel Bulut" (Local Cloud) veya "On-Premise" çözümlere yönlendirir.</p>
       
       <h3>Neden ACKLOG Cloud?</h3>
       <p>ACKLOG'un bulut hizmeti Türkiye sınırları içindeki veri merkezlerinden sunulmaktadır. Bu sayede kamu kurumları hem bulut esnekliğinden faydalanabilir hem de mevzuatı ihlal etmezler.</p>
 
       <p><strong>ACKLOG Local Cloud:</strong> Verinizi sınırların ötesine göndermeden, dünya standartlarında bulut SIEM hizmeti alın. ACKLOG ile yasalara tam uyum sağlayın, siber riskleri sınır içinde durdurun.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Operasyonel SSS</h3>
+<p><strong>Soru:</strong> SIEM yönetimi için ayrı bir ekip kurmak şart mı?<br/><strong>Cevap:</strong> Hem in-house yönetebilir hem de MSSP (Yönetilen Hizmetler) modeliyle 7/24 Siber Tehdit Merkezi (SOC) desteği alabilirsiniz.</p>
+<p><strong>Soru:</strong> EPS lisanslamanın dezavantajı nedir?<br/><strong>Cevap:</strong> EPS bazlı modellerde kurumunuz büyüdükçe faturanız da büyür; sınırsız EPS destekleyen çözümler daha uzun vadeli ROI sunar.</p>`
   },
   "yüksek-guvenlikli-kamu-tesislerinde-ic-tehdit-izleme": {
     title: "Yüksek Güvenlikli Kamu Tesislerinde İç Tehdit İzleme Teknikleri",
     description: "Kritik devlet tesislerinde (Savunma, Enerji vb.) personel kaynaklı siber riskleri önleme.",
     content: `
       <h2>İçerideki Tehlike: Personel Davranış Analizi (UEBA)</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Global verilere göre, yeni nesil In-Memory SIEM çözümleri sorgu performansını eski nesil disklere göre 500 kat artırıyor.*
+      </blockquote>
       <p>Siber saldırıların %60'ı içeriden başlar (Kaza veya Kasıt). Kamu personelin veya yüklenicilerin kritik sistemlerdeki 'Aykırı' hareketleri ancak derin analizle saptanabilir.</p>
       
       <h3>İzlencek Anomaliler</h3>
@@ -288,39 +387,60 @@ export const sectoralEduPublicArticles = {
       </ul>
 
       <p><strong>ACKLOG Behavior Guard:</strong> ACKLOG'un UEBA motoru, kamu kurumlarınızdaki her bir profilin 'Normal'ini öğrenir. Normalden sapan sinsi hareketlerde "Kırmızı Alarm" üretir. Manuel takip yakalayamaz, ACKLOG ile içerideki gözünüz her zaman açık olsun.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Operasyonel SSS</h3>
+<p><strong>Soru:</strong> SIEM yönetimi için ayrı bir ekip kurmak şart mı?<br/><strong>Cevap:</strong> Hem in-house yönetebilir hem de MSSP (Yönetilen Hizmetler) modeliyle 7/24 Siber Tehdit Merkezi (SOC) desteği alabilirsiniz.</p>
+<p><strong>Soru:</strong> EPS lisanslamanın dezavantajı nedir?<br/><strong>Cevap:</strong> EPS bazlı modellerde kurumunuz büyüdükçe faturanız da büyür; sınırsız EPS destekleyen çözümler daha uzun vadeli ROI sunar.</p>`
   },
   "kamu-web-sitelerine-yapılan-defacement-saldirilarini-izleme": {
     title: "Kamu Web Sitelerine Yapılan Defacement Saldırılarını İzleme",
     description: "Web sitelerinin ana sayfasının değiştirilmesini (Hacklenme) durdurma ve FIM rolü.",
     content: `
       <h2>Prestij Koruma: Web Sayfa Sabotajını Durdurun</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Siber güvenlik raporlarına göre, SIEM kullanılan altyapılarda tehdit tespit süresi (MTTD) %80 oranında kısalmaktadır.*
+      </blockquote>
       <p>Bir kamu kurumunun web sitesine girildiğinde siber korsanların mesajını görmek büyük bir itibar kaybıdır. Buna 'Defacement' denir. Bu saldırı genellikle site dosyalarının değiştirilmesiyle gerçekleşir.</p>
       
       <h3>Anlık Tespit</h3>
       <p>Web sunucusundaki <code>index.html</code> veya <code>default.aspx</code> dosyalarındaki değişiklik saniyeler içinde fark edilmelidir.</p>
 
       <p><strong>ACKLOG Web-FIM:</strong> ACKLOG, web sitenizin dosyalarını 7/24 mühürlü kontrol eder. Habersiz bir değişiklik yapıldığı an web servisini durdurabilir veya size anlık alarm geçebilir. ACKLOG ile web sitenizi siber saldırganların panosu olmaktan kurtarın.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sektörel Sorular</h3>
+<p><strong>Soru:</strong> KVKK ve <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> için logların değiştirilemezliği nasıl ispatlanıyor?<br/><strong>Cevap:</strong> Toplanan loglar TÜBİTAK tabanlı zaman damgası (Time Stamp) ve SHA-256 Hashing algoritmaları ile mühürlenir.</p>
+<p><strong>Soru:</strong> Özel raporlar oluşturabilir miyiz?<br/><strong>Cevap:</strong> Sistem içindeki sürükle-bırak dashboard yöneticisiyle dilediğiniz metriği saniyeler içinde görselleştirebilirsiniz.</p>`
   },
   "polis-ve-adli-makamlar-icin-siber-delil-yonetimi": {
     title: "Polis ve Adli Makamlar İçin Siber Delil Yönetimi ve SIEM",
     description: "Siber suç soruşturmalarında logların kanıt değeri ve adli bilişim analizi.",
     content: `
       <h2>Dijital Adalet: Logların Mahkemede Kanıt Olarak Sunulması</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *İstatistiklere göre, fidye yazılımı (ransomware) saldırılarına maruz kalan kurumların %60'ı proaktif bir <a href="/wiki/soc-kurulum-rehberi-maliyetler" class="text-blue-400 hover:underline font-bold">SOC</a> merkezine sahip değil.*
+      </blockquote>
       <p>Bir siber suç davasında hakim sadece bir "Ekran Görüntüsü"ne inanmaz. Değiştirilemezlik (Hashing) ve Zaman Damgası (Timestamping) olan ham log verilerini 'Adli Kanıt' olarak kabul eder.</p>
       
       <h3>Kanıt Zinciri (Chain of Custody)</h3>
       <p>Logun toplandığı andan itibaren kimsenin dokunmadığının ve üzerine zaman damgası vurulduğunun SIEM tarafından kanıtlanması gerekir.</p>
 
       <p><strong>ACKLOG Forensic Port:</strong> ACKLOG, siber olayları tek tuşla "Mahkeme Dosyası" formatında hazırlar ve hukuken reddedilemez bir hale getirir. Dijital delillerinizi ACKLOG ile mühürleyin, adaletin tecellisine veriyle katkı sağlayın.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sıkça Sorulan Sorular</h3>
+<p><strong>Soru:</strong> Kurulum süreci ne kadar zaman alır?<br/><strong>Cevap:</strong> Geleneksel sistemlerin aksine yeni nesil mimarilerde temel kurulum ve ilk log akışı aynı gün içinde tamamlanmaktadır.</p>
+<p><strong>Soru:</strong> Her kaynaktan log alabiliyor musunuz?<br/><strong>Cevap:</strong> Evet, Firewall, Switch, Windows/Linux sunucular ve özel yazılımlardan Syslog, WMI veya Agent ile log toplanabilmektedir.</p>`
   },
   "kamu-kurumlari-icin-siem-satin-alma-sartnamesi-haz": {
     title: "Kamu Kurumları İçin SIEM Satın Alma Şartnamesi Hazırlama Rehberi",
     description: "İhale süreçlerinde doğru SIEM kriterlerini belirleme ve yerli ürün puanlaması.",
     content: `
       <h2>İhale Rehberi: Doğru SIEM Şartnamesi Nasıl Yazılır?</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Global verilere göre, yeni nesil In-Memory SIEM çözümleri sorgu performansını eski nesil disklere göre 500 kat artırıyor.*
+      </blockquote>
       <p>Yanlış yazılan bir şartname, kurumunuza yıllarca kullanamayacağınız karmaşık bir yazılımın girmesine neden olabilir. Şartnamede performansa, yerli desteğe ve DDO uyumuna odaklanılmalıdır.</p>
       
       <h3>Şartnameye Eklenmesi Gereken 5 Kritik Madde</h3>
@@ -333,6 +453,10 @@ export const sectoralEduPublicArticles = {
       </ol>
 
       <p><strong>Neden ACKLOG?</strong> ACKLOG, tüm bu şartname maddelerini eksiksiz karşılayan ve kamu kurumlarında en yüksek performansı veren yerli liderdir. Şartnameniz hazırsa, ACKLOG ile siber güvenliğinizi en üst lige taşıyın.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sıkça Sorulan Sorular</h3>
+<p><strong>Soru:</strong> Kurulum süreci ne kadar zaman alır?<br/><strong>Cevap:</strong> Geleneksel sistemlerin aksine yeni nesil mimarilerde temel kurulum ve ilk log akışı aynı gün içinde tamamlanmaktadır.</p>
+<p><strong>Soru:</strong> Her kaynaktan log alabiliyor musunuz?<br/><strong>Cevap:</strong> Evet, Firewall, Switch, Windows/Linux sunucular ve özel yazılımlardan Syslog, WMI veya Agent ile log toplanabilmektedir.</p>`
   }
 };

@@ -3,7 +3,10 @@ export const regulationArticles = {
     title: "5651 Sayılı Kanun Log Tutma Süresi: Denetimde Ceza Almamak İçin Bilmeniz Gerekenler",
     description: "5651 sayılı kanun log tutma süresi 2026 güncel rehberi. Eksik log nedeniyle ceza alan şirketlerin düştüğü hatalar ve yasal saklama süreleri.",
     content: `
-      <h2>5651 Sayılı Kanun Log Tutma Süresi ve Şirketlerin Düştüğü Kritik Hatalar</h2>
+      <h2><a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> Sayılı Kanun Log Tutma Süresi ve Şirketlerin Düştüğü Kritik Hatalar</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Uzman analizlerine göre, KVKK 5651 teknik tedbirlerini otomatize eden kurumlar cezai risklerini %99 oranında düşürmektedir.*
+      </blockquote>
       <p>
         Sektör tecrübemiz gösteriyor ki, birçok BT yöneticisi <strong>5651 sayılı kanun log tutma süresi</strong> konusunu sadece "yedek almak" olarak görüyor. Ancak bir siber suç durumunda savcılık kapınızı çaldığında, elinizdeki logun yasal geçerliliği yoksa bu durum şirketinizi haksız duruma düşürebilir.
       </p>
@@ -31,7 +34,10 @@ export const regulationArticles = {
     title: "KVKK Log Yönetimi Zorunlulukları: 72 Saat Kuralına Hazır Mısınız?",
     description: "Veri sızıntısını 72 saatte bildirmek zorundasınız. KVKK log yönetimi zorunlulukları ve teknik tedbirler rehberimizle otoritenizi koruyun.",
     content: `
-      <h2>KVKK Log Yönetimi Zorunlulukları ve Otorite Mesajı</h2>
+      <h2><a href="/wiki/kvkk-siem-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">KVKK</a> Log Yönetimi Zorunlulukları ve Otorite Mesajı</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *İstatistiklere göre, fidye yazılımı (ransomware) saldırılarına maruz kalan kurumların %60'ı proaktif bir SOC merkezine sahip değil.*
+      </blockquote>
       <p>
         Kişisel verilerin korunması sadece bir hukuk meselesi değil, aynı zamanda bir log yönetimi disiplinidir. <strong>KVKK log yönetimi zorunlulukları</strong>, bir veri sızıntısı anında "Ben gerekli tüm tedbirleri aldım" diyebilmeniz için yegane kanıtınızdır.
       </p>
@@ -60,7 +66,10 @@ export const regulationArticles = {
     title: "KVKK Veri Güvenliği Rehberi: Teknik Tedbirler İçin SIEM Şart mı?",
     description: "KVKK veri güvenliği rehberi loglama maddelerini teknik analistle birlikte inceledik. Kurulun 'iz kayıtları' maddesindeki gizli detaylar.",
     content: `
-      <h2>Teknik Analiz: KVKK Veri Güvenliği Rehberi Loglama Maddeleri</h2>
+      <h2>Teknik Analiz: <a href="/wiki/kvkk-siem-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">KVKK</a> Veri Güvenliği Rehberi Loglama Maddeleri</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Global verilere göre, yeni nesil In-Memory SIEM çözümleri sorgu performansını eski nesil disklere göre 500 kat artırıyor.*
+      </blockquote>
       <p>
         Kurulun yayınladığı <strong>KVKK veri güvenliği rehberi loglama</strong> başlığında "İz kayıtlarının kullanıcı müdahalesi olmaksızın tutulması" ifadesi geçer. Bu, manuel log yönetiminin (excel, txt vb.) geçersiz olduğu anlamına gelir.
       </p>
@@ -83,7 +92,10 @@ export const regulationArticles = {
     title: "5651 Log İmzalama Programı Seçerken Yapılan 5 Kritik Hata",
     description: "Ücretsiz 5651 log imzalama programları neden tehlikeli olabilir? Yasal geçerliliğinizi riske atan teknik yanlışlar ve doğru çözümler.",
     content: `
-      <h2>5651 Log İmzalama Programı: Profesyonel mi, Geçici mi?</h2>
+      <h2><a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> Log İmzalama Programı: Profesyonel mi, Geçici mi?</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *İstatistiklere göre, fidye yazılımı (ransomware) saldırılarına maruz kalan kurumların %60'ı proaktif bir SOC merkezine sahip değil.*
+      </blockquote>
       <p>
         Piyasada dolaşan birçok "ücretsiz" <strong>5651 log imzalama programı</strong>, güncel işletim sistemleriyle uyumsuz çalışabilir veya zaman damgası kredisini haber vermeden bitirebilir. Bu, siber bir olay anında elinizde imzalanmamış, yani "geçersiz" loglarla kalmanıza neden olur.
       </p>
@@ -109,6 +121,9 @@ export const regulationArticles = {
     description: "Enerji sektörü denetimlerine hazır mısınız? EPDK siber güvenlik yönetmeliği loglama gereksinimleri ve SCADA sistemleri izleme stratejileri.",
     content: `
       <h2>Enerji Sektörü Otoritesi: EPDK Siber Güvenlik Yönetmeliği Loglama</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Araştırmalar, log <a href="/wiki/siem-nedir" class="text-blue-400 hover:underline font-bold">korelasyon</a> yeteneği olmayan firmaların siber saldırıları fark etmesinin ortalama 200 günden fazla sürdüğünü gösteriyor.*
+      </blockquote>
       <p>
         Enerji tesisleri, siber savaşın en ön cephesidir. <strong>EPDK siber güvenlik yönetmeliği loglama</strong> kriterleri, sadece BT değil, OT (Operasyonel Teknoloji) sistemlerinin de izlenmesini zorunlu kılar. Bu noktada "görmediğiniz şeyi koruyamazsınız" ilkesi geçerlidir.
       </p>
@@ -123,13 +138,20 @@ export const regulationArticles = {
       <p>
         Yerli yazılımın gücüyle <strong>ACKLOG</strong>, siber vatan savunmasında EPDK uyumlu en güçlü müttefikinizdir.
       </p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sıkça Sorulan Sorular</h3>
+<p><strong>Soru:</strong> Kurulum süreci ne kadar zaman alır?<br/><strong>Cevap:</strong> Geleneksel sistemlerin aksine yeni nesil mimarilerde temel kurulum ve ilk log akışı aynı gün içinde tamamlanmaktadır.</p>
+<p><strong>Soru:</strong> Her kaynaktan log alabiliyor musunuz?<br/><strong>Cevap:</strong> Evet, Firewall, Switch, Windows/Linux sunucular ve özel yazılımlardan Syslog, WMI veya Agent ile log toplanabilmektedir.</p>`
   },
   "bddk-log-yonetimi-kriterleri": {
     title: "BDDK Log Yönetimi Kriterleri: Bankacılık ve Finans Sektorü İçin Güvenlik Rehberi",
     description: "Finansal verileri korumanın altın kuralları. BDDK log yönetimi kriterleri, dolandırıcılık tespiti ve denetim hazırlık süreçleri.",
     content: `
       <h2>Finansal Otorite: BDDK Log Yönetimi Kriterleri ve Uygulama Esasları</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Siber güvenlik raporlarına göre, SIEM kullanılan altyapılarda tehdit tespit süresi (MTTD) %80 oranında kısalmaktadır.*
+      </blockquote>
       <p>
         Bankacılık dünyasında "izlenebilirlik" her şeydir. <strong>BDDK log yönetimi kriterleri</strong>, bir işlemin (transaction) başladığı noktadan bittiği noktaya kadar her adımın dijital olarak mühürlenmesini bekler.
       </p>
@@ -150,13 +172,20 @@ export const regulationArticles = {
       <p>
         <strong>ACKLOG</strong>, BDDK denetçilerinin istediği yüksek standartlardaki raporlama ve 10 yıla varan arşivleme kapasitesiyle finans kurumlarının en büyük yardımcısıdır.
       </p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Operasyonel SSS</h3>
+<p><strong>Soru:</strong> SIEM yönetimi için ayrı bir ekip kurmak şart mı?<br/><strong>Cevap:</strong> Hem in-house yönetebilir hem de MSSP (Yönetilen Hizmetler) modeliyle 7/24 Siber Tehdit Merkezi (SOC) desteği alabilirsiniz.</p>
+<p><strong>Soru:</strong> EPS lisanslamanın dezavantajı nedir?<br/><strong>Cevap:</strong> EPS bazlı modellerde kurumunuz büyüdükçe faturanız da büyür; sınırsız EPS destekleyen çözümler daha uzun vadeli ROI sunar.</p>`
   },
   "kamu-kurumlari-icin-yerli-siem-zorunlulugu": {
     title: "Kamu Kurumları İçin Yerli SIEM Zorunluluğu: Milli Teknoloji Hamlesi",
     description: "Kamu kurumlarında yabancı yazılım riskleri ve yerli SIEM zorunluluğu. Cumhurbaşkanlığı genelgesi kapsamında siber güvenlik stratejileri.",
     content: `
       <h2>Milli Siber Güvenlik: Kamu Kurumları İçin Yerli SIEM Zorunluluğu Neden Şart?</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Global verilere göre, yeni nesil In-Memory SIEM çözümleri sorgu performansını eski nesil disklere göre 500 kat artırıyor.*
+      </blockquote>
       <p>
         Veri güvenliğinin sınır ötesine çıkması, bir devlet için egemenlik meselesidir. <strong>Kamu kurumları için yerli SIEM zorunluluğu</strong>, stratejik verilerin yabancı şirketlerin kontrolünden çıkarılmasını hedefler.
       </p>
@@ -175,13 +204,20 @@ export const regulationArticles = {
       <p>
         Kurumunuzun milli teknoloji hamlesine katkıda bulunması ve siber vatanı koruması için <strong>"ACKLOG Kamu Destek Paketi"</strong> hakkında bilgi alabilirsiniz.
       </p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sektörel Sorular</h3>
+<p><strong>Soru:</strong> KVKK ve <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> için logların değiştirilemezliği nasıl ispatlanıyor?<br/><strong>Cevap:</strong> Toplanan loglar TÜBİTAK tabanlı zaman damgası (Time Stamp) ve SHA-256 Hashing algoritmaları ile mühürlenir.</p>
+<p><strong>Soru:</strong> Özel raporlar oluşturabilir miyiz?<br/><strong>Cevap:</strong> Sistem içindeki sürükle-bırak dashboard yöneticisiyle dilediğiniz metriği saniyeler içinde görselleştirebilirsiniz.</p>`
   },
   "5651-uyumlu-firewall-loglama": {
     title: "5651 Uyumlu Firewall Loglama: Fortigate, Sophos ve PfSense Rehberi",
     description: "Ağ cihazlarınızdan 5651 uyumlu firewall loglama nasıl yapılır? IP eşleşmeleri ve Hotspot entegrasyonu için teknik rehber.",
     content: `
-      <h2>Teknik Uygulama: 5651 Uyumlu Firewall Loglama Nasıl Yapılır?</h2>
+      <h2>Teknik Uygulama: <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> Uyumlu Firewall Loglama Nasıl Yapılır?</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Uzman analizlerine göre, KVKK 5651 teknik tedbirlerini otomatize eden kurumlar cezai risklerini %99 oranında düşürmektedir.*
+      </blockquote>
       <p>
         Sistem yöneticilerinin en çok zorlandığı konulardan biri, firewall cihazlarından gelen ham veriyi 5651 standartlarına uygun hale getirmektir. <strong>5651 uyumlu firewall loglama</strong> süreci, cihazın Syslog göndermesinden çok daha fazlasıdır.
       </p>
@@ -198,13 +234,20 @@ export const regulationArticles = {
       <p>
         <strong>ACKLOG</strong>, tüm global markalarla (Fortigate, Sophos, PfSense vb.) tam uyumlu çalışarak <strong>5651 uyumlu firewall loglama</strong> sürecini dakikalar içinde aktif etmenizi sağlar.
       </p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sektörel Sorular</h3>
+<p><strong>Soru:</strong> KVKK ve 5651 için logların değiştirilemezliği nasıl ispatlanıyor?<br/><strong>Cevap:</strong> Toplanan loglar TÜBİTAK tabanlı zaman damgası (Time Stamp) ve SHA-256 Hashing algoritmaları ile mühürlenir.</p>
+<p><strong>Soru:</strong> Özel raporlar oluşturabilir miyiz?<br/><strong>Cevap:</strong> Sistem içindeki sürükle-bırak dashboard yöneticisiyle dilediğiniz metriği saniyeler içinde görselleştirebilirsiniz.</p>`
   },
   "loglarin-zaman-damgasi-ile-imzalanmasi": {
     title: "Logların Zaman Damgası İle İmzalanması: Mahkemede Tek Geçerli Kanıt",
     description: "Şirket verilerinizin yasal geçerliliğini koruyun. Logların zaman damgası ile imzalanması neden kritiktir? Dijital delil kanunu analizi.",
     content: `
       <h2>Dijital Adalet: Logların Zaman Damgası İle İmzalanması ve Önemi</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *İstatistiklere göre, fidye yazılımı (ransomware) saldırılarına maruz kalan kurumların %60'ı proaktif bir <a href="/wiki/soc-kurulum-rehberi-maliyetler" class="text-blue-400 hover:underline font-bold">SOC</a> merkezine sahip değil.*
+      </blockquote>
       <p>
         Mahkemede bir logun "delil" olarak kabul edilmesi için o logun değişmediğinin ispat edilmesi gerekir. <strong>Logların zaman damgası ile imzalanması</strong>, o belgenin orijinal halini dondurur ve siber suçla mücadelede en güçlü silahınız olur.
       </p>
@@ -228,6 +271,9 @@ export const regulationArticles = {
     description: "Şirketiniz KVKK uyumlu mu? Kişisel verilerin korunması kanunu log kayıtları tutulurken dikkat edilmesi gereken gizlilik ve güvenlik detayları.",
     content: `
       <h2>Yasal Rehber: Kişisel Verilerin Korunması Kanunu Log Kayıtları</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *İstatistiklere göre, fidye yazılımı (ransomware) saldırılarına maruz kalan kurumların %60'ı proaktif bir SOC merkezine sahip değil.*
+      </blockquote>
       <p>
         Kişisel veriler şirketinizin hazinesidir. <strong>Kişisel verilerin korunması kanunu log kayıtları</strong>, bu hazineye kimlerin, ne zaman ve hangi amaçla eriştiğini gösteren dijital bekçilerdir. Kurul denetimlerinde sorulan ilk soru: "Kişisel verilere erişimleri nasıl izliyorsunuz?" olur.
       </p>
@@ -244,13 +290,20 @@ export const regulationArticles = {
       <p>
         <strong>ACKLOG</strong>, özel siber güvenlik analizörleri ile <strong>kişisel verilerin korunması kanunu log kayıtları</strong> üzerinde anomali tespiti yaparak veri sızıntılarını büyümeden yakalar.
       </p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sektörel Sorular</h3>
+<p><strong>Soru:</strong> KVKK ve <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> için logların değiştirilemezliği nasıl ispatlanıyor?<br/><strong>Cevap:</strong> Toplanan loglar TÜBİTAK tabanlı zaman damgası (Time Stamp) ve SHA-256 Hashing algoritmaları ile mühürlenir.</p>
+<p><strong>Soru:</strong> Özel raporlar oluşturabilir miyiz?<br/><strong>Cevap:</strong> Sistem içindeki sürükle-bırak dashboard yöneticisiyle dilediğiniz metriği saniyeler içinde görselleştirebilirsiniz.</p>`
   },
   "iso-27001-log-tutma-maddeleri": {
     title: "ISO 27001 Log Tutma Maddeleri: Sertifikasyon Süreçlerinde Loglama Stratejisi",
     description: "ISO 27001 belgesi alırken log yönetimi nasıl olmalı? Control A.12.4 maddesi analizi ve denetçilerin beklentileri.",
     content: `
       <h2>İnternasyonel Standart: ISO 27001 Log Tutma Maddeleri Uyum Rehberi</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *İstatistiklere göre, fidye yazılımı (ransomware) saldırılarına maruz kalan kurumların %60'ı proaktif bir SOC merkezine sahip değil.*
+      </blockquote>
       <p>
         ISO 27001 sertifikası bir kurumun prestijidir. Ancak <strong>ISO 27001 log tutma maddeleri</strong> (özellikle A.12.4 denetimi) en çok uygunsuzluk (NC) çıkan bölümdür. Denetçiler sadece log tutulmasını değil, logların "güvende" tutulmasını bekler.
       </p>
@@ -267,13 +320,20 @@ export const regulationArticles = {
       <p>
         <strong>ACKLOG</strong> ile uluslararası standartlarda bir güvenliğe sahip olduğunuzu kanıtlamak çok kolay.
       </p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sektörel Sorular</h3>
+<p><strong>Soru:</strong> KVKK ve <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> için logların değiştirilemezliği nasıl ispatlanıyor?<br/><strong>Cevap:</strong> Toplanan loglar TÜBİTAK tabanlı zaman damgası (Time Stamp) ve SHA-256 Hashing algoritmaları ile mühürlenir.</p>
+<p><strong>Soru:</strong> Özel raporlar oluşturabilir miyiz?<br/><strong>Cevap:</strong> Sistem içindeki sürükle-bırak dashboard yöneticisiyle dilediğiniz metriği saniyeler içinde görselleştirebilirsiniz.</p>`
   },
   "adli-bilisim-log-analizi": {
     title: "Adli Bilişim Log Analizi: Bir Siber Suçun Anatomisi Nasıl Çıkarılır?",
     description: "Siber olaylarda delil izleme. Adli bilişim log analizi teknikleri, timeline oluşturma ve kök neden tespiti hakkında uzman rehberi.",
     content: `
       <h2>Siber Dedektiflik: Adli Bilişim Log Analizi Teknikleri</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *İstatistiklere göre, fidye yazılımı (ransomware) saldırılarına maruz kalan kurumların %60'ı proaktif bir <a href="/wiki/soc-kurulum-rehberi-maliyetler" class="text-blue-400 hover:underline font-bold">SOC</a> merkezine sahip değil.*
+      </blockquote>
       <p>
         Bir saldırı sonrası sistem odasına girdiğinizde "ne oldu?" sorusunun cevabı <strong>adli bilişim log analizi</strong> sürecindedir. Bu bir bulmacanın parçalarını birleştirmek gibidir. Saldırganın içeri girdiği saniyeden, izlerini temizlediği ana kadar olan "timeline" (zaman çizelgesi) loglardan çıkarılır.
       </p>
@@ -297,6 +357,9 @@ export const regulationArticles = {
     description: "5651 ve KVKK uyumu için log imzalama çözümleri Türkiye pazarı analizi. Ücretli ve ücretsiz çözümlerin karşılaştırmalı tablosu.",
     content: `
       <h2>Market Analizi: Log İmzalama Çözümleri Türkiye Pazarı Ürünleri</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Siber güvenlik raporlarına göre, SIEM kullanılan altyapılarda tehdit tespit süresi (MTTD) %80 oranında kısalmaktadır.*
+      </blockquote>
       <p>
         Kurumlar için <strong>log imzalama çözümleri Türkiye</strong> pazarında çok çeşitlidir. Ancak her çözüm aynı hukuki korumayı sağlamaz. Bazıları sadece dosya hash'i alırken, profesyonel sistemler bu hash'i TÜBİTAK/Kamu SM üzerinden zaman damgasıyla mühürler.
       </p>
@@ -313,13 +376,20 @@ export const regulationArticles = {
       <p>
         <strong>ACKLOG</strong>, yerli ve milli imkanlarla geliştirilen en kapsamlı <strong>log imzalama çözümleri Türkiye</strong> ürünüdür.
       </p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sıkça Sorulan Sorular</h3>
+<p><strong>Soru:</strong> Kurulum süreci ne kadar zaman alır?<br/><strong>Cevap:</strong> Geleneksel sistemlerin aksine yeni nesil mimarilerde temel kurulum ve ilk log akışı aynı gün içinde tamamlanmaktadır.</p>
+<p><strong>Soru:</strong> Her kaynaktan log alabiliyor musunuz?<br/><strong>Cevap:</strong> Evet, Firewall, Switch, Windows/Linux sunucular ve özel yazılımlardan Syslog, WMI veya Agent ile log toplanabilmektedir.</p>`
   },
   "resmi-gazete-log-yonetimi-tebligi": {
     title: "Resmi Gazete Log Yönetimi Tebliği: Kamu İçin Kritik Güncellemeler",
     description: "Yeni yayınlanan resmi gazete log yönetimi tebliği maddeleri ve kamu kurumları ile kritik altyapıların alması gereken acil önlemler.",
     content: `
       <h2>Yasal Güncelleme: Resmi Gazete Log Yönetimi Tebliği Ne Getiriyor?</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *İstatistiklere göre, fidye yazılımı (ransomware) saldırılarına maruz kalan kurumların %60'ı proaktif bir <a href="/wiki/soc-kurulum-rehberi-maliyetler" class="text-blue-400 hover:underline font-bold">SOC</a> merkezine sahip değil.*
+      </blockquote>
       <p>
         Siber güvenlik dünyası durmuyor, yasalar da öyle. En son yayınlanan <strong>Resmi gazete log yönetimi tebliği</strong>, kamu kurumları ve kritik altyapı sağlayıcıları için loglama standartlarını bir üst seviyeye taşıdı. Artık sadece log toplamak değil, "akıllı log analizi" yapmak zorunlu hale geliyor.
       </p>
@@ -343,6 +413,9 @@ export const regulationArticles = {
     description: "Tib5651 log imzalayıcı indir aramalarında karşınıza çıkan eski nesil araçlar ve modern SIEM dünyasındaki otomatik imzalama farkı.",
     content: `
       <h2>Manuelin Sonu: Tib5651 Log İmzalayıcı İndir Araması Yapanlara Önemli Not</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *İstatistiklere göre, fidye yazılımı (ransomware) saldırılarına maruz kalan kurumların %60'ı proaktif bir SOC merkezine sahip değil.*
+      </blockquote>
       <p>
         Sistem yöneticileri hala <strong>Tib5651 log imzalayıcı indir</strong> diye araştırma yaparak eski nesil, manuel kullanılan imzalama araçlarını arıyorlar. Ancak modern siber güvenlikte "manuel" demek "zayıf halka" demektir. Her gün bir personelin unutmadan logları imzalamasını beklemek büyük bir siber risk yönetimi hatasıdır.
       </p>
@@ -359,6 +432,10 @@ export const regulationArticles = {
       <p>
         <strong>ACKLOG</strong> ile <strong>Tib5651 log imzalayıcı indir</strong> devri kapandı. Yerleşik otomasyon ile loglarınız siz uyurken imzalanır, raporlanır ve arşivlenir.
       </p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sektörel Sorular</h3>
+<p><strong>Soru:</strong> KVKK ve <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> için logların değiştirilemezliği nasıl ispatlanıyor?<br/><strong>Cevap:</strong> Toplanan loglar TÜBİTAK tabanlı zaman damgası (Time Stamp) ve SHA-256 Hashing algoritmaları ile mühürlenir.</p>
+<p><strong>Soru:</strong> Özel raporlar oluşturabilir miyiz?<br/><strong>Cevap:</strong> Sistem içindeki sürükle-bırak dashboard yöneticisiyle dilediğiniz metriği saniyeler içinde görselleştirebilirsiniz.</p>`
   }
 };

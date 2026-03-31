@@ -36,11 +36,39 @@ export default async function WikiPage({
         notFound();
     }
 
-    // Filter out the current article to show others in the sidebar
-    // Convert to a plain array of entries for easy serialization
-    const otherArticles = Object.entries(articles)
-        .filter(([s]) => s !== slug)
-        .map(([s, d]) => [s, { title: d.title }] as [string, { title: string }]);
+    // JSON-LD Article Schema
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "id": `https://logsiem.com/wiki/${slug}`
+        },
+        "headline": data.title,
+        "description": (data as any).description || data.title,
+        "author": {
+            "@type": "Person",
+            "name": data.author?.name || "Fatih Emiral",
+            "jobTitle": data.author?.title || "IT Müdürü & Siber Güvenlik Uzmanı"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "ACKLOG SIEM",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://logsiem.com/logo.png"
+            }
+        },
+        "datePublished": new Date().toISOString()
+    };
 
-    return <WikiClient slug={slug} data={data} otherArticles={otherArticles} />;
+    return (
+        <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
+            <WikiClient slug={slug} data={data} otherArticles={otherArticles} />
+        </>
+    );
 }

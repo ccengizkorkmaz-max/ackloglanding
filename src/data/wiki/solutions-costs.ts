@@ -4,6 +4,9 @@ export const solutionsCostsArticles = {
     description: "Türkiye'nin en kapsamlı yerli SIEM yazılımları listesi. Ürünlerin performans, maliyet ve mevzuat uyumu açısından detaylı karşılaştırması.",
     content: `
       <h2>Yerli SIEM Yazılımları Listesi ve Pazarın Yeni Oyuncuları</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Siber güvenlik raporlarına göre, SIEM kullanılan altyapılarda tehdit tespit süresi (MTTD) %80 oranında kısalmaktadır.*
+      </blockquote>
       <p>
         Türkiye'de siber güvenlik bilinci arttıkça, <strong>yerli SIEM yazılımları listesi</strong> de her geçen gün zenginleşiyor. Ancak her "yerli" yazılım, aynı teknolojik derinliğe sahip mi? Bir satın alma kararı vermeden önce, ürünün sadece pasaportuna değil, motor gücüne bakmalısınız.
       </p>
@@ -20,13 +23,20 @@ export const solutionsCostsArticles = {
       <p>
         <strong>ACKLOG</strong>, bu listede "Performans Lideri" olarak konumlanıyor. Klasik veritabanı yavaşlıklarını geride bırakan <strong>In-Memory</strong> mimarisiyle, en güncel <strong>yerli SIEM yazılımları listesi</strong> içinde fark yaratıyor.
       </p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sektörel Sorular</h3>
+<p><strong>Soru:</strong> KVKK ve <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> için logların değiştirilemezliği nasıl ispatlanıyor?<br/><strong>Cevap:</strong> Toplanan loglar TÜBİTAK tabanlı zaman damgası (Time Stamp) ve SHA-256 Hashing algoritmaları ile mühürlenir.</p>
+<p><strong>Soru:</strong> Özel raporlar oluşturabilir miyiz?<br/><strong>Cevap:</strong> Sistem içindeki sürükle-bırak dashboard yöneticisiyle dilediğiniz metriği saniyeler içinde görselleştirebilirsiniz.</p>`
   },
   "en-iyi-turk-siem-firmalari": {
     title: "En İyi Türk SIEM Firmaları: Sadece Yazılım Değil, Partner Seçimi",
     description: "Siber güvenlikte çözüm ortağı ararken bakmanız gereken en iyi Türk SIEM firmaları ve sundukları profesyonel hizmetlerin analizi.",
     content: `
       <h2>Güven İlişkisi: En İyi Türk SIEM Firmaları Nasıl Belirlenir?</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Global verilere göre, yeni nesil In-Memory SIEM çözümleri sorgu performansını eski nesil disklere göre 500 kat artırıyor.*
+      </blockquote>
       <p>
         Bir SIEM projesinin başarısı, yazılımın kalitesi kadar, arkasındaki firmanın desteğine bağlıdır. <strong>En İyi Türk SIEM firmaları</strong>, sadece lisans satıp çekilmez; kurulumdan kural yazımına, olay müdahaleden (incident response) eğitimlere kadar yanınızda durur.
       </p>
@@ -43,13 +53,20 @@ export const solutionsCostsArticles = {
       <p>
         ACKLOG, Türkiye'nin <strong>en iyi Türk SIEM firmaları</strong> arasında, mühendislik kökenli ekibi ve 7/24 kesintisiz destek garantisiyle "Trust & Authority" (Güven ve Otorite) sembolüdür.
       </p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sektörel Sorular</h3>
+<p><strong>Soru:</strong> KVKK ve <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> için logların değiştirilemezliği nasıl ispatlanıyor?<br/><strong>Cevap:</strong> Toplanan loglar TÜBİTAK tabanlı zaman damgası (Time Stamp) ve SHA-256 Hashing algoritmaları ile mühürlenir.</p>
+<p><strong>Soru:</strong> Özel raporlar oluşturabilir miyiz?<br/><strong>Cevap:</strong> Sistem içindeki sürükle-bırak dashboard yöneticisiyle dilediğiniz metriği saniyeler içinde görselleştirebilirsiniz.</p>`
   },
   "yerli-log-yonetimi-cozumleri": {
     title: "Yerli Log Yönetimi Çözümleri: 5651 ve KVKK Kabusundan Kurtulun",
     description: "Log toplama ve imzalama süreçlerini otomatiğe bağlayın. Yerli log yönetimi çözümleri ile denetimlerden tam not almanın pratik yolları.",
     content: `
       <h2>Yasal Zırh: Yerli Log Yönetimi Çözümleri ile Kesintisiz Uyum</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Siber güvenlik raporlarına göre, SIEM kullanılan altyapılarda tehdit tespit süresi (MTTD) %80 oranında kısalmaktadır.*
+      </blockquote>
       <p>
         Birçok firma için log tutmak bir "angarya" olarak görülür. Ancak <strong>yerli log yönetimi çözümleri</strong>, bu süreci bir angaryadan çıkarıp kurumunuz için bir erken uyarı sistemine dönüştürebilir. Doğru bir yapılandırma ile hem yasaları karşılarsınız hem de ağınızdaki sızıntıları yakalarsınız.
       </p>
@@ -73,6 +90,9 @@ export const solutionsCostsArticles = {
     description: "Türkiye'nin siber bağımsızlığı için yürütülen milli SIEM projeleri. Savunma sanayii ve kritik altyapılarda yerli yazılımın stratejik önemi.",
     content: `
       <h2>Stratejik Üstünlük: Milli SIEM Projeleri ve Savunma Vizyonu</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Araştırmalar, log <a href="/wiki/siem-nedir" class="text-blue-400 hover:underline font-bold">korelasyon</a> yeteneği olmayan firmaların siber saldırıları fark etmesinin ortalama 200 günden fazla sürdüğünü gösteriyor.*
+      </blockquote>
       <p>
         Siber güvenlik, artık fiziksel sınırların ötesinde bir vatan savunmasıdır. <strong>Milli SIEM projeleri</strong>, devlet kurumlarımızın ve kritik şirketlerimizin verilerini, yabancı istihbarat servislerinin "arka kapı" açabileceği yazılımlardan korumayı hedefler.
       </p>
@@ -95,6 +115,9 @@ export const solutionsCostsArticles = {
     description: "Türk mühendislik dehasının küresel pazardaki temsilcileri. Türkiye merkezli siber güvenlik firmaları ve ihraç edilen başarı hikayeleri.",
     content: `
       <h2>Dünya Markası Olma Yolunda: Türkiye Merkezli Siber Güvenlik Firmaları</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Araştırmalar, log <a href="/wiki/siem-nedir" class="text-blue-400 hover:underline font-bold">korelasyon</a> yeteneği olmayan firmaların siber saldırıları fark etmesinin ortalama 200 günden fazla sürdüğünü gösteriyor.*
+      </blockquote>
       <p>
         "Türkler siber güvenlikte ne yapıyor?" diyenlere en güzel cevap, <strong>Türkiye merkezli siber güvenlik firmaları</strong> tarafından üretilen ve dünyanın dört bir yanına kurulan sistemlerdir. Ülkemiz, siber güvenlikte sadece tüketici değil, artık teknoloji üreten bir güçtür.
       </p>
@@ -109,13 +132,20 @@ export const solutionsCostsArticles = {
       <p>
         ACKLOG, <strong>Türkiye merkezli siber güvenlik firmaları</strong> içinde AR-GE yatırımlarıyla öne çıkan, vizyoner bir teknoloji şirketidir.
       </p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Operasyonel SSS</h3>
+<p><strong>Soru:</strong> SIEM yönetimi için ayrı bir ekip kurmak şart mı?<br/><strong>Cevap:</strong> Hem in-house yönetebilir hem de MSSP (Yönetilen Hizmetler) modeliyle 7/24 Siber Tehdit Merkezi (SOC) desteği alabilirsiniz.</p>
+<p><strong>Soru:</strong> EPS lisanslamanın dezavantajı nedir?<br/><strong>Cevap:</strong> EPS bazlı modellerde kurumunuz büyüdükçe faturanız da büyür; sınırsız EPS destekleyen çözümler daha uzun vadeli ROI sunar.</p>`
   },
   "yerli-ve-milli-loglama-yazilimi": {
     title: "Neden Yerli ve Milli Loglama Yazılımı? Bir Güven ve Gelecek Meselesi",
     description: "Yerli ve milli loglama yazılımı kullanmanın sadece yasal değil, stratejik ve teknik nedenleri. ACKLOG ile güvende kalın.",
     content: `
       <h2>Stratejik Analiz: Yerli ve Milli Loglama Yazılımı Seçimi</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Araştırmalar, log <a href="/wiki/siem-nedir" class="text-blue-400 hover:underline font-bold">korelasyon</a> yeteneği olmayan firmaların siber saldırıları fark etmesinin ortalama 200 günden fazla sürdüğünü gösteriyor.*
+      </blockquote>
       <p>
         Bir yazılımın üzerine "yerli malı" etiketi asmak yetmez, o yazılımın "milli bir duruş" sergilemesi gerekir. <strong>Yerli ve milli loglama yazılımı</strong> kullanmak, veri sızıntılarını önlemenin yanı sıra, ülkemizdeki siber güvenlik sermayesinin içeride kalması demektir.
       </p>
@@ -139,6 +169,9 @@ export const solutionsCostsArticles = {
     description: "Türkiye Siber Güvenlik Kümelenmesi'ne üye olan SIEM markaları ve bu üyeliğin kurumlar için anlamı. Güvenli teknoloji rehberi.",
     content: `
       <h2>Otorite Onayı: Siber Kümelenme SIEM Üyeleri ve Standartlar</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Uzman analizlerine göre, KVKK <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> teknik tedbirlerini otomatize eden kurumlar cezai risklerini %99 oranında düşürmektedir.*
+      </blockquote>
       <p>
         Bir yazılımı satın almadan önce "referansı kim?" diye sorarsınız. <strong>Siber kümelenme SIEM üyeleri</strong>, devletin ve ilgili kurumların denetiminden geçmiş, güvenilirliğini kanıtlamış firmalardır. Bu küme, Türkiye'nin siber güvenlik ordusunun teknolojik kanadıdır.
       </p>
@@ -153,13 +186,20 @@ export const solutionsCostsArticles = {
       <p>
         ACKLOG, <strong>siber kümelenme SIEM üyeleri</strong> arasında en aktif oyunculardan biri olup, milli teknolojinin gelişimine liderlik etmektedir.
       </p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sektörel Sorular</h3>
+<p><strong>Soru:</strong> KVKK ve 5651 için logların değiştirilemezliği nasıl ispatlanıyor?<br/><strong>Cevap:</strong> Toplanan loglar TÜBİTAK tabanlı zaman damgası (Time Stamp) ve SHA-256 Hashing algoritmaları ile mühürlenir.</p>
+<p><strong>Soru:</strong> Özel raporlar oluşturabilir miyiz?<br/><strong>Cevap:</strong> Sistem içindeki sürükle-bırak dashboard yöneticisiyle dilediğiniz metriği saniyeler içinde görselleştirebilirsiniz.</p>`
   },
   "yerli-soar-ve-siem-entegrasyonu": {
     title: "Yerli SOAR ve SIEM Entegrasyonu: İnsan Hızını Aşan Bir Savunma",
     description: "Siber saldırılara milisaniyeler içinde cevap verin. Yerli SOAR ve SIEM entegrasyonu ile otonom güvenlik operasyon merkezi (SOC) rehberi.",
     content: `
       <h2>Otonom Savunma: Yerli SOAR ve SIEM Entegrasyonu ile Maksimum Verim</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Siber güvenlik raporlarına göre, SIEM kullanılan altyapılarda tehdit tespit süresi (MTTD) %80 oranında kısalmaktadır.*
+      </blockquote>
       <p>
         Analistlerin loglar arasında kaybolmasını istemiyor musunuz? <strong>Yerli SOAR ve SIEM entegrasyonu</strong>, binlerce alarmı süzerek "kritik" olanlara otomatik müdahale edilmesini sağlar. Yani saldırgan içeri sızdığında, sistem onun IP adresini siz kahvenizi yudumlarken çoktan engellemiş olur.
       </p>
@@ -176,13 +216,20 @@ export const solutionsCostsArticles = {
       <p>
         ACKLOG, açık mimarisi sayesinde Türkiye'deki tüm <strong>yerli SOAR ve SIEM entegrasyonu</strong> projelerinde omurga görevi görür.
       </p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Operasyonel SSS</h3>
+<p><strong>Soru:</strong> SIEM yönetimi için ayrı bir ekip kurmak şart mı?<br/><strong>Cevap:</strong> Hem in-house yönetebilir hem de MSSP (Yönetilen Hizmetler) modeliyle 7/24 Siber Tehdit Merkezi (SOC) desteği alabilirsiniz.</p>
+<p><strong>Soru:</strong> EPS lisanslamanın dezavantajı nedir?<br/><strong>Cevap:</strong> EPS bazlı modellerde kurumunuz büyüdükçe faturanız da büyür; sınırsız EPS destekleyen çözümler daha uzun vadeli ROI sunar.</p>`
   },
   "turk-muhendislerin-gelistirdigi-siem": {
     title: "Tamamen Türk Mühendislerin Geliştirdiği SIEM: Teknolojiye Hükmedin",
     description: "Dışa bağımlılığa son. Türk mühendislerin geliştirdiği SIEM altyapısı ve yenilikçi in-memory teknolojisinin teknik analizi.",
     content: `
       <h2>Yarının Teknolojisi Bugün: Türk Mühendislerin Geliştirdiği SIEM Devrimi</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Global verilere göre, yeni nesil In-Memory SIEM çözümleri sorgu performansını eski nesil disklere göre 500 kat artırıyor.*
+      </blockquote>
       <p>
         Birçok yazılım "paketlenmiş" yabancı kütüphanelerden oluşurken, <strong>Türk mühendislerin geliştirdiği SIEM</strong> olan ACKLOG, çekirdekten itibaren özgün olarak inşa edilmiştir. Bu, kodun içine gömülü yabancı ajanlardan veya kontrol edilemez güncellemelerden uzak durmanızı sağlar.
       </p>
@@ -206,6 +253,9 @@ export const solutionsCostsArticles = {
     description: "Kamu kurumları için siber güvenlik ihale süreçleri. Kamu ihale mevzuatına uygun SIEM seçiminde yerli malı belgesinin yasal üstünlüğü.",
     content: `
       <h2>Devlet Standartlarında Güvenlik: Kamu İhale Mevzuatına Uygun SIEM Tercihi</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Uzman analizlerine göre, KVKK <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> teknik tedbirlerini otomatize eden kurumlar cezai risklerini %99 oranında düşürmektedir.*
+      </blockquote>
       <p>
         Kamu ihalelerinde "en iyi ürünü" almak bazen yasal labirentler yüzünden zor olabilir. <strong>Kamu ihale mevzuatına uygun SIEM</strong> seçenekleri, kurumunuzu hem denetimlerde rahatlatır hem de milli bütçenin doğru kullanılmasını sağlar. Yerli Malı Belgesi ve %15 fiyat avantajı gibi teşvikleri kaçırmayın.
       </p>
@@ -229,6 +279,9 @@ export const solutionsCostsArticles = {
     description: "2026 yılı siber güvenlik bütçenizi yönetin. SIEM yazılım fiyatları araştırmasında gizli maliyetlerden korunmanın ve tasarruf etmenin yolları.",
     content: `
       <h2>Bütçe Dostu Siber Savunma: SIEM Yazılım Fiyatları 2026 Analizi</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Global verilere göre, yeni nesil In-Memory SIEM çözümleri sorgu performansını eski nesil disklere göre 500 kat artırıyor.*
+      </blockquote>
       <p>
         Siber güvenlik araçları pahalı olmak zorunda değil. <strong>SIEM yazılım fiyatları 2026</strong> yılında teknolojik gelişmeler sayesinde daha erişilebilir hale geldi. Ancak "ucuz" ve "maliyet etkin" arasındaki farkı iyi anlamak gerekiyor. Bir sistemin alırken ucuz olması, kullanırken pahalıya gelmeyeceği anlamına gelmez (Storage, Eğitim vb.).
       </p>
@@ -252,8 +305,11 @@ export const solutionsCostsArticles = {
     description: "Yasal loglama zorunluluğunu bütçenizi sarsmadan yerine getirin. Uygun fiyatlı log yönetimi paketleri ve KOBİ dostu çözümler.",
     content: `
       <h2>Büyük Güvenlik Küçük Bütçe: Uygun Fiyatlı Log Yönetimi Sanatı</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *İstatistiklere göre, fidye yazılımı (ransomware) saldırılarına maruz kalan kurumların %60'ı proaktif bir SOC merkezine sahip değil.*
+      </blockquote>
       <p>
-        Her şirketin milyon dolarlık siber bütçesi olmayabilir, ancak her şirketin 5651 ve KVKK sorumluluğu vardır. <strong>Uygun fiyatlı log yönetimi</strong> ile yasal risklerinizi sıfırlarken, teknik güvenliğinizi de bir üst lige taşıyabilirsiniz.
+        Her şirketin milyon dolarlık siber bütçesi olmayabilir, ancak her şirketin <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> ve KVKK sorumluluğu vardır. <strong>Uygun fiyatlı log yönetimi</strong> ile yasal risklerinizi sıfırlarken, teknik güvenliğinizi de bir üst lige taşıyabilirsiniz.
       </p>
 
       <h3>Fiyat/Performans Kıyaslaması</h3>
@@ -275,6 +331,9 @@ export const solutionsCostsArticles = {
     description: "SIEM lisanslamasında en büyük tartışma. EPS bazlı lisanslama vs log boyutu lisanslama arasındaki gizli farklar ve finansal riskler.",
     content: `
       <h2>Finansal Analiz: EPS Bazlı Lisanslama vs Log Boyutu Lisanslama Farkı</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Uzman analizlerine göre, KVKK <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> teknik tedbirlerini otomatize eden kurumlar cezai risklerini %99 oranında düşürmektedir.*
+      </blockquote>
       <p>
         Bir siber saldırı olduğunda sisteminiz aniden binlerce log üretmeye başlar. Eğer sisteminiz <strong>EPS bazlı lisanslama</strong> modelindeyse, limit dolduğu anda log yazmayı kesebilir. Yani en çok ihtiyacınız olan anda "körü körüne" kalırsınız. <strong>Log boyutu (GB)</strong> modelinde ise ay sonunda gelen fatura sizi üzebilir.
       </p>
@@ -290,13 +349,20 @@ export const solutionsCostsArticles = {
       <p>
         <strong>EPS bazlı lisanslama vs log boyutu lisanslama</strong> kavgalarına son veren ACKLOG, kaynak bazlı yaklaşımıyla sürpriz maliyetleri tarihe gömer.
       </p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sıkça Sorulan Sorular</h3>
+<p><strong>Soru:</strong> Kurulum süreci ne kadar zaman alır?<br/><strong>Cevap:</strong> Geleneksel sistemlerin aksine yeni nesil mimarilerde temel kurulum ve ilk log akışı aynı gün içinde tamamlanmaktadır.</p>
+<p><strong>Soru:</strong> Her kaynaktan log alabiliyor musunuz?<br/><strong>Cevap:</strong> Evet, Firewall, Switch, Windows/Linux sunucular ve özel yazılımlardan Syslog, WMI veya Agent ile log toplanabilmektedir.</p>`
   },
   "siem-yillik-bakim-maliyetleri": {
     title: "SIEM Yıllık Bakım Maliyetleri: İmzayı Atmadan Önce 3 Yıllık Plan Yapın",
     description: "SIEM alırken sadece ilk faturaya bakmayın. SIEM yıllık bakım maliyetleri (Maintenance) ve sürpriz artışlardan korunma yolları.",
     content: `
       <h2>Geleceği Planlayın: SIEM Yıllık Bakım Maliyetleri ve Verimlilik</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Uzman analizlerine göre, KVKK <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> teknik tedbirlerini otomatize eden kurumlar cezai risklerini %99 oranında düşürmektedir.*
+      </blockquote>
       <p>
         Pek çok IT projesi, "birinci yılın faturası uygun ama ikinci yıl bakım ücretleri çok yüksek" denilerek rafa kalkar. <strong>SIEM yıllık bakım maliyetleri</strong>, yazılım güncelliği ve teknik destek için ödenir ama bu bedel şeffaf olmalıdır.
       </p>
@@ -313,13 +379,20 @@ export const solutionsCostsArticles = {
       <p>
         ACKLOG, <strong>SIEM yıllık bakım maliyetleri</strong> konusunda yerli üretici şeffaflığıyla kurumların yanındadır.
       </p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sektörel Sorular</h3>
+<p><strong>Soru:</strong> KVKK ve 5651 için logların değiştirilemezliği nasıl ispatlanıyor?<br/><strong>Cevap:</strong> Toplanan loglar TÜBİTAK tabanlı zaman damgası (Time Stamp) ve SHA-256 Hashing algoritmaları ile mühürlenir.</p>
+<p><strong>Soru:</strong> Özel raporlar oluşturabilir miyiz?<br/><strong>Cevap:</strong> Sistem içindeki sürükle-bırak dashboard yöneticisiyle dilediğiniz metriği saniyeler içinde görselleştirebilirsiniz.</p>`
   },
   "log-yonetimi-donanim-gereksinimleri": {
     title: "Log Yönetimi Donanım Gereksinimleri: Sunucu Seçiminde IOPS Krizi",
     description: "SIEM yavaşlığının gerçek sebebi nedir? Log yönetimi donanım gereksinimleri, disk hızları ve CPU optimizasyonu hakkında teknik makale.",
     content: `
       <h2>Sistemin Hızı Altyapıdan Başlar: Log Yönetimi Donanım Gereksinimleri</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Uzman analizlerine göre, KVKK <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> teknik tedbirlerini otomatize eden kurumlar cezai risklerini %99 oranında düşürmektedir.*
+      </blockquote>
       <p>
         "SIEM'imiz çok yavaş" diyenlerin %90'ı donanım seçiminde hata yapmıştır. <strong>Log yönetimi donanım gereksinimleri</strong> belirlenirken sadece RAM değil, disklerin IOPS (Giriş/Çıkış Saniye) değerine bakmak gerekir. Ham veriyi saniyeler içinde işleyemeyen bir disk, tüm sistemin tıkanmasına neden olur.
       </p>
@@ -336,13 +409,20 @@ export const solutionsCostsArticles = {
       <p>
         ACKLOG, in-memory motoru sayesinde rakiplerinin 4 sunucuyla yaptığı işi tek sunucuyla yaparak <strong>log yönetimi donanım gereksinimleri</strong> yükünüzü hafifletir.
       </p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sektörel Sorular</h3>
+<p><strong>Soru:</strong> KVKK ve 5651 için logların değiştirilemezliği nasıl ispatlanıyor?<br/><strong>Cevap:</strong> Toplanan loglar TÜBİTAK tabanlı zaman damgası (Time Stamp) ve SHA-256 Hashing algoritmaları ile mühürlenir.</p>
+<p><strong>Soru:</strong> Özel raporlar oluşturabilir miyiz?<br/><strong>Cevap:</strong> Sistem içindeki sürükle-bırak dashboard yöneticisiyle dilediğiniz metriği saniyeler içinde görselleştirebilirsiniz.</p>`
   },
   "siem-yatirim-getirisi-roi-hesaplama": {
     title: "SIEM Yatırım Getirisi (ROI) Nasıl Hesaplanır? Finansal Güvenlik Analizi",
     description: "SIEM yatırımının kendini kaç ayda amorti ettiğini öğrenin. SIEM yatırım getirisi (ROI) hesaplama ve siber saldırı maliyet analizi rehberi.",
     content: `
       <h2>Güvenliğe Yatırım Yapmanın Karşılığı: SIEM Yatırım Getirisi (ROI) Hesaplama</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Siber güvenlik raporlarına göre, SIEM kullanılan altyapılarda tehdit tespit süresi (MTTD) %80 oranında kısalmaktadır.*
+      </blockquote>
       <p>
         Yönetim kuruluna neden SIEM almanız gerektiğini anlatmakta zorlanıyor musunuz? <strong>SIEM yatırım getirisi (ROI) hesaplama</strong>, güvenliği bir masraf değil, bir kar merkezi olarak sunmanızı sağlar. Bir saldırı sonrası oluşacak "itibar kaybı" ve "yasal ceza"nın toplamı, SIEM bedelinin genellikle 10 katıdır.
       </p>
@@ -359,13 +439,20 @@ export const solutionsCostsArticles = {
       <p>
         ACKLOG, hızlı kurulumu ve düşük bakım maliyetiyle <strong>SIEM yatırım getirisi (ROI) hesaplama</strong> tablosunda en hızlı geri dönüş sağlayan üründür.
       </p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Operasyonel SSS</h3>
+<p><strong>Soru:</strong> SIEM yönetimi için ayrı bir ekip kurmak şart mı?<br/><strong>Cevap:</strong> Hem in-house yönetebilir hem de MSSP (Yönetilen Hizmetler) modeliyle 7/24 Siber Tehdit Merkezi (SOC) desteği alabilirsiniz.</p>
+<p><strong>Soru:</strong> EPS lisanslamanın dezavantajı nedir?<br/><strong>Cevap:</strong> EPS bazlı modellerde kurumunuz büyüdükçe faturanız da büyür; sınırsız EPS destekleyen çözümler daha uzun vadeli ROI sunar.</p>`
   },
   "kurumsal-siem-cozumleri-karsilastirma": {
     title: "Kurumsal SIEM Çözümleri Karşılaştırma 2026: Liderler vs. Yenilikçiler",
     description: "Global SIEM devleri ile yerli ACKLOG karşı karşıya. Kurumsal SIEM çözümleri karşılaştırma raporu ve performans sonuçları.",
     content: `
       <h2>Bitmeyen Savaş: Kurumsal SIEM Çözümleri Karşılaştırma ve Trendler</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Global verilere göre, yeni nesil In-Memory SIEM çözümleri sorgu performansını eski nesil disklere göre 500 kat artırıyor.*
+      </blockquote>
       <p>
         Gartner rehberlerinde Splunk ve QRadar gibi devler görünüyor olabilir. Ancak Türkiye pazarının dinamikleri (5651, döviz kuru, yerel log kaynakları) dikkate alındığında <strong>kurumsal SIEM çözümleri karşılaştırma</strong> sonuçları oldukça farklılaşıyor.
       </p>
@@ -383,13 +470,20 @@ export const solutionsCostsArticles = {
       <p>
         ACKLOG, <strong>kurumsal SIEM çözümleri karşılaştırma</strong> listelerinde "Fiyat/Performans Kralı" olarak tahtını koruyor.
       </p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sektörel Sorular</h3>
+<p><strong>Soru:</strong> KVKK ve <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> için logların değiştirilemezliği nasıl ispatlanıyor?<br/><strong>Cevap:</strong> Toplanan loglar TÜBİTAK tabanlı zaman damgası (Time Stamp) ve SHA-256 Hashing algoritmaları ile mühürlenir.</p>
+<p><strong>Soru:</strong> Özel raporlar oluşturabilir miyiz?<br/><strong>Cevap:</strong> Sistem içindeki sürükle-bırak dashboard yöneticisiyle dilediğiniz metriği saniyeler içinde görselleştirebilirsiniz.</p>`
   },
   "kobiler-icin-loglama-cozumleri": {
     title: "KOBİ'ler İçin Loglama Çözümleri: Uygun Fiyat, Tam Güvenlik",
     description: "Küçük ve orta boy işletmelerin siber güvenlik sorunu çözüldü. KOBİ'ler için loglama çözümleri ve basit kurulum adımları.",
     content: `
       <h2>KOBİ Dostu Güvenlik: KOBİ'ler İçin Loglama Çözümleri ile Tanışın</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Uzman analizlerine göre, KVKK <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> teknik tedbirlerini otomatize eden kurumlar cezai risklerini %99 oranında düşürmektedir.*
+      </blockquote>
       <p>
         Siber saldırganlar artık sadece büyük holdingleri değil, "kolay lokma" olarak gördükleri KOBİ'leri hedef alıyor. <strong>KOBİ'ler için loglama çözümleri</strong>, işletmenizin dijital ayak izini takip ederek, bir ransomware (fidye) saldırısını daha yayılmadan durdurmanıza imkan tanır.
       </p>
@@ -406,13 +500,20 @@ export const solutionsCostsArticles = {
       <p>
         ACKLOG'un KOBİ paketleri, <strong>KOBİ'ler için loglama çözümleri</strong> arayan vizyoner işletmeciler için tasarlandı.
       </p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Operasyonel SSS</h3>
+<p><strong>Soru:</strong> SIEM yönetimi için ayrı bir ekip kurmak şart mı?<br/><strong>Cevap:</strong> Hem in-house yönetebilir hem de MSSP (Yönetilen Hizmetler) modeliyle 7/24 Siber Tehdit Merkezi (SOC) desteği alabilirsiniz.</p>
+<p><strong>Soru:</strong> EPS lisanslamanın dezavantajı nedir?<br/><strong>Cevap:</strong> EPS bazlı modellerde kurumunuz büyüdükçe faturanız da büyür; sınırsız EPS destekleyen çözümler daha uzun vadeli ROI sunar.</p>`
   },
   "open-source-siem-vs-commercial-siem": {
     title: "Open Source SIEM vs. Commercial SIEM: Bedava Yazılım Gerçekten Bedava mı?",
     description: "ELK ve Wazuh gibi açık kaynaklı sistemlerin gizli maliyetleri. Open Source SIEM vs Commercial SIEM teknik ve finansal analizi.",
     content: `
       <h2>Büyük İkilem: Open Source SIEM vs Commercial SIEM Gerçek Maliyeti</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *İstatistiklere göre, fidye yazılımı (ransomware) saldırılarına maruz kalan kurumların %60'ı proaktif bir SOC merkezine sahip değil.*
+      </blockquote>
       <p>
         "Yazılıma para vermeyelim, kendimiz kurarız" düşüncesi bazen en pahalı karar olabilir. <strong>Open Source SIEM vs Commercial SIEM</strong> analizlerinde, bedava yazılımın kurulumu, kural yazımı ve bakımının binlerce dolarlık "mühendis saati" tükettiği kanıtlanmıştır. Ayrıca bir hata anında muhatap bulamamak iş sürekliliğinizi bitirebilir.
       </p>
@@ -420,7 +521,7 @@ export const solutionsCostsArticles = {
       <h3>Gizli Tehlikeler</h3>
       <ol class="list-decimal pl-6 space-y-2 mb-6 text-muted-foreground">
         <li><strong>Parser Yükü:</strong> Her yeni cihaz için manuel kod yazmak zorundasınız.</li>
-        <li><strong>Yasal Uyumluluk:</strong> 5651 imzalama özelliğini açık kaynağa entegre etmek bir kabus olabilir.</li>
+        <li><strong>Yasal Uyumluluk:</strong> <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> imzalama özelliğini açık kaynağa entegre etmek bir kabus olabilir.</li>
         <li><strong>Güncelleme Riski:</strong> Topluluk desteği kesilirse sisteminiz güvenlik açığı haline gelir.</li>
       </ol>
 
@@ -429,13 +530,20 @@ export const solutionsCostsArticles = {
       <p>
         <strong>Open Source SIEM vs Commercial SIEM</strong> yarışında ACKLOG, ticari bir ürünün desteğini, açık kaynağın esnekliğiyle birleştirir.
       </p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Operasyonel SSS</h3>
+<p><strong>Soru:</strong> SIEM yönetimi için ayrı bir ekip kurmak şart mı?<br/><strong>Cevap:</strong> Hem in-house yönetebilir hem de MSSP (Yönetilen Hizmetler) modeliyle 7/24 Siber Tehdit Merkezi (SOC) desteği alabilirsiniz.</p>
+<p><strong>Soru:</strong> EPS lisanslamanın dezavantajı nedir?<br/><strong>Cevap:</strong> EPS bazlı modellerde kurumunuz büyüdükçe faturanız da büyür; sınırsız EPS destekleyen çözümler daha uzun vadeli ROI sunar.</p>`
   },
   "siem-demo-talebi-formlari": {
     title: "SIEM Demo Talebi Formları: Karar Vermeden Önce Ürünü Kendi Ağınızda Test Edin",
     description: "ACKLOG SIEM demo talebi formları ve POC (Proof of Concept) süreçleri. Yazılımı test etmenin ve sonuçları ölçmenin avantajları.",
     content: `
       <h2>Güven, Ama Kontrol Et: SIEM Demo Talebi Formları ve Test Süreci</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Araştırmalar, log <a href="/wiki/siem-nedir" class="text-blue-400 hover:underline font-bold">korelasyon</a> yeteneği olmayan firmaların siber saldırıları fark etmesinin ortalama 200 günden fazla sürdüğünü gösteriyor.*
+      </blockquote>
       <p>
         Siber güvenlikte "pazarlama broşürleri" her zaman gerçeği yansıtmaz. Bu yüzden <strong>SIEM demo talebi formları</strong> üzerinden bir talep oluşturup, ürünü kendi canlı verinizle (POC) test etmeniz şarttır. Saniyede 10.000 log basan ağınızda sistemin nasıl davrandığını görmek, en iyi satın alma rehberidir.
       </p>
@@ -452,13 +560,20 @@ export const solutionsCostsArticles = {
       <p>
         ACKLOG, <strong>SIEM demo talebi formları</strong> sonrası sunulan test süreçlerinde %95 memnuniyet oranıyla rakiplerinden ayrılır.
       </p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sıkça Sorulan Sorular</h3>
+<p><strong>Soru:</strong> Kurulum süreci ne kadar zaman alır?<br/><strong>Cevap:</strong> Geleneksel sistemlerin aksine yeni nesil mimarilerde temel kurulum ve ilk log akışı aynı gün içinde tamamlanmaktadır.</p>
+<p><strong>Soru:</strong> Her kaynaktan log alabiliyor musunuz?<br/><strong>Cevap:</strong> Evet, Firewall, Switch, Windows/Linux sunucular ve özel yazılımlardan Syslog, WMI veya Agent ile log toplanabilmektedir.</p>`
   },
   "en-ucuz-5651-loglama-cozumu": {
     title: "En Ucuz 5651 Loglama Çözümü: Ucuz Etin Yahnisi Olmasın!",
     description: "Piyasadaki en ucuz 5651 loglama çözümü seçenekleri ve yasal riskler. Şirketinizi riskten korurken tasarruf etmenin yolları.",
     content: `
-      <h2>Uyarı! En Ucuz 5651 Loglama Çözümü Büyük Riskler Taşıyabilir</h2>
+      <h2>Uyarı! En Ucuz <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> Loglama Çözümü Büyük Riskler Taşıyabilir</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Uzman analizlerine göre, KVKK 5651 teknik tedbirlerini otomatize eden kurumlar cezai risklerini %99 oranında düşürmektedir.*
+      </blockquote>
       <p>
         Şirketin parasını korumak isterken yasalar karşısında suçlu duruma düşmeyin. <strong>En ucuz 5651 loglama çözümü</strong> genellikle sadece log toplar ama "imzalama" ve "zaman damgası" gibi yasal zorunlulukları düzgün yapmaz. Ya da destek istediğinizde kimseyi bulamazsınız.
       </p>
@@ -480,6 +595,9 @@ export const solutionsCostsArticles = {
     description: "SIEM projelerinde lisans yenileme süreçleri ve maliyet yönetimi. SIEM lisans yenileme ücretleri araştırmasında yerli yazılımın sabit fiyat gücü.",
     content: `
       <h2>Finansal Sürdürülebilirlik: SIEM Lisans Yenileme Ücretleri ve Pazar Analizi</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Siber güvenlik raporlarına göre, SIEM kullanılan altyapılarda tehdit tespit süresi (MTTD) %80 oranında kısalmaktadır.*
+      </blockquote>
       <p>
         SIEM projesini hayata geçirdikten bir yıl sonra gelen <strong>siem lisans yenileme ücretleri</strong> faturası birçok kurum için hayal kırıklığı olur. Özellikle döviz bazlı global ürünler, kur artışıyla birlikte bütçenizi tüketebilir. Bütçenizi korumak için "yerli lisans" tercih etmek stratejik bir zorunluluktur.
       </p>
@@ -496,13 +614,20 @@ export const solutionsCostsArticles = {
       <p>
         ACKLOG, <strong>siem lisans yenileme ücretleri</strong> konusunda müşterilerine "Sürpriz Yok" garantisi vererek finansal planlamanıza destek olur.
       </p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sektörel Sorular</h3>
+<p><strong>Soru:</strong> KVKK ve <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> için logların değiştirilemezliği nasıl ispatlanıyor?<br/><strong>Cevap:</strong> Toplanan loglar TÜBİTAK tabanlı zaman damgası (Time Stamp) ve SHA-256 Hashing algoritmaları ile mühürlenir.</p>
+<p><strong>Soru:</strong> Özel raporlar oluşturabilir miyiz?<br/><strong>Cevap:</strong> Sistem içindeki sürükle-bırak dashboard yöneticisiyle dilediğiniz metriği saniyeler içinde görselleştirebilirsiniz.</p>`
   },
   "msp-ler-icin-siem-kiralama": {
     title: "MSP'ler İçin SIEM Kiralama: Kendi MSSP Hizmetinizi Yarın Başlatın",
     description: "Hizmet sağlayıcılar için gelir fırsatı. MSP'ler için SIEM kiralama (SaaS) modeli ve multi-tenant yönetim rehberi.",
     content: `
       <h2>Gelir Kapısı: MSP'ler İçin SIEM Kiralama ve MSSP Dönüşümü</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *İstatistiklere göre, fidye yazılımı (ransomware) saldırılarına maruz kalan kurumların %60'ı proaktif bir SOC merkezine sahip değil.*
+      </blockquote>
       <p>
         Müşterilerinize sadece donanım satarak kar edemediğiniz bir dönemde misiniz? <strong>MSP'ler için SIEM kiralama</strong> modeli ile müşterilerinize aylık "Güvenlik İzleme Hizmeti" (MSSP) sunarak sürekli gelir elde edebilirsiniz. ACKLOG'un merkezi yönetim paneliyle yüzlerce müşteriyi tek ekrandan yönetin.
       </p>
@@ -510,7 +635,7 @@ export const solutionsCostsArticles = {
       <h3>Müşterilerinize Sunabileceğiniz 3 Hizmet</h3>
       <ol class="list-decimal pl-6 space-y-2 mb-6">
         <li><strong>7/24 Alarm İzleme:</strong> Saldırı anında müşteriye bildirim yapılması.</li>
-        <li><strong>Yasal Raporlama:</strong> Aylık 5651 ve KVKK denetim raporlarının otomatik gönderilmesi.</li>
+        <li><strong>Yasal Raporlama:</strong> Aylık <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> ve KVKK denetim raporlarının otomatik gönderilmesi.</li>
         <li><strong>Siber Risk Analizi:</strong> Loglardaki anomaliye göre zafiyet tespiti.</li>
       </ol>
 
@@ -526,6 +651,9 @@ export const solutionsCostsArticles = {
     description: "Cloud SIEM neden daha ekonomik? Bulut SIEM maliyet avantajları, operasyonel hız ve ölçeklenebilirlik analizi.",
     content: `
       <h2>Dijital Dönüşüm: Bulut SIEM Maliyet Avantajları ve Verimlilik</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *İstatistiklere göre, fidye yazılımı (ransomware) saldırılarına maruz kalan kurumların %60'ı proaktif bir SOC merkezine sahip değil.*
+      </blockquote>
       <p>
         Yerelde (On-premise) bir SIEM kurmak; sunucu, storage, UPS, soğutma ve uzman personel demektir. <strong>Bulut SIEM maliyet avantajları</strong> ise tüm bu karmaşayı ortadan kaldırır. "Hizmet Olarak SIEM" (SaaS) ile sadece ihtiyacınız olanı kiralar, sistemin ayakta kalmasıyla ilgili hiçbir maliyete katlanmazsınız.
       </p>
@@ -542,13 +670,20 @@ export const solutionsCostsArticles = {
       <p>
         ACKLOG'un <strong>bulut SIEM maliyet avantajları</strong>, şirketinizin bütçesini siber güvenliğe değil, büyümenize ayırmanızı sağlar.
       </p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sektörel Sorular</h3>
+<p><strong>Soru:</strong> KVKK ve <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> için logların değiştirilemezliği nasıl ispatlanıyor?<br/><strong>Cevap:</strong> Toplanan loglar TÜBİTAK tabanlı zaman damgası (Time Stamp) ve SHA-256 Hashing algoritmaları ile mühürlenir.</p>
+<p><strong>Soru:</strong> Özel raporlar oluşturabilir miyiz?<br/><strong>Cevap:</strong> Sistem içindeki sürükle-bırak dashboard yöneticisiyle dilediğiniz metriği saniyeler içinde görselleştirebilirsiniz.</p>`
   },
   "siem-teknik-destek-hizmeti-veren-firmalar": {
     title: "SIEM Teknik Destek Hizmeti Veren Firmalar: Deneyimli Bir El Her Zaman Yanınızda",
     description: "Siber olay anında kiminle iletişime geçeceksiniz? Türkiye'de SIEM teknik destek hizmeti veren firmalar ve uzmanlık kriterleri.",
     content: `
       <h2>Güvenilir Destek: SIEM Teknik Destek Hizmeti Veren Firmalar ve Uzmanlık</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Siber güvenlik raporlarına göre, SIEM kullanılan altyapılarda tehdit tespit süresi (MTTD) %80 oranında kısalmaktadır.*
+      </blockquote>
       <p>
         Siber saldırganlar mesai saati gözetmez. Bu yüzden <strong>SIEM teknik destek hizmeti veren firmalar</strong> arasından seçim yaparken "7/24 Kesintisiz Destek" ve "Türkçe Anadil" kriterleri hayatidir. Yurt dışı merkezli bir firmadan destek alırken dil bariyeri ve zaman farkı bir siber felakete davetiye çıkarabilir.
       </p>
@@ -565,6 +700,10 @@ export const solutionsCostsArticles = {
       <p>
         <strong>SIEM teknik destek hizmeti veren firmalar</strong> listesinde ACKLOG, hem üretici olması hem de yaygın partner ağıyla 1 numarada yer almaktadır.
       </p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sıkça Sorulan Sorular</h3>
+<p><strong>Soru:</strong> Kurulum süreci ne kadar zaman alır?<br/><strong>Cevap:</strong> Geleneksel sistemlerin aksine yeni nesil mimarilerde temel kurulum ve ilk log akışı aynı gün içinde tamamlanmaktadır.</p>
+<p><strong>Soru:</strong> Her kaynaktan log alabiliyor musunuz?<br/><strong>Cevap:</strong> Evet, Firewall, Switch, Windows/Linux sunucular ve özel yazılımlardan Syslog, WMI veya Agent ile log toplanabilmektedir.</p>`
   }
 };

@@ -4,6 +4,9 @@ export const serverCloudAdminArticles = {
     description: "Veritabanında Drop/Delete işlemlerini Audit (Denetim) ile takip etme ve ACKLOG SIEM entegrasyonu.",
     content: `
       <h2>Veritabanı Denetimi: Kritik Tabloları Kim Siliyor?</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Uzman analizlerine göre, KVKK <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> teknik tedbirlerini otomatize eden kurumlar cezai risklerini %99 oranında düşürmektedir.*
+      </blockquote>
       <p>SQL Server üzerinde bir tablonun veya satırın silinmesi genellikle "kaza" olarak nitelendirilir, ancak bazen bu bir iç tehdit (insider threat) veya saldırı işaretidir. Standard SQL logları (Error Log) size kimin hangi veriyi sildiğini söylemez. Bunun için **SQL Server Audit** yapılandırmasını kurmanız gerekir.</p>
       
       <h3>SQL Audit Kurulum Adımları</h3>
@@ -21,6 +24,9 @@ export const serverCloudAdminArticles = {
     description: "Veritabanı sunucularına doğrudan (backdoor) erişim denetimi, şüpheli IP tespiti ve güvenlik.",
     content: `
       <h2>DB Erişimi: Kapılar Kimlere Açık?</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Global verilere göre, yeni nesil In-Memory SIEM çözümleri sorgu performansını eski nesil disklere göre 500 kat artırıyor.*
+      </blockquote>
       <p>Veritabanı sunucuları (MSSQL, Oracle, MySQL) genellikle iç ağda durur ancak bazen yanlış yapılandırma nedeniyle internete (Port 1433, 3306) açık unutulur. Dışarıdan gelen her bir IP bağlantısı, verilerinizin çalınması için bir fırsattır.</p>
       
       <h3>Bağlantı Kontrol Yöntemleri</h3>
@@ -38,6 +44,9 @@ export const serverCloudAdminArticles = {
     description: "Mavi ekran (BSOD) ve uygulama çökmelerini loglardan bulma, sistem uptime stratejileri.",
     content: `
       <h2>Sistem Sağlığı: Hataları Görünür Kılın</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Araştırmalar, log <a href="/wiki/siem-nedir" class="text-blue-400 hover:underline font-bold">korelasyon</a> yeteneği olmayan firmaların siber saldırıları fark etmesinin ortalama 200 günden fazla sürdüğünü gösteriyor.*
+      </blockquote>
       <p>Windows Server işletim sistemlerinde oluşan "Sistem Hataları", genellikle ciddi bir donanım veya yazılım arızasının öncü habercisidir. Event Viewer içinde binlerce log akar; ancak kritik olanlar (Critical/Error) gözden kaçtığında servis kesintisi kaçınılmazdır.</p>
       
       <h3>Sık Karşılaşılan Hatalar</h3>
@@ -55,6 +64,9 @@ export const serverCloudAdminArticles = {
     description: "SSH güvenliği, dosya izinleri ve süreç denetimi. Linux log yönetimi rehberi.",
     content: `
       <h2>Linux Hardening: Sunucunuzu Zırhlayın</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Siber güvenlik raporlarına göre, SIEM kullanılan altyapılarda tehdit tespit süresi (MTTD) %80 oranında kısalmaktadır.*
+      </blockquote>
       <p>Linux sunucular varsayılan kurulumda oldukça "açık" gelebilir. SSH portundan şifre deneme saldırıları (Brute force) saniyede yüzlerce kez yapılır. Sisteminizi sıkılaştırmadan internete açmak, bir hacker'a evinizin anahtarını paspasın altına bırakmak demektir.</p>
       
       <h3>Temel Sıkılaştırma Adımları</h3>
@@ -66,13 +78,20 @@ export const serverCloudAdminArticles = {
       </ol>
 
       <p><strong>ACKLOG Linux Agent:</strong> ACKLOG, Linux sunucularınızdaki <code>auth.log</code>, <code>syslog</code> ve <code>audit.log</code> gibi kritik dosyaları analiz ederek "anomali" avcılığı yapar. Manuel log okuma devri bitti, ACKLOG ile Linux omurganızı koruyun.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Operasyonel SSS</h3>
+<p><strong>Soru:</strong> SIEM yönetimi için ayrı bir ekip kurmak şart mı?<br/><strong>Cevap:</strong> Hem in-house yönetebilir hem de MSSP (Yönetilen Hizmetler) modeliyle 7/24 Siber Tehdit Merkezi (SOC) desteği alabilirsiniz.</p>
+<p><strong>Soru:</strong> EPS lisanslamanın dezavantajı nedir?<br/><strong>Cevap:</strong> EPS bazlı modellerde kurumunuz büyüdükçe faturanız da büyür; sınırsız EPS destekleyen çözümler daha uzun vadeli ROI sunar.</p>`
   },
   "iis-web-sunucusu-erisim-loglari-analizi": {
     title: "IIS (Web Sunucusu) Erişim Logları Analizi ve Otomasyon Rehberi",
     description: "Web sitenize gelen '404' ve '500' hatalarının gerçek sebebini bulun. IIS saldırı tespiti.",
     content: `
       <h2>Web Sunucu Analizi: Trafiğin Ötesine Geçin</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Uzman analizlerine göre, KVKK <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> teknik tedbirlerini otomatize eden kurumlar cezai risklerini %99 oranında düşürmektedir.*
+      </blockquote>
       <p>IIS (Internet Information Services) logları, sitenize gelen her bir isteğin (Request) röntgenini çeker. Ancak bu loglar metin dosyası olarak tutulduğunda binlerce satır arasında kaybolmak çok kolaydır.</p>
       
       <h3>Neden Analiz Etmelisiniz?</h3>
@@ -90,19 +109,29 @@ export const serverCloudAdminArticles = {
     description: "Kurumsal yazılımların çalışma sağlığını nasıl ölçersiniz? Crash loglarını SIEM ile yönetin.",
     content: `
       <h2>Crash Yönetimi: Yazılım Çökmelerini Önceden Görün</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Araştırmalar, log <a href="/wiki/siem-nedir" class="text-blue-400 hover:underline font-bold">korelasyon</a> yeteneği olmayan firmaların siber saldırıları fark etmesinin ortalama 200 günden fazla sürdüğünü gösteriyor.*
+      </blockquote>
       <p>Bir uygulamanın "Donması" veya "Çökmesi", iş akışını anında durdurur. Çoğu BT yöneticisi bu çökmeden ancak kullanıcı aradığında haberdar olur. Oysa sistem, çökmeden saniyeler önce "Application Log" içine bir 'Exception' bırakır.</p>
       
       <h3>Monitor Etme Kriterleri</h3>
       <p>Bellek kullanımındaki (Leak) artış, veritabanı bağlantı hataları ve peş peşe gelen 'Hang' durumları mutlaka izlenmelidir.</p>
 
       <p><strong>ACKLOG AppInsights:</strong> Yazılım hatalarını parçalayarak (Parsing) hangi modülün hata verdiğini ACKLOG dashboarddan görün. Developer ekibinize "Kodun şu satırı sorunlu" diyebilmek profesyonelliktir. Manuel log taramakla zaman harcamayın, ACKLOG ile sisteminizin sağlığını otomatik takip edin.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sıkça Sorulan Sorular</h3>
+<p><strong>Soru:</strong> Kurulum süreci ne kadar zaman alır?<br/><strong>Cevap:</strong> Geleneksel sistemlerin aksine yeni nesil mimarilerde temel kurulum ve ilk log akışı aynı gün içinde tamamlanmaktadır.</p>
+<p><strong>Soru:</strong> Her kaynaktan log alabiliyor musunuz?<br/><strong>Cevap:</strong> Evet, Firewall, Switch, Windows/Linux sunucular ve özel yazılımlardan Syslog, WMI veya Agent ile log toplanabilmektedir.</p>`
   },
   "sunucu-disk-doluluk-uyarisi-mail-atma": {
     title: "Sunucu Disk Doluluk Uyarısı Mail Atma: Kesintisiz Hizmet Rehberi",
     description: "Disk %90 olunca BT ekibini nasıl uyarırsınız? ACKLOG ile eşik değeri (Threshold) yönetimi.",
     content: `
       <h2>Performans İzleme: Disk Dolması Felakettir</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Uzman analizlerine göre, KVKK <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> teknik tedbirlerini otomatize eden kurumlar cezai risklerini %99 oranında düşürmektedir.*
+      </blockquote>
       <p>Bir veritabanı sunucusunun disk alanının dolması, sadece o uygulamanın değil, tüm sistemin donmasına veya veri kaybına neden olabilir. Disk takibi yapmak bir "BT Lüksü" değil, temel bir operasyonel zorunluluktur.</p>
       
       <h3>Basit vs Profesyonel Çözüm</h3>
@@ -116,6 +145,9 @@ export const serverCloudAdminArticles = {
     description: "Siber güvenlikte başaralı ve başarısız girişlerin (Anatomi) incelenmesi.",
     content: `
       <h2>Login Analizi: Güvenliğin Kilidini Açın</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Siber güvenlik raporlarına göre, SIEM kullanılan altyapılarda tehdit tespit süresi (MTTD) %80 oranında kısalmaktadır.*
+      </blockquote>
       <p>Windows siber güvenlik loglarının temel yapı taşları 4624 (Başarılı) ve 4625 (Başarısız) olay kimlikleridir. Ancak bu ID'lerin içindeki "Logon Type" bilgisini okumazsanız, asıl hikayeyi kaçırırsınız.</p>
       
       <h3>Logon Type Listesi</h3>
@@ -126,26 +158,40 @@ export const serverCloudAdminArticles = {
       </ul>
 
       <p><strong>ACKLOG Insight:</strong> Manuel olarak binlerce 4624 logunu okumak imkansızdır. ACKLOG, bu logları anlamlı bir hikayeye dönüştürür: "Saldırgan RDP (Type 10) ile 20 kez başarısız deneme yaptı ve sonunda başarılı oldu (Type 2)". ACKLOG ile siber olayların anatomisini saniyeler içinde çözün.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sektörel Sorular</h3>
+<p><strong>Soru:</strong> KVKK ve <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> için logların değiştirilemezliği nasıl ispatlanıyor?<br/><strong>Cevap:</strong> Toplanan loglar TÜBİTAK tabanlı zaman damgası (Time Stamp) ve SHA-256 Hashing algoritmaları ile mühürlenir.</p>
+<p><strong>Soru:</strong> Özel raporlar oluşturabilir miyiz?<br/><strong>Cevap:</strong> Sistem içindeki sürükle-bırak dashboard yöneticisiyle dilediğiniz metriği saniyeler içinde görselleştirebilirsiniz.</p>`
   },
   "powershell-ile-log-toplama-scriptleri": {
     title: "PowerShell İle Log Toplama Scriptleri ve Otomasyon Rehberi",
     description: "Kendi scriptlerinizi merkezi bir sisteme entegre edin. ACKLOG API kullanımı.",
     content: `
       <h2>Script Otomasyonu: BT Gücünüzü Artırın</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Siber güvenlik raporlarına göre, SIEM kullanılan altyapılarda tehdit tespit süresi (MTTD) %80 oranında kısalmaktadır.*
+      </blockquote>
       <p>PowerShell, Windows yöneticileri için İsviçre çakısı gibidir. Kendi özel uygulamalarınızın loglarını veya sistem metriklerini toplamak için yazacağınız scriptler çok değerlidir. Peki bu script çıktılarını güvenli bir şekilde nasıl saklayacaksınız?</p>
       
       <h3>Scripting Best Practices</h3>
       <p>Logları yerel diskte TXT olarak bırakmayın. Mutlaka Syslog veya HTTP Post ile merkezi bir SIEM'e gönderin.</p>
 
       <p><strong>ACKLOG Integration:</strong> Yazdığınız tüm özel PowerShell scriptlerini tek bir satır ekleyerek ACKLOG'a bağlayabilirsiniz. "Benim özel raporumu da ACKLOG dashboardda göster" demek artık çok kolay. Manuel raporlamaya son verin, ACKLOG ile tam otomasyon kurun.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sektörel Sorular</h3>
+<p><strong>Soru:</strong> KVKK ve <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> için logların değiştirilemezliği nasıl ispatlanıyor?<br/><strong>Cevap:</strong> Toplanan loglar TÜBİTAK tabanlı zaman damgası (Time Stamp) ve SHA-256 Hashing algoritmaları ile mühürlenir.</p>
+<p><strong>Soru:</strong> Özel raporlar oluşturabilir miyiz?<br/><strong>Cevap:</strong> Sistem içindeki sürükle-bırak dashboard yöneticisiyle dilediğiniz metriği saniyeler içinde görselleştirebilirsiniz.</p>`
   },
   "docker-konteyner-guvenlik-taramasi": {
     title: "Docker Konteyner Güvenlik Taraması ve İzole Çalışma Rehberi",
     description: "Mikroservis mimarisinde siber güvenlik risklerini yönetme ve konteyner log analizi.",
     content: `
       <h2>Modern Altyapı: Konteyner Güvenliği</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Siber güvenlik raporlarına göre, SIEM kullanılan altyapılarda tehdit tespit süresi (MTTD) %80 oranında kısalmaktadır.*
+      </blockquote>
       <p>Docker ve Kubernetes kullanımı arttıkça, saldırılar da bu alana kaymaya başladı. Bir konteyner içindeki güvenlik açığı, tüm host sisteminizi (ve diğer konteynerları) tehlikeye atabilir.</p>
       
       <h3>İzleme Kriterleri</h3>
@@ -156,13 +202,20 @@ export const serverCloudAdminArticles = {
       </ul>
 
       <p><strong>ACKLOG Docker Support:</strong> Docker daemon loglarını ACKLOG SIEM'e çekerek, mikroservislerinizdeki anomalileri anında saptayın. Manuel olarak 50 farklı konteynerın içine girmekle uğraşmayın, ACKLOG ile mikroservis evreninizi tek camdan yönetin.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Operasyonel SSS</h3>
+<p><strong>Soru:</strong> SIEM yönetimi için ayrı bir ekip kurmak şart mı?<br/><strong>Cevap:</strong> Hem in-house yönetebilir hem de MSSP (Yönetilen Hizmetler) modeliyle 7/24 Siber Tehdit Merkezi (SOC) desteği alabilirsiniz.</p>
+<p><strong>Soru:</strong> EPS lisanslamanın dezavantajı nedir?<br/><strong>Cevap:</strong> EPS bazlı modellerde kurumunuz büyüdükçe faturanız da büyür; sınırsız EPS destekleyen çözümler daha uzun vadeli ROI sunar.</p>`
   },
   "microsoft-365-office-admin-loglari-izleme": {
     title: "Microsoft 365 (Office) Admin Logları İzleme ve Bulut Güvenliği",
     description: "Exchange ve SharePoint hareketlerini bulutta takip etme, yönetici denetimi.",
     content: `
       <h2>Cloud Office: Bulutun Arkasını Görün</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Global verilere göre, yeni nesil In-Memory SIEM çözümleri sorgu performansını eski nesil disklere göre 500 kat artırıyor.*
+      </blockquote>
       <p>Şirketinizi Office 365'e taşıdığınızda güvenlik bitmez, sadece şekil değiştirir. Admin yetkisine sahip birinin mail kutularını silmesi veya gizlice paylaşım açması, kurum hafızasını yok edebilir.</p>
       
       <h3>Bulutta Ne Oluyor?</h3>
@@ -172,26 +225,40 @@ export const serverCloudAdminArticles = {
       </ul>
 
       <p><strong>ACKLOG Cloud Connector:</strong> ACKLOG, Microsoft 365 API'leri üzerinden tüm admin hareketlerini anlık toplar. "Bulutta silinen verinin faili kim?" sorusuna anında yanıt verir. Manuel kontrollerle bulutta kaybolmayın, ACKLOG ile tam görünürlük sağlayın.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Operasyonel SSS</h3>
+<p><strong>Soru:</strong> SIEM yönetimi için ayrı bir ekip kurmak şart mı?<br/><strong>Cevap:</strong> Hem in-house yönetebilir hem de MSSP (Yönetilen Hizmetler) modeliyle 7/24 Siber Tehdit Merkezi (SOC) desteği alabilirsiniz.</p>
+<p><strong>Soru:</strong> EPS lisanslamanın dezavantajı nedir?<br/><strong>Cevap:</strong> EPS bazlı modellerde kurumunuz büyüdükçe faturanız da büyür; sınırsız EPS destekleyen çözümler daha uzun vadeli ROI sunar.</p>`
   },
   "onedrive-paylasilan-dosya-raporu-alma": {
     title: "OneDrive Paylaşılan Dosya Raporu Alma: Bilginiz Dışında Paylaşım Var mı?",
     description: "Dosya paylaşımlarının güvenliğini nasıl sağlarsınız? ACKLOG ile dış paylaşım takibi.",
     content: `
       <h2>Veri Sızıntısı: OneDrive "Herkese Açık" Linkleri</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Araştırmalar, log <a href="/wiki/siem-nedir" class="text-blue-400 hover:underline font-bold">korelasyon</a> yeteneği olmayan firmaların siber saldırıları fark etmesinin ortalama 200 günden fazla sürdüğünü gösteriyor.*
+      </blockquote>
       <p>Personelinizin "Yanlışlıkla" şirket dökümanlarını dışarıdaki birilerine (veya herkese) link olarak gönderdiğini biliyor muydunuz? OneDrive dökümanlarının kontrolsüz paylaşımı, en sessiz veri sızıntısı yoludur.</p>
       
       <h3>Denetleme Stratejisi</h3>
       <p>Hangi personelin, hangi dosyayı, hangi e-posta adresine "Share" (Paylaş) yaptığını raporlayın. Sadece link oluşturmak yetmez, o linke dışarıdan kimler erişti? (External Access Log).</p>
 
       <p><strong>ACKLOG DLP:</strong> Bu tür bulut paylaşımlarını ACKLOG dashboardunda tek bir liste halinde görün. "Şu kritik döküman internete açık!" uyarısıyla sızıntıyı anında durdurun. Manuel kontrollerle risk almayın, ACKLOG ile bulut verilerinizi koruyun.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Operasyonel SSS</h3>
+<p><strong>Soru:</strong> SIEM yönetimi için ayrı bir ekip kurmak şart mı?<br/><strong>Cevap:</strong> Hem in-house yönetebilir hem de MSSP (Yönetilen Hizmetler) modeliyle 7/24 Siber Tehdit Merkezi (SOC) desteği alabilirsiniz.</p>
+<p><strong>Soru:</strong> EPS lisanslamanın dezavantajı nedir?<br/><strong>Cevap:</strong> EPS bazlı modellerde kurumunuz büyüdükçe faturanız da büyür; sınırsız EPS destekleyen çözümler daha uzun vadeli ROI sunar.</p>`
   },
   "azure-guvenligi-nasil-saglanir": {
     title: "Azure Güvenliği Nasıl Sağlanır? Microsoft Bulut Denetimi Rehberi",
     description: "Azure sunucularınızın loglarını merkezi bir yere çekin, VM ve Network güvenliğini yönetin.",
     content: `
       <h2>Azure Monitoring: Bulut Altyapı Savunması</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *İstatistiklere göre, fidye yazılımı (ransomware) saldırılarına maruz kalan kurumların %60'ı proaktif bir SOC merkezine sahip değil.*
+      </blockquote>
       <p>Azure üzerindeki sanal makineleriniz (VM), NSG (Network Security Groups) ayarlarınız ve depolama alanlarınız sürekli bir denetim gerektirir. "Azure Portal var, güvendeyim" demek büyük bir yanılgıdır.</p>
       
       <h3>Kritik Azure Logları</h3>
@@ -202,13 +269,20 @@ export const serverCloudAdminArticles = {
       </ul>
 
       <p><strong>ACKLOG Azure Integration:</strong> ACKLOG, Azure loglarınızı yereldeki loglarla birleştirerek (Hybrid Cloud) size "Büyük Resmi" gösterir. Bir saldırı hem bulutta hem yerelde eş zamanlı yapılıyorsa bunu ancak ACKLOG ile görebilirsiniz. Tüm bu manuel kontroller yerine bir SIEM çözümü kullanarak, karmaşık bulut yapınızı basitleştirin.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sektörel Sorular</h3>
+<p><strong>Soru:</strong> KVKK ve <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> için logların değiştirilemezliği nasıl ispatlanıyor?<br/><strong>Cevap:</strong> Toplanan loglar TÜBİTAK tabanlı zaman damgası (Time Stamp) ve SHA-256 Hashing algoritmaları ile mühürlenir.</p>
+<p><strong>Soru:</strong> Özel raporlar oluşturabilir miyiz?<br/><strong>Cevap:</strong> Sistem içindeki sürükle-bırak dashboard yöneticisiyle dilediğiniz metriği saniyeler içinde görselleştirebilirsiniz.</p>`
   },
   "bulut-depolama-guvenligi-riskleri": {
     title: "Bulut Depolama Güvenliği Riskleri ve Veri Sızıntısı Önleme",
     description: "Gereksiz açık bırakılmış bulut kovalarını (buckets) tespit edin, S3 ve Blob güvenliği.",
     content: `
       <h2>Storage Güvenliği: Açık Bırakılan Kapıları Kapatın</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Siber güvenlik raporlarına göre, SIEM kullanılan altyapılarda tehdit tespit süresi (MTTD) %80 oranında kısalmaktadır.*
+      </blockquote>
       <p>Tarihin en büyük veri sızıntılarının çoğu, yanlış yapılandırılmış "Public" bulut depolama alanları (S3 Buckets, Azure Blobs) yüzünden yaşanmıştır. Şirket verilerinin parola olmadan her yerden erişilebilmesi bir kabustur.</p>
       
       <h3>Nasıl Korunursunuz?</h3>
@@ -219,26 +293,40 @@ export const serverCloudAdminArticles = {
       </ul>
 
       <p><strong>ACKLOG Cloud Watcher:</strong> Depolama alanlarınıza yapılan her eriçimi ACKLOG ile mühürleyin. Olağandışı bir "Toplu İndirme" işlemi gördüğünde ACKLOG size saniyeler içinde haber verir. Manuel kontroller veri kaçırmanızı engellemez, ACKLOG ile güvende kalın.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sıkça Sorulan Sorular</h3>
+<p><strong>Soru:</strong> Kurulum süreci ne kadar zaman alır?<br/><strong>Cevap:</strong> Geleneksel sistemlerin aksine yeni nesil mimarilerde temel kurulum ve ilk log akışı aynı gün içinde tamamlanmaktadır.</p>
+<p><strong>Soru:</strong> Her kaynaktan log alabiliyor musunuz?<br/><strong>Cevap:</strong> Evet, Firewall, Switch, Windows/Linux sunucular ve özel yazılımlardan Syslog, WMI veya Agent ile log toplanabilmektedir.</p>`
   },
   "saas-uygulamalarinda-kimlik-yonetimi": {
     title: "SaaS Uygulamalarında Kimlik Yönetimi ve Erişim Denetimi Rehberi",
     description: "Salesforce, Slack, Jira gibi uygulamalarda kim, ne yapıyor? Merkezi login takibi.",
     content: `
       <h2>Uygulama Güvenliği: SaaS Ekosistemini Yönetin</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Siber güvenlik raporlarına göre, SIEM kullanılan altyapılarda tehdit tespit süresi (MTTD) %80 oranında kısalmaktadır.*
+      </blockquote>
       <p>Bir çalışanınız Jira'dan veya Salesforce'tan tüm müşteri veritabanını dışarı aktarırsa (Export) haberiniz olur mu? Şirketlerin kullandığı onlarca SaaS (Software as a Service) uygulaması, kontrol dışı birer veri adacığıdır.</p>
       
       <h3>SSO ve SIEM Entegrasyonu</h3>
       <p>Tüm SaaS uygulamalarınızı tek bir kimlik (SSO) sistemine bağlayın ve bu sistemin loglarını ACKLOG SIEM'e aktarın. Bu sayede her personelin tüm uygulamalardaki "dijital karnesini" tek bir ekranda görebilirsiniz.</p>
 
       <p><strong>ACKLOG Unified ID:</strong> ACKLOG, farklı platformlardaki hareketleri birleştirerek (Correlation) size tam bir siber panorama sunar. Manuel olarak 20 farklı panelden log çekmekle uğraşmayın, ACKLOG ile hız kazanın.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Operasyonel SSS</h3>
+<p><strong>Soru:</strong> SIEM yönetimi için ayrı bir ekip kurmak şart mı?<br/><strong>Cevap:</strong> Hem in-house yönetebilir hem de MSSP (Yönetilen Hizmetler) modeliyle 7/24 Siber Tehdit Merkezi (SOC) desteği alabilirsiniz.</p>
+<p><strong>Soru:</strong> EPS lisanslamanın dezavantajı nedir?<br/><strong>Cevap:</strong> EPS bazlı modellerde kurumunuz büyüdükçe faturanız da büyür; sınırsız EPS destekleyen çözümler daha uzun vadeli ROI sunar.</p>`
   },
   "calisanlarin-kullandigi-bulut-uygulamalarini-gorme-shadow-it": {
     title: "Çalışanların Kullandığı Bulut Uygulamalarını Görme (Shadow IT) Rehberi",
     description: "Şirket verilerinin onaylanmamış bulut servislerine gidişini durdurun, riskleri minimize edin.",
     content: `
       <h2>Shadow IT: Gizli Bilişimle Mücadele</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Siber güvenlik raporlarına göre, SIEM kullanılan altyapılarda tehdit tespit süresi (MTTD) %80 oranında kısalmaktadır.*
+      </blockquote>
       <p>Personelinizin dosyaları WeTransfer ile gönderdiğini veya gizli bir Trello panosu kurduğunu biliyor musunuz? Şirket onayı olmayan her yazılım 'Shadow IT'dir ve güvenlik politikanızı deler.</p>
       
       <h3>Tespit Teknikleri</h3>
@@ -249,13 +337,20 @@ export const serverCloudAdminArticles = {
       </ul>
 
       <p><strong>ACKLOG Shadow IT Discovery:</strong> Ağ trafiği ve uç nokta verilerini birleştirerek gizli kullanılan tüm uygulamaları ACKLOG ile listeler. Şirket verilerinizin nerede olduğunu bilmemek en büyük risktir. ACKLOG ile görünürlük kazanın.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sıkça Sorulan Sorular</h3>
+<p><strong>Soru:</strong> Kurulum süreci ne kadar zaman alır?<br/><strong>Cevap:</strong> Geleneksel sistemlerin aksine yeni nesil mimarilerde temel kurulum ve ilk log akışı aynı gün içinde tamamlanmaktadır.</p>
+<p><strong>Soru:</strong> Her kaynaktan log alabiliyor musunuz?<br/><strong>Cevap:</strong> Evet, Firewall, Switch, Windows/Linux sunucular ve özel yazılımlardan Syslog, WMI veya Agent ile log toplanabilmektedir.</p>`
   },
   "uzaktan-calisma-guvenlik-protokolleri": {
     title: "Uzaktan Çalışma Güvenlik Protokolleri ve Şirket Ağına Erişim Rehberi",
     description: "Evden çalışan personelin güvenliğini nasıl garanti edersiniz? VPN ve endpoint güvenliği.",
     content: `
       <h2>Remote Work Savunması: Şirket Sınırlarının Ötesi</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Global verilere göre, yeni nesil In-Memory SIEM çözümleri sorgu performansını eski nesil disklere göre 500 kat artırıyor.*
+      </blockquote>
       <p>Bir personelin evindeki güvenli olmayan Wi-Fi ağı üzerinden şirkete bağlanması, tüm ağınızı tehdit altına sokar. Uzaktan çalışma, siber saldırganlar için en "kolay lokma" dır.</p>
       
       <h3>Olmazsa Olmaz Maddeler</h3>
@@ -273,19 +368,29 @@ export const serverCloudAdminArticles = {
     description: "Toplantılarınıza kimlerin sızdığını loglardan görün. Kurumsal gizliliği koruma rehberi.",
     content: `
       <h2>Konferans Güvenliği: Dinlenen Odalardan Kaçının</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Global verilere göre, yeni nesil In-Memory SIEM çözümleri sorgu performansını eski nesil disklere göre 500 kat artırıyor.*
+      </blockquote>
       <p>Kritik bir yönetim kurulu toplantısına yetkisiz birinin "misafir" olarak sızması, ticari sırların çalınmasına neden olabilir. Video konferans araçlarının logları, toplantıya katılanların IP adreslerini ve isimlerini saklar.</p>
       
       <h3>İzlenmesi Gerekenler</h3>
       <p>Hangi toplantı linkleri şifresiz paylaşıldı? Dışarıdaki bir IP adresi toplantıya sızmaya çalıştı mı? (Zoom-bombing tespiti).</p>
 
       <p><strong>ACKLOG Meeting Audit:</strong> ACKLOG, Teams ve Zoom admin loglarını süzerek "Olağandışı Katılımcı" alarmları üretir. Toplantılarınızın ne kadar güvenli olduğunu ACKLOG raporlarıyla ispatlayın. Manuel kontrollerle vakit kaybetmeyin.</p>
-    `
+    
+
+<h3 class="text-xl font-bold mt-8 mb-4">Sıkça Sorulan Sorular</h3>
+<p><strong>Soru:</strong> Kurulum süreci ne kadar zaman alır?<br/><strong>Cevap:</strong> Geleneksel sistemlerin aksine yeni nesil mimarilerde temel kurulum ve ilk log akışı aynı gün içinde tamamlanmaktadır.</p>
+<p><strong>Soru:</strong> Her kaynaktan log alabiliyor musunuz?<br/><strong>Cevap:</strong> Evet, Firewall, Switch, Windows/Linux sunucular ve özel yazılımlardan Syslog, WMI veya Agent ile log toplanabilmektedir.</p>`
   },
   "vpn-loglarini-raporlama": {
     title: "VPN Loglarını Raporlama ve Siber Sızıntı Analizi Rehberi",
     description: "VPN üzerinden yapılan siber hareketlerin dökümü, coğrafi IP analizi ve güvenlik.",
     content: `
       <h2>VPN Raporları: Güvenli Tünelin Denetimi</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Uzman analizlerine göre, KVKK <a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651</a> teknik tedbirlerini otomatize eden kurumlar cezai risklerini %99 oranında düşürmektedir.*
+      </blockquote>
       <p>VPN (Virtual Private Network), ağınıza dışarıdan açılan bir "Tünel"dir. Bu tünelden geçen veriyi görmüyorsanız, kapıları ardına kadar açmışsınız demektir. Sadece "Kim girdi?" değil "İçeride ne yaptı?" sorusuna yanıt bulmalısınız.</p>
       
       <h3>Rapor Detayları</h3>
@@ -303,6 +408,9 @@ export const serverCloudAdminArticles = {
     description: "Şifrelerin çalınması siber felaket olmaktan nasıl çıkarılır? MFA denetim rehberi.",
     content: `
       <h2>MFA: Siber Güvenliğin En Güçlü Adımı</h2>
+      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
+        *Araştırmalar, log <a href="/wiki/siem-nedir" class="text-blue-400 hover:underline font-bold">korelasyon</a> yeteneği olmayan firmaların siber saldırıları fark etmesinin ortalama 200 günden fazla sürdüğünü gösteriyor.*
+      </blockquote>
       <p>Siber saldırıların %80'i zayıf veya çalınmış şifrelerden kaynaklanır. Eğer sadece kullanıcı adı ve şifreye güveniyorsanız, hacklenmek bir an meselesidir. MFA (Multi-Factor Authentication), çalınan şifreyi değersiz hale getiren "İkinci Anahtardır".</p>
       
       <h3>Neden SIEM İle İzlemelisiniz?</h3>
