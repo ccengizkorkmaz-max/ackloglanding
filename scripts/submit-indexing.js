@@ -1,64 +1,224 @@
+/**
+ * SIEMSOC (logsiem.com) - Google Indexing API Gönderici
+ * ======================================================
+ * Bu script sitemap'ten tüm URL'leri okuyarak Google Indexing API'ye gönderir.
+ * "Discovered - currently not indexed" sorununu çözmek için kullanılır.
+ * 
+ * Kullanım: node scripts/submit-indexing.js
+ * 
+ * Gereksinimler:
+ * - google-indexer-key.json (proje kök dizininde)
+ * - googleapis npm paketi
+ * - Google Search Console'da service account'a sahip olarak yetki verilmiş olmalı
+ */
+
 const { google } = require('googleapis');
 const fs = require('fs');
 const path = require('path');
 
+// ==================== 1. KEY DOSYASI KONTROLÜ ====================
 const keyFilePath = path.join(__dirname, '../google-indexer-key.json');
 if (!fs.existsSync(keyFilePath)) {
-    console.error("HATA: google-indexer-key.json dosyası bulunamadı.");
+    console.error("❌ HATA: google-indexer-key.json dosyası bulunamadı.");
+    console.error("Lütfen Google Cloud'dan aldığınız hizmet hesabı (Service Account) JSON dosyasını ana dizine 'google-indexer-key.json' adıyla ekleyin.");
     process.exit(1);
 }
 
+// ==================== 2. URL HAVUZUNU OLUŞTUR ====================
+const BASE_URL = 'https://logsiem.com';
+
+// --- A) Ana Sayfalar (En yüksek öncelik) ---
 const coreUrls = [
-    'https://logsiem.com',
-    'https://logsiem.com/ozellikler',
-    'https://logsiem.com/wiki',
-    'https://logsiem.com/uyumluluk-testi',
-    'https://logsiem.com/maliyet-hesaplayici',
-    'https://logsiem.com/analiz',
-    'https://logsiem.com/demo-talep',
-    'https://logsiem.com/sizinti-kontrol',
-    'https://logsiem.com/zafiyet-tarama',
-    'https://logsiem.com/cozumler/denetim-ve-inceleme',
-    'https://logsiem.com/cozumler/fidye-yazilimi-onleme',
-    'https://logsiem.com/cozumler/log-maliyet-optimizasyonu',
-    'https://logsiem.com/cozumler/tehdit-algilama'
+    BASE_URL,
+    `${BASE_URL}/ozellikler`,
+    `${BASE_URL}/wiki`,
+    `${BASE_URL}/cozumler`,
+    `${BASE_URL}/uyumluluk-testi`,
+    `${BASE_URL}/maliyet-hesaplayici`,
+    `${BASE_URL}/analiz`,
+    `${BASE_URL}/demo-talep`,
+    `${BASE_URL}/sizinti-kontrol`,
+    `${BASE_URL}/zafiyet-tarama`,
 ];
 
-const topWikiSlugs = [
-    'siem-nedir',
-    '5651-log-yonetimi-rehberi',
-    'soc-kurulum-rehberi-maliyetler',
-    'kvkk-siem-log-yonetimi-rehberi',
-    'siem-vs-log-yonetimi',
-    'qradar-alternatifi',
-    'log-parsing-nedir',
-    'siem-performans-analizi',
-    'siber-terimler-sozlugu',
-    'threat-hunting-nedir'
+// --- B) Çözüm Sayfaları ---
+const solutionUrls = [
+    `${BASE_URL}/cozumler/denetim-ve-inceleme`,
+    `${BASE_URL}/cozumler/fidye-yazilimi-onleme`,
+    `${BASE_URL}/cozumler/ic-tehdit-izleme`,
+    `${BASE_URL}/cozumler/kaba-kuvvet-saldirilari`,
+    `${BASE_URL}/cozumler/log-maliyet-optimizasyonu`,
+    `${BASE_URL}/cozumler/tehdit-algilama`,
 ];
 
-let urlsToSubmit = [...coreUrls, ...topWikiSlugs.map(slug => `https://logsiem.com/wiki/${slug}`)];
+// --- C) Wiki Makaleleri (Tüm data dosyalarından otomatik çek) ---
+function getAllWikiSlugs() {
+    const slugs = new Set();
+    const wikiDataDir = path.join(__dirname, '../src/data/wiki');
+    
+    if (!fs.existsSync(wikiDataDir)) {
+        console.warn("⚠️ Wiki data dizini bulunamadı:", wikiDataDir);
+        return [];
+    }
+
+    const files = fs.readdirSync(wikiDataDir).filter(f => f.endsWith('.ts'));
+    
+    for (const file of files) {
+        const content = fs.readFileSync(path.join(wikiDataDir, file), 'utf8');
+        // Her data dosyasındaki slug'ları çıkar (object key'leri)
+        // Pattern: "slug-name": {
+        const slugRegex = /["']([a-z0-9][a-z0-9-]+[a-z0-9])["']\s*:\s*\{/g;
+        let match;
+        while ((match = slugRegex.exec(content)) !== null) {
+            const slug = match[1];
+            // Çok kısa veya genel olanları atla
+            if (slug.length > 3 && !['type', 'name', 'title', 'content', 'description', 'author', 'initials'].includes(slug)) {
+                slugs.add(slug);
+            }
+        }
+    }
+    
+    return Array.from(slugs);
+}
+
+const wikiSlugs = getAllWikiSlugs();
+const wikiUrls = wikiSlugs.map(slug => `${BASE_URL}/wiki/${slug}`);
+
+// Tüm URL'leri birleştir
+const allUrls = [...coreUrls, ...solutionUrls, ...wikiUrls];
+
+console.log(`\n📊 URL İstatistikleri:`);
+console.log(`   Ana Sayfalar:     ${coreUrls.length}`);
+console.log(`   Çözüm Sayfaları:  ${solutionUrls.length}`);
+console.log(`   Wiki Makaleleri:  ${wikiUrls.length}`);
+console.log(`   ─────────────────────────`);
+console.log(`   TOPLAM:           ${allUrls.length}\n`);
+
+// ==================== 3. GOOGLE INDEXING API ====================
+// Google Indexing API günlük 200 URL sınırına sahiptir
+// Eğer 200'den fazla URL varsa batch halinde gönder
+const DAILY_LIMIT = 200;
+const BATCH_DELAY_MS = 500; // İstekler arası bekleme (Rate Limit koruması)
 
 const auth = new google.auth.GoogleAuth({
     keyFile: keyFilePath,
     scopes: ['https://www.googleapis.com/auth/indexing'],
 });
 
-async function submitUrls() {
-    let authClient = await auth.getClient();
-    const indexing = google.indexing({ version: 'v3', auth: authClient });
+async function submitBatch(urls, batchNumber, totalBatches) {
+    let authClient;
+    try {
+        authClient = await auth.getClient();
+    } catch (e) {
+        console.error("🔐 Yetkilendirme Hatası:", e.message);
+        process.exit(1);
+    }
+
+    const indexing = google.indexing({
+        version: 'v3',
+        auth: authClient,
+    });
 
     let successCount = 0;
-    for (const url of urlsToSubmit) {
+    let errorCount = 0;
+    const errors = [];
+
+    console.log(`\n🚀 Batch ${batchNumber}/${totalBatches} - ${urls.length} URL gönderiliyor...\n`);
+
+    for (let i = 0; i < urls.length; i++) {
+        const url = urls[i];
         try {
-            await indexing.urlNotifications.publish({ requestBody: { url, type: 'URL_UPDATED' } });
-            console.log(`[BAŞARILI] ${url}`);
+            await indexing.urlNotifications.publish({
+                requestBody: {
+                    url: url,
+                    type: 'URL_UPDATED',
+                },
+            });
+            console.log(`  ✅ [${i + 1}/${urls.length}] ${url}`);
             successCount++;
         } catch (error) {
-            console.error(`[HATA] ${url} ->`, error.response?.data?.error?.message || error.message);
+            const errMsg = error.response?.data?.error?.message || error.message;
+            console.error(`  ❌ [${i + 1}/${urls.length}] ${url} → ${errMsg}`);
+            errorCount++;
+            errors.push({ url, error: errMsg });
         }
-        await new Promise(r => setTimeout(r, 500));
+
+        // Rate limit koruması
+        if (i < urls.length - 1) {
+            await new Promise(resolve => setTimeout(resolve, BATCH_DELAY_MS));
+        }
     }
-    console.log(`\nİşlem Tamamlandı: ${successCount}/${urlsToSubmit.length} URL LOGSIEM için Google Sırasına Eklendi!`);
+
+    return { successCount, errorCount, errors };
 }
-submitUrls();
+
+async function main() {
+    console.log('═══════════════════════════════════════════════════');
+    console.log('  SIEMSOC (logsiem.com) Google Indexing API');
+    console.log('  "Discovered - currently not indexed" Çözümü');
+    console.log('═══════════════════════════════════════════════════');
+
+    // Günlük limit kontrolü
+    const urlsToProcess = allUrls.slice(0, DAILY_LIMIT);
+    if (allUrls.length > DAILY_LIMIT) {
+        console.log(`⚠️  Toplam ${allUrls.length} URL var ama günlük limit ${DAILY_LIMIT}. İlk ${DAILY_LIMIT} URL gönderilecek.`);
+        console.log(`   Kalan ${allUrls.length - DAILY_LIMIT} URL yarın gönderilmeli.\n`);
+    }
+
+    // Batch'lere böl (her batch max 50 URL)
+    const BATCH_SIZE = 50;
+    const batches = [];
+    for (let i = 0; i < urlsToProcess.length; i += BATCH_SIZE) {
+        batches.push(urlsToProcess.slice(i, i + BATCH_SIZE));
+    }
+
+    let totalSuccess = 0;
+    let totalError = 0;
+    const allErrors = [];
+
+    for (let b = 0; b < batches.length; b++) {
+        const result = await submitBatch(batches[b], b + 1, batches.length);
+        totalSuccess += result.successCount;
+        totalError += result.errorCount;
+        allErrors.push(...result.errors);
+
+        // Batch'ler arası biraz daha fazla bekle
+        if (b < batches.length - 1) {
+            console.log(`\n⏳ Sonraki batch için 2 saniye bekleniyor...`);
+            await new Promise(resolve => setTimeout(resolve, 2000));
+        }
+    }
+
+    // Sonuç raporu
+    console.log(`\n═══════════════════════════════════════════════════`);
+    console.log(`  📋 SONUÇ RAPORU`);
+    console.log(`═══════════════════════════════════════════════════`);
+    console.log(`  ✅ Başarılı: ${totalSuccess}/${urlsToProcess.length}`);
+    console.log(`  ❌ Hatalı:   ${totalError}/${urlsToProcess.length}`);
+    
+    if (allErrors.length > 0) {
+        console.log(`\n  🔴 Hatalı URL'ler:`);
+        allErrors.forEach(e => console.log(`     - ${e.url}: ${e.error}`));
+    }
+
+    if (allUrls.length > DAILY_LIMIT) {
+        console.log(`\n  📅 YARIN GÖNDERİLECEK URL'ler: ${allUrls.length - DAILY_LIMIT} adet`);
+        console.log(`     İpucu: "node scripts/submit-indexing.js --offset=${DAILY_LIMIT}" ile devam edebilirsiniz.`);
+    }
+
+    console.log(`\n  💡 İPUCU: Bu scripti her gün çalıştırmak için bir cron/task scheduler kurun.`);
+    console.log(`     Windows: schtasks /create /tn "SIEMSOC-Indexing" /tr "node C:\\SIEMSOC\\scripts\\submit-indexing.js" /sc daily /st 09:00`);
+    console.log(`═══════════════════════════════════════════════════\n`);
+}
+
+// Offset parametresi desteği (büyük sitelerde devam etmek için)
+const offsetArg = process.argv.find(a => a.startsWith('--offset='));
+if (offsetArg) {
+    const offset = parseInt(offsetArg.split('=')[1], 10);
+    if (!isNaN(offset)) {
+        const remaining = allUrls.splice(0, offset);
+        console.log(`📌 Offset: ${offset} - İlk ${offset} URL atlanıyor, kalan ${allUrls.length} URL gönderilecek.`);
+    }
+}
+
+main().catch(console.error);

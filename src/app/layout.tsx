@@ -56,7 +56,7 @@ export const metadata: Metadata = {
   }
 };
 
-import { JsonLd, organizationSchema } from "@/components/seo/json-ld";
+import { JsonLd, organizationSchema, websiteSchema } from "@/components/seo/json-ld";
 import { Navbar } from "@/components/navbar";
 
 export default function RootLayout({
@@ -83,8 +83,9 @@ export default function RootLayout({
             gtag('config', 'G-DDM057XNSZ');
           `}
         </Script>
-        {/* Organization Schema Global */}
+        {/* Global Structured Data - Organization + WebSite schemas for AI/Search engines */}
         <JsonLd data={organizationSchema} />
+        <JsonLd data={websiteSchema} />
         <Navbar />
         {children}
       </body>

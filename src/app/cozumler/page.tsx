@@ -5,6 +5,15 @@ import Link from 'next/link';
 export const metadata: Metadata = {
     title: 'SIEM Kullanım Senaryoları | Fidye Yazılımı, KVKK ve Tehdit Avcılığı',
     description: 'ACKLOG SIEM ile fidye yazılımı engelleme, KVKK loglama, içeriden gelen tehditleri tespit etme ve log yönetimi maliyetlerini düşürme çözümleri.',
+    alternates: {
+        canonical: 'https://logsiem.com/cozumler',
+    },
+    openGraph: {
+        title: 'SIEM Kullanım Senaryoları | ACKLOG',
+        description: 'ACKLOG SIEM ile fidye yazılımı engelleme, KVKK loglama, içeriden gelen tehditleri tespit etme ve log yönetimi maliyetlerini düşürme çözümleri.',
+        url: 'https://logsiem.com/cozumler',
+        type: 'website',
+    },
 };
 
 const solutions = [

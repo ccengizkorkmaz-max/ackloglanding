@@ -6,6 +6,15 @@ import { ThreatDetectionClient } from './client';
 export const metadata: Metadata = {
     title: 'Tehdit Algılama ve Müdahale | SIEM & Threat Detection',
     description: 'Gelişmiş tehditleri gerçek zamanlı tespit edin. Splunk maliyetleri olmadan, %100 yerli ve KVKK uyumlu tehdit algılama çözümü.',
+    alternates: {
+        canonical: 'https://logsiem.com/cozumler/tehdit-algilama',
+    },
+    openGraph: {
+        title: 'Tehdit Algılama ve Müdahale | ACKLOG SIEM',
+        description: 'Gelişmiş tehditleri gerçek zamanlı tespit edin. Splunk maliyetleri olmadan, %100 yerli ve KVKK uyumlu tehdit algılama çözümü.',
+        url: 'https://logsiem.com/cozumler/tehdit-algilama',
+        type: 'website',
+    },
 };
 
 const faqSchema: WithContext<FAQPage> = {
