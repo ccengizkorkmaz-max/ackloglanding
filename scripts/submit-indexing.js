@@ -27,7 +27,7 @@ if (!fs.existsSync(keyFilePath)) {
 // ==================== 2. URL HAVUZUNU OLUŞTUR ====================
 const BASE_URL = 'https://logsiem.com';
 
-// --- A) Ana Sayfalar (En yüksek öncelik) ---
+// --- A) Ana Sayfalar & İnteraktif Araçlar (En yüksek öncelik) ---
 const coreUrls = [
     BASE_URL,
     `${BASE_URL}/ozellikler`,
@@ -39,6 +39,13 @@ const coreUrls = [
     `${BASE_URL}/demo-talep`,
     `${BASE_URL}/sizinti-kontrol`,
     `${BASE_URL}/zafiyet-tarama`,
+    `${BASE_URL}/araclar`,
+    `${BASE_URL}/araclar/eps-hesaplayici`,
+    `${BASE_URL}/araclar/soc-maliyeti-hesaplayici`,
+    `${BASE_URL}/araclar/mttd-mttr-hesaplayici`,
+    `${BASE_URL}/araclar/log-retention-hesaplayici`,
+    `${BASE_URL}/araclar/kvkk-checklist`,
+    `${BASE_URL}/araclar/5651-checklist`,
 ];
 
 // --- B) Çözüm Sayfaları ---
@@ -65,13 +72,10 @@ function getAllWikiSlugs() {
     
     for (const file of files) {
         const content = fs.readFileSync(path.join(wikiDataDir, file), 'utf8');
-        // Her data dosyasındaki slug'ları çıkar (object key'leri)
-        // Pattern: "slug-name": {
         const slugRegex = /["']([a-z0-9][a-z0-9-]+[a-z0-9])["']\s*:\s*\{/g;
         let match;
         while ((match = slugRegex.exec(content)) !== null) {
             const slug = match[1];
-            // Çok kısa veya genel olanları atla
             if (slug.length > 3 && !['type', 'name', 'title', 'content', 'description', 'author', 'initials'].includes(slug)) {
                 slugs.add(slug);
             }
@@ -84,15 +88,62 @@ function getAllWikiSlugs() {
 const wikiSlugs = getAllWikiSlugs();
 const wikiUrls = wikiSlugs.map(slug => `${BASE_URL}/wiki/${slug}`);
 
+// --- D) Kanıt / Belge Sayfaları ---
+function getSlugsBySection(filePath, sectionName) {
+    if (!fs.existsSync(filePath)) {
+        console.warn("⚠️ Dosya bulunamadı:", filePath);
+        return [];
+    }
+    const fileContent = fs.readFileSync(filePath, 'utf8');
+    const sectionIndex = fileContent.indexOf(sectionName);
+    if (sectionIndex === -1) return [];
+    
+    let nextExportIndex = fileContent.indexOf('export const', sectionIndex + 20);
+    if (nextExportIndex === -1) nextExportIndex = fileContent.length;
+    
+    const sectionContent = fileContent.substring(sectionIndex, nextExportIndex);
+    const slugs = [];
+    const slugRegex = /["']([a-z0-9][a-z0-9-]+[a-z0-9])["']\s*:\s*\{/g;
+    let match;
+    while ((match = slugRegex.exec(sectionContent)) !== null) {
+        const slug = match[1];
+        if (slug.length > 3 && !['type', 'name', 'title', 'content', 'description', 'badge', 'heroTitle', 'heroSubtitle', 'features', 'specs', 'faqs'].includes(slug)) {
+            slugs.push(slug);
+        }
+    }
+    return slugs;
+}
+
+const kanitFilePath = path.join(__dirname, '../src/data/kanit-content.ts');
+const kanitUrls = getSlugsBySection(kanitFilePath, 'kanitArticles').map(slug => `${BASE_URL}/kanit/${slug}`);
+
+// --- E) Programmatic SEO Sayfaları ---
+const pSeoFilePath = path.join(__dirname, '../src/data/programmatic-seo.ts');
+const cityUrls = getSlugsBySection(pSeoFilePath, 'programmaticCities').map(slug => `${BASE_URL}/sehir/${slug}`);
+const sectorUrls = getSlugsBySection(pSeoFilePath, 'programmaticSectors').map(slug => `${BASE_URL}/sektor/${slug}`);
+const regulationUrls = getSlugsBySection(pSeoFilePath, 'programmaticRegulations').map(slug => `${BASE_URL}/regulasyon/${slug}`);
+const comparisonUrls = getSlugsBySection(pSeoFilePath, 'programmaticComparisons').map(slug => `${BASE_URL}/karsilastirma/${slug}`);
+const integrationUrls = getSlugsBySection(pSeoFilePath, 'programmaticIntegrations').map(slug => `${BASE_URL}/entegrasyon/${slug}`);
+
+const programmaticUrls = [
+    ...cityUrls,
+    ...sectorUrls,
+    ...regulationUrls,
+    ...comparisonUrls,
+    ...integrationUrls
+];
+
 // Tüm URL'leri birleştir
-const allUrls = [...coreUrls, ...solutionUrls, ...wikiUrls];
+const allUrls = [...coreUrls, ...solutionUrls, ...wikiUrls, ...kanitUrls, ...programmaticUrls];
 
 console.log(`\n📊 URL İstatistikleri:`);
-console.log(`   Ana Sayfalar:     ${coreUrls.length}`);
-console.log(`   Çözüm Sayfaları:  ${solutionUrls.length}`);
-console.log(`   Wiki Makaleleri:  ${wikiUrls.length}`);
+console.log(`   Ana Sayfalar & Araçlar:  ${coreUrls.length}`);
+console.log(`   Çözüm Sayfaları:         ${solutionUrls.length}`);
+console.log(`   Wiki Makaleleri:         ${wikiUrls.length}`);
+console.log(`   Kanıt / Claim Belgeleri: ${kanitUrls.length}`);
+console.log(`   Programmatic SEO:        ${programmaticUrls.length}`);
 console.log(`   ─────────────────────────`);
-console.log(`   TOPLAM:           ${allUrls.length}\n`);
+console.log(`   TOPLAM:                  ${allUrls.length}\n`);
 
 // ==================== 3. GOOGLE INDEXING API ====================
 // Google Indexing API günlük 200 URL sınırına sahiptir
