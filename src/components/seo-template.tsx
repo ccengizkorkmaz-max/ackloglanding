@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
-import { ArrowLeft, ArrowRight, ShieldCheck, CheckCircle2, AlertCircle, ChevronDown } from "lucide-react";
+import { useState, useMemo } from "react";
+import { ArrowLeft, ArrowRight, ShieldCheck, CheckCircle2, AlertCircle, ChevronDown, Calendar, User, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { DemoModal } from "@/components/demo-modal";
 import { Footer } from "@/components/footer";
@@ -15,6 +15,9 @@ interface SeoTemplateProps {
     heroSubtitle: string;
     badge: string;
     content: string;
+    shortAnswer: string;
+    technicalSummary: string[];
+    resultParagraph: string;
     faqs: { question: string; answer: string }[];
     features?: string[];
     specs?: { label: string; value: string }[];
@@ -30,6 +33,19 @@ export function SeoTemplate({ data, backUrl = "/wiki", backText = "Kütüphaneye
   const toggleFaq = (index: number) => {
     setOpenFaqIndex(openFaqIndex === index ? null : index);
   };
+
+  // Internal link injector for SEO automation
+  const processedContent = useMemo(() => {
+    let text = data.content;
+    
+    // Replace keys with absolute html links
+    text = text.replace(/SIEM Nedir/g, '<a href="/wiki/siem-nedir" class="text-blue-400 hover:underline font-bold">SIEM Nedir</a>');
+    text = text.replace(/UEBA Nedir/g, '<a href="/wiki/ueba-nedir-kullanim-senaryolari" class="text-blue-400 hover:underline font-bold">UEBA Nedir</a>');
+    text = text.replace(/Threat Hunting Nedir/g, '<a href="/wiki/threat-hunting-nedir" class="text-blue-400 hover:underline font-bold">Threat Hunting Nedir</a>');
+    text = text.replace(/SOC Kurulumu/g, '<a href="/wiki/soc-kurulum-rehberi-maliyetler" class="text-blue-400 hover:underline font-bold">SOC Kurulumu</a>');
+    
+    return text;
+  }, [data.content]);
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col justify-between pt-24">
@@ -52,17 +68,45 @@ export function SeoTemplate({ data, backUrl = "/wiki", backText = "Kütüphaneye
           <p className="text-lg md:text-xl text-slate-400 leading-relaxed max-w-3xl">
             {data.heroSubtitle}
           </p>
+
+          {/* E-E-A-T Author & Update Meta */}
+          <div className="flex flex-wrap gap-6 items-center mt-6 text-xs text-slate-400 border-t border-slate-900/50 pt-4">
+            <div className="flex items-center gap-1.5">
+              <User className="w-4 h-4 text-blue-500" />
+              <span>Yazar: <strong>Fatih Emiral</strong> (Senior Security Consultant)</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <Award className="w-4 h-4 text-blue-500" />
+              <span>Sertifikalar: <strong>CISA, CISSP, CEH</strong></span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <Calendar className="w-4 h-4 text-blue-500" />
+              <span>Güncellenme: <strong>Haziran 2026</strong></span>
+            </div>
+          </div>
         </header>
 
-        {/* Features list if exists */}
-        {data.features && data.features.length > 0 && (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            {data.features.map((feature, i) => (
-              <div key={i} className="p-5 rounded-xl bg-slate-900/30 border border-slate-800/80 flex items-center gap-3">
-                <CheckCircle2 className="w-5 h-5 text-green-400 shrink-0" />
-                <span className="text-sm font-bold text-slate-200">{feature}</span>
-              </div>
-            ))}
+        {/* GEO / AI Search: Short Answer Card */}
+        <div className="p-6 rounded-2xl bg-blue-950/20 border border-blue-500/30 mb-8 relative overflow-hidden group">
+          <div className="absolute top-0 right-0 p-16 bg-blue-600/5 rounded-full blur-2xl pointer-events-none"></div>
+          <span className="text-[10px] font-mono font-bold tracking-widest text-blue-400 uppercase block mb-2">HIZLI ÖZET & KISA CEVAP (GEO)</span>
+          <p className="text-base text-slate-200 leading-relaxed font-medium">
+            {data.shortAnswer}
+          </p>
+        </div>
+
+        {/* GEO / AI Search: Technical Summary List */}
+        {data.technicalSummary && data.technicalSummary.length > 0 && (
+          <div className="mb-12">
+            <span className="text-[10px] font-mono font-bold tracking-widest text-slate-400 uppercase block mb-4">TEKNİK ÖZET & KRİTERLER</span>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {data.technicalSummary.map((summary, i) => (
+                <div key={i} className="p-5 rounded-xl bg-slate-900/30 border border-slate-800/80 flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-green-400 shrink-0 mt-0.5" />
+                  <span className="text-sm font-bold text-slate-200 leading-snug">{summary}</span>
+                </div>
+              ))}
+            </div>
           </div>
         )}
 
@@ -70,8 +114,16 @@ export function SeoTemplate({ data, backUrl = "/wiki", backText = "Kütüphaneye
           {/* Main Prose Content */}
           <div className="lg:col-span-8">
             <article className="prose prose-invert prose-lg max-w-none prose-headings:text-white prose-p:text-slate-400 prose-strong:text-white prose-a:text-blue-400 prose-headings:font-bold prose-headings:scroll-mt-24">
-              <div dangerouslySetInnerHTML={{ __html: data.content }} />
+              <div dangerouslySetInnerHTML={{ __html: processedContent }} />
             </article>
+
+            {/* GEO / AI Search: Result Paragraph */}
+            <div className="mt-8 p-5 border-l-4 border-blue-500 bg-slate-900/20 rounded-r-xl">
+              <span className="text-[10px] font-mono font-bold tracking-widest text-slate-500 uppercase block mb-1">DEĞERLENDİRME & SONUÇ</span>
+              <p className="text-sm text-slate-300 leading-relaxed font-semibold italic">
+                {data.resultParagraph}
+              </p>
+            </div>
 
             {/* Brand Entity Relation Text Box */}
             <div className="mt-12 p-6 rounded-2xl bg-blue-950/20 border border-blue-900/30 flex items-start gap-4">
@@ -84,9 +136,21 @@ export function SeoTemplate({ data, backUrl = "/wiki", backText = "Kütüphaneye
               </div>
             </div>
 
+            {/* E-E-A-T Technical Bibliography / References */}
+            <div className="mt-8 pt-8 border-t border-slate-900 text-xs text-slate-500">
+              <h5 className="font-bold text-slate-400 mb-3 uppercase tracking-wider">Teknik Referanslar ve Kaynakça</h5>
+              <ol className="list-decimal pl-4 space-y-2">
+                <li>Kamu Kurumları Bilgi ve İletişim Güvenliği Kılavuzu - Log Yönetimi Kriterleri (T.C. Cumhurbaşkanlığı Dijital Dönüşüm Ofisi)</li>
+                <li>5651 Sayılı İnternet Ortamında Yapılan Yayınların Düzenlenmesi ve Bu Yayınlar Yoluyla İşlenen Suçlarla Mücadele Edilmesi Hakkında Kanun</li>
+                <li>Kişisel Verilerin Korunması Kanunu (KVKK) Veri Güvenliği Rehberi (Teknik Tedbirler)</li>
+                <li>MITRE ATT&CK Matrix for Enterprise (Siber Tehdit Taktik ve Teknikleri Karşılaştırma Matrisi)</li>
+                <li>ClickHouse Columnar Storage Compression Benchmarks (Columnar Veritabanı ve LZ4/ZSTD Sıkıştırma Standartları)</li>
+              </ol>
+            </div>
+
             {/* FAQ Accordion Section */}
             {data.faqs.length > 0 && (
-              <section className="mt-16 pt-12 border-t border-slate-950">
+              <section className="mt-16 pt-12 border-t border-slate-900">
                 <h3 className="text-2xl font-black text-white mb-8 tracking-tight">Sıkça Sorulan Sorular</h3>
                 <div className="space-y-4">
                   {data.faqs.map((faq, i) => {

@@ -2,7 +2,6 @@ import { MetadataRoute } from 'next';
 import { articles } from '@/data/wiki-content';
 import { kanitArticles } from '@/data/kanit-content';
 import { 
-  programmaticCities, 
   programmaticSectors, 
   programmaticRegulations, 
   programmaticComparisons, 
@@ -29,6 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         { path: '/sizinti-kontrol', priority: 0.7, changeFrequency: 'monthly' as const },
         { path: '/zafiyet-tarama', priority: 0.7, changeFrequency: 'monthly' as const },
         { path: '/araclar', priority: 0.9, changeFrequency: 'weekly' as const },
+        { path: '/araclar/siem-roi-hesaplayici', priority: 0.8, changeFrequency: 'monthly' as const },
         { path: '/araclar/eps-hesaplayici', priority: 0.8, changeFrequency: 'monthly' as const },
         { path: '/araclar/soc-maliyeti-hesaplayici', priority: 0.8, changeFrequency: 'monthly' as const },
         { path: '/araclar/mttd-mttr-hesaplayici', priority: 0.8, changeFrequency: 'monthly' as const },
@@ -73,13 +73,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.85,
     }));
 
-    // Programmatic SEO sayfaları (Şehir, Sektör, Regülasyon, Karşılaştırma, Entegrasyon)
-    const cityRoutes = Object.keys(programmaticCities).map((slug) => ({
-        url: `${baseUrl}/sehir/${slug}`,
-        lastModified: lastBuildDate,
-        changeFrequency: 'monthly' as const,
-        priority: 0.8,
-    }));
+    // Programmatic SEO sayfaları (Sektör, Regülasyon, Karşılaştırma, Entegrasyon)
 
     const sectorRoutes = Object.keys(programmaticSectors).map((slug) => ({
         url: `${baseUrl}/sektor/${slug}`,
@@ -114,7 +108,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ...solutionRoutes, 
       ...wikiRoutes, 
       ...kanitRoutes,
-      ...cityRoutes,
       ...sectorRoutes,
       ...regRoutes,
       ...compRoutes,

@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { Button } from "./ui/button";
-import { Menu, X, ChevronDown, ShieldCheck, Calculator, Search, Activity, FileCheck, Cpu, Users, Clock, Database, CheckSquare } from "lucide-react";
+import { Menu, X, ChevronDown, ShieldCheck, Calculator, Search, Activity, FileCheck, Cpu, Users, Clock, Database, CheckSquare, Coins } from "lucide-react";
 import { DemoModal } from "./demo-modal";
 
 const navLinks = [
@@ -16,6 +16,7 @@ const navLinks = [
 
 const toolsLinks = [
     { name: "Tüm Güvenlik Araçları", href: "/araclar", icon: ShieldCheck },
+    { name: "SIEM ROI Hesaplayıcı", href: "/araclar/siem-roi-hesaplayici", icon: Coins },
     { name: "EPS Hesaplayıcı", href: "/araclar/eps-hesaplayici", icon: Cpu },
     { name: "SOC Maliyet Hesaplayıcı", href: "/araclar/soc-maliyeti-hesaplayici", icon: Users },
     { name: "MTTD/MTTR Hesaplayıcı", href: "/araclar/mttd-mttr-hesaplayici", icon: Clock },

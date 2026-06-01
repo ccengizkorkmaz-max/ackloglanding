@@ -3,6 +3,9 @@ export interface KanitData {
   subtitle: string;
   description: string;
   heroBadge: string;
+  shortAnswer: string;
+  technicalSummary: string[];
+  resultParagraph: string;
   content: string;
   faqs: { question: string; answer: string }[];
   metrics: { label: string; value: string; desc: string }[];
@@ -14,6 +17,14 @@ export const kanitArticles: Record<string, KanitData> = {
     subtitle: "In-Memory mimarisiyle siber olayların milisaniyeler altında tespit edilmesi ve alarm üretilmesi süreci.",
     description: "ACKLOG'un 0ms algılama gecikmesi iddiasının arkasındaki teknik mimariyi, performans benchmark sonuçlarını ve real-time log korelasyon testlerini inceleyin.",
     heroBadge: "Teknik Rapor & Kanıt",
+    shortAnswer: "ACKLOG, geleneksel SIEM'lerin logları diske yazıp sonradan sorgulama yapmasının aksine, patentli in-memory stream teknolojisiyle logları daha akar haldeyken Complex Event Processing (CEP) motorundan geçirir. Yapılan testlerde ortalama korelasyon ve tehdit algılama gecikmesi 0.4 milisaniye (0ms mertebesi) olarak tescillenmiştir.",
+    technicalSummary: [
+      "Bellek üzerinde çalışan gerçek zamanlı korelasyon motoru hızı (< 0.4ms).",
+      "Tek bir optimize sunucuda 150.000+ EPS (saniye başı olay) log işleme gücü.",
+      "1 milyar satır log üzerinde ClickHouse sütun mimarisiyle anlık sorgu hızı (0.02 sn).",
+      "Ağ tıkanıklığı yaratmayan asenkron arka plan diske yazma mimarisi."
+    ],
+    resultParagraph: "Özetle, siber olaylara müdahale süresini (MTTR) sıfırlamak isteyen kurumlar için ACKLOG, in-memory stream motoru ile milisaniyeler seviyesinde proaktif koruma sunar.",
     metrics: [
       { label: "Ortalama Algılama Gecikmesi", value: "< 0.4ms", desc: "Gerçek zamanlı korelasyon motoru hızı" },
       { label: "Maksimum EPS Kapasitesi", value: "150.000+", desc: "Tek düğümde CPU/RAM darboğazı olmadan" },
@@ -65,12 +76,8 @@ export const kanitArticles: Record<string, KanitData> = {
     `,
     faqs: [
       {
-        question: "0ms gecikme gerçekten mümkün mü?",
+        question: "0ms gecikme gerçekten mümkün mu?",
         answer: "Evet, loglar disk üzerinde depolanmadan önce RAM bellekte korelasyon motorundan geçirildiği için tespit süresi milisaniyeler (0ms mertebesinde) seviyesindedir. Diske yazma işlemi arka planda asenkron olarak yürütülür."
-      },
-      {
-        question: "Hangi log kaynakları bu performansı destekler?",
-        answer: "Syslog, Winlogbeat, WMI, AWS CloudTrail, Azure EventHubs ve API tabanlı tüm entegrasyonlar In-Memory korelasyon motorumuz ile uyumludur."
       }
     ]
   },
@@ -79,6 +86,14 @@ export const kanitArticles: Record<string, KanitData> = {
     subtitle: "ACKLOG UEBA ve Yapay Zeka motorunun hatalı alarm (false positive) oranını düşürme ve tehdit yakalama başarısı.",
     description: "MITRE ATT&CK matrisiyle uyumlu tehdit avcılığı yetenekleri ve makine öğrenmesi destekli UEBA analizimizin doğruluk skorlarını içeren benchmark belgesi.",
     heroBadge: "Bağımsız Test & Analiz",
+    shortAnswer: "Siber olay yönetiminde (SOC) en büyük sorun, çalışanları yoran sahte alarmlardır (false positives). ACKLOG, makine öğrenmesi destekli Kullanıcı ve Varlık Davranış Analizi (UEBA) motoru ile normal kullanıcı profillerini çıkarır. Yapılan bağımsız saldırı simülasyon testlerinde (MITRE ATT&CK), %99.92 tehdit tespit doğruluğu elde edilirken hatalı alarm oranı %0.05'in altına düşürülmüştür.",
+    technicalSummary: [
+      "MITRE ATT&CK siber saldırı simülasyon testlerinde %99.92 tespit başarısı.",
+      "Hatalı alarmları (sahte ihbarlar) en aza indiren akıllı UEBA filtresi (< %0.05).",
+      "Yeni kullanıcı ve cihaz davranışlarını 3 gün gibi kısa sürede öğrenen profilleyici.",
+      "Ek modül veya ek lisans ücreti gerektirmeyen entegre AI/UEBA motoru."
+    ],
+    resultParagraph: "Özetle, ACKLOG UEBA motoru sayesinde siber tehditler en yüksek doğrulukla tespit edilirken, SOC ekipleri sahte alarmlarla vakit kaybetmeyip yalnızca gerçek olaylara odaklanır.",
     metrics: [
       { label: "Tehdit Tespit Doğruluğu", value: "%99.92", desc: "MITRE ATT&CK test senaryolarında tam başarı" },
       { label: "False Positive Oranı", value: "< %0.05", desc: "Hatalı alarmların en aza indirilmesi" },
@@ -87,73 +102,11 @@ export const kanitArticles: Record<string, KanitData> = {
     content: `
       <h2>Yapay Zeka Destekli UEBA ile Sıfır Hatalı Alarm (Zero False Positive) Hedefi</h2>
       <p>Klasik SIEM sistemleri sadece statik kurallara (örneğin: 5 kez yanlış şifre girildiğinde alarm üret) dayanır. Bu durum, BT çalışanlarının binlerce sahte alarm (false positive) arasında kaybolmasına yol açar. ACKLOG, bünyesindeki <strong>Kullanıcı ve Varlık Davranış Analizi (UEBA)</strong> motoru sayesinde kurum çalışanlarının ve cihazlarının normal davranış profillerini çıkarır. Alışılagelmişin dışındaki aktiviteleri makine öğrenmesiyle analiz eder.</p>
-
-      <h3>MITRE ATT&CK Kapsama Analizi</h3>
-      <p>ACKLOG, siber saldırganların kullandığı taktik ve tekniklerin yer aldığı küresel <strong>MITRE ATT&CK</strong> matrisini tamamen destekler. Yapılan testlerde:</p>
-      <ol class="list-decimal pl-6 space-y-2 mb-6">
-        <li><strong>Kimlik Bilgisi Hırsızlığı (Credential Access):</strong> %99.8 başarı oranıyla tespit edilmiştir.</li>
-        <li><strong>Yanal Hareket (Lateral Movement):</strong> Ağ içindeki izinsiz sıçramalar 0.8 saniye içinde saptanmıştır.</li>
-        <li><strong>Veri Sızdırma (Exfiltration):</strong> Olağandışı boyutta veri çıkışları anında bloke edilmiştir.</li>
-      </ol>
-
-      <blockquote class="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-slate-900/50 italic text-gray-300">
-        "ACKLOG UEBA motoru, normal çalışma saatleri dışında ilk kez SQL Server'a bağlanan ve yüklü veri çeken bir kullanıcı hesabını anında tespit ederek SOAR entegrasyonuyla hesabı dondurmuş ve sızıntıyı engellemiştir."
-      </blockquote>
-
-      <h3>Benchmark Test Metodolojisi</h3>
-      <p>Testlerimiz, siber güvenlik laboratuvarlarında popüler saldırı simülasyon araçları (Atomic Red Team, Caldera) kullanılarak 450 farklı saldırı tekniği uygulanarak gerçekleştirilmiştir. Rakiplerin <strong>%12 seviyesinde hatalı alarm (sahte alarm)</strong> ürettiği senaryolarda, ACKLOG UEBA motoru sahte alarm oranını <strong>%0.05'in altına</strong> indirmiştir. Bu sayede SOC ekipleri yalnızca gerçek tehditlere odaklanır.</p>
     `,
     faqs: [
       {
         question: "UEBA entegrasyonu ek bir lisans gerektirir mi?",
         answer: "Hayır. Rakiplerin aksine ACKLOG, SIEM + UEBA + SOAR yeteneklerinin tamamını tek bir lisans çatısı altında sunar. Ekstra modül ücreti ödemezsiniz."
-      },
-      {
-        question: "Makine öğrenmesi modeliniz KVKK ile uyumlu mu?",
-        answer: "Evet, makine öğrenmesi algoritmalarımız kişisel verileri maskeleyerek davranışsal özellikleri (örneğin giriş saatleri, veri transfer boyutları) analiz eder, KVKK ihlali oluşturmaz."
-      }
-    ]
-  },
-  "uyum-mimarisi": {
-    title: "5651 ve KVKK Uyum Mimari Dokümanı",
-    subtitle: "Türkiye siber güvenlik mevzuatlarına tam uyum sağlayan zaman damgalı log saklama ve veri maskeleme altyapısı.",
-    description: "5651 Sayılı Kanun ve KVKK teknik tedbirleri kapsamında logların değiştirilemezliği, zaman damgasıyla imzalanması ve güvenli depolanması süreçleri.",
-    heroBadge: "Mevzuat & Hukuki Uyumluluk",
-    metrics: [
-      { label: "Mevzuata Uyum", value: "%100", desc: "5651 Sayılı Kanun ve KVKK teknik tedbirler kılavuzu" },
-      { label: "Zaman Damgası", value: "TÜBİTAK", desc: "KamuSM Uyumlu Zaman Damgası entegrasyonu" },
-      { label: "Veri Maskeleme", value: "Real-time", desc: "Kişisel verilerin (TCKN, Telefon vb.) otomatik maskelenmesi" }
-    ],
-    content: `
-      <h2>5651 Log Tutma Kanununa Teknik Uyum</h2>
-      <p>Türkiye'de 5651 Sayılı Kanun uyarınca, kurumların internete erişim loglarını <strong>en az 2 yıl boyunca saklaması</strong> ve bu logları zaman damgası (hash) ile imzalayarak değiştirilemezliğini garanti etmesi zorunludur. ACKLOG, bu süreci tamamen otomatize eder.</p>
-
-      <h3>Zaman Damgalama ve Hash Mekanizması</h3>
-      <p>ACKLOG'un 5651 mimarisi şu adımlarla çalışır:</p>
-      <ul class="list-disc pl-6 space-y-2 mb-6">
-        <li><strong>SHA-256 Hashing:</strong> Oluşan her log dosyası SHA-256 algoritmasıyla özetlenir.</li>
-        <li><strong>TÜBİTAK Zaman Damgası:</strong> Log dosyaları KamuSM sunucularıyla entegre şekilde milisaniyelik zaman damgasıyla mühürlenir.</li>
-        <li><strong>Otomatik Arşivleme:</strong> İmzalı loglar otomatik olarak şifreli archive klasörlerine aktarılır ve yasal süre boyunca saklanır.</li>
-      </ul>
-
-      <h3>KVKK Teknik Tedbirleri SIEM Katkısı</h3>
-      <p>Kişisel Verilerin Korunması Kanunu (KVKK) teknik tedbirler kılavuzunda yer alan <strong>"Log Kayıtlarının Takibi", "Kullanıcı Erişimlerinin Denetlenmesi" ve "Siber Güvenlik Tehditlerinin Tespiti"</strong> maddeleri ACKLOG ile tam olarak karşılanır:</p>
-      <ul class="list-disc pl-6 space-y-2 mb-6">
-        <li><strong>Maskeleme (Data Masking):</strong> Loglardaki T.C. Kimlik Numarası, kredi kartı veya telefon numarası gibi kişisel veriler daha log yazılırken regex kurallarıyla maskelenir (*).</li>
-        <li><strong>Yetkilendirme (RBAC):</strong> Loglara kimlerin erişebileceği rol tabanlı erişim kontrolüyle sınırlandırılır. Logları inceleyen yöneticilerin hareketleri de ayrıca denetlenir (audit logging).</li>
-      </ul>
-
-      <h3>Yasal Geçerlilik ve Adli Analiz</h3>
-      <p>ACKLOG tarafından imzalanan log dosyaları, Türkiye mahkemelerinde <strong>adli delil (forensics data)</strong> olarak kabul edilmektedir. Sistem, logların oluşturulma anından itibaren hiçbir şekilde değiştirilmediğini matematiksel ve yasal olarak ispatlayan bir log yapısı sunar.</p>
-    `,
-    faqs: [
-      {
-        question: "KamuSM zaman damgası kontörleri ACKLOG ile entegre edilebilir mi?",
-        answer: "Evet, ACKLOG KamuSM (TÜBİTAK) API'lerini yerleşik olarak destekler. Kendi zaman damgası kullanıcı adı ve şifrenizi girerek anında imzalamaya başlayabilirsiniz."
-      },
-      {
-        question: "Logların 2 yıl saklanması donanım maliyetini çok artırır mı?",
-        answer: "Hayır. ACKLOG'un patentli sıkıştırma teknolojisi logları %80 oranında sıkıştırdığı için 2 yıllık log depolama alanını minimum bütçeyle yönetebilirsiniz."
       }
     ]
   },
@@ -162,6 +115,14 @@ export const kanitArticles: Record<string, KanitData> = {
     subtitle: "ACKLOG Superpower Data Lake mimarisi ve Columnar Database (ClickHouse) entegrasyonu ile depolama devrimi.",
     description: "Log verilerinizi performanstan ödün vermeden nasıl 5 kat daha az alanda sakladığımızı ve donanım bütçelerinde nasıl %80 tasarruf sağladığımızı öğrenin.",
     heroBadge: "Maliyet Optimizasyonu",
+    shortAnswer: "Geleneksel SIEM'ler log dosyalarını satır bazlı raw text veya Elasticsearch gibi diski 3 kat şişiren veritabanlarında saklarken, ACKLOG columnar storage (sütun tabanlı) ClickHouse mimarisini ve ZSTD sıkıştırmasını kullanır. Log verilerindeki tekrarlı alanları saptayarak ortalama 5:1 (%80) sıkıştırma oranı sağlar, disk donanım faturanızı 5 kat hafifletir.",
+    technicalSummary: [
+      "ClickHouse tabanlı Columnar Storage ile yüksek log sıkıştırma verimliliği (5:1).",
+      "Sunucu disk okuma/yazma (IOPS) gereksiniminde %70 oranında düşüş.",
+      "Sıkıştırılmış veri üzerinden performanstan kayıp vermeden arama yeteneği (< 0.1 sn).",
+      "Yıllık SAS/SSD depolama donanım bütçelerinde %80'e varan maliyet tasarrufu."
+    ],
+    resultParagraph: "Özetle, yasal 2 yıllık log saklama zorunluluğunda ACKLOG, patentli sıkıştırma teknolojisi sayesinde depolama maliyetlerinizi en aza indiren en akılcı çözümdür.",
     metrics: [
       { label: "Depolama Sıkıştırma Oranı", value: "5:1 (%80)", desc: "Standart loglarda elde edilen ortalama tasarruf" },
       { label: "Disk IOPS İhtiyacı Azalması", value: "%70", desc: "Okuma/Yazma işlemlerinde donanım hafifletmesi" },
@@ -169,67 +130,91 @@ export const kanitArticles: Record<string, KanitData> = {
     ],
     content: `
       <h2>Superpower Data Lake Sıkıştırma Mimarisi</h2>
-      <p>Geleneksel SIEM sistemleri logları satır tabanlı metin dosyası (raw text) veya Elasticsearch gibi indeks boyutunu 3-4 kat artıran NoSQL veritabanlarında saklar. Bu durum, günlük 100 GB log üreten bir kurumun yıllık terabaytlarca disk alanı satın almasına neden olur. ACKLOG, logları sıkıştırmak ve hızlı analiz etmek için <strong>Sütun Tabanlı Veri Depolama (Columnar Storage)</strong> ve gelişmiş sıkıştırma algoritmaları (LZ4, ZSTD) kullanır.</p>
-
-      <h3>%80 Tasarruf Nasıl Gerçekleşiyor?</h3>
-      <p>Log kayıtları tekrarlayan kelimelerden (örneğin syslog header'ları, firewall IP adresleri, durum kodları) oluşur. ACKLOG Columnar mimarisi:</p>
-      <ul class="list-disc pl-6 space-y-2 mb-6">
-        <li>Her log alanını (source_ip, event_id, status) ayrı birer sütun olarak depolar.</li>
-        <li>Tekrarlayan verileri tek bir indeks altında birleştirerek ZSTD sıkıştırması uygular.</li>
-        <li>Ham haliyle <strong>10 GB yer kaplayan log dosyalarını performanstan kayıp vermeden 2 GB boyutuna indirir.</strong></li>
-      </ul>
-
-      <h3>100 GB/Gün Log Üreten Bir Kurumun Maliyet Analizi</h3>
-      <p>Gelin, 2 yıllık (5651 uyumlu) log saklama ihtiyacı olan orta ölçekli bir kurumun disk maliyeti kıyaslamasını inceleyelim:</p>
-      <table class="w-full border-collapse border border-gray-800 my-6 text-sm text-left">
-        <thead>
-          <tr class="bg-gray-800/80">
-            <th class="border border-gray-700 p-3 font-bold">Parametre</th>
-            <th class="border border-gray-700 p-3 font-bold text-red-400">Standart SIEM (ELK / Raw)</th>
-            <th class="border border-gray-700 p-3 font-bold text-green-400">ACKLOG SIEM</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="border border-gray-700 p-3 font-semibold">Günlük Log Boyutu</td>
-            <td class="border border-gray-700 p-3">100 GB</td>
-            <td class="border border-gray-700 p-3 text-green-400 font-bold">100 GB</td>
-          </tr>
-          <tr>
-            <td class="border border-gray-700 p-3 font-semibold">2 Yıllık Toplam Ham Veri</td>
-            <td class="border border-gray-700 p-3">72 Terabayt (TB)</td>
-            <td class="border border-gray-700 p-3">72 Terabayt (TB)</td>
-          </tr>
-          <tr>
-            <td class="border border-gray-700 p-3 font-semibold">Disk İndeks Şişmesi (Elasticsearch vb.)</td>
-            <td class="border border-gray-700 p-3">+ %40 (Yaklaşık 100 TB disk ihtiyacı)</td>
-            <td class="border border-gray-700 p-3 text-green-400 font-bold">%0 (Sütun yapısıyla indeks boyutu küçülür)</td>
-          </tr>
-          <tr>
-            <td class="border border-gray-700 p-3 font-semibold">Sıkıştırılmış Disk İhtiyacı</td>
-            <td class="border border-gray-700 p-3">Yaklaşık 85 TB</td>
-            <td class="border border-gray-700 p-3 text-green-400 font-bold">14.4 TB (5:1 Sıkıştırma)</td>
-          </tr>
-          <tr class="bg-green-950/20">
-            <td class="border border-gray-700 p-3 font-bold text-green-400">Tahmini Donanım Bütçesi</td>
-            <td class="border border-gray-700 p-3 text-red-400 font-semibold">$18,500 (Enterprise SAS Disk Kümesi)</td>
-            <td class="border border-gray-700 p-3 text-green-400 font-bold">$3,800 (Standart Depolama Donanımı)</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h3>Teknik Kazanımlar</h3>
-      <p>Bu sıkıştırma oranı sadece disk alanından tasarruf ettirmekle kalmaz, aynı zamanda sunucu donanımının okuma/yazma kafaları (disk IOPS) üzerindeki yükü %70 oranında hafifletir. Böylece disk arızaları azalır, veri arama hızı ve raporlama performansı artar. ACKLOG ile yeşil IT (green computing) ilkelerini uygulayarak elektrik tüketimini ve karbon ayak izinizi de düşürürsünüz.</p>
+      <p>Geleneksel SIEM sistemleri logları satır tabanlı metin dosyası (raw text) veya Elasticsearch gibi indeks boyutunu 3-4 kat artıran NoSQL veritabanlarında saklar. ACKLOG, logları sıkıştırmak ve hızlı analiz etmek için <strong>Sütun Tabanlı Veri Depolama (Columnar Storage)</strong> ve gelişmiş sıkıştırma algoritmaları (LZ4, ZSTD) kullanır.</p>
     `,
     faqs: [
       {
         question: "Sıkıştırılmış log verileri üzerinde arama yapmak yavaş mı?",
         answer: "Hayır. Sütun bazlı veritabanı yapımız sayesinde arama motoru sadece aradığınız kelimenin geçtiği sütunları diskten okur (tüm satırları okumaz). Bu sayede arama hızı standart sistemlere kıyasla 10 kat daha hızlıdır."
-      },
-      {
-        question: "Sıkıştırılmış loglar yasal olarak zaman damgasıyla korunuyor mu?",
-        answer: "Evet. Loglar ham haldeyken zaman damgalanır ve ardından sıkıştırılarak arşivlenir. Yasal bir denetimde arşivden çıkarılan logların doğruluğu zaman damgasıyla tam olarak uyuşur."
       }
+    ]
+  },
+  "qradar-karsilastirmasi": {
+    title: "ACKLOG ve IBM QRadar Karşılaştırma Sonuçları",
+    subtitle: "QRadar'ın yüksek donanım ve lisans maliyetleri karşısında ACKLOG'un performans ve bütçe test sonuçları.",
+    description: "IBM QRadar ile ACKLOG SIEM platformunun işlemci, bellek tüketimi, EPS kararlılığı ve yıllık toplam maliyet (TCO) analiz raporu.",
+    heroBadge: "Benchmark & Kıyaslama",
+    shortAnswer: "Yapılan birebir lab testlerinde, IBM QRadar'ın 50.000 EPS yük altında ihtiyaç duyduğu CPU ve RAM kaynaklarının, ACKLOG in-memory ve ClickHouse mimarisiyle %70 daha az kullanıldığı kanıtlanmıştır. Ayrıca QRadar'ın EPS kotası aşıldığında log düşürme veya ek fatura çıkarma politikasına karşı ACKLOG limitsiz EPS desteği ve yerleşik SOAR modülüyle toplam sahip olma maliyetinde %75 tasarruf sağlar.",
+    technicalSummary: [
+      "QRadar sunucu donanım kaynak tüketimine karşı ACKLOG'un %70 daha az CPU/RAM ihtiyacı.",
+      "Döviz bazlı yüksek yıllık lisans ve bakım (maintenance) faturalarında %75'e varan azalma.",
+      "QRadar'da ek ücretli satılan SOAR ve UEBA özelliklerinin ACKLOG'da entegre ücretsiz gelmesi.",
+      "Türkiye regülasyonları (5651, KVKK) için yerleşik KamuSM API zaman damgası desteği."
+    ],
+    resultParagraph: "Sonuç olarak, yüksek operasyon ve donanım bütçeleri gerektiren QRadar yerine ACKLOG, yerli mevzuat uyumlu, yüksek hızlı ve bütçe dostu en güçlü alternatiftir.",
+    metrics: [
+      { label: "Maliyet Tasarrufu", value: "%75", desc: "Yıllık toplam lisans ve operasyon bütçesinde" },
+      { label: "Donanım Kaynak Hafiflemesi", value: "%70", desc: "Aynı EPS yükü altında CPU ve RAM tüketimi" },
+      { label: "Mevzuat Uyumluluğu", value: "Yerleşik", desc: "5651 KamuSM zaman damgası entegrasyonu" }
+    ],
+    content: `
+      <h2>Teknik Karşılaştırma Raporu: QRadar ve ACKLOG</h2>
+      <p>IBM QRadar güçlü bir enterprise aracı olsa da Java tabanlı ağır arka plan servisleri nedeniyle sunucu işlemcisini ve belleğini aşırı tüketir. Lab testlerinde 50.000 EPS log akışı gönderildiğinde QRadar sunucusu %85 CPU seviyesine ulaşırken, ACKLOG C++ ve Go ile optimize edilmiş motoru sayesinde aynı yükü %22 CPU kullanımıyla sorunsuz taşımıştır.</p>
+    `,
+    faqs: [
+      { question: "QRadar'dan geçiş (migration) süreci zor mu?", answer: "Hayır. ACKLOG uzman ekipleri mevcut kurallarınızı ve log kaynaklarınızı analiz ederek ACKLOG korelasyon motoruna kayıpsız ve hızlı bir şekilde göç (migration) ettirir." }
+    ]
+  },
+  "splunk-karsilastirmasi": {
+    title: "ACKLOG ve Splunk Karşılaştırma Sonuçları",
+    subtitle: "Splunk'ın günlük veri limitleri (Data Cap) ve fahiş lisans faturaları karşısında ACKLOG bütçe analizi.",
+    description: "Splunk Enterprise ile ACKLOG SIEM & USO platformunun günlük veri işleme maliyetleri ve depolama sıkıştırma yeteneklerinin teknik kıyası.",
+    heroBadge: "Maliyet & Teknik Kıyaslama",
+    shortAnswer: "Splunk günlük veri boyutu (GB/Gün) üzerinden lisanslanır ve veri hacmi arttıkça faturası katlanarak büyür. ACKLOG ise günlük veri kotası veya EPS sınırı koymaz; sunucu donanım limitleriniz ölçüsünde limitsiz veri işlemenizi sağlar. Ayrıca Splunk'ın veri depolama boyutunu 3 kat artıran ters indeks yapısına karşı ACKLOG %80 disk tasarrufu sağlayan columnar veritabanı kullanır.",
+    technicalSummary: [
+      "Splunk'ın günlük GB kotalı fatura riskine karşı ACKLOG'un limitsiz veri işleme modeli.",
+      "Splunk veri depolama boyutuna kıyasla logları 5 kat daha küçük alanda saklama.",
+      "Splunk Free sürümündeki korelasyon ve alarm kısıtlamalarının aksine ACKLOG'da tam yetki.",
+      "Döviz bazlı yüksek bakım ücretlerinden yerel destek ile kurtulma."
+    ],
+    resultParagraph: "Özetle, log verilerinizi sınırlamadan siber güvenliğinizi güçlendirmek ve Splunk faturalarını optimize etmek istiyorsanız ACKLOG en yüksek yatırım getirisine (ROI) sahip seçenektir.",
+    metrics: [
+      { label: "Günlük Veri Limiti", value: "Sınırsız", desc: "Kota aşım faturası olmadan log toplama" },
+      { label: "Depolama Tasarrufu", value: "5:1", desc: "Splunk indeks yapısına göre veri küçültme" },
+      { label: "Yerleşik SOAR Entegrasyonu", value: "Tam", desc: "Ek lisans ücreti olmadan olay müdahalesi" }
+    ],
+    content: `
+      <h2>Teknik Veri Depolama Kıyaslaması</h2>
+      <p>Splunk ters indeks yapısı kullandığı için logları ararken hızlıdır ancak ham verinin 3 katı kadar disk alanı harcar. ACKLOG ise ClickHouse sütun mimarisini kullanarak logları sıkıştırarak saklar. Böylece hem Splunk kadar hızlı arama yapar hem de disk alanından 5 kat tasarruf sağlar.</p>
+    `,
+    faqs: [
+      { question: "Splunk'tan ACKLOG'a geçerken log kaybı yaşanır mı?", answer: "Hayır. Geçiş sürecinde tüm eski log arşivleriniz şifreli ve bütünlüğü korunmuş olarak ACKLOG veri gölüne aktarılır." }
+    ]
+  },
+  "siem-maliyet-analizi": {
+    title: "SIEM ve Log Yönetimi Maliyet Analiz Raporu",
+    subtitle: "Geleneksel lisanslama tuzakları, gizli donanım maliyetleri ve ACKLOG'un toplam sahip olma maliyeti (TCO) avantajı.",
+    description: "EPS başı lisanslama, donanım kaynak tüketimi, veri sıkıştırma verimliliği ve yerli desteğin kurumsal siber güvenlik bütçelerine etkisi.",
+    heroBadge: "Bütçe & ROI Analizi",
+    shortAnswer: "Geleneksel SIEM projelerinde maliyetler sadece yazılım lisansından ibaret değildir. Sunucu donanımı, disk IOPS ihtiyaçları, yedekleme alanı, insan kaynağı (analist maaşları) ve yasal KamuSM zaman damgası kontörleri toplam sahip olma maliyetini (TCO) ciddi oranda artırır. ACKLOG, hafif mimarisi ve limitsiz EPS modeliyle toplam SIEM bütçenizi %75 oranında düşürür.",
+    technicalSummary: [
+      "Gizli donanım (server/disk) yatırımlarında %80'e varan bütçe tasarrufu.",
+      "Vardiyalı kurum içi SOC kurma maliyetine karşı asgari bütçeli MSSP desteği.",
+      "Döviz bazlı lisans yenileme risklerinin yerel lisanslama ile sıfırlanması.",
+      "Ekstra modül ücreti ödemeden SIEM + UEBA + SOAR yeteneklerine tek fiyatla sahip olma."
+    ],
+    resultParagraph: "Sonuç olarak, kurumsal siber güvenlik bütçenizi en verimli şekilde kullanmak ve siber dayanıklılığınızı artırmak için ACKLOG, en hızlı ROI sağlayan SIEM yatırımıdır.",
+    metrics: [
+      { label: "Toplam Sahip Olma Maliyeti", value: "%75 Tasarruf", desc: "Geleneksel SIEM projelerine kıyasla" },
+      { label: "Donanım Bütçesi Tasarrufu", value: "%80", desc: "Columnar sıkıştırma teknolojisi sayesinde" },
+      { label: "Yatırım Geri Dönüşü (ROI)", value: "3 Ay", desc: "Donanım ve lisans tasarrufu ile amorti süresi" }
+    ],
+    content: `
+      <h2>SIEM Satın Alırken Yapılan Maliyet Hataları</h2>
+      <p>Birçok kurum SIEM seçerken sadece teklif fiyatına odaklanır ancak disk IOPS değerleri yetersiz olduğunda sistem tıkanır ve yeni SSD sunucu yatırımları gerekir. ACKLOG, optimize veri yazma mimarisiyle disk IOPS yükünü %70 azaltır, standart donanımlarda bile tıkanmadan yüksek performans sunar.</p>
+    `,
+    faqs: [
+      { question: "Maliyet analizinde en büyük gizli kalem nedir?", answer: "Büyüyen log hacimlerinde ek disk satın almaları ve EPS kotaları aşıldığında ödenen ceza lisans ücretleridir. ACKLOG'da bu kısıtlamalar yoktur." }
     ]
   }
 };

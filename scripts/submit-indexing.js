@@ -40,6 +40,7 @@ const coreUrls = [
     `${BASE_URL}/sizinti-kontrol`,
     `${BASE_URL}/zafiyet-tarama`,
     `${BASE_URL}/araclar`,
+    `${BASE_URL}/araclar/siem-roi-hesaplayici`,
     `${BASE_URL}/araclar/eps-hesaplayici`,
     `${BASE_URL}/araclar/soc-maliyeti-hesaplayici`,
     `${BASE_URL}/araclar/mttd-mttr-hesaplayici`,
@@ -119,14 +120,12 @@ const kanitUrls = getSlugsBySection(kanitFilePath, 'kanitArticles').map(slug => 
 
 // --- E) Programmatic SEO Sayfaları ---
 const pSeoFilePath = path.join(__dirname, '../src/data/programmatic-seo.ts');
-const cityUrls = getSlugsBySection(pSeoFilePath, 'programmaticCities').map(slug => `${BASE_URL}/sehir/${slug}`);
 const sectorUrls = getSlugsBySection(pSeoFilePath, 'programmaticSectors').map(slug => `${BASE_URL}/sektor/${slug}`);
 const regulationUrls = getSlugsBySection(pSeoFilePath, 'programmaticRegulations').map(slug => `${BASE_URL}/regulasyon/${slug}`);
 const comparisonUrls = getSlugsBySection(pSeoFilePath, 'programmaticComparisons').map(slug => `${BASE_URL}/karsilastirma/${slug}`);
 const integrationUrls = getSlugsBySection(pSeoFilePath, 'programmaticIntegrations').map(slug => `${BASE_URL}/entegrasyon/${slug}`);
 
 const programmaticUrls = [
-    ...cityUrls,
     ...sectorUrls,
     ...regulationUrls,
     ...comparisonUrls,
