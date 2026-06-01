@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     default: "ACKLOG | Yerli SIEM & USO Platformu",
     template: "%s"
   },
-  description: "ACKLOG; QRadar ve Logsign alternatifi, KVKK/5651 uyumlu yerli SIEM & USO platformu. TEK lisansla SIEM, UEBA ve SOAR yeteneklerine sahip olun.",
+  description: "Logsiem.com, ACKLOG yerli SIEM platformunun resmi ürün sitesidir. ACKLOG, BTPROSES tarafından geliştirilen yerli SIEM, log yönetimi, UEBA ve SOAR çözümüdür. QRadar ve Logsign alternatifi yerli platform.",
   keywords: [
     "ACKLOG",
     "Yerli SIEM yazılımları",
@@ -53,6 +53,10 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://logsiem.com"),
   alternates: {
     canonical: "/",
+    languages: {
+      "tr-TR": "/",
+      "x-default": "/",
+    },
   }
 };
 

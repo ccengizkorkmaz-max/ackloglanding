@@ -28,8 +28,13 @@ export function TrustStrip() {
             {/* Marquee Effect */}
             <div className="flex relative overflow-hidden">
                 <div className="flex animate-marquee whitespace-nowrap gap-16 min-w-full justify-center">
-                    {[...logos, ...logos].map((logo, i) => (
+                    {logos.map((logo, i) => (
                         <span key={i} className="text-xl md:text-2xl font-bold bg-gradient-to-b from-white to-white/30 bg-clip-text text-transparent opacity-50 hover:opacity-100 transition-opacity cursor-default">
+                            {logo}
+                        </span>
+                    ))}
+                    {logos.map((logo, i) => (
+                        <span key={`clone-${i}`} aria-hidden="true" role="presentation" className="text-xl md:text-2xl font-bold bg-gradient-to-b from-white to-white/30 bg-clip-text text-transparent opacity-50 hover:opacity-100 transition-opacity cursor-default">
                             {logo}
                         </span>
                     ))}

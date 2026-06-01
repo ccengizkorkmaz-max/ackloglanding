@@ -117,6 +117,48 @@ export function WikiClient({ slug, data, otherArticles }: WikiClientProps) {
                             <div dangerouslySetInnerHTML={{ __html: processedContent }} />
                         </div>
 
+                        {/* E-E-A-T Author Bio Card */}
+                        <div className="mt-12 p-6 rounded-2xl bg-slate-900/40 border border-slate-800/80">
+                            <div className="flex flex-col sm:flex-row gap-6 items-start sm:items-center">
+                                <div className="w-16 h-16 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-2xl shrink-0">
+                                    {authorInitials}
+                                </div>
+                                <div className="space-y-2">
+                                    <h4 className="text-lg font-bold text-white mb-1 flex flex-wrap items-center gap-2">
+                                        {authorName}
+                                        <span className="text-[10px] font-normal bg-blue-500/10 text-blue-400 border border-blue-500/20 px-2 py-0.5 rounded-full uppercase tracking-wider">
+                                            CISA | CISSP | CEH
+                                        </span>
+                                    </h4>
+                                    <p className="text-xs text-slate-400">{authorTitle}</p>
+                                    <p className="text-xs text-slate-400 leading-relaxed">
+                                        Fatih Emiral, siber güvenlik, BT yönetimi ve regülasyon uyumluluğu alanlarında 15 yılı aşkın tecrübeye sahiptir. BTPROSES bünyesinde kıdemli danışman olarak görev yapmaktadır.
+                                    </p>
+                                    <a 
+                                        href="https://linkedin.com/company/btproses" 
+                                        target="_blank" 
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-1.5 text-xs text-blue-400 hover:underline pt-1"
+                                    >
+                                        <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 fill-current"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                                        LinkedIn Profilini İncele
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Kaynakça / References */}
+                        <div className="mt-8 pt-8 border-t border-slate-900 text-xs text-slate-500">
+                            <h5 className="font-bold text-slate-400 mb-3 uppercase tracking-wider">Teknik Referanslar ve Kaynakça</h5>
+                            <ol className="list-decimal pl-4 space-y-2">
+                                <li>Kamu Kurumları Bilgi ve İletişim Güvenliği Kılavuzu - Log Yönetimi Kriterleri (T.C. Cumhurbaşkanlığı Dijital Dönüşüm Ofisi)</li>
+                                <li>5651 Sayılı İnternet Ortamında Yapılan Yayınların Düzenlenmesi ve Bu Yayınlar Yoluyla İşlenen Suçlarla Mücadele Edilmesi Hakkında Kanun</li>
+                                <li>Kişisel Verilerin Korunması Kanunu (KVKK) Veri Güvenliği Rehberi (Teknik Tedbirler)</li>
+                                <li>MITRE ATT&CK Matrix for Enterprise (Siber Tehdit Taktik ve Teknikleri Karşılaştırma Matrisi)</li>
+                                <li>ClickHouse Columnar Storage Compression Benchmarks (Columnar Veritabanı ve LZ4/ZSTD Sıkıştırma Standartları)</li>
+                            </ol>
+                        </div>
+
                         <div className="mt-16 p-8 bg-gradient-to-br from-primary/10 to-transparent border border-primary/20 rounded-2xl text-center">
                             <h3 className="text-2xl font-bold mb-4 text-white">Güvenliğinizi Şansa Bırakmayın</h3>
                             <p className="mb-6 text-gray-400">

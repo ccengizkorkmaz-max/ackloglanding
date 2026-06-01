@@ -28,10 +28,11 @@ export function JsonLdMulti({ schemas }: { schemas: WithContext<Thing>[] }) {
 export const organizationSchema: WithContext<Organization> = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "ACKLOG SIEM",
+    "name": "BTPROSES Bilgi Teknolojileri",
+    "alternateName": "BTPROSES",
     "url": "https://logsiem.com",
     "logo": "https://logsiem.com/logo.png",
-    "description": "ACKLOG; QRadar ve Logsign alternatifi, KVKK/5651 uyumlu yerli SIEM & USO platformu.",
+    "description": "Logsiem.com, ACKLOG yerli SIEM platformunun resmi ürün sitesidir. ACKLOG, BTPROSES tarafından geliştirilen yerli SIEM ve log yönetimi çözümüdür.",
     "sameAs": [
         "https://twitter.com/acklog",
         "https://linkedin.com/company/acklog"
@@ -56,14 +57,14 @@ export const organizationSchema: WithContext<Organization> = {
     ]
 };
 
-// WebSite Schema - AI aramalarında site genelinde tanınırlık sağlar
+// WebSite Schema - AI aramalarında site genelinde tanınırilik sağlar
 export const websiteSchema: WithContext<WebSite> = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "ACKLOG SIEM",
+    "name": "ACKLOG SIEM & Log Yönetimi",
     "alternateName": "LogSIEM",
     "url": "https://logsiem.com",
-    "description": "Türkiye'nin Yeni Nesil SIEM ve Unified Security Operations (USO) Platformu",
+    "description": "Logsiem.com, ACKLOG yerli SIEM platformunun resmi ürün sitesidir. ACKLOG, BTPROSES tarafından geliştirilen yerli SIEM ve log yönetimi çözümüdür.",
     "inLanguage": "tr",
     "potentialAction": {
         "@type": "SearchAction",
@@ -84,7 +85,7 @@ export const productSchema: WithContext<SoftwareApplication> = {
     "applicationCategory": "SecurityApplication",
     "applicationSubCategory": "SIEM & Log Management",
     "operatingSystem": "Linux, Windows Server",
-    "description": "Yerli ve milli SIEM çözümü. KVKK/5651 uyumlu, In-Memory teknolojisiyle yüksek performanslı log yönetimi ve tehdit algılama platformu.",
+    "description": "Logsiem.com, ACKLOG yerli SIEM platformunun resmi ürün sitesidir. ACKLOG, BTPROSES tarafından geliştirilen yerli SIEM ve log yönetimi çözümüdür. In-Memory teknolojisiyle yüksek performans sunar.",
     "offers": {
         "@type": "Offer",
         "price": "0",

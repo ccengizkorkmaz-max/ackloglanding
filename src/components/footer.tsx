@@ -29,7 +29,7 @@ export function Footer({ }: FooterProps) {
                             />
                         </Link>
                         <p className="text-muted-foreground text-sm leading-relaxed">
-                            Türkiye'nin yeni nesil SIEM ve Log Yönetimi çözümü. SOC operasyonlarınızı modernize edin.
+                            Logsiem.com, ACKLOG yerli SIEM platformunun resmi ürün sitesidir. ACKLOG, BTPROSES tarafından geliştirilen yerli SIEM ve log yönetimi çözümüdür. SOC operasyonlarınızı modernize edin.
                         </p>
                     </div>
 

@@ -1,12 +1,20 @@
 import { MetadataRoute } from 'next';
 import { articles } from '@/data/wiki-content';
+import { kanitArticles } from '@/data/kanit-content';
+import { 
+  programmaticCities, 
+  programmaticSectors, 
+  programmaticRegulations, 
+  programmaticComparisons, 
+  programmaticIntegrations 
+} from '@/data/programmatic-seo';
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://logsiem.com';
 
     // Sabit bir tarih kullan - new Date() Googlebot'a her ziyarette "yeni güncelleme" sinyali verir
     // Bu durum Google'ın güvenini sarsar ve "Discovered - currently not indexed" sorununa yol açar
-    const lastBuildDate = new Date('2026-04-08');
+    const lastBuildDate = new Date('2026-06-01');
 
     // Ana sayfalar - yüksek öncelik
     const mainRoutes = [
@@ -20,6 +28,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
         { path: '/demo-talep', priority: 0.8, changeFrequency: 'monthly' as const },
         { path: '/sizinti-kontrol', priority: 0.7, changeFrequency: 'monthly' as const },
         { path: '/zafiyet-tarama', priority: 0.7, changeFrequency: 'monthly' as const },
+        { path: '/araclar', priority: 0.9, changeFrequency: 'weekly' as const },
+        { path: '/araclar/eps-hesaplayici', priority: 0.8, changeFrequency: 'monthly' as const },
+        { path: '/araclar/soc-maliyeti-hesaplayici', priority: 0.8, changeFrequency: 'monthly' as const },
+        { path: '/araclar/mttd-mttr-hesaplayici', priority: 0.8, changeFrequency: 'monthly' as const },
+        { path: '/araclar/log-retention-hesaplayici', priority: 0.8, changeFrequency: 'monthly' as const },
+        { path: '/araclar/kvkk-checklist', priority: 0.8, changeFrequency: 'monthly' as const },
+        { path: '/araclar/5651-checklist', priority: 0.8, changeFrequency: 'monthly' as const },
     ].map((route) => ({
         url: `${baseUrl}${route.path}`,
         lastModified: lastBuildDate,
@@ -50,5 +65,59 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.7,
     }));
 
-    return [...mainRoutes, ...solutionRoutes, ...wikiRoutes];
+    // Tüm Kanıt (Claim Proof) makalelerini dinamik olarak ekle
+    const kanitRoutes = Object.keys(kanitArticles).map((slug) => ({
+        url: `${baseUrl}/kanit/${slug}`,
+        lastModified: lastBuildDate,
+        changeFrequency: 'weekly' as const,
+        priority: 0.85,
+    }));
+
+    // Programmatic SEO sayfaları (Şehir, Sektör, Regülasyon, Karşılaştırma, Entegrasyon)
+    const cityRoutes = Object.keys(programmaticCities).map((slug) => ({
+        url: `${baseUrl}/sehir/${slug}`,
+        lastModified: lastBuildDate,
+        changeFrequency: 'monthly' as const,
+        priority: 0.8,
+    }));
+
+    const sectorRoutes = Object.keys(programmaticSectors).map((slug) => ({
+        url: `${baseUrl}/sektor/${slug}`,
+        lastModified: lastBuildDate,
+        changeFrequency: 'monthly' as const,
+        priority: 0.8,
+    }));
+
+    const regRoutes = Object.keys(programmaticRegulations).map((slug) => ({
+        url: `${baseUrl}/regulasyon/${slug}`,
+        lastModified: lastBuildDate,
+        changeFrequency: 'monthly' as const,
+        priority: 0.8,
+    }));
+
+    const compRoutes = Object.keys(programmaticComparisons).map((slug) => ({
+        url: `${baseUrl}/karsilastirma/${slug}`,
+        lastModified: lastBuildDate,
+        changeFrequency: 'monthly' as const,
+        priority: 0.85,
+    }));
+
+    const intRoutes = Object.keys(programmaticIntegrations).map((slug) => ({
+        url: `${baseUrl}/entegrasyon/${slug}`,
+        lastModified: lastBuildDate,
+        changeFrequency: 'monthly' as const,
+        priority: 0.8,
+    }));
+
+    return [
+      ...mainRoutes, 
+      ...solutionRoutes, 
+      ...wikiRoutes, 
+      ...kanitRoutes,
+      ...cityRoutes,
+      ...sectorRoutes,
+      ...regRoutes,
+      ...compRoutes,
+      ...intRoutes
+    ];
 }

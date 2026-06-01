@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { Button } from "./ui/button";
-import { Menu, X, ChevronDown, ShieldCheck, Calculator, Search, Activity, FileCheck } from "lucide-react";
+import { Menu, X, ChevronDown, ShieldCheck, Calculator, Search, Activity, FileCheck, Cpu, Users, Clock, Database, CheckSquare } from "lucide-react";
 import { DemoModal } from "./demo-modal";
 
 const navLinks = [
@@ -15,11 +15,13 @@ const navLinks = [
 ];
 
 const toolsLinks = [
-    { name: "Sızıntı Kontrolü", href: "/sizinti-kontrol", icon: Search },
-    { name: "Zafiyet Tarama", href: "/zafiyet-tarama", icon: ShieldCheck },
-    { name: "Güvenlik Analizi", href: "/analiz", icon: Activity },
-    { name: "Uyumluluk Testi", href: "/uyumluluk-testi", icon: FileCheck },
-    { name: "Maliyet Hesaplayıcı", href: "/maliyet-hesaplayici", icon: Calculator },
+    { name: "Tüm Güvenlik Araçları", href: "/araclar", icon: ShieldCheck },
+    { name: "EPS Hesaplayıcı", href: "/araclar/eps-hesaplayici", icon: Cpu },
+    { name: "SOC Maliyet Hesaplayıcı", href: "/araclar/soc-maliyeti-hesaplayici", icon: Users },
+    { name: "MTTD/MTTR Hesaplayıcı", href: "/araclar/mttd-mttr-hesaplayici", icon: Clock },
+    { name: "Log Depolama Hesaplayıcı", href: "/maliyet-hesaplayici", icon: Calculator },
+    { name: "Log Retention Hesaplayıcı", href: "/araclar/log-retention-hesaplayici", icon: Database },
+    { name: "KVKK Teknik Tedbir Listesi", href: "/araclar/kvkk-checklist", icon: CheckSquare },
 ];
 
 const whyAcklogLinks = [
