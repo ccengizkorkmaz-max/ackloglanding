@@ -8,9 +8,10 @@ export const maxDuration = 60; // Max execution duration in seconds for Vercel P
 
 export async function GET(request: Request) {
     try {
-        // Auth check for Vercel Cron security
+        // Auth check for Vercel Cron security (skip check if CRON_SECRET is not configured)
         const authHeader = request.headers.get('authorization');
-        if (process.env.NODE_ENV === 'production' && authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
+        const cronSecret = process.env.CRON_SECRET;
+        if (process.env.NODE_ENV === 'production' && cronSecret && authHeader !== `Bearer ${cronSecret}`) {
             return new Response('Unauthorized', { status: 401 });
         }
 
