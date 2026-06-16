@@ -1,4 +1,4 @@
-import { Thing, WithContext, Organization, SoftwareApplication, WebSite } from "schema-dts";
+import { Thing, WithContext, Organization, SoftwareApplication, WebSite, Article } from "schema-dts";
 
 export function JsonLd<T extends Thing>({ data }: { data: WithContext<T> }) {
     return (
@@ -102,3 +102,36 @@ export const productSchema: WithContext<SoftwareApplication> = {
     },
     "featureList": "Real-time Threat Detection, No-Code Parsing, KVKK Compliance Log Signing, In-Memory Analysis, UEBA, SOAR Integration, MITRE ATT&CK Mapping"
 };
+
+// Dynamic Article Schema with verified E-E-A-T Person Author
+export function getArticleSchema(title: string, description: string, url: string, publishDate: string = '2026-06-10T10:00:00+03:00'): WithContext<Article> {
+    return {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": url
+        },
+        "headline": title,
+        "description": description,
+        "author": {
+            "@type": "Person",
+            "name": "Fatih Emiral",
+            "jobTitle": "Senior Security Consultant",
+            "worksFor": {
+                "@type": "Organization",
+                "name": "BTPROSES Bilgi Teknolojileri"
+            }
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "ACKLOG",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://logsiem.com/logo.png"
+            }
+        },
+        "datePublished": publishDate,
+        "dateModified": publishDate
+    };
+}

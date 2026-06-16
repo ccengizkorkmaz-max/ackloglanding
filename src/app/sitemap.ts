@@ -7,6 +7,15 @@ import {
   programmaticComparisons, 
   programmaticIntegrations 
 } from '@/data/programmatic-seo';
+import { eventIdPages } from '@/data/pseo/event-ids';
+import { useCasePages } from '@/data/pseo/use-cases';
+import { logSourcePages } from '@/data/pseo/log-sources';
+import { attackTypePages } from '@/data/pseo/attack-types';
+import { rolePages } from '@/data/pseo/roles';
+import { checklistPages } from '@/data/pseo/checklists';
+import { competitorComparisonPages } from '@/data/pseo/competitor-comparisons';
+import { competitorAlternativePages } from '@/data/pseo/competitor-alternatives';
+import { competitorMigrationPages } from '@/data/pseo/competitor-migrations';
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://logsiem.com';
@@ -103,6 +112,71 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.8,
     }));
 
+    // Yeni Programmatic SEO Sayfaları
+    const eventIdRoutes = Object.keys(eventIdPages).map((slug) => ({
+        url: `${baseUrl}/event-id/${slug}`,
+        lastModified: lastBuildDate,
+        changeFrequency: 'monthly' as const,
+        priority: 0.75,
+    }));
+
+    const useCaseRoutes = Object.keys(useCasePages).map((slug) => ({
+        url: `${baseUrl}/kullanim/${slug}`,
+        lastModified: lastBuildDate,
+        changeFrequency: 'monthly' as const,
+        priority: 0.8,
+    }));
+
+    const logSourceRoutes = Object.keys(logSourcePages).map((slug) => ({
+        url: `${baseUrl}/log-kaynagi/${slug}`,
+        lastModified: lastBuildDate,
+        changeFrequency: 'monthly' as const,
+        priority: 0.75,
+    }));
+
+    const attackRoutes = Object.keys(attackTypePages).map((slug) => ({
+        url: `${baseUrl}/saldiri/${slug}`,
+        lastModified: lastBuildDate,
+        changeFrequency: 'monthly' as const,
+        priority: 0.75,
+    }));
+
+    const roleRoutes = Object.keys(rolePages).map((slug) => ({
+        url: `${baseUrl}/kimler-icin/${slug}`,
+        lastModified: lastBuildDate,
+        changeFrequency: 'monthly' as const,
+        priority: 0.75,
+    }));
+
+    const checklistRoutes = Object.keys(checklistPages).map((slug) => ({
+        url: `${baseUrl}/checklist/${slug}`,
+        lastModified: lastBuildDate,
+        changeFrequency: 'monthly' as const,
+        priority: 0.8,
+    }));
+
+    // Rakip ürün hedefli pSEO sayfaları
+    const competitorCompRoutes = Object.keys(competitorComparisonPages).map((slug) => ({
+        url: `${baseUrl}/karsilastirma/${slug}`,
+        lastModified: lastBuildDate,
+        changeFrequency: 'monthly' as const,
+        priority: 0.85,
+    }));
+
+    const alternativeRoutes = Object.keys(competitorAlternativePages).map((slug) => ({
+        url: `${baseUrl}/alternatif/${slug}`,
+        lastModified: lastBuildDate,
+        changeFrequency: 'monthly' as const,
+        priority: 0.85,
+    }));
+
+    const migrationRoutes = Object.keys(competitorMigrationPages).map((slug) => ({
+        url: `${baseUrl}/gecis-rehberi/${slug}`,
+        lastModified: lastBuildDate,
+        changeFrequency: 'monthly' as const,
+        priority: 0.8,
+    }));
+
     return [
       ...mainRoutes, 
       ...solutionRoutes, 
@@ -111,6 +185,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ...sectorRoutes,
       ...regRoutes,
       ...compRoutes,
-      ...intRoutes
+      ...intRoutes,
+      ...eventIdRoutes,
+      ...useCaseRoutes,
+      ...logSourceRoutes,
+      ...attackRoutes,
+      ...roleRoutes,
+      ...checklistRoutes,
+      ...competitorCompRoutes,
+      ...alternativeRoutes,
+      ...migrationRoutes
     ];
 }

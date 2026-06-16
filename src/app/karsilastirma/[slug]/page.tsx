@@ -1,16 +1,21 @@
 import { notFound } from "next/navigation";
 import { programmaticComparisons } from "@/data/programmatic-seo";
+import { competitorComparisonPages } from "@/data/pseo/competitor-comparisons";
 import { SeoTemplate } from "@/components/seo-template";
+import { getArticleSchema } from "@/components/seo/json-ld";
+
+// Merge both comparison datasets
+const allComparisons = { ...programmaticComparisons, ...competitorComparisonPages };
 
 export async function generateStaticParams() {
-  return Object.keys(programmaticComparisons).map((slug) => ({
+  return Object.keys(allComparisons).map((slug) => ({
     slug,
   }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const slug = (await params).slug;
-  const data = programmaticComparisons[slug];
+  const data = allComparisons[slug];
 
   if (!data) return { title: "Sayfa Bulunamadı" };
 
@@ -33,7 +38,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function ComparisonSeoPage({ params }: { params: Promise<{ slug: string }> }) {
   const slug = (await params).slug;
-  const data = programmaticComparisons[slug];
+  const data = allComparisons[slug];
 
   if (!data) {
     notFound();
@@ -41,30 +46,7 @@ export default async function ComparisonSeoPage({ params }: { params: Promise<{ 
 
   // Schema Markup
   const publishDate = '2026-04-01T10:00:00+03:00';
-  const articleSchema = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": `https://logsiem.com/karsilastirma/${slug}`
-    },
-    "headline": data.title,
-    "description": data.description,
-    "author": {
-      "@type": "Organization",
-      "name": "BTPROSES"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "ACKLOG",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://logsiem.com/logo.png"
-      }
-    },
-    "datePublished": publishDate,
-    "dateModified": publishDate
-  };
+  const articleSchema = getArticleSchema(data.title, data.description, `https://logsiem.com/karsilastirma/${slug}`, publishDate);
 
   const faqSchema = data.faqs.length > 0 ? {
     "@context": "https://schema.org",

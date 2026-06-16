@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { programmaticRegulations } from "@/data/programmatic-seo";
 import { SeoTemplate } from "@/components/seo-template";
+import { getArticleSchema } from "@/components/seo/json-ld";
 
 export async function generateStaticParams() {
   return Object.keys(programmaticRegulations).map((slug) => ({
@@ -41,30 +42,7 @@ export default async function RegulationSeoPage({ params }: { params: Promise<{ 
 
   // Schema Markup
   const publishDate = '2026-04-01T10:00:00+03:00';
-  const articleSchema = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": `https://logsiem.com/regulasyon/${slug}`
-    },
-    "headline": data.title,
-    "description": data.description,
-    "author": {
-      "@type": "Organization",
-      "name": "BTPROSES"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "ACKLOG",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://logsiem.com/logo.png"
-      }
-    },
-    "datePublished": publishDate,
-    "dateModified": publishDate
-  };
+  const articleSchema = getArticleSchema(data.title, data.description, `https://logsiem.com/regulasyon/${slug}`, publishDate);
 
   const faqSchema = data.faqs.length > 0 ? {
     "@context": "https://schema.org",

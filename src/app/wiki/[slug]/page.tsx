@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { articles } from "@/data/wiki-content";
 import { WikiClient } from "./wiki-client";
+import { RelatedArticles } from "@/components/related-articles";
 import { WithContext, FAQPage as FAQPageSchema } from "schema-dts";
 
 // Define generateStaticParams for static export optimization
@@ -143,7 +144,9 @@ export default async function WikiPage({
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
                 />
             )}
-            <WikiClient slug={slug} data={data} otherArticles={otherArticles} />
+            <WikiClient slug={slug} data={data} otherArticles={otherArticles}>
+                <RelatedArticles currentSlug={slug} articles={articles} maxItems={6} />
+            </WikiClient>
         </>
     );
 }

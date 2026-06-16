@@ -40,9 +40,21 @@ export function SeoTemplate({ data, backUrl = "/wiki", backText = "Kütüphaneye
     
     // Replace keys with absolute html links
     text = text.replace(/SIEM Nedir/g, '<a href="/wiki/siem-nedir" class="text-blue-400 hover:underline font-bold">SIEM Nedir</a>');
-    text = text.replace(/UEBA Nedir/g, '<a href="/wiki/ueba-nedir-kullanim-senaryolari" class="text-blue-400 hover:underline font-bold">UEBA Nedir</a>');
+    text = text.replace(/UEBA Nedir/g, '<a href="/wiki/ueba-kullanici-davranis-analizi-nedir" class="text-blue-400 hover:underline font-bold">UEBA Nedir</a>');
     text = text.replace(/Threat Hunting Nedir/g, '<a href="/wiki/threat-hunting-nedir" class="text-blue-400 hover:underline font-bold">Threat Hunting Nedir</a>');
     text = text.replace(/SOC Kurulumu/g, '<a href="/wiki/soc-kurulum-rehberi-maliyetler" class="text-blue-400 hover:underline font-bold">SOC Kurulumu</a>');
+    
+    // Premium SEO / GEO Extensions
+    text = text.replace(/5651 Sayılı Kanun/gi, '<a href="/wiki/5651-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">5651 Sayılı Kanun</a>');
+    text = text.replace(/KVKK Uyumluluğu/gi, '<a href="/wiki/kvkk-siem-log-yonetimi-rehberi" class="text-blue-400 hover:underline font-bold">KVKK Uyumluluğu</a>');
+    text = text.replace(/Log Yönetimi/gi, '<a href="/wiki/siem-vs-log-yonetimi" class="text-blue-400 hover:underline font-bold">Log Yönetimi</a>');
+    text = text.replace(/QRadar Alternatifi/gi, '<a href="/wiki/qradar-alternatifi" class="text-blue-400 hover:underline font-bold">QRadar Alternatifi</a>');
+    text = text.replace(/Logsign Alternatifi/gi, '<a href="/alternatif/logsign-alternatifi" class="text-blue-400 hover:underline font-bold">Logsign Alternatifi</a>');
+    text = text.replace(/FortiGate Log/gi, '<a href="/log-kaynagi/fortinet-fortigate-log" class="text-blue-400 hover:underline font-bold">FortiGate Log</a>');
+    text = text.replace(/Palo Alto Networks/gi, '<a href="/log-kaynagi/palo-alto-firewall-log" class="text-blue-400 hover:underline font-bold">Palo Alto Networks</a>');
+    text = text.replace(/Cisco ASA/gi, '<a href="/log-kaynagi/cisco-asa-log" class="text-blue-400 hover:underline font-bold">Cisco ASA</a>');
+    text = text.replace(/Windows Event/gi, '<a href="/log-kaynagi/windows-event-log" class="text-blue-400 hover:underline font-bold">Windows Event</a>');
+    text = text.replace(/Linux Syslog/gi, '<a href="/log-kaynagi/linux-syslog" class="text-blue-400 hover:underline font-bold">Linux Syslog</a>');
     
     return text;
   }, [data.content]);

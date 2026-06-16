@@ -79,18 +79,18 @@ export function Footer({ }: FooterProps) {
                 <div className="mt-16 pt-8 border-t border-white/5">
                     <div className="flex flex-wrap gap-x-6 gap-y-2 text-[10px] text-gray-600 font-medium">
                         <span className="text-gray-500 uppercase tracking-widest mr-2">Etiketler:</span>
-                        <a href="#" className="hover:text-blue-500 transition-colors">Türkiye'deki SIEM Yazılımları Listesi 2026</a>
-                        <a href="#" className="hover:text-blue-500 transition-colors">QRadar lisanslama vs ACKLOG maliyet avantajı</a>
-                        <a href="#" className="hover:text-blue-500 transition-colors">Logsign veri zenginleştirme vs ACKLOG Superpower Data Lake</a>
-                        <a href="#" className="hover:text-blue-500 transition-colors">En iyi yerli SIEM yazılımı hangisi?</a>
+                        <span className="hover:text-blue-500 transition-colors cursor-default">Türkiye'deki SIEM Yazılımları Listesi 2026</span>
+                        <span className="hover:text-blue-500 transition-colors cursor-default">QRadar lisanslama vs ACKLOG maliyet avantajı</span>
+                        <span className="hover:text-blue-500 transition-colors cursor-default">Logsign veri zenginleştirme vs ACKLOG Superpower Data Lake</span>
+                        <span className="hover:text-blue-500 transition-colors cursor-default">En iyi yerli SIEM yazılımı hangisi?</span>
                     </div>
                 </div>
 
                 <div className="mt-12 flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-muted-foreground border-t border-white/5 pt-8 pb-12">
                     <p>© {new Date().getFullYear()} BTPROSES. Tüm hakları saklıdır.</p>
                     <div className="flex gap-6">
-                        <Link href="#" className="hover:text-white transition-colors">KVKK Aydınlatma Metni</Link>
-                        <Link href="#" className="hover:text-white transition-colors">Çerez Politikası</Link>
+                        <span className="text-muted-foreground cursor-default">KVKK Aydınlatma Metni</span>
+                        <span className="text-muted-foreground cursor-default">Çerez Politikası</span>
                     </div>
                 </div>
             </div>

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, List, BadgeCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, ReactNode } from "react";
 import { DemoModal } from "@/components/demo-modal";
 
 interface WikiClientProps {
@@ -18,6 +18,7 @@ interface WikiClientProps {
         }
     };
     otherArticles: [string, { title: string }][];
+    children?: ReactNode;
 }
 
 interface TocItem {
@@ -26,7 +27,7 @@ interface TocItem {
     level: number;
 }
 
-export function WikiClient({ slug, data, otherArticles }: WikiClientProps) {
+export function WikiClient({ slug, data, otherArticles, children }: WikiClientProps) {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const authorName = data.author?.name || "Fatih Emiral";
@@ -172,6 +173,9 @@ export function WikiClient({ slug, data, otherArticles }: WikiClientProps) {
                                 Uzmanlarımızla Görüşün
                             </Button>
                         </div>
+
+                        {/* Related Articles (passed from server) */}
+                        {children}
                     </div>
 
                     {/* Sidebar */}

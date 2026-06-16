@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArrowLeft, ArrowRight, ShieldCheck, CheckCircle2, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { kanitArticles } from "@/data/kanit-content";
-import { JsonLd } from "@/components/seo/json-ld";
+import { JsonLd, getArticleSchema } from "@/components/seo/json-ld";
 import { WithContext, FAQPage as FAQPageSchema } from "schema-dts";
 import { Footer } from "@/components/footer";
 
@@ -46,30 +46,7 @@ export default async function KanitPage({ params }: { params: Promise<{ slug: st
 
   // Schema Markup
   const publishDate = '2026-03-10T09:00:00+03:00';
-  const articleSchema = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": `https://logsiem.com/kanit/${slug}`
-    },
-    "headline": data.title,
-    "description": data.description,
-    "author": {
-      "@type": "Organization",
-      "name": "BTPROSES Bilgi Teknolojileri"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "ACKLOG",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://logsiem.com/logo.png"
-      }
-    },
-    "datePublished": publishDate,
-    "dateModified": publishDate
-  };
+  const articleSchema = getArticleSchema(data.title, data.description, `https://logsiem.com/kanit/${slug}`, publishDate);
 
   const faqSchema: WithContext<FAQPageSchema> | null = data.faqs.length > 0 ? {
     "@context": "https://schema.org",
