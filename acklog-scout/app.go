@@ -42,6 +42,7 @@ type AuditResult struct {
 	Checks     []audit.PolicyCheck         `json:"checks"`
 	Sysmon     audit.SysmonStatus          `json:"sysmon"`
 	Database   audit.DatabaseAuditStatus   `json:"database"`
+	Error      string                      `json:"error"`
 }
 
 // RunLocalAudit performs a security compliance scan of the local host
@@ -51,11 +52,14 @@ func (a *App) RunLocalAudit() AuditResult {
 	}
 
 	if !result.IsAdmin {
+		result.Error = "Yönetici yetkisi (Administrator) bulunmuyor."
 		return result
 	}
 
 	checks, err := audit.WindowsAudit()
-	if err == nil {
+	if err != nil {
+		result.Error = err.Error()
+	} else {
 		result.Checks = checks
 	}
 

@@ -535,7 +535,9 @@
                     // 3. Render Audit table body
                     const tableBody = document.getElementById('audit-table-body');
                     tableBody.innerHTML = '';
-                    if (res.checks && res.checks.length > 0) {
+                    if (res.error) {
+                        tableBody.innerHTML = `<tr><td colspan="5" style="text-align:center; color: var(--error); padding: 20px;"><strong>Sistem Hatası:</strong> ${res.error}<br><small style="color: var(--text-muted); display: block; margin-top: 5px;">Lütfen uygulamayı sağ tıklayıp <strong>Yönetici Olarak Çalıştır</strong> seçeneğiyle açtığınızdan emin olun.</small></td></tr>`;
+                    } else if (res.checks && res.checks.length > 0) {
                         res.checks.forEach(check => {
                             tableBody.innerHTML += `<tr>
                                 <td><strong>${check.name}</strong><br><span style="color: var(--text-muted); font-size: 11px;">${check.description}</span></td>
