@@ -7,6 +7,8 @@ import (
 	"fmt"
 	"net"
 	"net/http"
+	"strings"
+	"sync"
 	"time"
 
 	"acklog-scout/audit"
@@ -207,4 +209,69 @@ func (a *App) GetLocalSubnets() []NetworkInterface {
 	}
 
 	return list
+}
+
+// RemoteAuditResult holds a single remote machine's audit result for GUI rendering
+type RemoteAuditResult struct {
+	IP         string              `json:"ip"`
+	Checks     []audit.PolicyCheck `json:"checks"`
+	SysmonNote string              `json:"sysmon_note"`
+	Error      string              `json:"error"`
+}
+
+// RunRemoteAudit performs a WinRM audit on a single remote Windows machine
+func (a *App) RunRemoteAudit(ip, username, password string) RemoteAuditResult {
+	result := RemoteAuditResult{IP: ip}
+
+	checks, err := audit.RemoteWindowsAudit(ip, username, password)
+	if err != nil {
+		result.Error = err.Error()
+		return result
+	}
+	result.Checks = checks
+
+	// Try to check Sysmon status remotely
+	sysmonRaw := audit.RemoteSysmonCheck(ip, username, password)
+	sysmonRaw = strings.TrimSpace(sysmonRaw)
+	if strings.HasPrefix(sysmonRaw, "INSTALLED") {
+		parts := strings.Split(sysmonRaw, "|")
+		if len(parts) >= 3 {
+			result.SysmonNote = fmt.Sprintf("Kurulu (Durum: %s, Versiyon: %s)", parts[1], parts[2])
+		} else {
+			result.SysmonNote = "Kurulu"
+		}
+	} else if sysmonRaw == "NOT_INSTALLED" {
+		result.SysmonNote = "Kurulu Değil"
+	} else {
+		result.SysmonNote = sysmonRaw
+	}
+
+	return result
+}
+
+// RunBatchRemoteAudit performs WinRM audits on multiple remote machines concurrently
+func (a *App) RunBatchRemoteAudit(ips []string, username, password string) []RemoteAuditResult {
+	var results []RemoteAuditResult
+	var mu sync.Mutex
+	var wg sync.WaitGroup
+
+	// Limit concurrency to 5 parallel WinRM connections
+	sem := make(chan struct{}, 5)
+
+	for _, ip := range ips {
+		wg.Add(1)
+		go func(targetIP string) {
+			defer wg.Done()
+			sem <- struct{}{}
+			defer func() { <-sem }()
+
+			r := a.RunRemoteAudit(targetIP, username, password)
+			mu.Lock()
+			results = append(results, r)
+			mu.Unlock()
+		}(ip)
+	}
+
+	wg.Wait()
+	return results
 }

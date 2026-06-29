@@ -33,16 +33,22 @@ func WindowsAudit() ([]PolicyCheck, error) {
 	// Write debug dump
 	_ = os.WriteFile("c:\\PROJELER\\Logsiem\\acklog-scout\\auditpol_debug.txt", stdout.Bytes(), 0644)
 
-	// Parse CSV output (detect delimiter based on locale, e.g. semicolon for Turkish Windows)
+	return ParseAuditpolCSV(stdout.String())
+}
+
+// ParseAuditpolCSV parses raw auditpol CSV output and returns compliance checks.
+// This is shared between local (WindowsAudit) and remote (RemoteWindowsAudit) audit paths.
+func ParseAuditpolCSV(csvData string) ([]PolicyCheck, error) {
+	// Detect delimiter based on locale (semicolon for Turkish Windows)
 	delimiter := ','
-	if strings.Contains(stdout.String(), ";") {
+	if strings.Contains(csvData, ";") {
 		delimiter = ';'
 	}
 
-	r := csv.NewReader(strings.NewReader(stdout.String()))
+	r := csv.NewReader(strings.NewReader(csvData))
 	r.Comma = delimiter
 	r.LazyQuotes = true
-	r.FieldsPerRecord = -1 // Flexible fields
+	r.FieldsPerRecord = -1
 
 	records, err := r.ReadAll()
 	if err != nil {
@@ -52,7 +58,7 @@ func WindowsAudit() ([]PolicyCheck, error) {
 	// Standard critical audit policies mapping by Subcategory GUID (language independent)
 	requiredMap := map[string]struct {
 		Name     string
-		Required string // "Success", "Success and Failure", "Failure"
+		Required string
 		Risk     string
 		Desc     string
 	}{
@@ -106,8 +112,6 @@ func WindowsAudit() ([]PolicyCheck, error) {
 		if len(rec) < 5 {
 			continue
 		}
-		// Column index:
-		// 0: Machine Name, 1: Policy Target, 2: Subcategory, 3: Subcategory GUID, 4: Inclusion Setting
 		guid := strings.ToUpper(strings.TrimSpace(rec[3]))
 		setting := strings.TrimSpace(rec[4])
 

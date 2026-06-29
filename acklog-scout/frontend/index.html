@@ -313,6 +313,7 @@
                 <div class="nav-links">
                     <button class="nav-item active" id="btn-audit" onclick="switchTab('audit-tab', 'btn-audit')">Yerel Denetim (Audit)</button>
                     <button class="nav-item" id="btn-scan" onclick="switchTab('scan-tab', 'btn-scan')">Ağ Port Keşfi</button>
+                    <button class="nav-item" id="btn-remote" onclick="switchTab('remote-tab', 'btn-remote')">Uzaktan Denetim (WinRM)</button>
                 </div>
             </div>
             <div class="sidebar-footer">
@@ -426,6 +427,47 @@
                         </thead>
                         <tbody id="scan-table-body"></tbody>
                     </table>
+                </div>
+            </div>
+
+            <!-- TAB 3: REMOTE WinRM AUDIT -->
+            <div id="remote-tab" class="tab-content">
+                <div class="panel-header">
+                    <h2>Uzaktan WinRM Denetimi</h2>
+                    <p>Ağ taramasında bulunan Windows makineleri WinRM üzerinden uzaktan denetleyin. Hedef makinelerde WinRM açık olmalıdır (port 5985).</p>
+                </div>
+
+                <div class="grid">
+                    <div class="card">
+                        <h3>Yönetici Kimlik Bilgileri</h3>
+                        <p>Uzak makinelere bağlanmak için Domain Admin veya yerel yönetici hesabı girin. Format: <code>DOMAIN\Kullanıcı</code> veya <code>Kullanıcı</code></p>
+                        <div class="form-row">
+                            <input type="text" id="winrm-username" class="input" placeholder="DOMAIN\Administrator" style="max-width: 220px;">
+                            <input type="password" id="winrm-password" class="input" placeholder="Parola" style="max-width: 180px;">
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3>Hedef Makineler</h3>
+                        <p>IP adreslerini virgülle ayırarak girin veya "Ağ Port Keşfi" sekmesindeki tarama sonuçlarından otomatik aktarın.</p>
+                        <div class="form-row">
+                            <input type="text" id="winrm-targets" class="input" placeholder="192.168.1.10, 192.168.1.20">
+                        </div>
+                        <div class="form-row">
+                            <button class="btn btn-secondary" onclick="importScanTargets()" style="font-size: 11px;">Ağ Taramasından Aktar (Windows)</button>
+                            <button class="btn" onclick="runRemoteAudit()">Uzaktan Denetimi Başlat</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="remote-loader" class="loader">Uzak makinelere WinRM ile bağlanılıyor, lütfen bekleyin...</div>
+
+                <div id="remote-results" style="display: none;">
+                    <div class="card" style="margin-bottom: 16px;">
+                        <h3>Uzaktan Denetim Özeti</h3>
+                        <div id="remote-summary" style="font-size: 12px; color: var(--text-muted);"></div>
+                    </div>
+                    <div id="remote-machine-cards"></div>
                 </div>
             </div>
 
@@ -626,6 +668,147 @@
                     } else {
                         tableBody.innerHTML = `<tr><td colspan="3" style="text-align:center; color: var(--text-dark);">Aktif cihaz bulunamadı.</td></tr>`;
                     }
+                });
+            }
+        }
+        // ===== REMOTE WinRM AUDIT =====
+
+        // Global store for scan results (Windows machines)
+        let lastScanWindowsIPs = [];
+
+        // Override runScan to also capture Windows IPs
+        const originalRunScan = runScan;
+        runScan = function() {
+            const cidr = document.getElementById('scan-cidr').value;
+            if (!cidr) {
+                alert('CIDR IP aralığı girilmelidir!');
+                return;
+            }
+
+            document.getElementById('scan-loader').style.display = 'block';
+            document.getElementById('scan-results-card').style.display = 'none';
+
+            if (window.go && window.go.main && window.go.main.App) {
+                window.go.main.App.RunNetworkScan(cidr).then(results => {
+                    document.getElementById('scan-loader').style.display = 'none';
+                    document.getElementById('scan-results-card').style.display = 'block';
+
+                    const tableBody = document.getElementById('scan-table-body');
+                    tableBody.innerHTML = '';
+                    lastScanWindowsIPs = [];
+
+                    if (results && results.length > 0) {
+                        results.forEach(res => {
+                            tableBody.innerHTML += `<tr>
+                                <td><strong>${res.ip}</strong></td>
+                                <td>${res.os}</td>
+                                <td><code>${res.open_ports.join(', ')}</code></td>
+                            </tr>`;
+                            // Detect Windows machines by SMB/RPC ports
+                            if (res.open_ports.includes(135) || res.open_ports.includes(445)) {
+                                lastScanWindowsIPs.push(res.ip);
+                            }
+                        });
+                    } else {
+                        tableBody.innerHTML = `<tr><td colspan="3" style="text-align:center; color: var(--text-dark);">Aktif cihaz bulunamadı.</td></tr>`;
+                    }
+                });
+            }
+        };
+
+        // Import Windows IPs from last scan into remote audit targets
+        function importScanTargets() {
+            if (lastScanWindowsIPs.length === 0) {
+                alert('Henüz Windows makinesi bulunan bir ağ taraması yapılmadı.\nÖnce "Ağ Port Keşfi" sekmesinden bir tarama çalıştırın.');
+                return;
+            }
+            document.getElementById('winrm-targets').value = lastScanWindowsIPs.join(', ');
+        }
+
+        // Run batch remote WinRM audit
+        function runRemoteAudit() {
+            const username = document.getElementById('winrm-username').value.trim();
+            const password = document.getElementById('winrm-password').value;
+            const targetsRaw = document.getElementById('winrm-targets').value.trim();
+
+            if (!username || !password) {
+                alert('Yönetici kullanıcı adı ve parola girilmelidir!');
+                return;
+            }
+            if (!targetsRaw) {
+                alert('En az bir hedef IP adresi girilmelidir!');
+                return;
+            }
+
+            const ips = targetsRaw.split(',').map(s => s.trim()).filter(s => s.length > 0);
+            if (ips.length === 0) {
+                alert('Geçerli IP adresi bulunamadı!');
+                return;
+            }
+
+            document.getElementById('remote-loader').style.display = 'block';
+            document.getElementById('remote-results').style.display = 'none';
+
+            if (window.go && window.go.main && window.go.main.App) {
+                window.go.main.App.RunBatchRemoteAudit(ips, username, password).then(results => {
+                    document.getElementById('remote-loader').style.display = 'none';
+                    document.getElementById('remote-results').style.display = 'block';
+
+                    // Summary
+                    const total = results.length;
+                    const failed = results.filter(r => r.error).length;
+                    const successful = total - failed;
+                    document.getElementById('remote-summary').innerHTML = `
+                        Toplam <strong>${total}</strong> makine sorgulandı.
+                        <span style="color: var(--success);">${successful} başarılı</span> |
+                        <span style="color: var(--error);">${failed} hatalı</span>
+                    `;
+
+                    // Render per-machine cards
+                    const container = document.getElementById('remote-machine-cards');
+                    container.innerHTML = '';
+
+                    results.forEach(r => {
+                        let cardHTML = `<div class="card" style="margin-bottom: 16px;">`;
+                        cardHTML += `<h3 style="display: flex; justify-content: space-between; align-items: center;">
+                            <span>${r.ip}</span>
+                            <span class="badge ${r.error ? 'non-compliant' : 'compliant'}" style="font-size: 10px;">
+                                ${r.error ? 'HATA' : 'BAĞLANTI BAŞARILI'}
+                            </span>
+                        </h3>`;
+
+                        if (r.error) {
+                            cardHTML += `<p style="color: var(--error); font-size: 12px;">${r.error}</p>`;
+                        } else {
+                            // Sysmon note
+                            cardHTML += `<p style="font-size: 11px; color: var(--text-muted); margin-bottom: 12px;">Sysmon: <strong>${r.sysmon_note || 'Bilgi alınamadı'}</strong></p>`;
+
+                            // Policy table
+                            if (r.checks && r.checks.length > 0) {
+                                cardHTML += `<table class="policy-table">
+                                    <thead><tr>
+                                        <th>Politika</th>
+                                        <th>Mevcut</th>
+                                        <th>Gereksinim</th>
+                                        <th>Risk</th>
+                                        <th>Durum</th>
+                                    </tr></thead><tbody>`;
+                                r.checks.forEach(check => {
+                                    cardHTML += `<tr>
+                                        <td><strong>${check.name}</strong></td>
+                                        <td>${check.current_value}</td>
+                                        <td>${check.required}</td>
+                                        <td>${check.risk_level}</td>
+                                        <td><span class="badge ${check.compliant ? 'compliant' : 'non-compliant'}">${check.compliant ? 'UYUMLU' : 'UYUMSUZ'}</span></td>
+                                    </tr>`;
+                                });
+                                cardHTML += `</tbody></table>`;
+                            }
+                        }
+
+                        cardHTML += `</div>`;
+                        container.innerHTML += cardHTML;
+                    });
                 });
             }
         }
