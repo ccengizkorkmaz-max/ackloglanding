@@ -3,274 +3,506 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=device-width, initial-scale=1.0">
-    <title>ACKLOG Scout Masaüstü Kontrol Paneli</title>
+    <title>ACKLOG Scout</title>
     <style>
+        :root {
+            --bg: #09090b;
+            --border: #27272a;
+            --border-hover: #3f3f46;
+            --text: #f4f4f5;
+            --text-muted: #a1a1aa;
+            --text-dark: #52525b;
+            --success: #22c55e;
+            --success-bg: rgba(34, 197, 94, 0.08);
+            --error: #ef4444;
+            --error-bg: rgba(239, 68, 68, 0.08);
+            --accent: #3b82f6;
+            --accent-bg: rgba(59, 130, 246, 0.08);
+        }
+        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #0b0f19;
-            color: #c9d1d9;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
             margin: 0;
             padding: 0;
+            font-size: 13px;
+            letter-spacing: -0.01em;
+            line-height: 1.5;
             user-select: none;
         }
-        .header {
-            background-color: #111827;
-            border-bottom: 1px solid #1f2937;
-            padding: 20px 30px;
+
+        .app-layout {
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            background-color: #09090b;
+            border-right: 1px solid var(--border);
+            padding: 24px 16px;
             display: flex;
+            flex-direction: column;
             justify-content: space-between;
-            align-items: center;
         }
-        .header h1 {
-            margin: 0;
-            font-size: 24px;
-            color: #10b981;
-            font-weight: 900;
-        }
-        .admin-badge {
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 11px;
-            font-weight: bold;
+
+        .sidebar-brand h1 {
+            font-size: 14px;
+            font-weight: 700;
+            margin: 0 0 24px 0;
+            color: var(--text);
+            letter-spacing: -0.02em;
             text-transform: uppercase;
         }
-        .admin-badge.success { background-color: #10b981; color: #0b0f19; }
-        .admin-badge.error { background-color: #ef4444; color: #fff; }
 
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
-        .tabs {
+        .nav-links {
             display: flex;
-            gap: 15px;
-            border-bottom: 1px solid #1f2937;
-            margin-bottom: 25px;
+            flex-direction: column;
+            gap: 4px;
         }
-        .tab-btn {
+
+        .nav-item {
             background: none;
             border: none;
-            color: #9ca3af;
-            padding: 10px 20px;
-            font-size: 15px;
+            text-align: left;
+            padding: 8px 12px;
+            border-radius: 6px;
+            color: var(--text-muted);
+            font-size: 13px;
+            font-weight: 500;
             cursor: pointer;
-            border-bottom: 2px solid transparent;
-            font-weight: 600;
+            transition: all 0.15s ease;
         }
-        .tab-btn.active {
-            color: #3b82f6;
-            border-bottom-color: #3b82f6;
+
+        .nav-item:hover {
+            color: var(--text);
+            background-color: #18181b;
+        }
+
+        .nav-item.active {
+            color: var(--text);
+            background-color: #18181b;
+            font-weight: 600;
+            border: 1px solid var(--border);
+        }
+
+        .sidebar-footer {
+            border-top: 1px solid var(--border);
+            padding-top: 16px;
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 10px;
+            font-weight: 600;
+            color: var(--text-muted);
+            letter-spacing: 0.05em;
+        }
+
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        .status-dot.active { background-color: var(--success); }
+        .status-dot.inactive { background-color: var(--error); }
+
+        /* Main Workspace Panel */
+        .main-panel {
+            padding: 40px;
+            overflow-y: auto;
+            background-color: #09090b;
+        }
+
+        .panel-header {
+            margin-bottom: 32px;
+        }
+
+        .panel-header h2 {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0;
+            letter-spacing: -0.02em;
+        }
+
+        .panel-header p {
+            margin: 4px 0 0 0;
+            color: var(--text-muted);
+            font-size: 12px;
         }
 
         .tab-content { display: none; }
         .tab-content.active { display: block; }
 
-        /* Action Buttons */
-        .btn {
-            background-color: #3b82f6;
-            color: #fff;
-            border: none;
-            padding: 12px 24px;
+        /* Grid Cards */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+
+        .card {
+            border: 1px solid var(--border);
             border-radius: 8px;
-            font-size: 14px;
-            font-weight: bold;
+            padding: 20px;
+            background-color: #09090b;
+        }
+
+        .card h3 {
+            margin: 0 0 8px 0;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .card p {
+            margin: 0 0 16px 0;
+            font-size: 12px;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        /* Interactive controls */
+        .form-row {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 12px;
+            align-items: center;
+        }
+
+        .input {
+            background-color: #09090b;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--text);
+            padding: 8px 12px;
+            font-size: 12px;
+            font-family: inherit;
+            flex-grow: 1;
+        }
+
+        .input:focus {
+            outline: none;
+            border-color: var(--border-hover);
+        }
+
+        .btn {
+            background-color: var(--text);
+            color: #09090b;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 8px 14px;
+            font-size: 12px;
+            font-weight: 600;
             cursor: pointer;
-            transition: background 0.2s;
+            transition: all 0.1s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--text-muted);
+        }
+
+        .btn-secondary {
+            background-color: #09090b;
+            color: var(--text);
+        }
+
+        .btn-secondary:hover {
+            background-color: #18181b;
+            border-color: var(--border-hover);
+        }
+
+        /* Detected Subnets UI */
+        .subnet-title {
+            font-size: 11px;
+            font-weight: 600;
             text-transform: uppercase;
+            color: var(--text-dark);
+            margin-bottom: 8px;
             letter-spacing: 0.05em;
         }
-        .btn:hover { background-color: #2563eb; }
-        .btn.success { background-color: #10b981; }
-        .btn.success:hover { background-color: #059669; }
 
-        /* Cards and Lists */
-        .card {
-            background-color: #111827;
-            border: 1px solid #1f2937;
-            border-radius: 12px;
-            padding: 25px;
-            margin-bottom: 25px;
-        }
-        .card h3 { margin-top: 0; color: #3b82f6; }
-
-        .scan-bar {
+        .subnet-container {
             display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-        .scan-bar input {
-            flex: 1;
-            padding: 12px 15px;
-            background: #0b0f19;
-            border: 1px solid #1f2937;
-            border-radius: 8px;
-            color: #fff;
-            font-family: monospace;
-            font-size: 14px;
-        }
-        .scan-bar input:focus {
-            outline: none;
-            border-color: #3b82f6;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 16px;
         }
 
-        /* Results table */
-        table {
+        .subnet-badge {
+            background-color: #09090b;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 4px 10px;
+            font-size: 11px;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.1s ease;
+        }
+
+        .subnet-badge:hover {
+            border-color: var(--border-hover);
+            color: var(--text);
+        }
+
+        /* Compliance check layout */
+        .policy-table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 15px;
+            font-size: 12px;
         }
-        th, td {
-            padding: 10px 15px;
-            text-align: left;
-            border-bottom: 1px solid #1f2937;
-        }
-        th { background-color: #1f2937; color: #9ca3af; font-size: 12px; text-transform: uppercase; }
 
-        .status-pill {
-            padding: 3px 8px;
-            border-radius: 12px;
-            font-size: 11px;
-            font-weight: bold;
+        .policy-table th, .policy-table td {
+            padding: 10px 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
         }
-        .status-pill.compliant { background: #10b981; color: #0b0f19; }
-        .status-pill.non-compliant { background: #ef4444; color: #fff; }
+
+        .policy-table th {
+            color: var(--text-dark);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 10px;
+            letter-spacing: 0.05em;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 600;
+        }
+
+        .badge.compliant {
+            background-color: var(--success-bg);
+            color: var(--success);
+        }
+
+        .badge.non-compliant {
+            background-color: var(--error-bg);
+            color: var(--error);
+        }
 
         .loader {
             display: none;
+            padding: 24px;
             text-align: center;
-            padding: 20px 0;
-            color: #9ca3af;
-            font-weight: bold;
+            color: var(--text-muted);
+            font-size: 12px;
+            font-weight: 500;
         }
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <h1>ACKLOG Scout Desktop</h1>
-        <div id="admin-status" class="admin-badge error">Yönetici Kontrolü Yapılıyor...</div>
-    </div>
-
-    <div class="container">
-        <!-- Navigation Tabs -->
-        <div class="tabs">
-            <button class="tab-btn active" onclick="switchTab('audit-tab')">Yerel Denetim (Audit)</button>
-            <button class="tab-btn" onclick="switchTab('scan-tab')">Ağ Port Keşfi</button>
+    <div class="app-layout">
+        <!-- SIDEBAR -->
+        <div class="sidebar">
+            <div>
+                <div class="sidebar-brand">
+                    <h1>ACKLOG Scout</h1>
+                </div>
+                <div class="nav-links">
+                    <button class="nav-item active" id="btn-audit" onclick="switchTab('audit-tab', 'btn-audit')">Yerel Denetim (Audit)</button>
+                    <button class="nav-item" id="btn-scan" onclick="switchTab('scan-tab', 'btn-scan')">Ağ Port Keşfi</button>
+                </div>
+            </div>
+            <div class="sidebar-footer">
+                <div class="status-indicator">
+                    <span class="status-dot inactive" id="admin-status-dot"></span>
+                    <span id="admin-status-text">Yetki Sorgulanıyor</span>
+                </div>
+            </div>
         </div>
 
-        <!-- TAB 1: LOCAL AUDIT & ENROLLER -->
-        <div id="audit-tab" class="tab-content active">
-            <div class="card">
-                <h3>Log Uyumluluk Tarayıcısı</h3>
-                <p>Sisteminizdeki Windows Gelişmiş Denetim Politikalarını (Advanced Audit Policies) ve Sysmon durumunu anında test edin.</p>
-                <div style="display: flex; gap: 15px; margin-top: 15px;">
-                    <button class="btn" onclick="runAudit()">Denetimi Başlat</button>
-                    <button class="btn success" onclick="runEnroll()">Otomatik İyileştir (Fix)</button>
+        <!-- MAIN PANEL -->
+        <div class="main-panel">
+            
+            <!-- TAB 1: LOCAL AUDIT & ENROLLER -->
+            <div id="audit-tab" class="tab-content active">
+                <div class="panel-header">
+                    <h2>Yerel Sistem Denetimi</h2>
+                    <p>Cihaz üzerindeki Windows Gelişmiş Denetim Politikalarını (Advanced Audit Policies) ve Sysmon durumunu sorgulayın.</p>
+                </div>
+
+                <div class="subnet-title">Algılanan Yerel IP Segmentleri</div>
+                <div class="subnet-container" id="audit-subnet-list">
+                    <span style="color: var(--text-dark);">Ağ kartları sorgulanıyor...</span>
+                </div>
+
+                <div class="grid">
+                    <div class="card">
+                        <h3>Denetim ve İyileştirme</h3>
+                        <p>Denetim karnesini çıkarmak için taramayı başlatın veya eksik ilkeleri otomatik onarmak ve Sysmon kurmak için İyileştir komutunu çalıştırın.</p>
+                        <div class="form-row">
+                            <button class="btn" onclick="runAudit()">Denetimi Başlat</button>
+                            <button class="btn btn-secondary" onclick="runEnroll()">Politikaları İyileştir</button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3>Uzak Kolektör Gönderimi</h3>
+                        <p>Merkezi Scout sunucu ağ adresini belirterek yerel sistem denetim raporunuzu tek tıkla uzak kolektöre iletin.</p>
+                        <div class="form-row">
+                            <input type="text" id="central-server-url" class="input" placeholder="http://192.168.1.100:8080">
+                            <button class="btn btn-secondary" onclick="sendReport()">Raporu Gönder</button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3>Kolektör Sunucu Modu</h3>
+                        <p>ACKLOG Scout'u bu bilgisayarda bir merkezi kolektör olarak çalıştırın. Diğer vlan istemcileri bu makineye veri aktarabilir.</p>
+                        <div class="form-row">
+                            <input type="number" id="server-port" class="input" value="8080" style="max-width: 80px;">
+                            <button class="btn btn-secondary" onclick="startServer()">Kolektörü Başlat</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="audit-loader" class="loader">Log analiz işlemleri yapılıyor, lütfen bekleyin...</div>
+
+                <div id="audit-results" style="display: none;">
+                    <div class="card" id="sysmon-card" style="margin-bottom: 20px;"></div>
+                    <div class="card" id="db-card" style="margin-bottom: 20px; display: none;"></div>
+
+                    <div class="card">
+                        <h3>Log İlke Karnesi</h3>
+                        <table class="policy-table">
+                            <thead>
+                                <tr>
+                                    <th>Politika Adı</th>
+                                    <th>Mevcut Değer</th>
+                                    <th>Gereksinim</th>
+                                    <th>Risk Seviyesi</th>
+                                    <th>Durum</th>
+                                </tr>
+                            </thead>
+                            <tbody id="audit-table-body"></tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
 
-            <div class="card">
-                <h3>Dağıtık Sunucu &amp; Kolektör Yönetimi</h3>
-                <p>ACKLOG Scout'u merkezi bir toplayıcı olarak başlatabilir veya bu bilgisayarın denetim raporunu merkezi bir sunucuya gönderebilirsiniz.</p>
-                <div style="display: grid; grid-template-cols: 1fr; gap: 20px; margin-top: 15px;">
-                    <div style="display: flex; gap: 10px; align-items: center;">
-                        <input type="number" id="server-port" value="8080" style="padding: 10px; background: #0b0f19; border: 1px solid #1f2937; border-radius: 6px; color: #fff; width: 100px;" placeholder="Port">
-                        <button class="btn" onclick="startServer()">Kolektör Sunucusu Ol</button>
-                    </div>
-                    <div style="display: flex; gap: 10px; align-items: center;">
-                        <input type="text" id="central-server-url" style="flex: 1; padding: 10px; background: #0b0f19; border: 1px solid #1f2937; border-radius: 6px; color: #fff;" placeholder="Merkez Sunucu Adresi (Örn: http://192.168.1.100:8080)">
-                        <button class="btn success" onclick="sendReport()">Raporu Sunucuya Gönder</button>
+            <!-- TAB 2: PORT SCANNER -->
+            <div id="scan-tab" class="tab-content">
+                <div class="panel-header">
+                    <h2>Subnet &amp; Port Keşfi</h2>
+                    <p>Belirttiğiniz ağ segmentindeki aktif cihazları ve log üreten servis portlarını sorgulayın.</p>
+                </div>
+
+                <div class="subnet-title">Algılanan Yerel IP Segmentleri (Taramak için tıklayın)</div>
+                <div class="subnet-container" id="scan-subnet-list">
+                    <span style="color: var(--text-dark);">Ağ kartları sorgulanıyor...</span>
+                </div>
+
+                <div class="card" style="margin-bottom: 24px;">
+                    <h3>Segment Belirleme</h3>
+                    <p>Taramak istediğiniz CIDR IP aralığını yazın (veya yukarıdan algılanan bir segmente tıklayın).</p>
+                    <div class="form-row" style="max-width: 500px;">
+                        <input type="text" id="scan-cidr" class="input" placeholder="192.168.1.0/24">
+                        <button class="btn" onclick="runScan()">Taramayı Başlat</button>
                     </div>
                 </div>
-            </div>
 
-            <div id="audit-loader" class="loader">Denetim gerçekleştiriliyor, lütfen bekleyin...</div>
+                <div id="scan-loader" class="loader">Ağ taranıyor, bu işlem birkaç saniye sürebilir...</div>
 
-            <!-- Dashboard Results Card -->
-            <div id="audit-results" style="display: none;">
-                <div class="card" id="sysmon-card"></div>
-                <div class="card" id="db-card"></div>
-
-                <div class="card">
-                    <h3>Denetim İlke Karnesi</h3>
-                    <table>
+                <div class="card" id="scan-results-card" style="display: none;">
+                    <h3>Aktif Bulunan Cihazlar</h3>
+                    <table class="policy-table">
                         <thead>
                             <tr>
-                                <th>Denetim İlkesi</th>
-                                <th>Mevcut Değer</th>
-                                <th>Gereksinim</th>
-                                <th>Risk Seviyesi</th>
-                                <th>Durum</th>
+                                <th>IP Adresi</th>
+                                <th>OS / Sistem Tipi</th>
+                                <th>Açık Portlar</th>
                             </tr>
                         </thead>
-                        <tbody id="audit-table-body"></tbody>
+                        <tbody id="scan-table-body"></tbody>
                     </table>
                 </div>
             </div>
-        </div>
 
-        <!-- TAB 2: SUBNET PORT SCANNER -->
-        <div id="scan-tab" class="tab-content">
-            <div class="card">
-                <h3>Ağ & Port Keşif Aracı</h3>
-                <p>Segmentinizdeki tüm IP adreslerini kritik portlar üzerinden saniyeler içinde tarayın.</p>
-                <div class="scan-bar">
-                    <input type="text" id="scan-cidr" placeholder="Örnek: 192.168.1.0/24">
-                    <button class="btn" onclick="runScan()">Taramayı Başlat</button>
-                </div>
-            </div>
-
-            <div id="scan-loader" class="loader">Alt ağ taranıyor, lütfen bekleyin...</div>
-
-            <div class="card" id="scan-results-card" style="display: none;">
-                <h3>Aktif Bulunan Cihazlar</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>IP Adresi</th>
-                            <th>Cihaz / OS Tipi</th>
-                            <th>Açık Portlar</th>
-                        </tr>
-                    </thead>
-                    <tbody id="scan-table-body"></tbody>
-                </table>
-            </div>
         </div>
     </div>
 
-    <!-- Wails Bindings JS -->
+    <!-- WAILS BINDINGS JS -->
     <script>
-        // Tab switching logic
-        function switchTab(tabId) {
-            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+        function switchTab(tabId, btnId) {
+            document.querySelectorAll('.tab-btn, .nav-item').forEach(btn => btn.classList.remove('active'));
             document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
             
-            event.target.classList.add('active');
+            document.getElementById(btnId).classList.add('active');
             document.getElementById(tabId).classList.add('active');
         }
 
-        // Initialize admin privileges status checking
+        // Auto-detect local networks and populate lists
+        function loadSubnets() {
+            if (window.go && window.go.main && window.go.main.App) {
+                window.go.main.App.GetLocalSubnets().then(subnets => {
+                    const containers = [
+                        document.getElementById('audit-subnet-list'),
+                        document.getElementById('scan-subnet-list')
+                    ];
+
+                    containers.forEach(container => {
+                        if (!container) return;
+                        container.innerHTML = '';
+                        if (subnets && subnets.length > 0) {
+                            subnets.forEach(sub => {
+                                const badge = document.createElement('div');
+                                badge.className = 'subnet-badge';
+                                badge.innerHTML = `<strong>${sub.name}</strong>: ${sub.cidr}`;
+                                badge.onclick = () => {
+                                    const scanInput = document.getElementById('scan-cidr');
+                                    if (scanInput) scanInput.value = sub.cidr;
+                                    
+                                    const centralUrl = document.getElementById('central-server-url');
+                                    if (centralUrl && !centralUrl.value) {
+                                        const parts = sub.cidr.split('/')[0].split('.');
+                                        parts[3] = '100'; // suggest arbitrary server IP
+                                        centralUrl.value = `http://${parts.join('.')}:8080`;
+                                    }
+                                };
+                                container.appendChild(badge);
+                            });
+                        } else {
+                            container.innerHTML = `<span style="color: var(--text-dark);">Etkin ağ segmenti bulunamadı.</span>`;
+                        }
+                    });
+                });
+            }
+        }
+
+        // Initialize admin privileges check
         window.addEventListener('DOMContentLoaded', () => {
             if (window.go && window.go.main && window.go.main.App) {
                 window.go.main.App.IsAdmin().then(isAdmin => {
-                    const badge = document.getElementById('admin-status');
+                    const dot = document.getElementById('admin-status-dot');
+                    const text = document.getElementById('admin-status-text');
                     if (isAdmin) {
-                        badge.textContent = "Yönetici Modu (Admin) ✅";
-                        badge.className = "admin-badge success";
+                        dot.className = "status-dot active";
+                        text.textContent = "Yönetici Yetkisi Var";
                     } else {
-                        badge.textContent = "Kısıtlı Yetki (Lütfen Admin olarak çalıştırın!) ❌";
-                        badge.className = "admin-badge error";
+                        dot.className = "status-dot inactive";
+                        text.textContent = "Kısıtlı Yetki (Yönetici Başlatın)";
                     }
                 });
+                loadSubnets();
             } else {
-                // Mock for testing in pure web browser preview
-                document.getElementById('admin-status').textContent = "Browser Ön İzleme Modu";
-                document.getElementById('admin-status').className = "admin-badge success";
+                // Browser Preview Mock
+                document.getElementById('admin-status-dot').className = "status-dot active";
+                document.getElementById('admin-status-text').textContent = "Browser Ön İzleme Modu";
             }
         });
 
-        // Run local security audit
+        // Run Local Security Audit
         function runAudit() {
             document.getElementById('audit-loader').style.display = 'block';
             document.getElementById('audit-results').style.display = 'none';
@@ -283,56 +515,87 @@
                     // 1. Render Sysmon Card
                     const sysmonCard = document.getElementById('sysmon-card');
                     if (res.sysmon.installed) {
-                        sysmonCard.innerHTML = `<h3>Sysmon Servisi Tespit Edildi</h3>
-                            <p><strong>Sürüm:</strong> v${res.sysmon.version} | <strong>Durum:</strong> ${res.sysmon.running ? 'Çalışıyor ✅' : 'Durdurulmuş ❌'}</p>`;
+                        sysmonCard.innerHTML = `<h3>Sysmon Durumu</h3>
+                            <p>Sisteminizde <strong>v${res.sysmon.version}</strong> kurulu ve <strong>${res.sysmon.running ? 'çalışıyor' : 'durdurulmuş'}</strong> durumda.</p>`;
                     } else {
-                        sysmonCard.innerHTML = `<h3 style="color:#ef4444;">⚠️ Sysmon Eksik!</h3>
-                            <p>Gelişmiş saldırı tespiti için Sysmon kurulması önerilir. Aşağıdaki "Otomatik İyileştir" butonuyla kurabilirsiniz.</p>`;
+                        sysmonCard.innerHTML = `<h3 style="color: var(--error);">Sysmon Eksik</h3>
+                            <p>Saldırı tespiti için Sysmon kurulu değildir. Sol taraftaki "Politikaları İyileştir" butonuyla otomatik kurabilirsiniz.</p>`;
                     }
 
                     // 2. Render Database Card
                     const dbCard = document.getElementById('db-card');
                     if (res.database.db_installed) {
+                        dbCard.style.display = 'block';
                         dbCard.innerHTML = `<h3>Veritabanı Loglama Analizi (${res.database.db_type})</h3>
-                            <p><strong>Yöntem:</strong> ${res.database.log_source_text} | <strong>Durum:</strong> ${res.database.compliant ? 'UYUMLU ✅' : 'LOGLAMA EKSİK! ❌'}</p>`;
+                            <p>Uyumlu loglama kaynağı: <strong>${res.database.log_source_text}</strong> | Durum: <span class="badge ${res.database.compliant ? 'compliant' : 'non-compliant'}">${res.database.compliant ? 'UYUMLU' : 'EKSİK'}</span></p>`;
                     } else {
                         dbCard.style.display = 'none';
                     }
 
-                    // 3. Render Audit policies table
+                    // 3. Render Audit table body
                     const tableBody = document.getElementById('audit-table-body');
                     tableBody.innerHTML = '';
                     res.checks.forEach(check => {
                         tableBody.innerHTML += `<tr>
-                            <td><strong>${check.name}</strong><br><small style="color:#6b7280;">${check.description}</small></td>
+                            <td><strong>${check.name}</strong><br><span style="color: var(--text-muted); font-size: 11px;">${check.description}</span></td>
                             <td>${check.current_value}</td>
                             <td>${check.required}</td>
                             <td>${check.risk_level}</td>
-                            <td><span class="status-pill ${check.compliant ? 'compliant' : 'non-compliant'}">${check.compliant ? 'UYUMLU' : 'UYUMSUZ'}</span></td>
+                            <td><span class="badge ${check.compliant ? 'compliant' : 'non-compliant'}">${check.compliant ? 'UYUMLU' : 'UYUMSUZ'}</span></td>
                         </tr>`;
                     });
                 });
             }
         }
 
-        // Run auto-enroller configuration
+        // Run Auto-Enroll configuration
         function runEnroll() {
-            if (confirm("Uyumsuz denetim politikalarını açmak ve Sysmon'u kurmak istediğinize emin misiniz?")) {
+            if (confirm("Denetim politikalarını açmak ve Sysmon'u kurmak istediğinize emin misiniz?")) {
                 document.getElementById('audit-loader').style.display = 'block';
                 if (window.go && window.go.main && window.go.main.App) {
                     window.go.main.App.RunAutoEnroll().then(msg => {
                         alert(msg);
-                        runAudit(); // Refresh audit table
+                        runAudit();
                     });
                 }
             }
         }
 
-        // Run network port scanning
+        // Start local collector server
+        function startServer() {
+            const port = parseInt(document.getElementById('server-port').value);
+            if (isNaN(port) || port <= 0) {
+                alert("Geçersiz port numarası!");
+                return;
+            }
+            if (window.go && window.go.main && window.go.main.App) {
+                window.go.main.App.StartCollectorServer(port).then(msg => {
+                    alert(msg);
+                });
+            }
+        }
+
+        // Upload local report to central server
+        function sendReport() {
+            const url = document.getElementById('central-server-url').value;
+            if (!url) {
+                alert("Sunucu adresi girilmelidir!");
+                return;
+            }
+            document.getElementById('audit-loader').style.display = 'block';
+            if (window.go && window.go.main && window.go.main.App) {
+                window.go.main.App.SendReportToCentralServer(url).then(msg => {
+                    document.getElementById('audit-loader').style.display = 'none';
+                    alert(msg);
+                });
+            }
+        }
+
+        // Run Network Scan
         function runScan() {
             const cidr = document.getElementById('scan-cidr').value;
             if (!cidr) {
-                alert("Lütfen taranacak ağ aralığını (CIDR) girin!");
+                alert("CIDR IP aralığı girilmelidir!");
                 return;
             }
 
@@ -355,38 +618,8 @@
                             </tr>`;
                         });
                     } else {
-                        tableBody.innerHTML = `<tr><td colspan="3" style="text-align:center; color:#6b7280;">Hiçbir aktif cihaz bulunamadı.</td></tr>`;
+                        tableBody.innerHTML = `<tr><td colspan="3" style="text-align:center; color: var(--text-dark);">Aktif cihaz bulunamadı.</td></tr>`;
                     }
-                });
-            }
-        }
-
-        // Start Central Collector Server
-        function startServer() {
-            const port = parseInt(document.getElementById('server-port').value);
-            if (isNaN(port) || port <= 0) {
-                alert("Lütfen geçerli bir port girin!");
-                return;
-            }
-            if (window.go && window.go.main && window.go.main.App) {
-                window.go.main.App.StartCollectorServer(port).then(msg => {
-                    alert(msg);
-                });
-            }
-        }
-
-        // Send local report to central server
-        function sendReport() {
-            const url = document.getElementById('central-server-url').value;
-            if (!url) {
-                alert("Lütfen merkez sunucu adresini girin!");
-                return;
-            }
-            document.getElementById('audit-loader').style.display = 'block';
-            if (window.go && window.go.main && window.go.main.App) {
-                window.go.main.App.SendReportToCentralServer(url).then(msg => {
-                    document.getElementById('audit-loader').style.display = 'none';
-                    alert(msg);
                 });
             }
         }

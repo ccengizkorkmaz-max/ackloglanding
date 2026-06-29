@@ -5,6 +5,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"net"
 	"net/http"
 	"time"
 
@@ -144,4 +145,62 @@ func (a *App) SendReportToCentralServer(serverURL string) string {
 		return "Rapor merkezi sunucuya başarıyla iletildi. ✅"
 	}
 	return fmt.Sprintf("Hata: Sunucu geçersiz status döndü: %s", resp.Status)
+}
+
+// NetworkInterface represents an active network card IP configuration
+type NetworkInterface struct {
+	Name string `json:"name"`
+	IP   string `json:"ip"`
+	CIDR string `json:"cidr"`
+}
+
+// GetLocalSubnets detects and returns active local network interface segments
+func (a *App) GetLocalSubnets() []NetworkInterface {
+	var list []NetworkInterface
+	ifaces, err := net.Interfaces()
+	if err != nil {
+		return list
+	}
+
+	for _, iface := range ifaces {
+		// Skip down or loopback interfaces
+		if (iface.Flags & net.FlagUp) == 0 || (iface.Flags & net.FlagLoopback) != 0 {
+			continue
+		}
+
+		addrs, err := iface.Addrs()
+		if err != nil {
+			continue
+		}
+
+		for _, addr := range addrs {
+			ipNet, ok := addr.(*net.IPNet)
+			if !ok {
+				continue
+			}
+
+			ip4 := ipNet.IP.To4()
+			if ip4 == nil {
+				continue
+			}
+
+			// Calculate network subnet address
+			mask := ipNet.Mask
+			networkIP := make(net.IP, len(ip4))
+			for i := 0; i < len(ip4); i++ {
+				networkIP[i] = ip4[i] & mask[i]
+			}
+
+			ones, _ := mask.Size()
+			cidrStr := fmt.Sprintf("%s/%d", networkIP.String(), ones)
+
+			list = append(list, NetworkInterface{
+				Name: iface.Name,
+				IP:   ip4.String(),
+				CIDR: cidrStr,
+			})
+		}
+	}
+
+	return list
 }
