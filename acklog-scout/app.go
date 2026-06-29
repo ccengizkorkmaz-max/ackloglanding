@@ -1,13 +1,17 @@
 package main
 
 import (
+	"bytes"
 	"context"
+	"encoding/json"
 	"fmt"
+	"net/http"
 	"time"
 
 	"acklog-scout/audit"
 	"acklog-scout/enroll"
 	"acklog-scout/scan"
+	"acklog-scout/server"
 	"acklog-scout/utils"
 )
 
@@ -98,4 +102,46 @@ func (a *App) RunNetworkScan(cidr string) []scan.ScanResult {
 	criticalPorts := []int{22, 80, 135, 443, 445, 1433, 1521, 3306, 5432}
 	results := scan.ScanRange(ips, criticalPorts, 50, 400*time.Millisecond)
 	return results
+}
+
+// StartCollectorServer starts the central collector server in the background
+func (a *App) StartCollectorServer(port int) string {
+	go server.StartServer(port)
+	return fmt.Sprintf("Kolektör sunucusu port %d üzerinde başarıyla başlatıldı. Canlı izlemek için tarayıcınızda http://localhost:%d adresini açabilirsiniz.", port, port)
+}
+
+// SendReportToCentralServer performs local audit and uploads JSON payload to central server
+func (a *App) SendReportToCentralServer(serverURL string) string {
+	checks, err := audit.WindowsAudit()
+	if err != nil {
+		return fmt.Sprintf("Hata: Yerel denetim çalıştırılamadı: %v", err)
+	}
+
+	sysmon := audit.CheckSysmon()
+	dbAudit := audit.CheckDatabaseLogs()
+
+	payload := server.ClientPayload{
+		ClientIP: "", // Auto-filled by server
+		ScanTime: time.Now().Format("2006-01-02 15:04:05"),
+		Type:     "local_audit",
+		AuditPol: checks,
+		Sysmon:   sysmon,
+		Database: dbAudit,
+	}
+
+	jsonData, err := json.Marshal(payload)
+	if err != nil {
+		return fmt.Sprintf("Hata: Rapor JSON paketleme hatası: %v", err)
+	}
+
+	resp, err := http.Post(serverURL+"/api/report", "application/json", bytes.NewBuffer(jsonData))
+	if err != nil {
+		return fmt.Sprintf("Hata: Sunucuya bağlanılamadı: %v", err)
+	}
+	defer resp.Body.Close()
+
+	if resp.StatusCode == http.StatusOK {
+		return "Rapor merkezi sunucuya başarıyla iletildi. ✅"
+	}
+	return fmt.Sprintf("Hata: Sunucu geçersiz status döndü: %s", resp.Status)
 }

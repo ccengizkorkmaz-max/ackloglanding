@@ -170,6 +170,21 @@
                 </div>
             </div>
 
+            <div class="card">
+                <h3>Dağıtık Sunucu &amp; Kolektör Yönetimi</h3>
+                <p>ACKLOG Scout'u merkezi bir toplayıcı olarak başlatabilir veya bu bilgisayarın denetim raporunu merkezi bir sunucuya gönderebilirsiniz.</p>
+                <div style="display: grid; grid-template-cols: 1fr; gap: 20px; margin-top: 15px;">
+                    <div style="display: flex; gap: 10px; align-items: center;">
+                        <input type="number" id="server-port" value="8080" style="padding: 10px; background: #0b0f19; border: 1px solid #1f2937; border-radius: 6px; color: #fff; width: 100px;" placeholder="Port">
+                        <button class="btn" onclick="startServer()">Kolektör Sunucusu Ol</button>
+                    </div>
+                    <div style="display: flex; gap: 10px; align-items: center;">
+                        <input type="text" id="central-server-url" style="flex: 1; padding: 10px; background: #0b0f19; border: 1px solid #1f2937; border-radius: 6px; color: #fff;" placeholder="Merkez Sunucu Adresi (Örn: http://192.168.1.100:8080)">
+                        <button class="btn success" onclick="sendReport()">Raporu Sunucuya Gönder</button>
+                    </div>
+                </div>
+            </div>
+
             <div id="audit-loader" class="loader">Denetim gerçekleştiriliyor, lütfen bekleyin...</div>
 
             <!-- Dashboard Results Card -->
@@ -342,6 +357,36 @@
                     } else {
                         tableBody.innerHTML = `<tr><td colspan="3" style="text-align:center; color:#6b7280;">Hiçbir aktif cihaz bulunamadı.</td></tr>`;
                     }
+                });
+            }
+        }
+
+        // Start Central Collector Server
+        function startServer() {
+            const port = parseInt(document.getElementById('server-port').value);
+            if (isNaN(port) || port <= 0) {
+                alert("Lütfen geçerli bir port girin!");
+                return;
+            }
+            if (window.go && window.go.main && window.go.main.App) {
+                window.go.main.App.StartCollectorServer(port).then(msg => {
+                    alert(msg);
+                });
+            }
+        }
+
+        // Send local report to central server
+        function sendReport() {
+            const url = document.getElementById('central-server-url').value;
+            if (!url) {
+                alert("Lütfen merkez sunucu adresini girin!");
+                return;
+            }
+            document.getElementById('audit-loader').style.display = 'block';
+            if (window.go && window.go.main && window.go.main.App) {
+                window.go.main.App.SendReportToCentralServer(url).then(msg => {
+                    document.getElementById('audit-loader').style.display = 'none';
+                    alert(msg);
                 });
             }
         }
