@@ -19,8 +19,20 @@ import {
   Sparkles, 
   ShieldCheck, 
   HelpCircle,
-  Clock
+  Clock,
+  Loader2,
+  CheckCircle2
 } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
+import { jsPDF } from "jspdf";
+import { saveRoiLead } from "../actions";
+
 
 type Competitor = "splunk" | "qradar" | "sentinel" | "other";
 type Currency = "USD" | "TRY";
@@ -110,9 +122,165 @@ export default function SiemRoiCalculatorPage() {
   // Let's assume standard implementation and license swap pays off in approx 3 months
   const roiMonths = 3;
 
+  // Lead Modal States
+  const [showLeadModal, setShowLeadModal] = useState(false);
+  const [leadForm, setLeadForm] = useState({ name: "", email: "", phone: "", company: "" });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [statusMessage, setStatusMessage] = useState("");
+
+  const generatePDF = () => {
+    const doc = new jsPDF();
+    
+    // Set colors
+    doc.setFillColor(15, 23, 42); // slate-950 background for header
+    doc.rect(0, 0, 210, 45, 'F');
+    
+    // Header Title
+    doc.setTextColor(255, 255, 255);
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(22);
+    doc.text("ACKLOG SIEM", 15, 20);
+    
+    doc.setFontSize(12);
+    doc.setTextColor(96, 165, 250); // blue-400
+    doc.text("SIEM ROI MALiYET TASARRUF RAPORU", 15, 28);
+    
+    doc.setFontSize(8);
+    doc.setTextColor(148, 163, 184); // slate-400
+    const today = new Date().toLocaleDateString('tr-TR');
+    doc.text(`Rapor Tarihi: ${today}`, 15, 36);
+    
+    // Section 1: Customer Details
+    doc.setTextColor(15, 23, 42);
+    doc.setFontSize(14);
+    doc.setFont("helvetica", "bold");
+    doc.text("MUSTERi VE ANALiZ DETAYLARI", 15, 60);
+    
+    doc.setFontSize(10);
+    doc.setFont("helvetica", "normal");
+    doc.text(`Hazirlayan: ${leadForm.name}`, 15, 70);
+    doc.text(`Firma: ${leadForm.company || 'Belirtilmedi'}`, 15, 76);
+    doc.text(`E-posta: ${leadForm.email}`, 15, 82);
+    if (leadForm.phone) {
+      doc.text(`Telefon: ${leadForm.phone}`, 15, 88);
+    }
+    
+    const competitorName = competitorProfiles[competitor].name;
+    doc.text(`Karsilastirilan Urun: ${competitorName}`, 15, 94);
+    
+    // Draw line
+    doc.setDrawColor(226, 232, 240);
+    doc.line(15, 100, 195, 100);
+    
+    // Section 2: Financial Comparison Table
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(14);
+    doc.text("YILLIK MALiYET KARSiLASTIRMASI", 15, 115);
+    
+    // Table headers
+    doc.setFontSize(10);
+    doc.setFillColor(241, 245, 249);
+    doc.rect(15, 122, 180, 8, 'F');
+    doc.text("Maliyet Kalemi", 17, 128);
+    doc.text(competitorName, 100, 128);
+    doc.text("ACKLOG SIEM", 150, 128);
+    
+    // Table rows
+    const cSymbol = getCurrencySymbol();
+    
+    doc.setFont("helvetica", "normal");
+    doc.text("Yillik Lisans Bedeli", 17, 140);
+    doc.text(`${cSymbol}${formatValue(licenseCost).toLocaleString("tr-TR")}`, 100, 140);
+    doc.text(`${cSymbol}${formatValue(acklogLicense).toLocaleString("tr-TR")}`, 150, 140);
+    
+    doc.text("Sunucu & Donanim Maliyeti", 17, 148);
+    doc.text(`${cSymbol}${formatValue(hardwareCost).toLocaleString("tr-TR")}`, 100, 148);
+    doc.text(`${cSymbol}${formatValue(acklogHardware).toLocaleString("tr-TR")}`, 150, 148);
+    
+    doc.text("Yonetim & Danismanlik", 17, 156);
+    doc.text(`${cSymbol}${formatValue(adminCost).toLocaleString("tr-TR")}`, 100, 156);
+    doc.text(`${cSymbol}${formatValue(acklogAdmin).toLocaleString("tr-TR")}`, 150, 156);
+    
+    doc.line(15, 162, 195, 162);
+    
+    doc.setFont("helvetica", "bold");
+    doc.text("Toplam Yillik Maliyet", 17, 172);
+    doc.text(`${cSymbol}${formatValue(currentTotal).toLocaleString("tr-TR")}`, 100, 172);
+    doc.text(`${cSymbol}${formatValue(acklogTotal).toLocaleString("tr-TR")}`, 150, 172);
+    
+    // Section 3: ROI Savings Summary Box
+    doc.setFillColor(236, 253, 245); // green-50
+    doc.setDrawColor(167, 243, 208); // green-200
+    doc.rect(15, 185, 180, 25, 'FD');
+    
+    doc.setTextColor(4, 120, 87); // green-700
+    doc.setFontSize(11);
+    doc.setFont("helvetica", "bold");
+    doc.text("ACKLOG iLE YILLIK NET TASARRUFUNUZ", 20, 193);
+    doc.setFontSize(16);
+    doc.text(`${cSymbol}${formatValue(annualSavings).toLocaleString("tr-TR")}`, 20, 203);
+    
+    doc.setFontSize(9);
+    doc.setTextColor(71, 85, 105);
+    doc.text(`* Yatirim amortisman suresi: ${roiMonths} Ay Altinda`, 120, 196);
+    doc.text("* Disk depolama tasarrufu: 5 Kat (5:1)", 120, 202);
+    
+    // Footer / Contact Info
+    doc.setTextColor(15, 23, 42);
+    doc.setFontSize(10);
+    doc.setFont("helvetica", "bold");
+    doc.text("ACKLOG SIEM - BTPROSES Bilgi Teknolojileri", 15, 240);
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(9);
+    doc.text("Web: www.logsiem.com | E-posta: info@logsiem.com", 15, 246);
+    doc.text("ACKLOG %80 veri sikistirma ve in-memory korelasyon teknolojisine sahiptir.", 15, 252);
+    
+    // Save Document
+    doc.save(`ACKLOG_SIEM_ROI_Raporu_${today.replace(/\./g, '_')}.pdf`);
+  };
+
+  const handleLeadSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setStatusMessage("");
+
+    try {
+      const res = await saveRoiLead({
+        name: leadForm.name,
+        email: leadForm.email,
+        phone: leadForm.phone,
+        company: leadForm.company,
+        competitor,
+        currentCost: currentTotal,
+        acklogCost: acklogTotal,
+        savings: annualSavings,
+        currency
+      });
+
+      if (res.success) {
+        setSubmitSuccess(true);
+        generatePDF();
+        
+        setTimeout(() => {
+          setShowLeadModal(false);
+          setSubmitSuccess(false);
+          setLeadForm({ name: "", email: "", phone: "", company: "" });
+        }, 3000);
+      } else {
+        setStatusMessage(res.message || "Bir hata oluştu.");
+      }
+    } catch (err: any) {
+      setStatusMessage("Baglanti hatasi olustu. Lutfen tekrar deneyin.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <main className="min-h-screen bg-slate-950 flex flex-col justify-between">
       <Navbar />
+
 
       <div className="container mx-auto px-4 py-28 flex-1 max-w-5xl">
         <Link href="/araclar" className="inline-flex items-center gap-2 text-slate-400 hover:text-blue-400 mb-8 transition-colors group text-sm font-semibold">
@@ -361,17 +529,114 @@ export default function SiemRoiCalculatorPage() {
                   ACKLOG'un gelişmiş in-memory mimarisini ve ClickHouse tabanlı depolama verimliliğini test etmek için ücretsiz POC (Proof of Concept) süreci başlatın.
                 </p>
               </div>
-              <Link href="/demo-talep" className="block w-full">
-                <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-5 rounded-xl shadow-lg shadow-blue-600/10">
-                  Ücretsiz Demo & POC Talep Et
+              <div className="flex flex-col gap-3">
+                <Button 
+                  onClick={() => setShowLeadModal(true)} 
+                  className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-5 rounded-xl shadow-lg shadow-green-600/10 cursor-pointer"
+                >
+                  Tasarruf Raporunu PDF Olarak İndir
                 </Button>
-              </Link>
+                <Link href="/demo-talep" className="block w-full">
+                  <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-5 rounded-xl shadow-lg shadow-blue-600/10" variant="outline">
+                    Ücretsiz Demo & POC Talep Et
+                  </Button>
+                </Link>
+              </div>
             </div>
 
           </div>
 
         </div>
       </div>
+
+      {/* Lead capture modal for ROI Report */}
+      <Dialog open={showLeadModal} onOpenChange={setShowLeadModal}>
+        <DialogContent className="bg-slate-900 border-slate-800 text-white sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle className="flex items-center gap-2">
+              <Database className="w-5 h-5 text-blue-500" /> Tasarruf Raporunu İndir
+            </DialogTitle>
+            <DialogDescription className="text-slate-400">
+              Yıllık net tasarruf raporunuzu PDF formatında indirmek ve detaylı teknik şartnameyi e-posta adresinize almak için bilgilerinizi girin.
+            </DialogDescription>
+          </DialogHeader>
+          
+          {submitSuccess ? (
+            <div className="flex flex-col items-center text-center py-8 space-y-4">
+              <CheckCircle2 className="w-16 h-16 text-green-500 animate-bounce" />
+              <h4 className="text-xl font-bold text-white">Rapor Başarıyla Oluşturuldu!</h4>
+              <p className="text-sm text-slate-400">
+                PDF dosyanız indiriliyor ve detaylı rapor e-posta adresinize gönderiliyor.
+              </p>
+            </div>
+          ) : (
+            <form onSubmit={handleLeadSubmit} className="space-y-4 py-4">
+              <div className="space-y-1.5">
+                <label className="text-xs font-bold text-slate-500 uppercase tracking-widest pl-1">Ad Soyad</label>
+                <Input
+                  className="bg-slate-950 border-slate-800 focus:ring-blue-500 text-white"
+                  placeholder="Ahmet Yılmaz"
+                  required
+                  value={leadForm.name}
+                  onChange={e => setLeadForm({ ...leadForm, name: e.target.value })}
+                />
+              </div>
+              <div className="space-y-1.5">
+                <label className="text-xs font-bold text-slate-500 uppercase tracking-widest pl-1">Kurumsal E-posta</label>
+                <Input
+                  type="email"
+                  className="bg-slate-950 border-slate-800 focus:ring-blue-500 text-white"
+                  placeholder="ahmet@sirket.com"
+                  required
+                  value={leadForm.email}
+                  onChange={e => setLeadForm({ ...leadForm, email: e.target.value })}
+                />
+              </div>
+              <div className="space-y-1.5">
+                <label className="text-xs font-bold text-slate-500 uppercase tracking-widest pl-1">Şirket Adı</label>
+                <Input
+                  className="bg-slate-950 border-slate-800 focus:ring-blue-500 text-white"
+                  placeholder="Teknoloji A.Ş."
+                  required
+                  value={leadForm.company}
+                  onChange={e => setLeadForm({ ...leadForm, company: e.target.value })}
+                />
+              </div>
+              <div className="space-y-1.5">
+                <label className="text-xs font-bold text-slate-500 uppercase tracking-widest pl-1">Telefon Numarası (Opsiyonel)</label>
+                <Input
+                  type="tel"
+                  className="bg-slate-950 border-slate-800 focus:ring-blue-500 text-white"
+                  placeholder="0532 XXXXXXX"
+                  value={leadForm.phone}
+                  onChange={e => setLeadForm({ ...leadForm, phone: e.target.value })}
+                />
+              </div>
+
+              {statusMessage && (
+                <p className="text-xs text-red-500 text-center font-medium bg-red-500/10 border border-red-500/20 py-2 rounded-lg">
+                  {statusMessage}
+                </p>
+              )}
+
+              <Button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full bg-green-600 hover:bg-green-700 text-white font-bold h-12 rounded-xl mt-4 cursor-pointer"
+              >
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="animate-spin mr-2 h-4 w-4" />
+                    Rapor Hazırlanıyor...
+                  </>
+                ) : (
+                  "RAPORU İNDİR VE GÖNDER"
+                )}
+              </Button>
+            </form>
+          )}
+        </DialogContent>
+      </Dialog>
 
       <Footer />
     </main>
