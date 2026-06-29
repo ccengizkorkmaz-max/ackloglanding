@@ -15,16 +15,29 @@ export async function GET(request: Request) {
             return new Response('Unauthorized', { status: 401 });
         }
 
-        const keyFilePath = path.join(process.cwd(), 'google-indexer-key.json');
-        
-        if (!fs.existsSync(keyFilePath)) {
-            return NextResponse.json({ error: "Google Service Account anahtarı (google-indexer-key.json) bulunamadı." }, { status: 500 });
-        }
+        const keyJson = process.env.GOOGLE_INDEXER_KEY;
+        let auth;
 
-        const auth = new google.auth.GoogleAuth({
-            keyFile: keyFilePath,
-            scopes: ['https://www.googleapis.com/auth/indexing'],
-        });
+        if (keyJson) {
+            try {
+                const credentials = JSON.parse(keyJson);
+                auth = new google.auth.GoogleAuth({
+                    credentials,
+                    scopes: ['https://www.googleapis.com/auth/indexing'],
+                });
+            } catch (err: any) {
+                return NextResponse.json({ error: "GOOGLE_INDEXER_KEY cevre degiskeni JSON olarak parse edilemedi: " + err.message }, { status: 500 });
+            }
+        } else {
+            const keyFilePath = path.join(process.cwd(), 'google-indexer-key.json');
+            if (!fs.existsSync(keyFilePath)) {
+                return NextResponse.json({ error: "Google Service Account anahtari (google-indexer-key.json) bulunamadi ve GOOGLE_INDEXER_KEY cevre degiskeni ayarlanmamis." }, { status: 500 });
+            }
+            auth = new google.auth.GoogleAuth({
+                keyFile: keyFilePath,
+                scopes: ['https://www.googleapis.com/auth/indexing'],
+            });
+        }
 
         const indexing = google.indexing({
             version: 'v3',
