@@ -12,10 +12,12 @@ const navLinks = [
     { name: "Ana Sayfa", href: "/", homeOnly: false, subOnly: true },
     { name: "Özellikler", href: "/ozellikler" },
     { name: "Çözümler", href: "/cozumler" },
+    { name: "İş Ortaklığı", href: "/is-ortakligi" },
 ];
 
 const toolsLinks = [
     { name: "Tüm Güvenlik Araçları", href: "/araclar", icon: ShieldCheck },
+    { name: "Partner Kazanç Hesaplayıcı", href: "/araclar/partner-kazanc-hesaplayici", icon: Coins },
     { name: "SIEM ROI Hesaplayıcı", href: "/araclar/siem-roi-hesaplayici", icon: Coins },
     { name: "EPS Hesaplayıcı", href: "/araclar/eps-hesaplayici", icon: Cpu },
     { name: "SOC Maliyet Hesaplayıcı", href: "/araclar/soc-maliyeti-hesaplayici", icon: Users },
