@@ -29,8 +29,14 @@ func WindowsAudit() ([]PolicyCheck, error) {
 		return nil, fmt.Errorf("auditpol calistirilamadi: %v", err)
 	}
 
-	// Parse CSV output
+	// Parse CSV output (detect delimiter based on locale, e.g. semicolon for Turkish Windows)
+	delimiter := ','
+	if strings.Contains(stdout.String(), ";") {
+		delimiter = ';'
+	}
+
 	r := csv.NewReader(strings.NewReader(stdout.String()))
+	r.Comma = delimiter
 	r.LazyQuotes = true
 	r.FieldsPerRecord = -1 // Flexible fields
 
@@ -98,7 +104,7 @@ func WindowsAudit() ([]PolicyCheck, error) {
 		}
 		// Column index:
 		// 0: Machine Name, 1: Policy Target, 2: Subcategory, 3: Subcategory GUID, 4: Inclusion Setting
-		guid := strings.TrimSpace(rec[3])
+		guid := strings.ToUpper(strings.TrimSpace(rec[3]))
 		setting := strings.TrimSpace(rec[4])
 
 		if req, exists := requiredMap[guid]; exists {
@@ -182,18 +188,26 @@ func CheckSysmon() SysmonStatus {
 			status.Running = true
 		}
 
-		// Query Registry for Sysmon version
-		versionCmd := exec.Command("reg", "query", "HKLM\\Software\\Sysmon", "/v", "Version")
+		// Query Sysmon version directly from binary properties (more robust)
+		versionCmd := exec.Command("powershell", "-Command", "(Get-Item C:\\Windows\\"+serviceName+".exe).VersionInfo.ProductVersion")
 		var vOut bytes.Buffer
 		versionCmd.Stdout = &vOut
 		if versionCmd.Run() == nil {
-			lines := strings.Split(vOut.String(), "\n")
-			for _, line := range lines {
-				if strings.Contains(line, "Version") {
-					parts := strings.Fields(line)
-					if len(parts) >= 3 {
-						status.Version = parts[2]
-						break
+			status.Version = strings.TrimSpace(vOut.String())
+		} else {
+			// Fallback registry query
+			regCmd := exec.Command("reg", "query", "HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\"+serviceName, "/v", "DisplayVersion")
+			vOut.Reset()
+			regCmd.Stdout = &vOut
+			if regCmd.Run() == nil {
+				lines := strings.Split(vOut.String(), "\n")
+				for _, line := range lines {
+					if strings.Contains(line, "DisplayVersion") {
+						parts := strings.Fields(line)
+						if len(parts) >= 3 {
+							status.Version = parts[2]
+							break
+						}
 					}
 				}
 			}
