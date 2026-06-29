@@ -144,6 +144,20 @@ func FingerprintHost(ip string, openPorts []int, timeout time.Duration) string {
 		}
 	}
 
+	// 4. Fallback to Database checks
+	for _, p := range openPorts {
+		switch p {
+		case 1433:
+			return "MSSQL Veritabani Sunucusu"
+		case 1521:
+			return "Oracle Veritabani Sunucusu"
+		case 3306:
+			return "MySQL Veritabani Sunucusu"
+		case 5432:
+			return "PostgreSQL Veritabani Sunucusu"
+		}
+	}
+
 	return "Bilinmeyen Cihaz (Firewall/Switch/Yazici)"
 }
 

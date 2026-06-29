@@ -39,7 +39,7 @@ func EnableVirtualTerminal() {
 }
 
 // GenerateHTMLReport creates a modern, styled HTML security compliance log audit report.
-func GenerateHTMLReport(checks []audit.PolicyCheck, sysmon audit.SysmonStatus, filePath string) error {
+func GenerateHTMLReport(checks []audit.PolicyCheck, sysmon audit.SysmonStatus, dbAudit audit.DatabaseAuditStatus, filePath string) error {
 	var tableRows strings.Builder
 	compliantCount := 0
 
@@ -94,6 +94,25 @@ func GenerateHTMLReport(checks []audit.PolicyCheck, sysmon audit.SysmonStatus, f
 				<h3>⚠️ Sysmon Servisi Eksik!</h3>
 				<p>Sistemde kurulu bir Sysmon servisi tespit edilemedi. Siber saldirganlarin gerceklestirdigi proses olusturma, uzaktan thred enjeksiyonu veya LSASS hafiza dokumu (credential dumping) gibi gelismis eylemleri tespit edebilmek icin Sysmon kurulmasi hayati onem tasir.</p>
 			</div>`
+	}
+
+	dbStatusHTML := ""
+	if dbAudit.DBInstalled {
+		stateClass := "non-compliant"
+		statusText := "UYUMSUZ"
+		if dbAudit.Compliant {
+			stateClass = "compliant"
+			statusText = "UYUMLU"
+		}
+		dbStatusHTML = fmt.Sprintf(`
+			<div class="sysmon-card">
+				<h3>Veritabani Loglama ve Guvenlik Duvari (DBF) Bilgileri</h3>
+				<p><strong>Veritabani Turu:</strong> %s</p>
+				<p><strong>Yontem / Log Kaynagi:</strong> %s</p>
+				<p><strong>Uyum Durumu:</strong> <span class="status-badge %s">%s</span></p>
+			</div>`,
+			dbAudit.DBType, dbAudit.LogSourceText, stateClass, statusText,
+		)
 	}
 
 	htmlContent := fmt.Sprintf(`<!DOCTYPE html>
@@ -242,6 +261,8 @@ func GenerateHTMLReport(checks []audit.PolicyCheck, sysmon audit.SysmonStatus, f
 
 		%s
 
+		%s
+
 		<div class="footer">
 			<p>Bu rapor <strong>ACKLOG Scout</strong> denetim araci tarafindan otomatik uretilmistir.</p>
 			<p>Daha detayli analiz ve kurumsal log yonetimi icin <a href="https://logsiem.com" style="color: #58a6ff; text-decoration: none;">logsiem.com</a> adresini ziyaret edin.</p>
@@ -252,6 +273,7 @@ func GenerateHTMLReport(checks []audit.PolicyCheck, sysmon audit.SysmonStatus, f
 		len(checks), compliantCount, len(checks)-compliantCount,
 		tableRows.String(),
 		sysmonStatusHTML,
+		dbStatusHTML,
 	)
 
 	return os.WriteFile(filePath, []byte(htmlContent), 0644)

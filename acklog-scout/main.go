@@ -114,9 +114,24 @@ func runLocalAudit(action string) {
 	}
 	fmt.Println("================================================================================================----")
 
+	// Database Audit Output
+	dbAudit := audit.CheckDatabaseLogs()
+	if dbAudit.DBInstalled {
+		fmt.Println("\n================================================================================================----")
+		fmt.Println("    Veritabani (Database) Loglama ve Guvenlik Duvari (DBF) Denetim Raporu")
+		fmt.Println("================================================================================================----")
+		fmt.Printf("Veritabani Turu: %-15s | Log Kaynagi Yontemi: %s\n", dbAudit.DBType, dbAudit.LogSourceText)
+		if dbAudit.Compliant {
+			fmt.Println("Durum: UYUMLU ✅ (Yuksek performansli loglama yontemi dogrulanmistir)")
+		} else {
+			fmt.Println("Durum: UYUMSUZ ❌ (Yerel loglama kapali ve DBF/Ag Aynalama korumasi bulunamadi)")
+		}
+		fmt.Println("================================================================================================----")
+	}
+
 	// Generate HTML Report
 	reportPath := "acklog-scout-report.html"
-	err = report.GenerateHTMLReport(checks, sysmon, reportPath)
+	err = report.GenerateHTMLReport(checks, sysmon, dbAudit, reportPath)
 	if err == nil {
 		fmt.Printf("\n[+] Kurumsal HTML uyumluluk raporu basariyla uretildi: %s\n", reportPath)
 	} else {
@@ -184,7 +199,7 @@ func runNetworkScan(targetRange string, action string) {
 		return
 	}
 
-	criticalPorts := []int{22, 80, 135, 443, 445} // SSH, HTTP, RPC, HTTPS, SMB
+	criticalPorts := []int{22, 80, 135, 443, 445, 1433, 1521, 3306, 5432} // SSH, HTTP, RPC, HTTPS, SMB, MSSQL, Oracle, MySQL, PGSQL
 	fmt.Printf("[*] Toplam %d IP adresi kritik portlar (%v) uzerinden taranacak...\n", len(ips), criticalPorts)
 
 	start := time.Now()
