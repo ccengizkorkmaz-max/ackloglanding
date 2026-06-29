@@ -133,7 +133,7 @@ export const partnerPages: Record<string, SEOData> = {
     resultParagraph: "Müşterilerinize sadece basit bir loglayıcı değil, gerçek bir siber savunma kalkanı satarak cironuzu 3 katına çıkarın.",
     content: `
       <h2>Fortilogger'dan Profesyonel SIEM Dünyasına Geçiş</h2>
-      <p>Fortilogger, küçük ölçekli ağlar ve sadece log toplamak için yeterli olabilir. Ancak müşterileriniz büyüdükçe ve siber tehditler karmaşıklaştıkça, basit bir log aracı yetersiz kalır. ACKLOG SIEM, Fortilogger'ın yaptığı tüm 5651 imzalamalarını içerirken, üzerine log korelasyonu, alarm yönetimi, UEBA ve SOAR özellikleri ekler. Müşterinizi bir üst lige taşırken bayi gelirinizi de artırırsınız.</p>
+      <p>Fortilogger, küçük ölçekli ağlar ve sadece log toplamak için yeterli olabilir. Ancak müşterileriniz büyüdükçe ve siber tehditler karmaşıklaştıkça, basit bir log aracı yetersiz kalır. ACKLOG SIEM, FortiLogger'ın yaptığı tüm 5651 imzalamalarını içerirken, üzerine log korelasyonu, alarm yönetimi, UEBA ve SOAR özellikleri ekler. Müşterinizi bir üst lige taşırken bayi gelirinizi de artırırsınız.</p>
     `,
     faqs: [
       { question: "FortiGate firewall cihazlarıyla tam uyumlu mu?", answer: "Evet, ACKLOG tüm FortiGate modellerinin loglarını yerleşik parser ve dashboard setleri ile tam uyumlu olarak işler." }
@@ -162,3 +162,66 @@ export const partnerPages: Record<string, SEOData> = {
     ]
   }
 };
+
+// Programmatic Turkey Target Cities Page Generator
+function generateCityPartnerPage(city: string, region: string, keyword: string): SEOData {
+  return {
+    title: `${city} Bilgisayar ve Bilişim Firmaları İçin 5651 Log Bayilik | ACKLOG`,
+    description: `${city}'deki bilgisayar, IT ve siber güvenlik firmaları için müşterilerine sunabilecekleri yüksek marjlı ve yasal KamuSM zaman damgalı 5651 loglama çözümü bayilik programı.`,
+    badge: `${city} Bilişim Ortaklığı`,
+    heroTitle: `${city} Bilgisayar Firmaları İçin 5651 Log Bayiliği`,
+    heroSubtitle: `${city} ve ${region} genelindeki bilişim bayilerimiz için yüksek kârlı, 5651 ve KVKK uyumlu yerli log çözümü.`,
+    shortAnswer: `${city}'deki bilgisayar ve bilişim firmaları, müşterilerinin 5651 ve KVKK log ihtiyaçlarını karşılamak için ACKLOG bayilik programına katılabilirler. ACKLOG, ${city} bölgesinden gelen son kullanıcı taleplerini öncelikli olarak yetkili ${city} bayilerine yönlendirerek bayilerine doğrudan müşteri kazandırır.`,
+    technicalSummary: [
+      "Yüksek kâr marjı (%25 - %40 net lisans payı).",
+      `${city} bölgesinden logsiem.com'a gelen müşteri lead'lerinin bayiye ücretsiz devri.`,
+      "1 yıl boyunca geçerli ücretsiz teknik test lab (NFR) lisansı.",
+      "TÜBİTAK KamuSM API'leri ile yerleşik entegrasyon sayesinde 5651 uyumluluğu."
+    ],
+    resultParagraph: `${city} bölgesinde müşteri ağınızı genişletmek ve log/SIEM projelerinden yüksek gelir elde etmek için ACKLOG en güvenilir yerli iş ortağınızdır.`,
+    content: `
+      <h2>${city} ve Çevre İlçelerdeki IT Firmaları İçin Yeni Gelir Kapısı</h2>
+      <p>${city}, ${keyword} altyapısıyla bölgenin en önemli ticaret merkezlerinden biridir. ${city}'deki işletmeler, kurumlar ve fabrikalar 5651 Sayılı Kanun ve KVKK gereği log tutmak zorundadır. Yerel bilgisayar ve bilişim firmaları, bu müşterilerin güvenilir teknoloji danışmanlarıdır. ACKLOG olarak, ${city}'deki bayilerimize en yüksek marj oranlarını sunarak işlerini büyütmelerine destek oluyoruz.</p>
+      <h3>${city} Bayilerimize Sunduğumuz Özel Avantajlar</h3>
+      <p>Sadece bir yazılım satmakla kalmazsınız. ${city} bölgesinden web sitemize gelen tüm loglama ve SIEM taleplerini doğrudan o bölgedeki aktif yetkili bayilerimize yönlendiririz. Ayrıca teknik ekiplerinizin eğitimi ve sertifikasyonu tamamen ücretsizdir. Kurulum ve bakım hizmet faturalarını doğrudan müşterinize keserek katma değerli hizmet gelirlerini %100 kendi bünyenizde tutarsınız.</p>
+    `,
+    faqs: [
+      { question: `${city}'de bayilik almak için minimum ciro taahhüdü var mı?`, answer: "Hayır, ACKLOG partnerlik modelinde başlangıç aşamasında herhangi bir kota veya ciro taahhüdü aranmaz." },
+      { question: "Müşteri geçişlerinde teknik destek sağlıyor musunuz?", answer: `Evet, ${city}'deki projeleriniz için demo, POC ve ilk kurulum aşamalarında teknik ekibimizle yanınızdayız.` }
+    ]
+  };
+}
+
+const targetCities = [
+  { name: "Kocaeli", region: "Marmara", keyword: "sanayi ve fabrika" },
+  { name: "Antalya", region: "Akdeniz", keyword: "turizm, otel ve konaklama" },
+  { name: "Gaziantep", region: "Güneydoğu Anadolu", keyword: "üretim, tekstil ve organize sanayi" },
+  { name: "Konya", region: "İç Anadolu", keyword: "tarım makineleri, metal imalat ve sanayi" },
+  { name: "Kayseri", region: "İç Anadolu", keyword: "mobilya, çelik kapı ve üretim sanayisi" },
+  { name: "Mersin", region: "Akdeniz", keyword: "uluslararası liman, lojistik ve ticaret" },
+  { name: "Denizli", region: "Ege", keyword: "tekstil ihracatı ve imalat sanayisi" },
+  { name: "Eskişehir", region: "İç Anadolu", keyword: "havacılık, makine sanayisi ve üniversite kampüsleri" },
+  { name: "Samsun", region: "Karadeniz", keyword: "Karadeniz lojistik, ticaret ve hizmet" },
+  { name: "Muğla", region: "Ege", keyword: "turizm, otel, marina ve yatçılık" },
+  { name: "Tekirdağ", region: "Trakya", keyword: "tekstil, gıda ve organize sanayi" },
+  { name: "Sakarya", region: "Marmara", keyword: "otomotiv, vagon ve metal sanayisi" },
+  { name: "Trabzon", region: "Karadeniz", keyword: "bölgesel ticaret, lojistik ve liman" },
+  { name: "Diyarbakır", region: "Güneydoğu", keyword: "bölgesel hizmet, inşaat ve ticaret" },
+  { name: "Şanlıurfa", region: "Güneydoğu", keyword: "tarım endüstrisi, turizm ve yerel ticaret" },
+  { name: "Balıkesir", region: "Marmara", keyword: "gıda sanayisi, tarım ve turizm" },
+  { name: "Manisa", region: "Ege", keyword: "beyaz eşya, elektronik sanayisi ve tarım endüstrisi" },
+  { name: "Aydın", region: "Ege", keyword: "tarım endüstrisi, jeotermal ve turizm" },
+  { name: "Adana", region: "Çukurova", keyword: "sanayi, tarım ve bölgesel ticaret" }
+];
+
+targetCities.forEach(city => {
+  const cityLower = city.name.toLowerCase()
+    .replace(/ı/g, 'i')
+    .replace(/ğ/g, 'g')
+    .replace(/ü/g, 'u')
+    .replace(/ş/g, 's')
+    .replace(/ö/g, 'o')
+    .replace(/ç/g, 'c');
+  const slug = `${cityLower}-bilgisayar-firmalari-5651-log-bayilik`;
+  partnerPages[slug] = generateCityPartnerPage(city.name, city.region, city.keyword);
+});
