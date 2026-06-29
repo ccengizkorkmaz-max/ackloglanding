@@ -56,47 +56,47 @@ func WindowsAudit() ([]PolicyCheck, error) {
 		Risk     string
 		Desc     string
 	}{
-		"{0CCE8215-E568-11D1-A47F-00A0C9068F20}": {
-			Name:     "Oturum Acma (Logon)",
+		"{0CCE9215-69AE-11D9-BED3-505054503030}": {
+			Name:     "Oturum Açma (Logon)",
 			Required: "Success and Failure",
 			Risk:     "Kritik",
-			Desc:     "Sisteme yapilan basarili/basarisiz oturum acma girisimlerini izler.",
+			Desc:     "Sisteme yapılan başarılı/başarısız oturum açma girişimlerini izler.",
 		},
-		"{0CCE8217-E568-11D1-A47F-00A0C9068F20}": {
+		"{0CCE9217-69AE-11D9-BED3-505054503030}": {
 			Name:     "Hesap Kilitleme (Account Lockout)",
 			Required: "Success",
-			Risk:     "Yuksek",
-			Desc:     "Brute-force (kaba kuvvet) saldirilarinda kilitlenen hesaplari tespit eder.",
+			Risk:     "Yüksek",
+			Desc:     "Brute-force (kaba kuvvet) saldırılarında kilitlenen hesapları tespit eder.",
 		},
-		"{0CCE8218-E568-11D1-A47F-00A0C9068F20}": {
-			Name:     "Kullanici Hesabi Yonetimi (User Account Management)",
+		"{0CCE9235-69AE-11D9-BED3-505054503030}": {
+			Name:     "Kullanıcı Hesabı Yönetimi (User Account Management)",
 			Required: "Success and Failure",
 			Risk:     "Kritik",
-			Desc:     "Yeni kullanici olusturma, silme ve sifre degisikliklerini takip eder.",
+			Desc:     "Yeni kullanıcı oluşturma, silme ve şifre değişikliklerini takip eder.",
 		},
-		"{0CCE821C-E568-11D1-A47F-00A0C9068F20}": {
-			Name:     "Guvenlik Grubu Yonetimi (Security Group Management)",
+		"{0CCE9237-69AE-11D9-BED3-505054503030}": {
+			Name:     "Güvenlik Grubu Yönetimi (Security Group Management)",
 			Required: "Success and Failure",
 			Risk:     "Kritik",
-			Desc:     "Domain Admin veya yetkili gruplara yapilan uye ekleme/cikarma islemlerini izler.",
+			Desc:     "Domain Admin veya yetkili gruplara yapılan üye ekleme/çıkarma işlemlerini izler.",
 		},
-		"{0CCE822B-E568-11D1-A47F-00A0C9068F20}": {
-			Name:     "Islem Olusturma (Process Creation)",
+		"{0CCE922B-69AE-11D9-BED3-505054503030}": {
+			Name:     "İşlem Oluşturma (Process Creation)",
 			Required: "Success",
-			Risk:     "Yuksek",
-			Desc:     "Sistemde calisan exe ve scriptleri (cmd/powershell vb.) takip eder.",
+			Risk:     "Yüksek",
+			Desc:     "Sistemde çalışan exe ve scriptleri (cmd/powershell vb.) takip eder.",
 		},
-		"{0CCE8210-E568-11D1-A47F-00A0C9068F20}": {
-			Name:     "Guvenlik Durumu Degisikligi (Security State Change)",
+		"{0CCE9210-69AE-11D9-BED3-505054503030}": {
+			Name:     "Güvenlik Durumu Değişikliği (Security State Change)",
 			Required: "Success and Failure",
 			Risk:     "Kritik",
-			Desc:     "Sistem saati degisiklikleri, kapatma/yeniden baslatma ve audit log temizlemeyi izler.",
+			Desc:     "Sistem saati değişiklikleri, kapatma/yeniden başlatma ve audit log temizlemeyi izler.",
 		},
-		"{0CCE8222-E568-11D1-A47F-00A0C9068F20}": {
-			Name:     "Denetim Ilkesi Degisikligi (Audit Policy Change)",
+		"{0CCE922F-69AE-11D9-BED3-505054503030}": {
+			Name:     "Denetim İlkesi Değişikliği (Audit Policy Change)",
 			Required: "Success and Failure",
 			Risk:     "Kritik",
-			Desc:     "Log politikasini kapatmaya veya manipule etmeye yonelik eylemleri izler.",
+			Desc:     "Log politikasını kapatmaya veya manipüle etmeye yönelik eylemleri izler.",
 		},
 	}
 
