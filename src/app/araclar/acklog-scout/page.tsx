@@ -142,6 +142,47 @@ export default function AcklogScoutPage() {
           </div>
         </div>
 
+        {/* VLAN Segmentasyon Çözümleri Rehberi */}
+        <section className="mb-16">
+          <h2 className="text-3xl font-black text-white tracking-tight mb-8 text-center">
+            Kurumsal Ağlarda <span className="text-emerald-500">VLAN Tarama Çözümleri</span>
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="p-6 rounded-2xl bg-slate-900 border border-slate-800">
+              <h3 className="text-lg font-bold text-white mb-3">1. Merkezi Layer 3 Yönlendirme</h3>
+              <p className="text-sm text-slate-400 leading-relaxed">
+                Core Switch veya Firewall üzerinde geçici kurallar tanımlayarak, merkezi ACKLOG Scout sunucunuzun diğer VLAN segmentlerindeki kritik portları taramasını sağlayabilirsiniz.
+              </p>
+              <div className="mt-4 p-3 bg-slate-950 rounded-lg text-xs font-mono text-emerald-400">
+                .\acklog-scout.exe -scan 10.1.1.0/24,10.1.2.0/24
+              </div>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-slate-900 border border-slate-800">
+              <h3 className="text-lg font-bold text-white mb-3">2. 802.1Q VLAN Trunking</h3>
+              <p className="text-sm text-slate-400 leading-relaxed">
+                Scout'un çalıştığı sunucunun switch portu trunk olarak ayarlanır. İşletim sisteminde sanal sub-interface kartlar kurularak doğrudan ilgili VLAN'de yerel tarama başlatılır.
+              </p>
+              <div className="mt-4 p-3 bg-slate-950 rounded-lg text-xs font-mono text-emerald-400">
+                .\acklog-scout.exe -scan 10.1.10.0/24
+              </div>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-slate-900/60 border border-emerald-500/30 relative overflow-hidden">
+              <div className="absolute top-0 right-0 px-2 py-0.5 bg-emerald-500 text-slate-950 font-bold text-[9px] uppercase tracking-wider rounded-bl-lg">
+                ÖNERİLEN
+              </div>
+              <h3 className="text-lg font-bold text-white mb-3">3. Dağıtık Ajan (Server-Client)</h3>
+              <p className="text-sm text-slate-400 leading-relaxed">
+                Her VLAN'deki bir sunucuya Scout client olarak kopyalanır. Yerel tarama bitince sonuçlar merkezi Scout Server sunucunuza HTTP/HTTPS portundan (443) güvenle iletilir.
+              </p>
+              <div className="mt-4 p-3 bg-slate-950 rounded-lg text-xs font-mono text-emerald-400">
+                .\acklog-scout.exe -mode client -server http://192.168.1.100:8080 -local
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Lead Form Section */}
         <div className="max-w-3xl mx-auto p-8 rounded-3xl bg-gradient-to-br from-slate-900 to-slate-950 border border-emerald-500/20 shadow-xl shadow-emerald-950/10">
           <div className="text-center mb-8">

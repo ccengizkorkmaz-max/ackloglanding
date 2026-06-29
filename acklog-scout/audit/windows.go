@@ -10,13 +10,13 @@ import (
 
 // PolicyCheck holds the result of a single security policy compliance check
 type PolicyCheck struct {
-	Name         string
-	GUID         string
-	CurrentValue string
-	Required     string
-	Compliant    bool
-	RiskLevel    string // "Kritik", "Yuksek", "Orta"
-	Description  string
+	Name         string `json:"name"`
+	GUID         string `json:"guid"`
+	CurrentValue string `json:"current_value"`
+	Required     string `json:"required"`
+	Compliant    bool   `json:"compliant"`
+	RiskLevel    string `json:"risk_level"`
+	Description  string `json:"description"`
 }
 
 // WindowsAudit inspects local auditing policies using auditpol.exe and parses results.
@@ -149,10 +149,10 @@ func checkCompliance(current string, required string) bool {
 
 // SysmonStatus holds the Sysmon installation and running status
 type SysmonStatus struct {
-	Installed   bool
-	Running     bool
-	ServiceName string
-	Version     string
+	Installed   bool   `json:"installed"`
+	Running     bool   `json:"running"`
+	ServiceName string `json:"service_name"`
+	Version     string `json:"version"`
 }
 
 // CheckSysmon audits the presence and state of Sysmon/Sysmon64 service.

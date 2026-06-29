@@ -8,13 +8,13 @@ import (
 
 // DatabaseAuditStatus holds the audit parameters of database servers
 type DatabaseAuditStatus struct {
-	DBInstalled         bool
-	DBType              string
-	NativeLogonEnabled  bool
-	DAMDetected         bool
-	SPANModeEnabled     bool
-	Compliant           bool
-	LogSourceText       string
+	DBInstalled         bool   `json:"db_installed"`
+	DBType              string `json:"db_type"`
+	NativeLogonEnabled  bool   `json:"native_logon_enabled"`
+	DAMDetected         bool   `json:"dam_detected"`
+	SPANModeEnabled     bool   `json:"span_mode_enabled"`
+	Compliant           bool   `json:"compliant"`
+	LogSourceText       string `json:"log_source_text"`
 }
 
 // CheckDatabaseLogs audits database logging health and DAM/SPAN posture on the local server.

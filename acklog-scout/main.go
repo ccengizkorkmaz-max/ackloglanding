@@ -1,8 +1,11 @@
 package main
 
 import (
+	"bytes"
+	"encoding/json"
 	"flag"
 	"fmt"
+	"net/http"
 	"os"
 	"os/exec"
 	"time"
@@ -10,6 +13,7 @@ import (
 	"acklog-scout/enroll"
 	"acklog-scout/report"
 	"acklog-scout/scan"
+	"acklog-scout/server"
 	"acklog-scout/utils"
 )
 
@@ -21,13 +25,26 @@ func main() {
 	localAudit := flag.Bool("local", false, "Yerel makinede log denetimi gerceklestir")
 	scanRange := flag.String("scan", "", "Ag taramasi yapilacak IP araligi (Orn: 192.168.1.0/24)")
 	action := flag.String("action", "audit", "Uygulanacak islem: 'audit' (denetim) veya 'enroll' (otomatik yapilandirma)")
+	mode := flag.String("mode", "standalone", "Calisma modu: 'standalone' (tekil), 'server' (sunucu) veya 'client' (istemci)")
+	serverURL := flag.String("server", "", "Istemci modunda raporun gonderilecegi sunucu URL'si (Orn: http://192.168.1.100:8080)")
+	port := flag.Int("port", 8080, "Sunucu modunda dinlenecek HTTP portu")
 	help := flag.Bool("help", false, "Yardim menusu")
 
 	flag.Parse()
 
-	if *help || ( !*localAudit && *scanRange == "" ) {
+	if *mode == "server" {
+		server.StartServer(*port)
+		return
+	}
+
+	if *help || (*mode != "server" && !*localAudit && *scanRange == "") {
 		printHelp()
 		os.Exit(0)
+	}
+
+	if *mode == "client" && *serverURL == "" {
+		fmt.Println("[!] HATA: Client modunda tarama yapmak icin '-server' parametresi girilmelidir!")
+		os.Exit(1)
 	}
 
 	fmt.Println("==================================================")
@@ -35,11 +52,11 @@ func main() {
 	fmt.Println("==================================================")
 
 	if *localAudit {
-		fmt.Printf("Islem: Yerel Denetim (Mod: %s)\n", *action)
-		runLocalAudit(*action)
+		fmt.Printf("Islem: Yerel Denetim (Mod: %s, Rol: %s)\n", *action, *mode)
+		runLocalAudit(*action, *mode, *serverURL)
 	} else if *scanRange != "" {
-		fmt.Printf("Islem: Ag Taramasi (%s) (Mod: %s)\n", *scanRange, *action)
-		runNetworkScan(*scanRange, *action)
+		fmt.Printf("Islem: Ag Taramasi (%s) (Mod: %s, Rol: %s)\n", *scanRange, *action, *mode)
+		runNetworkScan(*scanRange, *action, *mode, *serverURL)
 	}
 }
 
@@ -50,13 +67,20 @@ func printHelp() {
 	fmt.Println("  -local         Yerel makinede log denetimi gerceklestir")
 	fmt.Println("  -scan <ip>     Belirtilen ag araliginda tarama yap (Orn: 192.168.1.0/24)")
 	fmt.Println("  -action <mod>  Uygulanacak islem: 'audit' (varsayilan) veya 'enroll'")
+	fmt.Println("  -mode <rol>    Calisma modu: 'standalone' (varsayilan), 'server' veya 'client'")
+	fmt.Println("  -server <url>  Istemci modunda raporlarin iletilecegi adres (Orn: http://192.168.1.100:8080)")
+	fmt.Println("  -port <port>   Sunucu modunda dinlenecek HTTP portu (varsayilan: 8080)")
 	fmt.Println("  -help          Bu yardim ekranini goster")
 	fmt.Println("\nOrnekler:")
+	fmt.Println("  # 1. Tekil modda local denetim:")
 	fmt.Println("  acklog-scout -local -action audit")
-	fmt.Println("  acklog-scout -scan 192.168.1.0/24 -action audit")
+	fmt.Println("  # 2. Merkezi sunucuyu baslatma (VLAN verilerini toplamak icin):")
+	fmt.Println("  acklog-scout -mode server -port 8080")
+	fmt.Println("  # 3. Dagitik vlan ajani olarak calisip sunucuya gonderim yapma:")
+	fmt.Println("  acklog-scout -mode client -server http://192.168.1.100:8080 -local -action audit")
 }
 
-func runLocalAudit(action string) {
+func runLocalAudit(action string, mode string, serverURL string) {
 	fmt.Println("[*] Yerel Windows log denetim modulu baslatiliyor...")
 
 	if !utils.IsAdmin() {
@@ -181,6 +205,19 @@ func runLocalAudit(action string) {
 
 		fmt.Println("\n[+] Otomatik yapilandirma tamamlandi. Degisiklikleri gormek icin programi tekrar '-action audit' ile calistirin.")
 	}
+
+	// 3. Send report if in client mode
+	if mode == "client" {
+		payload := server.ClientPayload{
+			ClientIP: "", // Server will auto-detect
+			ScanTime: time.Now().Format("2006-01-02 15:04:05"),
+			Type:     "local_audit",
+			AuditPol: checks,
+			Sysmon:   sysmon,
+			Database: dbAudit,
+		}
+		sendReportToServer(serverURL, payload)
+	}
 }
 
 func truncateString(str string, length int) string {
@@ -190,7 +227,7 @@ func truncateString(str string, length int) string {
 	return str
 }
 
-func runNetworkScan(targetRange string, action string) {
+func runNetworkScan(targetRange string, action string, mode string, serverURL string) {
 	fmt.Printf("[*] Ag taramasi baslatiliyor: %s...\n", targetRange)
 
 	ips, err := scan.ParseCIDR(targetRange)
@@ -211,5 +248,38 @@ func runNetworkScan(targetRange string, action string) {
 
 	for _, host := range results {
 		fmt.Printf("IP: %-15s | Cihaz Tipi: %-45s | Portlar: %v\n", host.IP, host.OS, host.OpenPorts)
+	}
+
+	// Send network scan report if in client mode
+	if mode == "client" {
+		payload := server.ClientPayload{
+			ClientIP:   "",
+			ScanTime:   time.Now().Format("2006-01-02 15:04:05"),
+			Type:       "network_scan",
+			NetDevices: results,
+		}
+		sendReportToServer(serverURL, payload)
+	}
+}
+
+func sendReportToServer(serverURL string, payload server.ClientPayload) {
+	fmt.Printf("[*] Rapor verileri merkeze iletiliyor: %s...\n", serverURL)
+	jsonData, err := json.Marshal(payload)
+	if err != nil {
+		fmt.Printf("[!] Hata: JSON serilestirilemedi: %v\n", err)
+		return
+	}
+
+	resp, err := http.Post(serverURL+"/api/report", "application/json", bytes.NewBuffer(jsonData))
+	if err != nil {
+		fmt.Printf("[!] Hata: Sunucuya baglanilamadi: %v\n", err)
+		return
+	}
+	defer resp.Body.Close()
+
+	if resp.StatusCode == http.StatusOK {
+		fmt.Println("[+] Rapor basariyla sunucuya kaydedildi. ✅")
+	} else {
+		fmt.Printf("[!] Hata: Sunucu gecersiz HTTP status dondu: %s\n", resp.Status)
 	}
 }

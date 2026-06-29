@@ -11,10 +11,10 @@ import (
 
 // ScanResult represents the scan output for an alive host
 type ScanResult struct {
-	IP        string
-	OpenPorts []int
-	IsAlive   bool
-	OS        string
+	IP        string `json:"ip"`
+	OpenPorts []int  `json:"open_ports"`
+	IsAlive   bool   `json:"is_alive"`
+	OS        string `json:"os"`
 }
 
 // ParseCIDR expands a CIDR string (e.g. 192.168.1.0/24) into a list of IP addresses.
