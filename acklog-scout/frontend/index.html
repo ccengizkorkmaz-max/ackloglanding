@@ -535,15 +535,19 @@
                     // 3. Render Audit table body
                     const tableBody = document.getElementById('audit-table-body');
                     tableBody.innerHTML = '';
-                    res.checks.forEach(check => {
-                        tableBody.innerHTML += `<tr>
-                            <td><strong>${check.name}</strong><br><span style="color: var(--text-muted); font-size: 11px;">${check.description}</span></td>
-                            <td>${check.current_value}</td>
-                            <td>${check.required}</td>
-                            <td>${check.risk_level}</td>
-                            <td><span class="badge ${check.compliant ? 'compliant' : 'non-compliant'}">${check.compliant ? 'UYUMLU' : 'UYUMSUZ'}</span></td>
-                        </tr>`;
-                    });
+                    if (res.checks && res.checks.length > 0) {
+                        res.checks.forEach(check => {
+                            tableBody.innerHTML += `<tr>
+                                <td><strong>${check.name}</strong><br><span style="color: var(--text-muted); font-size: 11px;">${check.description}</span></td>
+                                <td>${check.current_value}</td>
+                                <td>${check.required}</td>
+                                <td>${check.risk_level}</td>
+                                <td><span class="badge ${check.compliant ? 'compliant' : 'non-compliant'}">${check.compliant ? 'UYUMLU' : 'UYUMSUZ'}</span></td>
+                            </tr>`;
+                        });
+                    } else {
+                        tableBody.innerHTML = `<tr><td colspan="5" style="text-align:center; color: var(--text-dark); padding: 20px;">Windows denetim ilkeleri alınamadı. Lütfen uygulamayı <strong>Yönetici Olarak Çalıştır</strong> seçeneğiyle başlattığınızdan emin olun.</td></tr>`;
+                    }
                 });
             }
         }
