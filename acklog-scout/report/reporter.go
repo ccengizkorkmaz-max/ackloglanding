@@ -35,7 +35,7 @@ func EnableVirtualTerminal() {
 		return
 	}
 	mode |= 0x0004 // ENABLE_VIRTUAL_TERMINAL_PROCESSING
-	syscall.SetConsoleMode(handle, mode)
+	syscall.MustLoadDLL("kernel32.dll").MustFindProc("SetConsoleMode").Call(uintptr(handle), uintptr(mode))
 }
 
 // GenerateHTMLReport creates a modern, styled HTML security compliance log audit report.
