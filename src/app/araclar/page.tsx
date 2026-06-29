@@ -103,6 +103,14 @@ const tools = [
     icon: ShieldQuestion,
     category: "Mevzuat & Uyum",
     color: "from-indigo-500/20 to-purple-500/10 border-indigo-500/30 text-indigo-400"
+  },
+  {
+    name: "ACKLOG Scout (Log Denetim & Kurulum Ajanı)",
+    description: "Windows Server ve Linux sunucularınızın log altyapısını yasal ve güvenlik standartlarına göre ücretsiz tarayın.",
+    href: "/araclar/acklog-scout",
+    icon: ShieldCheck,
+    category: "Mevzuat & Uyum",
+    color: "from-emerald-500/20 to-cyan-500/10 border-emerald-500/30 text-emerald-400"
   }
 ];
 

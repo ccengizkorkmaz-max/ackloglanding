@@ -45,6 +45,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         { path: '/araclar/log-retention-hesaplayici', priority: 0.8, changeFrequency: 'monthly' as const },
         { path: '/araclar/kvkk-checklist', priority: 0.8, changeFrequency: 'monthly' as const },
         { path: '/araclar/5651-checklist', priority: 0.8, changeFrequency: 'monthly' as const },
+        { path: '/araclar/acklog-scout', priority: 0.85, changeFrequency: 'weekly' as const },
     ].map((route) => ({
         url: `${baseUrl}${route.path}`,
         lastModified: lastBuildDate,
