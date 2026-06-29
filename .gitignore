@@ -43,3 +43,11 @@ next-env.d.ts
 .vercel
 .env*.local
 google-indexer-key.json
+
+# Go SDK & Build files
+/go-sdk/
+/go-portable.zip
+/acklog-scout/acklog-scout.exe
+/acklog-scout/reports/
+/acklog-scout/acklog-scout-report.html
+
