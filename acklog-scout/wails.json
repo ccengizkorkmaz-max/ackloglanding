@@ -1,0 +1,11 @@
+{
+  "$schema": "https://wails.io/schemas/config.v2.json",
+  "name": "acklog-scout",
+  "outputfilename": "acklog-scout-desktop.exe",
+  "frontend:dir": "frontend",
+  "wailsjsdir": "./frontend/src/wailsjs",
+  "author": {
+    "name": "ACKLOG",
+    "email": "info@logsiem.com"
+  }
+}

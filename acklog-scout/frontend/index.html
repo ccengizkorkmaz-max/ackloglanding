@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=device-width, initial-scale=1.0">
+    <title>ACKLOG Scout Masaüstü Kontrol Paneli</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0b0f19;
+            color: #c9d1d9;
+            margin: 0;
+            padding: 0;
+            user-select: none;
+        }
+        .header {
+            background-color: #111827;
+            border-bottom: 1px solid #1f2937;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+            color: #10b981;
+            font-weight: 900;
+        }
+        .admin-badge {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .admin-badge.success { background-color: #10b981; color: #0b0f19; }
+        .admin-badge.error { background-color: #ef4444; color: #fff; }
+
+        .container {
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        .tabs {
+            display: flex;
+            gap: 15px;
+            border-bottom: 1px solid #1f2937;
+            margin-bottom: 25px;
+        }
+        .tab-btn {
+            background: none;
+            border: none;
+            color: #9ca3af;
+            padding: 10px 20px;
+            font-size: 15px;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            font-weight: 600;
+        }
+        .tab-btn.active {
+            color: #3b82f6;
+            border-bottom-color: #3b82f6;
+        }
+
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+
+        /* Action Buttons */
+        .btn {
+            background-color: #3b82f6;
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .btn:hover { background-color: #2563eb; }
+        .btn.success { background-color: #10b981; }
+        .btn.success:hover { background-color: #059669; }
+
+        /* Cards and Lists */
+        .card {
+            background-color: #111827;
+            border: 1px solid #1f2937;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+        .card h3 { margin-top: 0; color: #3b82f6; }
+
+        .scan-bar {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .scan-bar input {
+            flex: 1;
+            padding: 12px 15px;
+            background: #0b0f19;
+            border: 1px solid #1f2937;
+            border-radius: 8px;
+            color: #fff;
+            font-family: monospace;
+            font-size: 14px;
+        }
+        .scan-bar input:focus {
+            outline: none;
+            border-color: #3b82f6;
+        }
+
+        /* Results table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            padding: 10px 15px;
+            text-align: left;
+            border-bottom: 1px solid #1f2937;
+        }
+        th { background-color: #1f2937; color: #9ca3af; font-size: 12px; text-transform: uppercase; }
+
+        .status-pill {
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+        .status-pill.compliant { background: #10b981; color: #0b0f19; }
+        .status-pill.non-compliant { background: #ef4444; color: #fff; }
+
+        .loader {
+            display: none;
+            text-align: center;
+            padding: 20px 0;
+            color: #9ca3af;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>ACKLOG Scout Desktop</h1>
+        <div id="admin-status" class="admin-badge error">Yönetici Kontrolü Yapılıyor...</div>
+    </div>
+
+    <div class="container">
+        <!-- Navigation Tabs -->
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab('audit-tab')">Yerel Denetim (Audit)</button>
+            <button class="tab-btn" onclick="switchTab('scan-tab')">Ağ Port Keşfi</button>
+        </div>
+
+        <!-- TAB 1: LOCAL AUDIT & ENROLLER -->
+        <div id="audit-tab" class="tab-content active">
+            <div class="card">
+                <h3>Log Uyumluluk Tarayıcısı</h3>
+                <p>Sisteminizdeki Windows Gelişmiş Denetim Politikalarını (Advanced Audit Policies) ve Sysmon durumunu anında test edin.</p>
+                <div style="display: flex; gap: 15px; margin-top: 15px;">
+                    <button class="btn" onclick="runAudit()">Denetimi Başlat</button>
+                    <button class="btn success" onclick="runEnroll()">Otomatik İyileştir (Fix)</button>
+                </div>
+            </div>
+
+            <div id="audit-loader" class="loader">Denetim gerçekleştiriliyor, lütfen bekleyin...</div>
+
+            <!-- Dashboard Results Card -->
+            <div id="audit-results" style="display: none;">
+                <div class="card" id="sysmon-card"></div>
+                <div class="card" id="db-card"></div>
+
+                <div class="card">
+                    <h3>Denetim İlke Karnesi</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Denetim İlkesi</th>
+                                <th>Mevcut Değer</th>
+                                <th>Gereksinim</th>
+                                <th>Risk Seviyesi</th>
+                                <th>Durum</th>
+                            </tr>
+                        </thead>
+                        <tbody id="audit-table-body"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 2: SUBNET PORT SCANNER -->
+        <div id="scan-tab" class="tab-content">
+            <div class="card">
+                <h3>Ağ & Port Keşif Aracı</h3>
+                <p>Segmentinizdeki tüm IP adreslerini kritik portlar üzerinden saniyeler içinde tarayın.</p>
+                <div class="scan-bar">
+                    <input type="text" id="scan-cidr" placeholder="Örnek: 192.168.1.0/24">
+                    <button class="btn" onclick="runScan()">Taramayı Başlat</button>
+                </div>
+            </div>
+
+            <div id="scan-loader" class="loader">Alt ağ taranıyor, lütfen bekleyin...</div>
+
+            <div class="card" id="scan-results-card" style="display: none;">
+                <h3>Aktif Bulunan Cihazlar</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>IP Adresi</th>
+                            <th>Cihaz / OS Tipi</th>
+                            <th>Açık Portlar</th>
+                        </tr>
+                    </thead>
+                    <tbody id="scan-table-body"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Wails Bindings JS -->
+    <script>
+        // Tab switching logic
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            
+            event.target.classList.add('active');
+            document.getElementById(tabId).classList.add('active');
+        }
+
+        // Initialize admin privileges status checking
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.go && window.go.main && window.go.main.App) {
+                window.go.main.App.IsAdmin().then(isAdmin => {
+                    const badge = document.getElementById('admin-status');
+                    if (isAdmin) {
+                        badge.textContent = "Yönetici Modu (Admin) ✅";
+                        badge.className = "admin-badge success";
+                    } else {
+                        badge.textContent = "Kısıtlı Yetki (Lütfen Admin olarak çalıştırın!) ❌";
+                        badge.className = "admin-badge error";
+                    }
+                });
+            } else {
+                // Mock for testing in pure web browser preview
+                document.getElementById('admin-status').textContent = "Browser Ön İzleme Modu";
+                document.getElementById('admin-status').className = "admin-badge success";
+            }
+        });
+
+        // Run local security audit
+        function runAudit() {
+            document.getElementById('audit-loader').style.display = 'block';
+            document.getElementById('audit-results').style.display = 'none';
+
+            if (window.go && window.go.main && window.go.main.App) {
+                window.go.main.App.RunLocalAudit().then(res => {
+                    document.getElementById('audit-loader').style.display = 'none';
+                    document.getElementById('audit-results').style.display = 'block';
+
+                    // 1. Render Sysmon Card
+                    const sysmonCard = document.getElementById('sysmon-card');
+                    if (res.sysmon.installed) {
+                        sysmonCard.innerHTML = `<h3>Sysmon Servisi Tespit Edildi</h3>
+                            <p><strong>Sürüm:</strong> v${res.sysmon.version} | <strong>Durum:</strong> ${res.sysmon.running ? 'Çalışıyor ✅' : 'Durdurulmuş ❌'}</p>`;
+                    } else {
+                        sysmonCard.innerHTML = `<h3 style="color:#ef4444;">⚠️ Sysmon Eksik!</h3>
+                            <p>Gelişmiş saldırı tespiti için Sysmon kurulması önerilir. Aşağıdaki "Otomatik İyileştir" butonuyla kurabilirsiniz.</p>`;
+                    }
+
+                    // 2. Render Database Card
+                    const dbCard = document.getElementById('db-card');
+                    if (res.database.db_installed) {
+                        dbCard.innerHTML = `<h3>Veritabanı Loglama Analizi (${res.database.db_type})</h3>
+                            <p><strong>Yöntem:</strong> ${res.database.log_source_text} | <strong>Durum:</strong> ${res.database.compliant ? 'UYUMLU ✅' : 'LOGLAMA EKSİK! ❌'}</p>`;
+                    } else {
+                        dbCard.style.display = 'none';
+                    }
+
+                    // 3. Render Audit policies table
+                    const tableBody = document.getElementById('audit-table-body');
+                    tableBody.innerHTML = '';
+                    res.checks.forEach(check => {
+                        tableBody.innerHTML += `<tr>
+                            <td><strong>${check.name}</strong><br><small style="color:#6b7280;">${check.description}</small></td>
+                            <td>${check.current_value}</td>
+                            <td>${check.required}</td>
+                            <td>${check.risk_level}</td>
+                            <td><span class="status-pill ${check.compliant ? 'compliant' : 'non-compliant'}">${check.compliant ? 'UYUMLU' : 'UYUMSUZ'}</span></td>
+                        </tr>`;
+                    });
+                });
+            }
+        }
+
+        // Run auto-enroller configuration
+        function runEnroll() {
+            if (confirm("Uyumsuz denetim politikalarını açmak ve Sysmon'u kurmak istediğinize emin misiniz?")) {
+                document.getElementById('audit-loader').style.display = 'block';
+                if (window.go && window.go.main && window.go.main.App) {
+                    window.go.main.App.RunAutoEnroll().then(msg => {
+                        alert(msg);
+                        runAudit(); // Refresh audit table
+                    });
+                }
+            }
+        }
+
+        // Run network port scanning
+        function runScan() {
+            const cidr = document.getElementById('scan-cidr').value;
+            if (!cidr) {
+                alert("Lütfen taranacak ağ aralığını (CIDR) girin!");
+                return;
+            }
+
+            document.getElementById('scan-loader').style.display = 'block';
+            document.getElementById('scan-results-card').style.display = 'none';
+
+            if (window.go && window.go.main && window.go.main.App) {
+                window.go.main.App.RunNetworkScan(cidr).then(results => {
+                    document.getElementById('scan-loader').style.display = 'none';
+                    document.getElementById('scan-results-card').style.display = 'block';
+
+                    const tableBody = document.getElementById('scan-table-body');
+                    tableBody.innerHTML = '';
+                    if (results && results.length > 0) {
+                        results.forEach(res => {
+                            tableBody.innerHTML += `<tr>
+                                <td><strong>${res.ip}</strong></td>
+                                <td>${res.os}</td>
+                                <td><code>${res.open_ports.join(', ')}</code></td>
+                            </tr>`;
+                        });
+                    } else {
+                        tableBody.innerHTML = `<tr><td colspan="3" style="text-align:center; color:#6b7280;">Hiçbir aktif cihaz bulunamadı.</td></tr>`;
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+</html>

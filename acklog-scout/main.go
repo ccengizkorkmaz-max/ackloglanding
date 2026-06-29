@@ -2,6 +2,7 @@ package main
 
 import (
 	"bytes"
+	"embed"
 	"encoding/json"
 	"flag"
 	"fmt"
@@ -9,15 +10,40 @@ import (
 	"os"
 	"os/exec"
 	"time"
+
 	"acklog-scout/audit"
 	"acklog-scout/enroll"
 	"acklog-scout/report"
 	"acklog-scout/scan"
 	"acklog-scout/server"
 	"acklog-scout/utils"
+
+	"github.com/wailsapp/wails/v2"
+	"github.com/wailsapp/wails/v2/pkg/options"
+	"github.com/wailsapp/wails/v2/pkg/options/assetserver"
 )
 
+//go:embed all:frontend
+var assets embed.FS
+
 func main() {
+	// Detect if running in GUI mode (Double click or -gui flag)
+	isGUI := false
+	if len(os.Args) == 1 {
+		isGUI = true
+	}
+	for _, arg := range os.Args {
+		if arg == "-gui" {
+			isGUI = true
+			break
+		}
+	}
+
+	if isGUI {
+		runGUI()
+		return
+	}
+
 	// Enable Virtual Terminal coloring on Windows
 	report.EnableVirtualTerminal()
 
@@ -28,6 +54,7 @@ func main() {
 	mode := flag.String("mode", "standalone", "Calisma modu: 'standalone' (tekil), 'server' (sunucu) veya 'client' (istemci)")
 	serverURL := flag.String("server", "", "Istemci modunda raporun gonderilecegi sunucu URL'si (Orn: http://192.168.1.100:8080)")
 	port := flag.Int("port", 8080, "Sunucu modunda dinlenecek HTTP portu")
+	guiFlag := flag.Bool("gui", false, "Masaustu grafik arayuzunu (GUI) baslat")
 	help := flag.Bool("help", false, "Yardim menusu")
 
 	flag.Parse()
@@ -37,7 +64,7 @@ func main() {
 		return
 	}
 
-	if *help || (*mode != "server" && !*localAudit && *scanRange == "") {
+	if *help || (*mode != "server" && !*localAudit && *scanRange == "" && !*guiFlag) {
 		printHelp()
 		os.Exit(0)
 	}
@@ -57,6 +84,28 @@ func main() {
 	} else if *scanRange != "" {
 		fmt.Printf("Islem: Ag Taramasi (%s) (Mod: %s, Rol: %s)\n", *scanRange, *action, *mode)
 		runNetworkScan(*scanRange, *action, *mode, *serverURL)
+	}
+}
+
+func runGUI() {
+	app := NewApp()
+
+	err := wails.Run(&options.App{
+		Title:  "ACKLOG Scout Masaüstü Kontrol Paneli",
+		Width:  1024,
+		Height: 768,
+		AssetServer: &assetserver.Options{
+			Assets: assets,
+		},
+		BackgroundColour: &options.RGBA{R: 11, G: 15, B: 25, A: 1},
+		OnStartup:        app.startup,
+		Bind: []interface{}{
+			app,
+		},
+	})
+
+	if err != nil {
+		println("Wails GUI Hatasi:", err.Error())
 	}
 }
 
