@@ -16,6 +16,7 @@ import { checklistPages } from '@/data/pseo/checklists';
 import { competitorComparisonPages } from '@/data/pseo/competitor-comparisons';
 import { competitorAlternativePages } from '@/data/pseo/competitor-alternatives';
 import { competitorMigrationPages } from '@/data/pseo/competitor-migrations';
+import { partnerPages } from '@/data/pseo/partner-pages';
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://logsiem.com';
@@ -176,6 +177,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
         changeFrequency: 'monthly' as const,
         priority: 0.8,
     }));
+    const partnerProgramRoutes = Object.keys(partnerPages).map((slug) => ({
+        url: `${baseUrl}/ortak/${slug}`,
+        lastModified: lastBuildDate,
+        changeFrequency: 'weekly' as const,
+        priority: 0.85,
+    }));
 
     return [
       ...mainRoutes, 
@@ -194,6 +201,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ...checklistRoutes,
       ...competitorCompRoutes,
       ...alternativeRoutes,
-      ...migrationRoutes
+      ...migrationRoutes,
+      ...partnerProgramRoutes
     ];
 }
