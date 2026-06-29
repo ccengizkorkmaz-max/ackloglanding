@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"encoding/csv"
 	"fmt"
+	"os"
 	"os/exec"
 	"strings"
 )
@@ -28,6 +29,9 @@ func WindowsAudit() ([]PolicyCheck, error) {
 	if err != nil {
 		return nil, fmt.Errorf("auditpol calistirilamadi: %v", err)
 	}
+
+	// Write debug dump
+	_ = os.WriteFile("c:\\PROJELER\\Logsiem\\acklog-scout\\auditpol_debug.txt", stdout.Bytes(), 0644)
 
 	// Parse CSV output (detect delimiter based on locale, e.g. semicolon for Turkish Windows)
 	delimiter := ','
