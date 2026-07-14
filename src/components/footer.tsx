@@ -42,6 +42,9 @@ export function Footer({ }: FooterProps) {
                             <li><Link href="/uyumluluk-testi" className="hover:text-primary transition-colors">KVKK/5651 Testi</Link></li>
                             <li><Link href="/maliyet-hesaplayici" className="hover:text-primary transition-colors">Maliyet Hesapla</Link></li>
                             <li><Link href="/analiz" className="hover:text-primary transition-colors">Güvenlik Analizi</Link></li>
+                            <li><Link href="/araclar/acklog-scout" className="hover:text-primary transition-colors">ACKLOG Scout Ajanı</Link></li>
+                            <li><Link href="/araclar/5651-checklist" className="hover:text-primary transition-colors">5651 Uyum Denetimi</Link></li>
+                            <li><Link href="/araclar/kvkk-checklist" className="hover:text-primary transition-colors">KVKK Teknik Tedbirler</Link></li>
                         </ul>
                     </div>
 

@@ -26,7 +26,7 @@ async function submitBatch() {
         '/uyumluluk-testi', '/maliyet-hesaplayici', '/analiz', '/sizinti-kontrol', '/zafiyet-tarama',
         '/araclar/siem-roi-hesaplayici', '/araclar/eps-hesaplayici', '/araclar/soc-maliyeti-hesaplayici',
         '/araclar/mttd-mttr-hesaplayici', '/araclar/log-retention-hesaplayici',
-        '/araclar/kvkk-checklist', '/araclar/5651-checklist',
+        '/araclar/kvkk-checklist', '/araclar/5651-checklist', '/araclar/acklog-scout',
         '/cozumler/denetim-ve-inceleme', '/cozumler/fidye-yazilimi-onleme',
         '/cozumler/ic-tehdit-izleme', '/cozumler/kaba-kuvvet-saldirilari',
         '/cozumler/log-maliyet-optimizasyonu', '/cozumler/tehdit-algilama',

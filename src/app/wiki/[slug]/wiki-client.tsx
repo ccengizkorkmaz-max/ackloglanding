@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight, List, BadgeCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect, useMemo, ReactNode } from "react";
 import { DemoModal } from "@/components/demo-modal";
+import { InteractiveToolsCta } from "@/components/interactive-tools-cta";
 
 interface WikiClientProps {
     slug: string;
@@ -159,6 +160,9 @@ export function WikiClient({ slug, data, otherArticles, children }: WikiClientPr
                                 <li>ClickHouse Columnar Storage Compression Benchmarks (Columnar Veritabanı ve LZ4/ZSTD Sıkıştırma Standartları)</li>
                             </ol>
                         </div>
+
+                        {/* Interactive siber-güvenlik araçları CTA kutusu */}
+                        <InteractiveToolsCta />
 
                         <div className="mt-16 p-8 bg-gradient-to-br from-primary/10 to-transparent border border-primary/20 rounded-2xl text-center">
                             <h3 className="text-2xl font-bold mb-4 text-white">Güvenliğinizi Şansa Bırakmayın</h3>

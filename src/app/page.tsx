@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import { Hero } from "@/components/hero";
 import { TrustStrip } from "@/components/trust-strip";
 import { ProblemSolution } from "@/components/problem-solution";
@@ -9,6 +10,18 @@ import { Comparison } from "@/components/comparison";
 import { ClusterLinks } from "@/components/cluster-links";
 import { Footer } from "@/components/footer";
 import { JsonLd, productSchema } from "@/components/seo/json-ld";
+
+export const metadata: Metadata = {
+  title: "SIEM Log Analizi & Yerli SIEM Log Yönetimi Platformu | ACKLOG",
+  description: "ACKLOG, yerli ve milli imkanlarla geliştirilmiş yüksek performanslı SIEM, Log Yönetimi, UEBA ve SOAR platformudur. QRadar ve Logsign alternatifi yerli çözüm.",
+  alternates: {
+    canonical: "https://logsiem.com",
+    languages: {
+      "tr-TR": "https://logsiem.com",
+      "x-default": "https://logsiem.com",
+    },
+  },
+};
 
 export default function Home() {
   return (

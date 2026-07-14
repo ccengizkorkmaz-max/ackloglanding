@@ -17,8 +17,11 @@ import { competitorComparisonPages } from '@/data/pseo/competitor-comparisons';
 import { competitorAlternativePages } from '@/data/pseo/competitor-alternatives';
 import { competitorMigrationPages } from '@/data/pseo/competitor-migrations';
 import { partnerPages } from '@/data/pseo/partner-pages';
+import { siemUseCasesData } from '@/data/siem-use-cases';
 
-export default function sitemap(): MetadataRoute.Sitemap {
+const LIMIT = 5000;
+
+function getAllRoutes(): MetadataRoute.Sitemap {
     const baseUrl = 'https://logsiem.com';
 
     // Sabit bir tarih kullan - new Date() Googlebot'a her ziyarette "yeni güncelleme" sinyali verir
@@ -30,6 +33,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         { path: '', priority: 1.0, changeFrequency: 'weekly' as const },
         { path: '/ozellikler', priority: 0.9, changeFrequency: 'weekly' as const },
         { path: '/wiki', priority: 0.9, changeFrequency: 'daily' as const },
+        { path: '/siem-use-cases', priority: 0.9, changeFrequency: 'weekly' as const },
         { path: '/cozumler', priority: 0.9, changeFrequency: 'weekly' as const },
         { path: '/uyumluluk-testi', priority: 0.8, changeFrequency: 'monthly' as const },
         { path: '/maliyet-hesaplayici', priority: 0.8, changeFrequency: 'monthly' as const },
@@ -184,6 +188,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
         changeFrequency: 'weekly' as const,
         priority: 0.85,
     }));
+    const siemUseCaseRoutes = Object.keys(siemUseCasesData)
+        .filter((slug) => slug !== 'index')
+        .map((slug) => ({
+            url: `${baseUrl}/siem-use-cases/${slug}`,
+            lastModified: lastBuildDate,
+            changeFrequency: 'monthly' as const,
+            priority: 0.8,
+        }));
 
     return [
       ...mainRoutes, 
@@ -203,6 +215,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ...competitorCompRoutes,
       ...alternativeRoutes,
       ...migrationRoutes,
-      ...partnerProgramRoutes
+      ...partnerProgramRoutes,
+      ...siemUseCaseRoutes
     ];
+}
+
+export async function generateSitemaps() {
+    const allRoutes = getAllRoutes();
+    const numSitemaps = Math.ceil(allRoutes.length / LIMIT);
+    return Array.from({ length: numSitemaps }, (_, i) => ({ id: i }));
+}
+
+export default async function sitemap(props: { id?: number } = {}): Promise<MetadataRoute.Sitemap> {
+    const allRoutes = getAllRoutes();
+    if (props.id === undefined) {
+        return allRoutes;
+    }
+    const start = props.id * LIMIT;
+    const end = start + LIMIT;
+    return allRoutes.slice(start, end);
 }

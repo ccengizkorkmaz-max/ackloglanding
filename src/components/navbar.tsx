@@ -12,6 +12,7 @@ const navLinks = [
     { name: "Ana Sayfa", href: "/", homeOnly: false, subOnly: true },
     { name: "Özellikler", href: "/ozellikler" },
     { name: "Çözümler", href: "/cozumler" },
+    { name: "SIEM Use Cases", href: "/siem-use-cases" },
     { name: "İş Ortaklığı", href: "/is-ortakligi" },
 ];
 

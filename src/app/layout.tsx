@@ -58,13 +58,6 @@ export const metadata: Metadata = {
     },
   },
   metadataBase: new URL("https://logsiem.com"),
-  alternates: {
-    canonical: "/",
-    languages: {
-      "tr-TR": "/",
-      "x-default": "/",
-    },
-  }
 };
 
 import { JsonLd, organizationSchema, websiteSchema } from "@/components/seo/json-ld";
